@@ -1,0 +1,478 @@
+{
+ "document_id": "WP-001",
+ "version": "1.3",
+ "document": "為替介入の反応関数は二層構造をとる。n=6の記述的観察。半減期・Spearman相関・分足統計はJSTで記録。2026-07-30 19:15 JSTの執行を含む。",
+ "claims": [
+  {
+   "claim_id": "C-HL-E1",
+   "text": "E1の半減期は1営業日",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-HL"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ],
+   "values": [
+    {
+     "name": "half_life",
+     "value": 1,
+     "unit": "営業日"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-HL-E2",
+   "text": "E2の半減期は5営業日",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-HL"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ],
+   "values": [
+    {
+     "name": "half_life",
+     "value": 5,
+     "unit": "営業日"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-HL-E3",
+   "text": "E3の半減期は15営業日",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-HL"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ],
+   "values": [
+    {
+     "name": "half_life",
+     "value": 15,
+     "unit": "営業日"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-HL-E4",
+   "text": "E4の半減期は431営業日",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-HL"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ],
+   "values": [
+    {
+     "name": "half_life",
+     "value": 431,
+     "unit": "営業日"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-HL-E5",
+   "text": "E5の半減期は5営業日",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-HL"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ],
+   "values": [
+    {
+     "name": "half_life",
+     "value": 5,
+     "unit": "営業日"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-HL-E6",
+   "text": "E6は未回復（右打ち切り・観測4営業日）",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-HL-E6"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ],
+   "values": [
+    {
+     "name": "observed_bd",
+     "value": 4,
+     "unit": "営業日"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-RHO-SPD",
+   "text": "直前速度と半減期のSpearman ρ=−0.359",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-RHO"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ],
+   "values": [
+    {
+     "name": "rho",
+     "value": -0.359,
+     "unit": "無次元"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-RHO-COST",
+   "text": "Costと半減期のSpearman ρ=+0.205",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-RHO"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ],
+   "values": [
+    {
+     "name": "rho",
+     "value": 0.205,
+     "unit": "無次元"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-RHO-EFF",
+   "text": "効率と半減期のSpearman ρ=+0.462",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-RHO"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ],
+   "values": [
+    {
+     "name": "rho",
+     "value": 0.462,
+     "unit": "無次元"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-RHO-IMP",
+   "text": "Impactと半減期のSpearman ρ=−0.051",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-RHO"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ],
+   "values": [
+    {
+     "name": "rho",
+     "value": -0.051,
+     "unit": "無次元"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-MIN-MEAN",
+   "text": "2026-07-30介入直前5時間の1分足平均レンジは1.8pips",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-MIN"
+    },
+    {
+     "source_id": "SRC-OANDA-M1"
+    }
+   ],
+   "values": [
+    {
+     "name": "mean_range",
+     "value": 1.8,
+     "unit": "pips"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-MIN-MAX",
+   "text": "同最大レンジは14.3pips",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-MIN"
+    },
+    {
+     "source_id": "SRC-OANDA-M1"
+    }
+   ],
+   "values": [
+    {
+     "name": "max_range",
+     "value": 14.3,
+     "unit": "pips"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-E6-COST",
+   "text": "E6の介入額合計は約12.70兆円",
+   "status": "ESTIMATE",
+   "method": "日銀当座預金の財政等要因からの市場推計（報道）。2026-08-28の財務省月次公表で確定予定",
+   "evidence": [
+    {
+     "source_id": "SRC-PRESS"
+    }
+   ],
+   "values": [
+    {
+     "name": "cost",
+     "value": 12.7,
+     "unit": "兆円"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-HYP-2LAYER",
+   "text": "当局は発動条件と執行条件を別の反応関数として運用している",
+   "status": "HYPOTHESIS",
+   "falsification_condition": "価格変動が最大の瞬間に繰り返し介入が実施される",
+   "evidence": [
+    {
+     "calculation_id": "CALC-MIN"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-HYP-ALPHA",
+   "text": "半減期の持続は、複合的な+αが効果の生存期間内に到達したか否かに依存する",
+   "status": "HYPOTHESIS",
+   "falsification_condition": "+αを伴わないエピソードで半減期が100営業日を超える",
+   "evidence": [
+    {
+     "calculation_id": "CALC-HL"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-UNV-US",
+   "text": "米国側の介入額",
+   "status": "UNVERIFIED",
+   "evidence": []
+  },
+  {
+   "claim_id": "C-A23-E4",
+   "text": "E4では①（+13営業日）②（2024-08-02）③（2024-08-05）の三基準すべてが生存窓内に発火した",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-EP"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-FRED-DGS2"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-A23-E3",
+   "text": "E3では③のみが発火（2024-05-02）したが、介入時点で既にRV20がP90超であり交絡疑いがある",
+   "status": "FACT",
+   "evidence": [
+    {
+     "calculation_id": "CALC-EP"
+    },
+    {
+     "source_id": "SRC-OANDA-D1"
+    },
+    {
+     "source_id": "SRC-FRED-DGS2"
+    },
+    {
+     "source_id": "SRC-MOF-FX"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-MOF-FX",
+   "organization": "財務省",
+   "tier": 1,
+   "title": "外国為替平衡操作の実施状況",
+   "url": "https://www.mof.go.jp/policy/international_policy/reference/feio/index.html",
+   "retrieved_at": "2026-08-08T12:00+09:00"
+  },
+  {
+   "source_id": "SRC-OANDA-D1",
+   "organization": "OANDA",
+   "tier": 2,
+   "title": "USD/JPY 日足 2002-05-06〜2026-08-07（JST）",
+   "sha256": "1fdae032f3f95f9cb9dbcdb30f3dd80cc2163142be767bc6f278d50697e2879b",
+   "note": "再配布ライセンス制約により原ファイル非公開。取得経路はTradingView経由（第8条運用注記）。同一入力の同一性は本ハッシュで確認可能",
+   "retrieved_at": "2026-08-08T09:00+09:00"
+  },
+  {
+   "source_id": "SRC-OANDA-M1",
+   "organization": "OANDA",
+   "tier": 2,
+   "title": "USD/JPY 1分足 2026-07〜2026-08（+09:00）",
+   "sha256": null,
+   "note": "取得時ハッシュ未記録（第27条水準に未達であることを明示）。取得条件のみ記録",
+   "retrieved_at": "2026-08-08T09:00+09:00"
+  },
+  {
+   "source_id": "SRC-FRED-DGS2",
+   "organization": "FRED（米財務省2年債利回り）",
+   "tier": 1,
+   "url": "https://fred.stlouisfed.org/series/DGS2",
+   "note": "取得はfredgraph.csvエンドポイント（疎通実測済）。seriesページはbot遮断でHTTP 503となる場合がある",
+   "retrieved_at": "2026-08-08T11:00+09:00"
+  },
+  {
+   "source_id": "SRC-PRESS",
+   "organization": "報道各社",
+   "tier": 3,
+   "retrieved_at": "2026-08-08T09:00+09:00",
+   "numbers": [
+    12.7
+   ]
+  }
+ ],
+ "calculations": [
+  {
+   "calculation_id": "CALC-HL",
+   "script": "research/WP-001/code/halflife_audit.py",
+   "output_value": [
+    1,
+    5,
+    15,
+    431,
+    5
+   ],
+   "reproduced": true,
+   "reproduced_by": "FXIR内部独立再計算（別実装・2026-08-08）",
+   "reproduced_at": "2026-08-08T13:57+09:00"
+  },
+  {
+   "calculation_id": "CALC-HL-E6",
+   "script": "research/WP-001/code/halflife_audit.py",
+   "output_value": 4,
+   "reproduced": true,
+   "reproduced_by": "FXIR内部独立再計算（別実装・2026-08-08）",
+   "reproduced_at": "2026-08-08T13:57+09:00"
+  },
+  {
+   "calculation_id": "CALC-RHO",
+   "script": "data/episodes/build_episodes.py",
+   "output_value": [
+    -0.359,
+    0.205,
+    0.462,
+    -0.051
+   ],
+   "reproduced": true,
+   "reproduced_by": "FXIR内部独立再計算（別実装・2026-08-08）",
+   "reproduced_at": "2026-08-08T13:57+09:00"
+  },
+  {
+   "calculation_id": "CALC-MIN",
+   "script": "research/WP-001/code/halflife_audit.py",
+   "output_value": [
+    1.8,
+    14.3
+   ],
+   "reproduced": true,
+   "reproduced_by": "FXIR内部独立再計算（別実装・2026-08-08）",
+   "reproduced_at": "2026-08-08T13:57+09:00"
+  },
+  {
+   "calculation_id": "CALC-EP",
+   "script": "data/episodes/build_episodes.py",
+   "output_value": null,
+   "reproduced": true,
+   "reproduced_by": "FXIR内部独立再計算（別実装・2026-08-08）",
+   "reproduced_at": "2026-08-08T13:57+09:00"
+  }
+ ],
+ "inputs": [
+  {
+   "name": "OANDA USD/JPY 日足",
+   "document_states": "2002年5月〜2026年8月",
+   "actual": "2002-05-06〜2026-08-07",
+   "sha256": "1fdae032f3f95f9cb9dbcdb30f3dd80cc2163142be767bc6f278d50697e2879b",
+   "retrieved_at": "2026-08-08T09:00+09:00"
+  },
+  {
+   "name": "OANDA USD/JPY 1分足",
+   "document_states": "2026年7月〜2026年8月",
+   "actual": "2026-07-20〜2026-08-08",
+   "sha256": null,
+   "note": "取得時ハッシュ未記録"
+  }
+ ]
+}

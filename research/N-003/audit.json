@@ -1,0 +1,16 @@
+{
+ "audit_id": "FXIR-AUD-20260808-175837",
+ "document_id": "N-003",
+ "version": "1.1",
+ "layer": "A",
+ "result": "PASS",
+ "violations": [],
+ "stats": {
+  "critical": 0,
+  "warning": 0,
+  "info": 0
+ },
+ "note": "PASS/WARNでもLayer C（人間承認）は必須。Layer BのCRITICALは自動ブロックせず人間判断を強制する",
+ "auditor_version": "0.2",
+ "audited_at": "2026-08-08T17:58:37+09:00"
+}
