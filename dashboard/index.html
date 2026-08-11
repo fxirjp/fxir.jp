@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Observation Dashboard | 為替介入研究所</title>
+<meta name="description" content="為替介入研究所の観測ダッシュボード。介入状態・CFTC円建玉・H.4.1・エピソード半減期・検証状態を一画面で。色は価格方向ではなく証拠状態を表す。">
+<link rel="canonical" href="https://fxir.jp/dashboard/">
+<meta property="og:title" content="Observation Dashboard | 為替介入研究所">
+<meta property="og:description" content="介入状態・CFTC円建玉・H.4.1・レートチェック・エピソード半減期を一画面で。色は価格方向ではなく証拠状態を表す。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fxir.jp/dashboard/">
+<meta property="og:image" content="https://fxir.jp/assets/og.png">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0C1017">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.__fxirAnalyticsOff = !!(navigator.globalPrivacyControl||navigator.doNotTrack=="1"||window.doNotTrack=="1");
+  if(window.__fxirAnalyticsOff){window['ga-disable-G-VZ89ERDSD6']=true;}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZ89ERDSD6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!window.__fxirAnalyticsOff){gtag('config', 'G-VZ89ERDSD6');}
+</script>
+<script>if(window.gtag&&!window.__fxirAnalyticsOff){gtag('set',{doc_id:'DASHBOARD'});}</script>
+<style>
+:root{--bg:#0C1017;--pn:#121826;--pn2:#0F1520;--ln:#22304A;--tx:#E7ECF3;--dim:#93A1B5;
+ --tl:#3FC6BE;--ok:#34D399;--est:#F0B429;--hyp:#8B7CF6;--unv:#6B7280;--err:#EF4444;
+ --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+ --got:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Noto Sans JP",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:var(--got);font-size:14px;line-height:1.7}
+a{color:var(--tl);text-decoration:none} a:hover{text-decoration:underline}
+.mono{font-family:var(--mono)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 18px}
+header{border-bottom:1px solid var(--ln);background:rgba(15,21,32,.9);position:sticky;top:0;z-index:30;backdrop-filter:blur(6px)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;flex-wrap:wrap}
+.hd .t{font-family:var(--mono);font-size:14px;letter-spacing:.16em}
+.hd .t b{color:var(--tl)}
+.hd .sub{font-size:11px;color:var(--dim);font-family:var(--mono)}
+.hd .right{display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:12px}
+#clock{letter-spacing:.06em}
+.dfoot{border-top:1px solid var(--ln);padding:14px 0;font-size:12px;color:var(--dim)}
+.dfoot a{color:var(--dim)}
+.dfoot a:hover{color:var(--tx)}
+.sub2{font-size:10.5px;color:var(--dim);margin-top:2px}
+.mode{display:inline-flex;border:1px solid var(--ln);border-radius:2px;overflow:hidden;margin-right:10px}
+.modebtn{background:var(--pn);border:0;color:var(--dim);font-family:var(--mono);font-size:10.5px;padding:4px 10px;cursor:pointer}
+.modebtn.on{background:var(--tx);color:var(--bg)}
+.lgj{color:var(--dim);margin-left:3px}
+.ezwrap{display:none}
+body.mode-easy .ezwrap{display:block}
+body.mode-easy #strip{display:none}
+body.mode-easy .grid>.card:not(.keep){display:none}
+body.mode-easy .pay{display:none}
+.ezc{background:var(--pn);border:1px solid var(--ln);padding:14px 16px;margin:14px 0}
+.ezc.big{border-left:3px solid var(--tx)}
+.ezc h3,.ezc summary{font-size:13px;letter-spacing:.06em;color:var(--tx);margin:0 0 8px}
+.ezc summary{cursor:pointer;padding:2px 0}
+.ezh{font-size:16.5px;font-weight:700;color:var(--tx);margin-bottom:8px}
+.ezl{margin:6px 0 0;padding-left:1.3em;font-size:13px;line-height:1.9}
+.ezp{font-size:12.5px;line-height:1.8;margin:6px 0}
+.ezs{color:var(--dim);font-size:11px}
+.ez3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.ez3 .ezc{margin:0}
+.ezv{font-size:15px;font-weight:700;margin:2px 0 6px}
+.ezk{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em}
+.ezb{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+button.evb,a.evb{background:transparent;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;border:1px solid var(--ln);color:var(--dim);padding:5px 12px;cursor:pointer;text-decoration:none;display:inline-block}
+button.evb:hover,a.evb:hover{border-color:var(--tx);color:var(--tx)}
+.evb.pri{background:var(--tx);color:var(--bg);border-color:var(--tx);font-weight:700}
+.evb.pri:hover{opacity:.9;color:var(--bg)}
+.what{display:none;border-top:1px dashed var(--ln);margin-top:8px;padding-top:8px;font-size:11.5px;color:var(--dim);line-height:1.7}
+.eztl{font-size:12.5px}
+.eztl .r{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:5px 0;border-bottom:1px dashed var(--ln)}
+.eztl .d{font-family:var(--mono);color:var(--dim)}
+.ezgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 18px;font-size:13px;margin:4px 0 8px}
+.ezgrid .ezk{display:block;margin-bottom:1px}
+.ezev{font-size:11.5px;color:var(--dim);border-top:1px dashed var(--ln);padding-top:8px;margin-top:8px}
+.ezdot{display:inline-block;width:7px;height:7px;border-radius:1px;margin:0 4px 0 2px}
+.ezdot.ok{background:var(--ok)}
+.ezdot.est{background:var(--est)}
+.r3{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--ln);font-size:12.5px}
+.ezgrid b{font-size:15.5px;color:var(--tx)}
+.card.keep{grid-column:1/-1}
+.card.keep .hl-track{height:14px}
+#ezguide.min #ezguideBody{display:none}
+.ezc.warn{border-left:3px solid var(--est)}
+.ezwhy{display:block;font-size:11px;color:var(--dim);font-weight:400;letter-spacing:0;margin-top:2px}
+.eztl .nx b{color:var(--tx)}
+.arw{color:var(--dim);letter-spacing:-1px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sysdot{color:var(--ok);animation:pulse 2.2s ease-in-out infinite}
+.legend{border-bottom:1px solid var(--ln);background:var(--pn2)}
+.legend .wrap{display:flex;gap:14px;align-items:center;padding:7px 18px;font-family:var(--mono);
+ font-size:10.5px;color:var(--dim);flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+.lg{display:inline-flex;align-items:center;gap:5px}
+.dot{width:8px;height:8px;border-radius:1px;display:inline-block}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--ln);
+ border:1px solid var(--ln);margin:16px 0}
+.tile{background:var(--pn);padding:12px 14px;animation:up .45s both}
+.tile .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim)}
+.tile .v{font-family:var(--mono);font-size:17px;margin-top:5px}
+.tile .s{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:3px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-bottom:16px}
+.card{background:var(--pn);border:1px solid var(--ln);border-radius:2px;padding:14px 16px;animation:up .5s both;transition:border-color .2s}
+.card:hover{border-color:#2B3D5E}
+.card h2{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--tl);margin-bottom:12px}
+.c6{grid-column:span 6}.c4{grid-column:span 4}.c8{grid-column:span 8}.c12{grid-column:span 12}
+.kv{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:12.5px;
+ padding:5px 0;border-bottom:1px dashed var(--ln)}
+.kv:last-of-type{border-bottom:none}
+.kv .k{color:var(--dim)} .kv .v{text-align:right}
+.chip{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;padding:1px 7px;border-radius:2px}
+.chip.ok{color:var(--ok);background:rgba(52,211,153,.12)}
+.chip.est{color:var(--est);background:rgba(240,180,41,.12)}
+.chip.hyp{color:var(--hyp);background:rgba(139,124,246,.12)}
+.chip.unv{color:var(--unv);background:rgba(107,114,128,.18)}
+.big{font-family:var(--mono);font-size:21px;margin:6px 0 12px}
+.big .st{color:var(--ok)}
+.hl-row{display:grid;grid-template-columns:34px 1fr 110px;align-items:center;gap:10px;margin:7px 0;cursor:pointer}
+.hl-row:focus-visible{outline:1px solid var(--tx)}
+.ep-det{display:none;font-size:11.5px;color:var(--dim);padding:6px 2px 10px;border-bottom:1px dashed var(--line);line-height:1.7}
+.ep-det.open{display:block}
+.ep-det b{color:var(--tx);font-weight:600}
+.hl-ep,.hl-val{font-family:var(--mono);font-size:11.5px;color:var(--dim)} .hl-val{text-align:right}
+.hl-track{height:11px;background:#0A1A24;border-radius:1px;position:relative}
+.hl-bar{position:absolute;inset:0 auto 0 0;background:var(--tl);border-radius:1px;transition:width .9s cubic-bezier(.22,.9,.3,1)}
+.hl-bar.act{background:repeating-linear-gradient(135deg,var(--est) 0 5px,transparent 5px 10px);background-size:14px 14px;border:1px dashed var(--est);animation:stripes 1.1s linear infinite}
+.note{font-size:11px;color:var(--dim);margin-top:10px;line-height:1.7}
+.tl-list{list-style:none;font-family:var(--mono);font-size:11.5px;color:var(--dim)}
+.tl-list li{padding:4px 0;border-bottom:1px dashed var(--ln)} .tl-list li:last-child{border:none}
+.stt{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;padding:6px 0;
+ border-bottom:1px dashed var(--ln)} .stt:last-of-type{border:none}
+.d-ok{color:var(--ok)}.d-ng{color:var(--err)}.d-pl{color:var(--unv)}
+.pay{background:linear-gradient(180deg,var(--pn),#101A2C);border:1px solid var(--ln);border-radius:2px;
+ padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.pay p{font-size:12.5px;color:var(--dim);max-width:44em}
+.pay .btn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;border:1.5px solid var(--tl);
+ color:var(--tl);padding:10px 18px;border-radius:2px;white-space:nowrap}
+footer{border-top:1px solid var(--ln);padding:18px 0 34px;font-size:11px;color:var(--dim)}
+.evb{float:right;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--dim);
+ border:1px solid var(--ln);padding:1px 7px;border-radius:2px;cursor:pointer}
+.evb:hover{color:var(--tl);border-color:var(--tl)}
+.tile.clk{cursor:pointer} .tile.clk:hover{outline:1px solid var(--tl)}
+details.card>summary{list-style:none;cursor:pointer}
+details.card>summary::-webkit-details-marker{display:none}
+details.card>summary h2{margin-bottom:0}
+details.card[open]>summary h2{margin-bottom:12px}
+#evd-ov{position:fixed;inset:0;background:rgba(4,8,14,.55);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:40}
+#evd{position:fixed;top:0;right:-460px;width:440px;max-width:96vw;height:100%;z-index:41;
+ background:var(--pn2);border-left:1px solid var(--ln);transition:right .18s ease;
+ overflow-y:auto;padding:18px 20px}
+#evd.on{right:0} #evd-ov.on{opacity:1;visibility:visible}
+#evd .step{animation:up .35s both}
+#evd .cl{float:right;font-family:var(--mono);color:var(--dim);cursor:pointer;font-size:16px}
+#evd h3{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--tl);margin-bottom:4px}
+#evd .est-line{font-size:11px;color:var(--dim);margin-bottom:12px}
+#evd .step{padding:9px 0;border-bottom:1px dashed var(--ln)}
+#evd .step .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--dim)}
+#evd .step .v{font-size:12.5px;margin-top:3px;word-break:break-all}
+#evd .step a{margin-right:12px;font-size:12px}
+@keyframes up{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@keyframes shim{0%{background-position:100% 0}100%{background-position:-100% 0}}
+@keyframes stripes{to{background-position:14px 0}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.sk i{display:block;height:11px;margin:9px 0;border-radius:2px;
+ background:linear-gradient(90deg,#141C2B 30%,#20304B 50%,#141C2B 70%);
+ background-size:200% 100%;animation:shim 1.15s linear infinite}
+.sk i:nth-child(2){width:82%}.sk i:nth-child(3){width:64%}
+.strip .tile:nth-child(1){animation-delay:.03s}.strip .tile:nth-child(2){animation-delay:.09s}
+.strip .tile:nth-child(3){animation-delay:.15s}.strip .tile:nth-child(4){animation-delay:.21s}
+.strip .tile:nth-child(5){animation-delay:.27s}
+.grid>*:nth-child(1){animation-delay:.06s}.grid>*:nth-child(2){animation-delay:.12s}
+.grid>*:nth-child(3){animation-delay:.18s}.grid>*:nth-child(4){animation-delay:.24s}
+.grid>*:nth-child(5){animation-delay:.30s}.grid>*:nth-child(6){animation-delay:.36s}
+.grid>*:nth-child(7){animation-delay:.42s}.grid>*:nth-child(8){animation-delay:.48s}
+.grid>*:nth-child(9){animation-delay:.54s}
+.tile.clk{cursor:pointer;transition:transform .15s,outline-color .15s}
+.tile.clk:hover,.tile.clk:focus-visible{outline:1px solid var(--tl);transform:translateY(-1px)}
+details.card>summary h2::before{content:'▸';display:inline-block;margin-right:7px;color:var(--dim);transition:transform .18s}
+details.card[open]>summary h2::before{transform:rotate(90deg)}
+@media (max-width:1100px){.c4{grid-column:span 6}.c6,.c8{grid-column:span 12}}
+@media (max-width:760px){.c4{grid-column:span 12}}
+@media (max-width:640px){
+  .strip{grid-template-columns:repeat(3,1fr)}
+  .strip .t-cftc,.strip .t-h41{display:none}
+  .tile{padding:10px 11px}.tile .v{font-size:15px}
+  .wrap{padding:0 14px}
+  #evd{width:100vw;max-width:100vw;padding:16px}
+  .evb{font-size:10px;padding:3px 9px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ==== polish: 観測端末の手触り ==== */
+.card{transition:transform .18s cubic-bezier(.2,.7,.2,1),box-shadow .18s}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.28)}
+.evb{transition:color .12s,border-color .12s}
+.evb:hover{color:var(--tx);border-color:var(--tx)}
+:focus-visible{outline:2px solid var(--tx);outline-offset:2px}
+summary{transition:color .12s}
+summary:hover{color:var(--tx)}
+@media(max-width:480px){
+.strip{grid-template-columns:repeat(2,1fr)}
+.legend .wrap{flex-wrap:wrap;row-gap:4px}
+}
+
+/* MOF WATCH */
+.mw{display:grid;gap:0}
+.mwr{display:grid;grid-template-columns:190px 1fr 1fr;gap:0 16px;padding:11px 0;border-top:1px solid var(--rule)}
+.mwr:first-child{border-top:0}
+.mwl{font-size:13px;font-weight:600}
+.mwc .h{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--ink2);margin-bottom:3px}
+.mwc .v{font-size:13.5px}
+.mwc .d{font-size:11.5px;color:var(--ink2);margin-top:2px}
+.mwc .due{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:3px}
+.mwdays{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:1px 6px;border-radius:2px;
+  border:1px solid var(--rule);margin-left:6px}
+.mwdays.soon{border-color:var(--est);color:var(--est)}
+@media(max-width:760px){.mwr{grid-template-columns:1fr;gap:6px}.mwl{margin-bottom:2px}}
+
+</style>
+</head>
+<body>
+<h1 class="vh">Observation Dashboard — 為替介入研究所 観測ダッシュボード</h1>
+<header><div class="wrap hd">
+  <div><div class="t">FXIR <b>OBSERVATION DASHBOARD</b></div>
+    <div class="sub">Don't trust, verify. — 為替介入研究所</div>
+    <div class="sub2">為替介入の「いまの状況」を、できるだけわかりやすく</div></div>
+  <div class="right"><span class="mode"><button class="modebtn" id="mEz">やさしく</button><button class="modebtn" id="mAdv">詳細</button></span><span id="clock">--:--:-- JST</span>
+    <span>SYSTEM <span class="sysdot" id="sys">●</span></span>
+    <a href="../index.html">研究所トップ ←</a></div>
+</div></header>
+<div class="legend"><div class="wrap">
+  <span>本ダッシュボードの色は、価格の方向ではなく<b style="color:var(--tx)">証拠状態</b>を表す:</span>
+  <span class="lg"><span class="dot" style="background:var(--ok)"></span>CONFIRMED<span class="lgj">確認済み</span></span>
+  <span class="lg"><span class="dot" style="background:var(--est)"></span>ESTIMATE<span class="lgj">推計</span></span>
+  <span class="lg"><span class="dot" style="background:var(--hyp)"></span>HYPOTHESIS<span class="lgj">仮説</span></span>
+  <span class="lg"><span class="dot" style="background:var(--unv)"></span>UNVERIFIED<span class="lgj">未確認</span></span>
+  <span class="lg"><span class="dot" style="background:var(--err)"></span>RETRACTED/ERROR</span>
+</div></div>
+<main class="wrap">
+<div class="ezwrap" id="ezA">
+  <div class="ezc big"><h3>現在の要点</h3><div id="ezsum"><div class="sk"><i></i><i></i><i></i></div></div></div>
+  <div class="ezc" id="ezguide"><h3>はじめての方へ <button class="evb" id="gdt" style="float:right;margin-top:-3px">説明を閉じる</button></h3>
+    <div id="ezguideBody">
+    <p class="ezp">このダッシュボードでは、まず次の3つを見ればいまの状況がだいたいわかります。</p>
+    <ol class="ezl"><li><b>介入状況</b> — 新しい介入が確認されているか</li>
+    <li><b>直近の介入エピソード</b> — 前回の介入の効果がまだ残っているか</li>
+    <li><b>次の確認日</b> — 推計がいつ確定するか</li></ol>
+    <p class="ezp">色は相場の上下ではなく<b>証拠の強さ</b>を表します（上の凡例）。より詳しくは<a href="../guide.html">入門ガイド（9項目）</a>へ。</p></div></div>
+  <div class="ez3" id="ez3"></div>
+  <div class="ezc"><h3>最近の出来事</h3><div class="eztl" id="eztl"></div>
+    <div class="ezb"><a class="evb" href="../events.html">イベント一覧を見る</a></div></div>
+  <div class="ezc big warn"><h3>まだ分かっていないこと</h3>
+    <p class="ezs" style="margin-top:-2px">FXIRは「答え」だけでなく<b>未解決事項そのもの</b>を管理します。各項目には決着日があります。</p>
+    <div id="ezunres"></div>
+    <div class="ezb"><a class="evb" href="../calendar.html">検証カレンダーを見る</a></div></div>
+  <div class="ezc big"><h3>次の検証イベント — その日に何が確定するか</h3><div class="eztl" id="eznext"></div>
+    <div class="ezs" style="margin-top:6px">日付は「予定」ではなく、証拠状態が遷移する決着点です。</div></div>
+</div>
+<div class="strip" id="strip"><div class="tile"><div class="k">LOADING</div><div class="v">…</div></div></div>
+<div class="grid">
+  <div class="card c12 keep"><h2>MOF Watch — 財務省の公表と証拠状態<span class="evb"><a href="../schedule.html" style="color:inherit;text-decoration:none">公表カレンダー ▸</a></span></h2><div id="mofw"><div class="sk"><i></i><i></i><i></i></div></div></div>
+  <div class="card c6"><h2>介入の監視状況<span class="evb" onclick="openEv('monitor')">EVIDENCE ▸</span></h2><div id="mon"><div class="sk"><i></i><i></i><i></i></div></div></div>
+  <div class="card c6"><h2>直近の介入エピソード（E6）<span class="evb" onclick="openEv('e6cost')">EVIDENCE ▸</span></h2><div id="e6"><div class="sk"><i></i><i></i><i></i></div></div></div>
+  <div class="card c6 keep"><h2>過去の介入は、どれくらい効果が続いたか（対数目盛）<span class="evb" onclick="openEv('halflife')">EVIDENCE ▸</span></h2><div id="eps"><div class="sk"><i></i><i></i><i></i></div></div>
+    <div class="note">半減期＝介入の効果が半分戻るまでの営業日数。<b>ポイント: 介入額が大きいほど長く効く、という関係は現在の標本（n=6）では確認できません</b> ｜ 出典: WP-001 §3.2（無料公開） → <a href="../verify.html">VIEW EVIDENCE →</a></div></div>
+  <div class="card c6"><h2>最近の出来事</h2><div id="ev"><div class="sk"><i></i><i></i><i></i></div></div>
+    <div class="note"><a href="../events.html">イベント登録簿 →</a></div></div>
+  <details class="card c4" open><summary><h2>投機筋の円ポジション（CFTC）<span class="evb" onclick="event.preventDefault();openEv('cftc')">EVIDENCE ▸</span></h2></summary><div id="cftc"><div class="sk"><i></i><i></i><i></i></div></div></details>
+  <details class="card c4" open><summary><h2>米側の資金環境（H.4.1）<span class="evb" onclick="event.preventDefault();openEv('h41')">EVIDENCE ▸</span></h2></summary><div id="h41"><div class="sk"><i></i><i></i><i></i></div></div></details>
+  <div class="card c4"><h2>研究の検証状況</h2><div id="vf"><div class="sk"><i></i><i></i><i></i></div></div></div>
+  <div class="card c4"><h2>レートチェック監視<span class="evb" onclick="openEv('ratecheck')">EVIDENCE ▸</span></h2><div id="rc"><div class="sk"><i></i><i></i><i></i></div></div></div>
+  <details class="card c8" open><summary><h2>システム稼働状況</h2></summary><div id="st"><div class="sk"><i></i><i></i><i></i></div></div></details>
+</div>
+<div class="ezwrap" id="ezB">
+  <details class="ezc" open><summary>投機筋の円ポジション（CFTC）<span class="ezwhy">投機筋が円をどの程度売買しているかを見る</span></summary><div id="ezcftc"></div></details>
+  <details class="ezc" open><summary>米側の資金環境（H.4.1）<span class="ezwhy">米国側で介入資金に関係しうる資金移動を監視する</span></summary><div id="ezh41"></div></details>
+  <details class="ezc" open><summary>レートチェック監視</summary><div id="ezrc"></div></details>
+  <div class="ezc"><h3>研究の検証状況</h3>
+    <p class="ezp">最新研究: <b>WP-001 v1.3</b> ｜ 監査: <b>PASS</b> ｜ claims: 18件<br>
+    <span class="ezs">PASSは「正しいと断定」ではなく、研究所の手続きと証拠構造に照らして公開可能という意味です。</span></p>
+    <div class="ezb"><a class="evb" href="../wp-001.html">研究を読む</a><a class="evb" href="../verify.html">検証情報</a></div></div>
+  <div class="ezc"><h3>もっと詳しく見たい方へ</h3>
+    <p class="ezp">ここまでは初心者向けの要約です。CFTC・H.4.1・イベント登録簿・証拠構造の全体は詳細表示で見られます。</p>
+    <div class="ezb"><button class="evb pri" onclick="setMode('adv')">詳細表示を開く →</button></div></div>
+</div>
+<div class="pay">
+  <p><b style="color:var(--tx)">FXIR DATA</b> — 答えと検証用データはすべて無料で公開済み。自システムで再利用したい場合のみ、整形済みCSV/JSON・API・更新保証を有料で配送する（準備中・法務確認後に開始）。</p>
+  <a class="btn" href="../research.html#data">DATA PACKAGE（無料）→</a>
+</div>
+</main>
+<div id="evd-ov" onclick="closeEv()"></div>
+<aside id="evd"><span class="cl" onclick="closeEv()">×</span><h3 id="evd-t">EVIDENCE</h3>
+<div class="est-line" id="evd-s"></div><div id="evd-b"></div></aside>
+<footer><div class="wrap">本ダッシュボードは研究・情報提供を目的とし、売買を推奨しない。運営: AI MQL合同会社 為替介入研究所 ｜ <a href="../rules.html">会則</a><br><span class="mono" id="gen"></span> ｜ <span class="mono" id="dman"></span></div></footer>
+<script>
+function $(i){return document.getElementById(i);}
+function kv(k,v){return '<div class="kv"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>';}
+function chip(st){var m={CONFIRMED:'ok',FACT:'ok',ESTIMATE:'est',SUSPECTED:'est',HYPOTHESIS:'hyp',UNVERIFIED:'unv'};
+  return '<span class="chip '+(m[st]||'unv')+'">'+st+'</span>';}
+function num(x){return x==null?'—':Number(x).toLocaleString('ja-JP');}
+function bn(x){return x==null?'—':'$'+(x/1000).toFixed(1)+'bn';}
+function cvn(x){return x==null?'—':Number(x).toLocaleString('ja-JP');}
+function cvb(x){return x==null?'—':'$'+(x/1000).toFixed(1)+'bn';}
+setInterval(function(){var d=new Date(Date.now()+ (9*60+new Date().getTimezoneOffset())*60000);
+  $('clock').textContent=d.toTimeString().slice(0,8)+' JST';},1000);
+var SCHED=[['2026-08-28','財務省 月次介入額（E6確定）'],['2026-09-07','財務省 外貨準備 8月末分（E6原資構成・9月上旬）'],['2026-09-18','日銀 金融政策決定会合 9/17-18（E6の+α判定・結果公表9/18）'],['2026-10-31','NY連銀 Q3 FX報告（10月下旬・RC-4/E6米側）']];
+function nextChk(){var t=new Date().toISOString().slice(0,10);
+  for(var i=0;i<SCHED.length;i++){if(SCHED[i][0]>=t)return SCHED[i];}return SCHED[SCHED.length-1];}
+function setMode(m){document.body.classList.toggle('mode-easy',m==='ez');
+ var a=document.getElementById('mEz'),b=document.getElementById('mAdv');
+ if(a){a.classList.toggle('on',m==='ez');b.classList.toggle('on',m!=='ez');}
+ try{localStorage.setItem('fxirMode',m);}catch(e){}}
+(function(){var m='ez';try{m=localStorage.getItem('fxirMode')||'ez';}catch(e){}setMode(m);
+ var a=document.getElementById('mEz'),b=document.getElementById('mAdv');
+ if(a){a.onclick=function(){setMode('ez');};b.onclick=function(){setMode('adv');};}})();
+(function(){var g=document.getElementById('ezguide'),b=document.getElementById('gdt');
+ if(g&&b){var set=function(min){g.classList.toggle('min',min);b.textContent=min?'説明を開く':'説明を閉じる';
+   try{localStorage.setItem('fxirGuide',min?'min':'open');}catch(e){}};
+ var st='open';try{st=localStorage.getItem('fxirGuide')||'open';}catch(e){}
+ set(st==='min'); b.onclick=function(){set(!g.classList.contains('min'));};}})();
+function wq(id){var e=document.getElementById(id);if(e){e.style.display=(e.style.display==='block')?'none':'block';}}
+function ezCard(t,body,evid,wid,wtxt){
+ return '<div class="ezc"><h3>'+t+'</h3>'+body
+ +'<div class="ezb"><button class="evb" onclick="wq(&#39;'+wid+'&#39;)">これは何？</button>'
+ +(evid?'<button class="evb" onclick="openEv(&#39;'+evid+'&#39;)">証拠を見る</button>':'')
+ +'</div><div class="what" id="'+wid+'">'+wtxt+'</div></div>';}
+function fillEz(c,h,ep,ev,st,rc,cal){
+ var e6=ep.episodes.filter(function(x){return x.id==='E6';})[0];
+ var nx=nextChk();
+ var dd=Math.max(0,Math.ceil((new Date(nx[0])-new Date())/86400000));
+ var sp=e6.span.start.slice(5).replace('-','/')+'〜'+e6.span.end.slice(5).replace('-','/');
+ var nxd=nx[0].slice(5).replace('-','/');
+ document.getElementById('ezsum').innerHTML=
+  '<div class="ezh">新たな円買い介入は、現時点では確認されていません。</div>'
+ +'<div class="ezgrid">'
+ +'<div><span class="ezk">直近介入</span><b>E6（'+sp+'）</b></div>'
+ +'<div><span class="ezk">介入効果</span><b>50%回復ライン未到達</b>（観測'+e6.observed_bd+'営業日）</div>'
+ +'<div><span class="ezk">新規兆候</span><b>確認済みレートチェックなし</b></div>'
+ +'<div><span class="ezk">次の確定材料</span><b>'+nxd+'</b> '+nx[1].split('（')[0]+'</div>'
+ +'</div>'
+ +'<div class="ezev">現在の証拠　'
+ +'<span class="ezdot ok"></span>財務省：新規介入の公式確認なし　'
+ +'<span class="ezdot ok"></span>Rate Check：CONFIRMEDなし　'
+ +'<span class="ezdot est"></span>E6：効果継続中</div>'
+ +'<div class="ezb"><button class="evb" onclick="openEv(&#39;monitor&#39;)">判断根拠をすべて見る</button></div>';
+ document.getElementById('ez3').innerHTML=
+  ezCard('介入状況','<div class="ezk">現在の判定</div><div class="ezv">確認済みの新規介入：なし</div><div class="ezs">最終確認対象：E6（'+sp+'）</div>','monitor','w1','ここでは新しい介入が確認されているかを表示します。「なし」は何も起きていないという意味ではなく、確認済みの新規介入がないという意味です。')
+ +ezCard('直近の介入エピソード','<div class="ezv">E6（'+sp+'）</div><div class="ezs">事実の確認：確認済み ／ 金額：推計 ／ 効果半減期：未到達</div>','e6cost','w2','E6は直近の円買い介入エピソードの識別名です。実施の事実は確認済みですが、金額など一部はまだ推計段階です。')
+ +ezCard('次の確認日','<div class="ezv">'+nxd+'</div><div class="ezs">'+nx[1]+'<br>この日に分かること：E6介入額の確定・推計との差の確認</div><div class="ezk" style="margin-top:6px">残り D-'+dd+'</div>','','w3','研究所は、推計や仮説がいつ答え合わせされるかを重視しています。このカードは次に重要な確認が行われる日を示します。');
+ document.getElementById('eztl').innerHTML=[
+  [e6.span.start.slice(5).replace('-','/'),'介入エピソード E6 が発生（後日再構成）'],
+  ['08/03','財務省談話により実施事実を確認'],
+  ['08/08','FXIRイベント台帳に登録'],
+  [nxd,'財務省公表予定（介入額の確定）']
+ ].map(function(r){return '<div class="r"><span class="d">'+r[0]+'</span><span>'+r[1]+'</span></div>';}).join('');
+ document.getElementById('ezcftc').innerHTML=
+  '<div class="ezv">'+(c.noncomm_net<0?'投機筋は円売り寄りです':'投機筋は円買い寄りです')+'</div>'
+ +'<div class="ezs">非商業ネット：'+num(c.noncomm_net)+'枚 ／ Lev Funds：'+num(c.lev_net)+'枚（'+c.report_date+'）</div>'
+ +'<div class="what" style="display:block;border:0;padding-top:6px">CFTCは米先物市場の建玉データです。投機筋が円をどれくらい売買しているかの参考になります。</div>'
+ +'<div class="ezb"><button class="evb" onclick="openEv(&#39;cftc&#39;)">証拠を見る</button></div>';
+ document.getElementById('ezh41').innerHTML=
+  '<div class="ezv">大きな異変は現時点で確認されていません</div>'
+ +'<div class="ezs">米債カストディ 週次Δ '+bn(h.d_custody_ust)+' ／ 海外RRP Δ '+bn(h.d_foreign_rrp)+' ／ FIMAレポ上界 '+bn(h.fima_repo_total_usd_mn)+'</div>'
+ +'<div class="what" style="display:block;border:0;padding-top:6px">H.4.1はFRBの週次統計です。介入資金や米側の資金状況を間接的に観察する材料として見ています。</div>'
+ +'<div class="ezs" style="margin-top:6px">注意: H.4.1から日本単独の取引を識別することはできません。</div>'
+ +'<div class="ezb"><button class="evb" onclick="openEv(&#39;h41&#39;)">証拠を見る</button></div>';
+ var rcs=(ev.events||[]).filter(function(e){return String(e.event_id||'').indexOf('RC')>=0;});
+ rcs.sort(function(a,b){return String(a.event_id).localeCompare(String(b.event_id));});
+ var rcrows=rcs.map(function(e){
+   var id=String(e.event_id).replace('FXIR-EVT-','');
+   var dt=(String(e.title).match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/)||[''])[0].slice(2);
+   var oc=(e.outcome==='miss')?'介入なし（空振り）':'10営業日以内に介入';
+   return '<div class="r"><span class="d">'+id+'　'+dt+'</span><span>'+oc+'</span></div>';}).join('');
+ document.getElementById('ezrc').innerHTML=
+  '<div class="ezv">確認済みの新規レートチェックはありません</div>'
+ +'<div class="ezs">日本側：未確認が上限 ／ 米側：公表制度上、確認済みに昇格しうる</div>'
+ +'<div class="eztl" style="margin-top:8px">'+rcrows+'</div>'
+ +'<div class="ezs" style="margin-top:6px">観測局面 '+rc.observed+'・空振り '+rc.miss+'/'+rc.observed+'（記述値・母集団推定ではない）</div>'
+ +'<div class="ezb"><button class="evb" onclick="openEv(&#39;ratecheck&#39;)">証拠を見る</button></div>';
+ document.getElementById('ezunres').innerHTML=[
+  ['E6 介入額','ESTIMATE','8/28 財務省月次で確定'],
+  ['E6 米国側介入額','UNVERIFIED','10月下旬 NY連銀Q3報告'],
+  ['E6 +α（持続仮説）','HYPOTHESIS','9/18 日銀会合後に判定'],
+  ['RC-4 米側レートチェック','UNVERIFIED','10月下旬 NY連銀Q3報告']
+ ].map(function(r){return '<div class="r3"><span>'+r[0]+'</span>'+chip(r[1])+'<span class="ezs">'+r[2]+'</span></div>';}).join('');
+ var today=new Date().toISOString().slice(0,10);
+ var STATES={'FACT':1,'CONFIRMED':1,'ESTIMATE':1,'HYPOTHESIS':1,'UNVERIFIED':1,'PREREGISTERED':1};
+ function stx(v){return STATES[v]?chip(v):'<b>'+v+'</b>';}
+ document.getElementById('eznext').innerHTML=(cal.entries||[])
+  .filter(function(e){return e.kind==='resolution'&&e.date>=today;}).slice(0,5)
+  .map(function(e){
+    var lb=(e.label||e.source||'').split('（')[0];
+    var rs=(e.resolves||[]).slice(0,2).map(function(x){
+      return '<div style="margin-top:2px">'+x.target+'　'+stx(x.from)+' <span class="arw">────→</span> '+stx(x.to)+'</div>';}).join('');
+    return '<div class="r nx"><span class="d">'+e.date.slice(5).replace('-','/')+(e.approx?'頃':'')+'</span><span><b>'+lb+'</b>'+rs+'</span></div>';}).join('');
+}
+Promise.all(['cftc_latest','h41_latest','episodes_summary','events','status','ratecheck','calendar'].map(function(n){
+  return fetch('../data/'+n+'.json').then(function(r){return r.json();});
+})).then(function(a){
+  var c=a[0],h=a[1],ep=a[2],ev=a[3],st=a[4],rc=a[5],cal=a[6];
+  var e6=ep.episodes.filter(function(x){return x.id==='E6';})[0];
+  var nx=nextChk();
+  var dd=Math.max(0,Math.ceil((new Date(nx[0])-new Date())/86400000));
+  var stale=st.components.some(function(x){return x.status==='STALE';});
+  $('sys').className='sysdot'; $('sys').style.color=stale?'var(--err)':'var(--ok)';
+  /* 上段5指標 */
+  $('strip').innerHTML=
+   '<div class="tile clk t-int" tabindex="0"><div class="k">INTERVENTION</div><div class="v" style="color:var(--ok)">NO CONFIRMED</div><div class="s">Last: E6（7/30–8/03）</div></div>'
+  +'<div class="tile clk t-cftc" tabindex="0"><div class="k">CFTC JPY（'+c.report_date+'）</div><div class="v">'+cvn(c.noncomm_net)+'</div><div class="s">Lev '+num(c.lev_net)+' / AM '+num(c.am_net)+'</div></div>'
+  +'<div class="tile clk t-h41" tabindex="0"><div class="k">H.4.1 ΔCustody UST（'+h.observation_date+'）</div><div class="v">'+cvb(h.d_custody_ust)+'</div><div class="s">RRPプール Δ '+bn(h.d_foreign_rrp)+'</div></div>'
+  +'<div class="tile clk t-e6" tabindex="0"><div class="k">ACTIVE EPISODE</div><div class="v" style="color:var(--est)">E6 NOT RECOVERED</div><div class="s">観測 '+e6.observed_bd+' 営業日（右打ち切り）</div></div>'
+  +'<div class="tile t-next"><div class="k">NEXT VERIFICATION</div><div class="v">'+nx[0].slice(5).replace('-','/')+' <span style="color:var(--tl);font-size:13px">D−'+dd+'</span></div><div class="s">'+nx[1]+'</div></div>';
+  [['t-int','monitor'],['t-cftc','cftc'],['t-h41','h41'],['t-e6','e6cost']].forEach(function(pr){
+    var el=document.querySelector('.'+pr[0]);
+    if(el){el.onclick=function(){openEv(pr[1]);};el.setAttribute('role','button');
+      el.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();openEv(pr[1]);}});}});
+  /* Monitor */
+  $('mon').innerHTML='<div class="big"><span class="st">●</span> NO CONFIRMED INTERVENTION</div>'
+   +kv('Occurrence（現在）',chip('UNVERIFIED'))
+   +kv('Execution event','NONE')
+   +kv('MOF confirmation','直近: 2026-08-03 談話（E6）')
+   +kv('Last episode','E6 · 2026-07-30 → 08-03')
+   +kv('Next official verification',nx[0]+' · '+nx[1]);
+  /* E6 */
+  $('e6').innerHTML=kv('期間',e6.span.start+' → '+e6.span.end)
+   +kv('Occurrence',chip('CONFIRMED'))
+   +kv('Cost','¥'+e6.cost_trillion.toFixed(2)+'tn '+chip('ESTIMATE'))
+   +kv('Effect half-life','NOT REACHED')
+   +kv('Observation',e6.observed_bd+' business days')
+   +kv('50%回復線',e6.threshold_50pct.toFixed(3)+' 円')
+   +kv('+α',chip('HYPOTHESIS')+' 9月会合待ち（PR-001固定済）')
+   +'<div class="note"><a href="../wp-001.html">研究本文 →</a> ｜ <a href="../events.html">イベント →</a></div>';
+  /* Episodes bars */
+  var mx=Math.log10(432);
+  $('eps').innerHTML=ep.episodes.map(function(x){
+    var act=x.censored;
+    var d=act?(x.observed_bd||1):x.half_life_bd;
+    var w=Math.max(4,Math.log10(d+1)/mx*100);
+    var det='<div class="ep-det" id="det-'+x.id+'">'
+      +'<b>'+x.id+'</b> '+(x.desc||'')
+      +'<br>期間 '+x.span.start+'〜'+x.span.end+'（'+x.days+'営業日） ／ Cost '+x.cost_trillion.toFixed(2)+'兆円'
+      +(x.cost_state!=='FACT'?'（'+x.cost_state+'）':'')
+      +'<br>Impact '+x.impact_yen+'円 ／ 効率 '+x.efficiency+' ／ 直前速度 '+x.pre_speed
+      +' ／ 50%線 '+x.threshold_50pct.toFixed(3)+'円 ／ +α: '+x.alpha_class
+      +'<br><a href="../wp-001.html">WP-001 §3.2</a> ｜ <a href="../docs/episode-profiles_v1.2.md">個票</a>'
+      +(x.id==='E6'?' ｜ <a href="../docs/pr-001.md">PR-001（判定基準）</a>':'')
+      +'</div>';
+    return '<div class="hl-row" role="button" tabindex="0" data-ep="'+x.id+'" title="Cost '+x.cost_trillion+'兆円（'+x.cost_state+'） ／ Impact '+x.impact_yen+'円 ／ 半減期 '+(act?'継続中':x.half_life_bd+'営業日')+' ／ +α: '+x.alpha_class+' ｜ クリックで詳細">'
+     +'<span class="hl-ep">'+x.id+'</span>'
+     +'<div class="hl-track"><div class="hl-bar'+(act?' act':'')+'" style="width:0" data-w="'+w+'%"></div></div>'
+     +'<span class="hl-val">'+(act?'ACTIVE（'+x.observed_bd+'営業日〜）':x.half_life_bd)+'</span></div>'+det;
+  }).join('');
+  var setBars=function(){[].forEach.call(document.querySelectorAll('.hl-bar'),
+    function(b){b.style.width=b.getAttribute('data-w');});};
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){setBars();}
+  else{requestAnimationFrame(function(){requestAnimationFrame(setBars);});}
+  /* Events */
+  var e=ev.events[0];
+  $('ev').innerHTML='<div style="font-size:13px;margin-bottom:8px">'+e.title+' '+chip(e.states.occurrence.state)
+   +(e.retroactive?' '+chip('UNVERIFIED').replace('UNVERIFIED','遡及登録'):'')+'</div>'
+   +'<ul class="tl-list">'+e.history.map(function(x){return '<li>'+x.t+'  ['+x.s+']  '+x.d+'</li>';}).join('')+'</ul>';
+  /* CFTC */
+  $('cftc').innerHTML=kv('基準日',c.report_date)
+   +kv('非商業ネット',cvn(c.noncomm_net)+' 枚')
+   +kv('Lev Funds',cvn(c.lev_net)+' 枚')
+   +kv('Asset Mgr',cvn(c.am_net)+' 枚')
+   +kv('建玉合計',cvn(c.oi)+' 枚')
+   +'<div class="note">'+(c.history_note||'')+' 履歴チャートは週次蓄積後に表示する。</div>';
+  /* H41 */
+  $('h41').innerHTML=kv('基準日（水）',h.observation_date)
+   +kv('海外RRPプール',cvb(h.foreign_rrp_usd_mn))
+   +kv('　週次Δ',cvb(h.d_foreign_rrp))
+   +kv('米債カストディ',cvb(h.custody_ust_usd_mn))
+   +kv('　週次Δ',cvb(h.d_custody_ust))
+   +kv('FIMAレポ上界',cvb(h.fima_repo_total_usd_mn)+(h.fima_repo_total_usd_mn<50?' <span style="color:var(--ok);font-size:10px">未使用確定</span>':''))
+   +'<div class="note">'+chip('HYPOTHESIS')+' 帰属は全海外当局合計であり日本単独は識別不能</div>'
+   +'<div class="note">'+h.fima_note+'</div>';
+  fillEz(c,h,ep,ev,st,rc,cal);
+  document.querySelectorAll('.hl-row[data-ep]').forEach(function(r){
+    function tg(){var d=document.getElementById('det-'+r.dataset.ep);if(d){d.classList.toggle('open');}}
+    r.addEventListener('click',tg);
+    r.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();tg();}});
+  });
+  /* Rate Check Monitor */
+  $('rc').innerHTML=kv('Current',
+      '<span style="color:var(--ok)">●</span> '+rc.current)
+   +kv('Japan（上限）',chip('UNVERIFIED')+'<span style="font-size:10px;color:var(--dim)">＊現行開示制度下</span>')
+   +kv('US（昇格経路）',chip('CONFIRMED')+' FOMC/NY連銀公表で可')
+   +kv('Observed episodes',rc.observed+'（報道ベース）')
+   +kv('No-intervention ≤10BD',rc.miss+' / '+rc.observed)
+   +'<div class="note">'+rc.note+' ｜ 定義: '+rc.definition+'</div>'
+   +'<div class="note">Next: '+rc.next.date+' — '+rc.next.what+' ｜ <a href="../docs/n-003.md">N-003</a></div>';
+  /* Status */
+  var cls={HEALTHY:'d-ok',STALE:'d-ng',PLANNED:'d-pl'};
+  $('st').innerHTML=st.components.map(function(x){
+    return '<div class="stt"><span>'+x.name+'</span><span class="'+(cls[x.status]||'d-pl')+'">'
+      +(x.status==='PLANNED'?'○':'●')+' '+x.status+'  <span style="color:var(--dim)">'+(x.last||'')+'</span></span></div>';
+  }).join('');
+  $('gen').textContent='data generated: '+st.generated_at;
+}).catch(function(err){$('mon').textContent='データ取得失敗: '+err;});
+fetch('../data/verify/WP-001.json').then(function(r){return r.json();}).then(function(v){
+  $('vf').innerHTML=kv('WP-001','v'+v.version+' '+chip('FACT').replace('FACT',v.audit.result))
+   +kv('Auditor',v.audit.auditor_spec)
+   +kv('正本 SHA-256','<span style="font-size:10px">'+v.canonical.md.sha256.slice(0,16)+'…</span>')
+   +kv('Claim Manifest','<a href="../'+v.claims_manifest.path+'">'+Object.values(v.evidence_states).reduce(function(a,b){return a+b;},0)+' claims →</a>')
+   +'<div class="note">PASSは機械的整合チェックの合格。研究内容の正しさを保証しない（会則第53条）</div>'
+   +'<div class="note"><a href="../verify.html">検証情報 →</a></div>';
+}).catch(function(){$('vf').textContent='取得失敗';});
+/* ---- Evidence Drawer ---- */
+var PROV=null;
+function openEv(key){
+  var run=function(){
+    var ch=PROV.chains[key]; if(!ch){return;}
+    $('evd-t').textContent='EVIDENCE — '+ch.title;
+    $('evd-s').innerHTML='証拠状態: '+chip(ch.state)+'　'+(ch.note||'');
+    $('evd-b').innerHTML=ch.steps.map(function(st,si){
+      var links=(st.links||[]).map(function(l){return '<a href="'+l.u+'" target="_blank" rel="noopener">'+l.t+' ↗</a>';}).join('');
+      return '<div class="step" style="animation-delay:'+(si*45)+'ms"><div class="k">'+st.k+'</div><div class="v">'+st.v+(links?'<br>'+links:'')+'</div></div>';
+    }).join('');
+    $('evd').classList.add('on'); document.getElementById('evd-ov').classList.add('on');
+  };
+  if(PROV){run();}else{
+    fetch('../data/provenance.json').then(function(r){return r.json();})
+      .then(function(j){PROV=j;run();})
+      .catch(function(){$('evd-b').textContent='provenance取得失敗';$('evd').classList.add('on');});}
+}
+function closeEv(){$('evd').classList.remove('on');document.getElementById('evd-ov').classList.remove('on');}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeEv();});
+/* ---- モバイル: 折りたたみ既定クローズ ---- */
+if(window.innerWidth<=640){
+  var ds=document.querySelectorAll('details.card');
+  for(var i=0;i<ds.length;i++){ds[i].removeAttribute('open');}
+}
+/* ---- Dashboard自身のprovenance ---- */
+fetch('dashboard-manifest.json').then(function(r){return r.json();}).then(function(m){
+  $('dman').textContent='Dashboard v'+m.dashboard_version+' · Commit '+(m.source_commit?m.source_commit.slice(0,7):'—')+' · self SHA '+m.index_sha256.slice(0,12)+'…';
+  $('dman').innerHTML+=' · <a href="dashboard-manifest.json">manifest（全入力SHA）</a>';
+}).catch(function(){});
+</script>
+<footer class="dfoot"><div class="wrap">
+  <a href="../index.html">研究所トップ</a> ・ <a href="../data.html">データ</a> ・ <a href="../events.html">イベント</a> ・ <a href="../verify.html">検証</a> ・ <a href="../registry.html">研究台帳</a> ・ <a href="../corrections.html">訂正・撤回</a>
+</div></footer>
+
+<script>
+fetch('../data/mof_watch.json').then(function(r){return r.json();}).then(function(d){
+  function esc(s){return String(s==null?'':s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function chip(st){var m={FACT:'fact',CONFIRMED:'fact',ESTIMATE:'est',HYPOTHESIS:'hyp',UNVERIFIED:'unv'};
+    return '<span class="chip '+(m[st]||'unv')+'">'+esc(st)+'</span>';}
+  function days(due){ if(!due||!/^\d{4}-\d{2}-\d{2}$/.test(due)) return '';
+    var t=new Date(); t.setHours(0,0,0,0);
+    var n=Math.round((new Date(due+'T00:00:00')-t)/86400000);
+    if(n<0) return '<span class="mwdays">経過</span>';
+    return '<span class="mwdays'+(n<=14?' soon':'')+'">あと'+n+'日</span>';}
+  document.getElementById('mofw').innerHTML='<div class="mw">'+(d.items||[]).map(function(it){
+    var L=it.latest||{}, P=it.pending||{};
+    return '<div class="mwr">'
+      +'<div class="mwl">'+esc(it.label)+'</div>'
+      +'<div class="mwc"><div class="h">直近の確定</div>'
+        +'<div class="v">'+chip(L.state)+' '+esc(L.value)+'</div>'
+        +'<div class="d">'+esc(L.period)+(L.published?' ／ 公表 '+esc(L.published):'')+'</div>'
+        +(L.detail?'<div class="d">'+esc(L.detail)+'</div>':'')+'</div>'
+      +'<div class="mwc"><div class="h">次に決着するもの</div>'
+        +'<div class="v">'+chip(P.state)+' '+esc(P.value)+'</div>'
+        +'<div class="due">'+esc(P.due||'—')+' → '+esc(P.resolves_to||'')+days(P.due)+'</div>'
+        +(P.note?'<div class="d">'+esc(P.note)+'</div>':'')+'</div>'
+      +'</div>';}).join('')+'</div>'
+    +'<div class="ezs" style="margin-top:8px">'+esc(d.note||'')+'</div>';
+}).catch(function(){document.getElementById('mofw').textContent='取得失敗';});
+</script>
+<script src="../assets/fxir-chat.js?v=20260810b" defer></script>
+</body>
+</html>

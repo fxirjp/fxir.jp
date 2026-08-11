@@ -1,0 +1,14 @@
+{
+ "current": "NO CONFIRMED RATE CHECK",
+ "jp_ceiling": "UNVERIFIED（現行開示制度下・N-003 §3）",
+ "us_path": "FOMC議事要旨・NY連銀四半期報告の公表でCONFIRMED昇格可（N-003 §5-二）",
+ "observed": 4,
+ "miss": 1,
+ "definition": "報道日から10営業日以内に財務省確定介入なし＝空振り（N-003 §5-四で固定）",
+ "note": "報道された局面の記述値。母集団推定ではない",
+ "next": {
+  "date": "2026-10下旬",
+  "what": "NY連銀 Q3 FX報告（RC-4一次確認・E6米側額）"
+ },
+ "generated_at": "2026-08-09T12:25:14+09:00"
+}

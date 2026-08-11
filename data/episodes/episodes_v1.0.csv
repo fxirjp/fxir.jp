@@ -1,0 +1,7 @@
+id,start,end,n_days,cost_trillion,cost_state,impact_yen,efficiency,pre_speed,threshold,half_life_bd,censored,attain_date,alpha_class,c1,c2,c3
+E1,2022-09-22,2022-09-22,1,2.84,FACT,5.55,0.51,0.42,143.125,1,False,2022-09-23,indeterminate,False,False,False
+E2,2022-10-21,2022-10-24,2,6.35,FACT,6.41,0.99,0.35,148.739,5,False,2022-10-31,no_alpha,False,False,False
+E3,2024-04-29,2024-05-01,2,9.79,FACT,7.23,1.35,0.88,156.617,15,False,2024-05-22,alpha_single,False,False,True
+E4,2024-07-11,2024-07-12,2,5.53,FACT,4.4,1.26,0.34,159.564,431,False,2026-03-13,alpha_triple,True,True,True
+E5,2026-04-30,2026-05-06,3,11.73,FACT,5.69,2.06,0.38,157.877,5,False,2026-05-13,no_alpha,False,False,False
+E6,2026-07-30,2026-08-03,3,12.7,ESTIMATE,8.51,1.49,0.17,159.481,,True,,in_progress,False,False,False

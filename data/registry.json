@@ -1,0 +1,333 @@
+{
+ "entries": [
+  {
+   "id": "WP-001",
+   "type": "Working Paper",
+   "title": "為替介入の反応関数は二層構造をとる",
+   "status": "PUBLISHED",
+   "version": "1.3",
+   "date": "2026-08-08",
+   "links": {
+    "page": "wp-001.html",
+    "md": "docs/wp-001.md",
+    "claims": "data/verify/WP-001-claims.json"
+   },
+   "sha256": "139025fd6e9584e4d6990e3df6c2080b7c8dcb0d4c564b81a5c5a3e57a17bd2f",
+   "audit": "PASS"
+  },
+  {
+   "id": "WP-002",
+   "type": "Working Paper",
+   "title": "円買い介入の資金制約はどこにあるのか — 外為特会・外貨準備・米国債・FIMAからみた介入余力",
+   "status": "PLANNED",
+   "date": "（骨格あり・PR-002に基づき段階充填）",
+   "resolution": "8/28（分母確定）→9月上旬（H2・ILC初回）→10月下旬（米側）"
+  },
+  {
+   "id": "WP-003",
+   "type": "Working Paper",
+   "title": "為替介入の市場記憶 — 2022年9月22日の介入レジーム新規性仮説",
+   "status": "PLANNED",
+   "date": "（起草中）",
+   "note": "E1は円買い介入が約8,860日（1998-06-17以降）不在だった直後の執行であり、市場の事前確率が構造的に低かったとする仮説。①2022年9月のリスクリバーサル／IV日次系列が有料端末を要し未取得【要取得】、②Esaka & Fujii(2026)のSCM推計はE1のlasting effectを1営業日とし本仮説に不利、の2点が未解決。",
+   "resolution": "—（未解決点の解消後に版を立てる）"
+  },
+  {
+   "id": "WP-004",
+   "type": "Working Paper",
+   "title": "公表会計による為替介入執行レートの識別可能性 — 外国為替資金特別会計「外国為替等売買差益」の会計写像と構造的非識別",
+   "status": "PLANNED",
+   "date": "（プロトコル起草・所長承認前）",
+   "protocol": {
+    "version": "0.1",
+    "status": "DRAFT",
+    "date": "2026-08-10",
+    "links": {
+     "md": "docs/wp-004-protocol_v0.1.md"
+    },
+    "sha256": "767ad6058d21536d33f859cd1ac596092df3c193697ba7b667069b9e5067fcd5",
+    "note": "未凍結。SHA-256掲示とOpenTimestamps刻印を経てから本文に着手する。事前登録として成立していない"
+   },
+   "resolution": "—（識別可能性の判定であり、公表物の到着を待たない）"
+  },
+  {
+   "id": "PR-001",
+   "type": "Preregistration",
+   "title": "E6「+α」判定基準の事前登録",
+   "status": "PREREGISTERED",
+   "version": "1.0",
+   "date": "2026-08-08",
+   "resolution": "2026-09 日銀会合（E6決着）",
+   "links": {
+    "html": "pr-001.html",
+    "md": "docs/pr-001.md"
+   },
+   "sha256": "7a07369f3bb3009b863b3edb03baec9c8265628c4735287a28fa11ea31e4ea28"
+  },
+  {
+   "id": "PR-002",
+   "type": "Preregistration",
+   "title": "円買い介入の資金制約 — 検証計画の事前登録",
+   "status": "PREREGISTERED",
+   "version": "1.0",
+   "date": "2026-08-09",
+   "links": {
+    "html": "pr-002.html",
+    "md": "docs/pr-002.md"
+   },
+   "note": "H1〜H4・ILC・LCEを8/28確定公表前に凍結。OTSは初回コミット時",
+   "sha256": "2c2003e2ddada752f197467fb9759b5161e878310b02814447f10877296eb570"
+  },
+  {
+   "id": "METHOD",
+   "type": "Methodology",
+   "title": "測定・判定の方法論",
+   "status": "PUBLISHED",
+   "version": "1.0",
+   "date": "2026-08-08",
+   "links": {
+    "page": "methodology.html",
+    "md": "docs/methodology_v1.0.md"
+   },
+   "sha256": "426c93bfc5e8dcfa04c2d727ad67cdf287b4a45e26b0ecd65562f4ab3d023c30"
+  },
+  {
+   "id": "EP-PROF",
+   "type": "Reference",
+   "title": "Episode Profiles — E1〜E6個票（レート・日時・時間帯・特性）",
+   "status": "PUBLISHED",
+   "version": "1.2",
+   "date": "2026-08-08",
+   "links": {
+    "md": "docs/episode-profiles_v1.2.md"
+   },
+   "sha256": "9a51d4a0cc4210f57fe337d1decbf8746fc7c7b3bc90ad53e0088c9f3196e450"
+  },
+  {
+   "id": "N-001",
+   "type": "Research Note",
+   "title": "E6介入額の推計乖離記録",
+   "status": "PLANNED",
+   "date": "（番号予約済）",
+   "resolution": "2026-08-28 財務省月次公表",
+   "note": "公開順と起案順は一致しない（N-003参照）"
+  },
+  {
+   "id": "N-002",
+   "type": "Research Note",
+   "title": "E6事前登録仮説の判定",
+   "status": "PLANNED",
+   "date": "（番号予約済）",
+   "resolution": "2026-09-18 日銀会合後"
+  },
+  {
+   "id": "N-003",
+   "type": "Research Note",
+   "title": "レートチェックの証拠構造",
+   "status": "PUBLISHED",
+   "version": "1.1",
+   "date": "2026-08-08",
+   "links": {
+    "html": "n-003.html",
+    "md": "docs/n-003.md",
+    "claims": "data/verify/N-003-claims.json"
+   },
+   "sha256": "79619a1286b4c48e1eb4c0a28318c48f90c0bc4cca4771756e852704b8274212",
+   "audit": "PASS"
+  },
+  {
+   "id": "N-004",
+   "type": "Research Note",
+   "title": "介入の残弾とFIMAレポ — 資金調達経路の証拠構造",
+   "status": "PUBLISHED",
+   "date": "2026-08-09",
+   "note": "§2（原資構成）は9月上旬の8月末分公表で追記改版予定",
+   "version": "1.0",
+   "links": {
+    "html": "n-004.html",
+    "md": "docs/n-004.md",
+    "claims": "data/verify/N-004-claims.json"
+   },
+   "sha256": "ce06ff3854585ede33baf08905af685024de59640e2b39ed368e6c46c2ab3ecb"
+  },
+  {
+   "id": "N-006",
+   "type": "Research Note",
+   "title": "日銀利上げは国内リテールFXスワップに7週間伝達されなかった — 乖離の形成・一斉解消と対照群",
+   "status": "PUBLISHED",
+   "date": "2026-08-11",
+   "note": "対照群=IG（Tom/Next±0.6%明示）。介入・会合・急変の契機は分離不能と宣言し判別試験を事前登録",
+   "version": "v1.0",
+   "links": {
+    "html": "n-004.html",
+    "md": "docs/n-004.md",
+    "claims": "data/verify/N-004-claims.json"
+   },
+   "sha256": "a9feda58ac2b66804669a8fdf27367cb9339c42a4ef188c7ed5745d0c13585a4",
+   "link": "docs/n-006_v1.0.md"
+  },
+  {
+   "id": "SPEC-KIJUN",
+   "type": "Specification",
+   "title": "基準外国為替相場の復元仕様",
+   "status": "DRAFT",
+   "version": "0.1",
+   "date": "2026-08-10",
+   "links": {
+    "md": "docs/spec-kijun_v0.1.md"
+   },
+   "sha256": "fc3629d12a6296c9b28cf105a008444cc8f1573fb6d1a4d20a1a49c438fc021e",
+   "note": "所長承認前"
+  },
+  {
+   "id": "SPEC-H41",
+   "type": "Specification",
+   "title": "FRB H.4.1／海外当局資金動態 監視仕様",
+   "status": "PUBLISHED",
+   "version": "1.1",
+   "date": "2026-08-08",
+   "links": {
+    "md": "docs/spec-h41_v1.1.md"
+   },
+   "sha256": "22214982d31e8622522f0fe0c3dd358af0b8e7aee3389c71c89b21e0cc07be58",
+   "superseded": [
+    {
+     "md": "docs/spec-h41_v1.0.md",
+     "sha256": "9c35fd6b378654807172e5df572856539e0cc82fc5383f9c17e96c5c167ae20a"
+    }
+   ],
+   "note": "閾値は較正前。WATCHは外部公表しない"
+  },
+  {
+   "id": "SPEC-CFTC",
+   "type": "Specification",
+   "title": "CFTC建玉（円）取得仕様",
+   "status": "PUBLISHED",
+   "version": "1.0",
+   "date": "2026-08-08",
+   "links": {
+    "md": "docs/spec-cftc_v1.0.md"
+   },
+   "sha256": "60cd5e868652f24941bc8a6a6ea9adf3c75ba8263be7c34be493368ff1367b2b"
+  },
+  {
+   "id": "SPEC-API",
+   "type": "Specification",
+   "title": "FXIR Data API 契約仕様",
+   "status": "PUBLISHED",
+   "version": "1.1.2",
+   "date": "2026-08-08",
+   "links": {
+    "md": "docs/spec-api_v1.1.2.md"
+   },
+   "sha256": "0e77523fa7cf12f382c856010f13dd4a1e759e4e0fccbda19dedd686f425cda5",
+   "superseded": [
+    {
+     "md": "docs/spec-api_v1.1.1.md",
+     "sha256": "5b1d596e4f85b1056f40aab6683b15851daf402b81d08c6d7c65f72873420448"
+    },
+    {
+     "md": "docs/spec-api_v1.1.md",
+     "sha256": "1b08b82a873f4c973a033aee21da0637acae5695529f67c51a69ac362aa3bc1e"
+    },
+    {
+     "md": "docs/spec-api_v1.0.md",
+     "sha256": "4a3663eb2a6312c36cba3398ade38ee8c0d7010bd633b2ad8a14df1463ca16e5"
+    }
+   ],
+   "note": "実装: api/v1/index.php ／ 公開ページ: api.html"
+  },
+  {
+   "id": "SPEC-AI-001",
+   "type": "Specification",
+   "title": "Evidence Auditor（機械監査）",
+   "status": "PUBLISHED",
+   "version": "0.2",
+   "date": "2026-08-08",
+   "links": {
+    "md": "docs/spec-ai-001_auditor_v0.2.md"
+   },
+   "sha256": "d3c62eec19960558205e54aa3362fa46bf90a335483a1b077ed2daeeae058071",
+   "superseded": [
+    {
+     "md": "docs/spec-ai-001_auditor_v0.1.md",
+     "sha256": "3418c74d15b9cd131ab51d4d0ee3f7fcf198778130c5fcf4ac79126254ab5187"
+    }
+   ]
+  },
+  {
+   "id": "SPEC-DETECTOR",
+   "type": "Specification",
+   "title": "Market Event Detector 入力・判定仕様",
+   "status": "PUBLISHED",
+   "version": "0.1",
+   "date": "2026-08-08",
+   "links": {
+    "md": "docs/spec-detector_v0.1.md"
+   },
+   "sha256": "7b4e173d3ed5de80b1d97113c3c194cc835bc5d390773469c79bc39657853fba",
+   "note": "未実装・設計凍結前ドラフト。取引系と物理分離"
+  },
+  {
+   "id": "SPEC-VERBAL",
+   "type": "Specification",
+   "title": "口先介入台帳 仕様（強度ラダーL0〜L4の事前定義）",
+   "status": "PUBLISHED",
+   "version": "0.1",
+   "date": "2026-08-09",
+   "links": {
+    "md": "docs/spec-verbal_v0.1.md"
+   },
+   "sha256": "3d3fda9ce59a7a5b962d94aabe064311e1343e20a7dbad64e4c92fb680026218"
+  },
+  {
+   "id": "SPEC-X-NOTIFY",
+   "type": "Specification",
+   "title": "X（@fxirjp）自動配信仕様",
+   "status": "PUBLISHED",
+   "version": "0.1",
+   "date": "2026-08-08",
+   "links": {
+    "md": "docs/spec-x-notify_v0.1.md"
+   },
+   "sha256": "571e1f23156e63cc4545f11daad1aaa024011b07a9058817ecdb8a749ed0a6c2"
+  },
+  {
+   "id": "SPEC-SAAS",
+   "type": "Specification",
+   "title": "FXIR Data 構想仕様",
+   "status": "INTERNAL",
+   "version": "0.3",
+   "date": "2026-08-08",
+   "links": {
+    "md": "docs/spec-saas_v0.3.md"
+   },
+   "sha256": "048bebcdd12fae38638f1a8483458e6912f72fd930bba08831040c5cb24312a8",
+   "superseded": [
+    {
+     "md": "docs/spec-saas_v0.2.md",
+     "sha256": "4bd33c87ec7f37f841d771647c7836b6dcf87e2611172c624f8af15dd950d033"
+    },
+    {
+     "md": "docs/spec-saas_v0.1.md",
+     "sha256": "043e7475a9b780fd509d08ea0c728d3762d9ee671eeddabb075628dfcf36f386"
+    }
+   ],
+   "note": "非公開。サイト記載「Data Delivery＝準備中・法務確認後」との整合のため、法務確認まで内部保留。sitemapからも既に除外済み"
+  },
+  {
+   "id": "SPEC-COM",
+   "type": "Specification",
+   "title": "商用提供仕様",
+   "status": "DRAFT",
+   "version": "0.1",
+   "date": "2026-08-10",
+   "links": {
+    "md": "docs/spec-com_v0.1.md"
+   },
+   "sha256": "1214c8c3ac612da447ed9dfca1356aaa39a75c357107932c108402c9bfb0137d",
+   "note": "提供未開始・法務確認前。データではなく保証を売る設計。契約者と非契約者は同時刻に同一内容を受け取る"
+  }
+ ],
+ "generated_at": "2026-08-10T00:00:00+09:00"
+}

@@ -1,0 +1,35 @@
+{
+ "generated_at": "2026-08-09T12:25:14+09:00",
+ "components": [
+  {
+   "name": "CFTC Collector",
+   "status": "HEALTHY",
+   "last": "2026-08-04",
+   "note": null
+  },
+  {
+   "name": "H.4.1 Collector",
+   "status": "HEALTHY",
+   "last": "2026-08-05",
+   "note": null
+  },
+  {
+   "name": "MOF Watch",
+   "status": "PLANNED",
+   "last": null,
+   "note": "2026-08-28 月次介入額の取得から稼働予定"
+  },
+  {
+   "name": "Evidence Auditor",
+   "status": "HEALTHY",
+   "last": "2026-08-09",
+   "note": "WP-001: PASS"
+  },
+  {
+   "name": "Site Deploy (FTPS)",
+   "status": "HEALTHY",
+   "last": "2026-08-09",
+   "note": "GitHub Actions deploy-site"
+  }
+ ]
+}

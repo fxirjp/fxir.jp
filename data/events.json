@@ -1,0 +1,250 @@
+{
+ "events": [
+  {
+   "event_id": "FXIR-EVT-E6",
+   "title": "円買い介入エピソード E6（2026-07-30〜08-03）",
+   "registered_at": "2026-08-08",
+   "retroactive": true,
+   "summary": "2026-07-30 19:15 JST・22:38 JST、07-31、08-03 に大規模な円買いフローを観測。",
+   "note": "FXIR運用開始（2026-08-08）前の事象の遡及登録。時系列は公表資料からの再構成であり、リアルタイム検知記録ではない（会則第23条）。",
+   "states": {
+    "occurrence": {
+     "label": "実施の事実",
+     "state": "CONFIRMED",
+     "detail": "財務省 片山財務大臣談話（2026-08-03）・日米協調",
+     "url": "https://www.mof.go.jp/policy/international_policy/reference/feio/index.html"
+    },
+    "episode_span": {
+     "label": "エピソード期間",
+     "state": "ESTIMATE",
+     "detail": "7/30〜8/03。日別実績は2026-11月上旬の四半期日次内訳で確定"
+    },
+    "execution_times": {
+     "label": "執行時刻",
+     "state": "ESTIMATE",
+     "detail": "7/30 19:15・22:38 JST（市場観測に基づく推定）"
+    },
+    "cost": {
+     "label": "介入額合計",
+     "state": "ESTIMATE",
+     "detail": "約12.70兆円（報道推計。2026-08-28の月次公表で確定予定）"
+    },
+    "us_leg": {
+     "label": "米国側介入額",
+     "state": "UNVERIFIED",
+     "detail": "NY連銀四半期報告（2026-10月下旬・Q3）まで未確定。報告様式の例: 2026Q1",
+     "url": "https://www.newyorkfed.org/medialibrary/media/newsevents/news/markets/2026/q1-2026-fx-quarterly-report.pdf"
+    }
+   },
+   "history": [
+    {
+     "t": "2026-07-30",
+     "s": "OCCURRED",
+     "d": "介入実施（当時FXIR未稼働）"
+    },
+    {
+     "t": "2026-08-03",
+     "s": "CONFIRMED",
+     "d": "財務省談話により実施の事実を確認"
+    },
+    {
+     "t": "2026-08-08",
+     "s": "REGISTERED",
+     "d": "FXIRイベント登録簿へ遡及登録"
+    }
+   ],
+   "links": {
+    "wp": "wp-001.html"
+   }
+  },
+  {
+   "event_id": "FXIR-EVT-RC4",
+   "title": "レートチェック RC-4（2026-07-30・NY連銀）",
+   "registered_at": "2026-08-08",
+   "retroactive": true,
+   "summary": "E6実弾と同日、NY連銀がUSD/JPYのレートチェックを実施したとの報道。163円近辺→157円台。",
+   "note": "N-003 §5の登録方針に基づく遡及登録（第23条）。実施情報は報道ベースであり、2026-10月下旬のNY連銀Q3報告で一次確認となる見込み。",
+   "states": {
+    "occurrence_us": {
+     "label": "実施（米側）",
+     "state": "UNVERIFIED",
+     "detail": "日経報道（2026-07-30）。Q3報告で昇格見込み"
+    },
+    "coordination": {
+     "label": "日米協調（実弾）",
+     "state": "CONFIRMED",
+     "detail": "片山財務大臣談話（2026-08-03）",
+     "url": "https://www.mof.go.jp/policy/international_policy/reference/feio/index.html"
+    },
+    "aftermath": {
+     "label": "実弾への帰結",
+     "state": "CONFIRMED",
+     "detail": "同日、日本の円買い介入（E6）と同時"
+    }
+   },
+   "history": [
+    {
+     "t": "2026-07-30",
+     "s": "REPORTED",
+     "d": "日経がNY連銀のレートチェックを報道（E6実弾と同日）"
+    },
+    {
+     "t": "2026-08-03",
+     "s": "COORD_CONFIRMED",
+     "d": "日米協調介入を財務省が公式確認"
+    },
+    {
+     "t": "2026-08-08",
+     "s": "REGISTERED",
+     "d": "遡及登録"
+    }
+   ],
+   "links": {
+    "note": "docs/n-003.md",
+    "wp": "wp-001.html"
+   },
+   "outcome": "hit",
+   "claim_refs": [
+    "C-RC4-2026"
+   ]
+  },
+  {
+   "event_id": "FXIR-EVT-RC3",
+   "title": "レートチェック RC-3（2026-01-23・日米／空振り）",
+   "registered_at": "2026-08-08",
+   "retroactive": true,
+   "summary": "日銀＋NY連銀の協調レートチェック観測。157.50→155.66円。実弾介入には至らず。",
+   "note": "N-003 §5に基づく遡及登録（第23条）。米側実施はFOMC議事要旨で一次確認済み。「介入なし」は財務省月次公表で確定＝レートチェックが発動決定を意味しない実例。 主体別の主張はClaim単位で分割済み（C-RC3-JP=UNVERIFIED／C-RC3-US=FACT）。",
+   "states": {
+    "occurrence_us": {
+     "label": "実施（米側）",
+     "state": "CONFIRMED",
+     "detail": "FOMC議事要旨（2026-01-27/28会合）にDeskの行為として記載",
+     "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260128.htm"
+    },
+    "occurrence_jp": {
+     "label": "実施（日本側）",
+     "state": "UNVERIFIED",
+     "detail": "報道・観測のみ。日本当局は公式確認せず（三村財務官2026-01-26は明言回避）"
+    },
+    "aftermath": {
+     "label": "実弾への帰結",
+     "state": "CONFIRMED",
+     "detail": "介入なし（2025-12-29〜2026-01-28、財務省月次公表）＝空振り",
+     "url": "https://www.mof.go.jp/policy/international_policy/reference/feio/index.html"
+    }
+   },
+   "history": [
+    {
+     "t": "2026-01-23",
+     "s": "REPORTED",
+     "d": "協調レートチェック観測の報道・急激な円高"
+    },
+    {
+     "t": "2026-02-19",
+     "s": "US_CONFIRMED",
+     "d": "FOMC議事要旨の公表により米側実施が一次資料化"
+    },
+    {
+     "t": "2026-08-08",
+     "s": "REGISTERED",
+     "d": "遡及登録"
+    }
+   ],
+   "links": {
+    "note": "docs/n-003.md"
+   },
+   "outcome": "miss",
+   "claim_refs": [
+    "C-RC3-JP-2026",
+    "C-RC3-US-2026"
+   ]
+  },
+  {
+   "event_id": "FXIR-EVT-RC2",
+   "title": "レートチェック RC-2（2024-07-12・日銀・対ユーロ）",
+   "registered_at": "2026-08-08",
+   "retroactive": true,
+   "summary": "日銀がEUR/JPYのレートチェックを実施したとの報道（対ユーロは異例）。約1.6円の円高。",
+   "note": "N-003 §5に基づく遡及登録（第23条）。日本側の実施情報は制度上、一次確認が得られない。",
+   "states": {
+    "occurrence": {
+     "label": "実施の事実",
+     "state": "UNVERIFIED",
+     "detail": "日経（関係者）→Bloomberg 2024-07-12 09:14 JST"
+    },
+    "aftermath": {
+     "label": "実弾への帰結",
+     "state": "CONFIRMED",
+     "detail": "同時期7/11-12に円買い介入（財務省確定・E4）",
+     "url": "https://www.mof.go.jp/policy/international_policy/reference/feio/index.html"
+    }
+   },
+   "history": [
+    {
+     "t": "2024-07-12",
+     "s": "REPORTED",
+     "d": "対ユーロのレートチェック報道"
+    },
+    {
+     "t": "2026-08-08",
+     "s": "REGISTERED",
+     "d": "遡及登録"
+    }
+   ],
+   "links": {
+    "note": "docs/n-003.md"
+   },
+   "outcome": "hit",
+   "claim_refs": [
+    "C-RC2-2024"
+   ]
+  },
+  {
+   "event_id": "FXIR-EVT-RC1",
+   "title": "レートチェック RC-1（2022-09-14・日銀）",
+   "registered_at": "2026-08-08",
+   "retroactive": true,
+   "summary": "日銀がUSD/JPYのレートチェックを実施したとの報道。144.96→142.55円。",
+   "note": "N-003 §5に基づく遡及登録（第23条）。用語「レートチェック」が広く報道された初期事例。",
+   "states": {
+    "occurrence": {
+     "label": "実施の事実",
+     "state": "UNVERIFIED",
+     "detail": "日経ほか報道（2022-09-14）"
+    },
+    "aftermath": {
+     "label": "実弾への帰結",
+     "state": "CONFIRMED",
+     "detail": "6営業日後の9/22に円買い2.84兆円（財務省公表・E1）",
+     "url": "https://www.mof.go.jp/policy/international_policy/reference/feio/index.html"
+    }
+   },
+   "history": [
+    {
+     "t": "2022-09-14",
+     "s": "REPORTED",
+     "d": "レートチェック報道"
+    },
+    {
+     "t": "2022-09-22",
+     "s": "INTERVENTION",
+     "d": "実弾介入（財務省公表）"
+    },
+    {
+     "t": "2026-08-08",
+     "s": "REGISTERED",
+     "d": "遡及登録"
+    }
+   ],
+   "links": {
+    "note": "docs/n-003.md"
+   },
+   "outcome": "hit",
+   "claim_refs": [
+    "C-RC1-2022"
+   ]
+  }
+ ],
+ "generated_at": "2026-08-09T12:25:14+09:00"
+}

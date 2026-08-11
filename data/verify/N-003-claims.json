@@ -1,0 +1,141 @@
+{
+ "document_id": "N-003",
+ "version": "1.1",
+ "document": "レートチェックの証拠構造。2022年以降の報道4局面を台帳化しJSTで記録。日本側は現行開示制度下でUNVERIFIEDが実務上の上限、米側はFOMC議事要旨等でFACT昇格という非対称構造を示す。",
+ "claims": [
+  {
+   "claim_id": "C-RC1-2022",
+   "text": "2022-09-14に日銀がUSD/JPYのレートチェックを実施したとの報道がある",
+   "status": "UNVERIFIED",
+   "evidence": [
+    {
+     "source_id": "SRC-NIKKEI-220914"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-RC2-2024",
+   "text": "2024-07-12に日銀がEUR/JPYのレートチェックを実施したとの報道がある",
+   "status": "UNVERIFIED",
+   "evidence": [
+    {
+     "source_id": "SRC-BBG-240712"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-RC3-JP-2026",
+   "text": "2026-01-23に日銀がレートチェックを実施したとの観測報道がある",
+   "status": "UNVERIFIED",
+   "evidence": [
+    {
+     "source_id": "SRC-NIKKEI-260129"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-RC3-US-2026",
+   "text": "2026-01にNY連銀公開市場デスクが米財務省のためにUSD/JPYのレートチェックを実施した",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-FOMC-2601"
+    },
+    {
+     "source_id": "SRC-NYFED-Q1"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-NOINT-2601",
+   "text": "2025-12-29〜2026-01-28の期間、日本の為替介入額はゼロであった（RC-3は空振り）",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-MOF-M"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-RC4-2026",
+   "text": "2026-07-30にNY連銀がレートチェックを実施したとの報道がある（2026年10月下旬のQ3報告で一次確認見込み）",
+   "status": "UNVERIFIED",
+   "evidence": [
+    {
+     "source_id": "SRC-NIKKEI-260730"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-E6-COORD",
+   "text": "2026-07-30の円買い介入が日米協調であったことは2026-08-03の財務大臣談話で公式確認された",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-MOF-TALK"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-NORC-240429",
+   "text": "2024-04-29の実弾介入に先行するレートチェック報道は本調査の範囲で確認できなかった（不存在の証明ではない）",
+   "status": "UNVERIFIED",
+   "evidence": []
+  }
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-FOMC-2601",
+   "organization": "Federal Reserve（FOMC議事要旨 2026-01-27/28）",
+   "tier": 1,
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260128.htm",
+   "retrieved_at": "2026-08-08T18:40+09:00"
+  },
+  {
+   "source_id": "SRC-NYFED-Q1",
+   "organization": "NY連銀（FX Operations Jan–Mar 2026）",
+   "tier": 1,
+   "url": "https://www.newyorkfed.org/medialibrary/media/newsevents/news/markets/2026/q1-2026-fx-quarterly-report.pdf",
+   "note": "文体に間接表現を含むため一次確認の核はFOMC議事要旨に置く",
+   "retrieved_at": "2026-08-08T18:40+09:00"
+  },
+  {
+   "source_id": "SRC-MOF-M",
+   "organization": "財務省（外国為替平衡操作の実施状況・月次）",
+   "tier": 1,
+   "url": "https://www.mof.go.jp/policy/international_policy/reference/feio/index.html",
+   "retrieved_at": "2026-08-08T18:40+09:00"
+  },
+  {
+   "source_id": "SRC-MOF-TALK",
+   "organization": "財務省（片山財務大臣談話 2026-08-03）",
+   "tier": 1,
+   "retrieved_at": "2026-08-08T18:40+09:00"
+  },
+  {
+   "source_id": "SRC-NIKKEI-220914",
+   "organization": "日本経済新聞",
+   "tier": 3,
+   "retrieved_at": "2026-08-08T18:40+09:00"
+  },
+  {
+   "source_id": "SRC-BBG-240712",
+   "organization": "Bloomberg（2024-07-12 09:14 JST）",
+   "tier": 3,
+   "retrieved_at": "2026-08-08T18:40+09:00"
+  },
+  {
+   "source_id": "SRC-NIKKEI-260129",
+   "organization": "日本経済新聞（2026-01-29）",
+   "tier": 3,
+   "retrieved_at": "2026-08-08T18:40+09:00"
+  },
+  {
+   "source_id": "SRC-NIKKEI-260730",
+   "organization": "日本経済新聞（2026-07-30）",
+   "tier": 3,
+   "retrieved_at": "2026-08-08T18:40+09:00"
+  }
+ ],
+ "calculations": []
+}

@@ -1,0 +1,385 @@
+{
+ "generated_at": "2026-08-09T12:25:14+09:00",
+ "chains": {
+  "cftc": {
+   "title": "CFTC JPY POSITION",
+   "state": "FACT",
+   "steps": [
+    {
+     "k": "値の定義",
+     "v": "非商業ネット＝Long−Short（Legacy Futures Only）。Lev Funds／Asset MgrはTFF系列。分母問題のため両系列を必ず併録（SPEC-CFTC §3）"
+    },
+    {
+     "k": "原典（一次・実測検証済）",
+     "v": "CFTC公表テキスト",
+     "links": [
+      {
+       "t": "Legacy 現行週",
+       "u": "https://www.cftc.gov/dea/newcot/deafut.txt"
+      },
+      {
+       "t": "TFF 現行週",
+       "u": "https://www.cftc.gov/dea/newcot/FinFutWk.txt"
+      }
+     ]
+    },
+    {
+     "k": "基準日",
+     "v": "2026-08-04（火曜引け）／公表: 金曜 15:30 ET"
+    },
+    {
+     "k": "取得日時（第45条）",
+     "v": "2026-08-08T03:34:06+00:00（Gitコミット時刻が来歴を二重化）"
+    },
+    {
+     "k": "生ファイル",
+     "v": "repo: data/cftc/raw/2026-08-04_legacy.txt ／ _tff.txt"
+    },
+    {
+     "k": "変換コード",
+     "v": "scripts/fetch_cftc.py（決定的・AI不介在）"
+    },
+    {
+     "k": "この表示JSONのSHA-256",
+     "v": "31584a3925da3818c3868e19cca884360c2130f06f5bf2fb2d33e7f08232fa1d"
+    }
+   ],
+   "chain_hashes": {
+    "source_raw": [
+     {
+      "path": "data/cftc/raw/2026-08-04_legacy.txt",
+      "sha256": "e7ce8c68f584c1d645c71806093382ef18735987b8883a8dd7be01ca5b933532"
+     },
+     {
+      "path": "data/cftc/raw/2026-08-04_tff.txt",
+      "sha256": "827b4645a7dc9ddce61344850ce2827f0276bc5c4df39e94a91c3000054b42a6"
+     }
+    ],
+    "transform": [
+     {
+      "path": "scripts/fetch_cftc.py",
+      "sha256": "08c9caec64a8f597e10cb3113786aab099c438a73938c56de4371f04e6d49f67",
+      "git_commit": null
+     },
+     {
+      "path": "scripts/build_public.py",
+      "sha256": "0957decfa2d7f38a30c9faee1b7b5356ccd59d8279dbeee2a14809799f608592",
+      "git_commit": null
+     }
+    ],
+    "output": {
+     "path": "site/data/cftc_latest.json",
+     "sha256": "31584a3925da3818c3868e19cca884360c2130f06f5bf2fb2d33e7f08232fa1d"
+    }
+   }
+  },
+  "h41": {
+   "title": "H.4.1 FUNDING MONITOR",
+   "state": "FACT",
+   "note": "帰属（＝日本の介入原資か）はHYPOTHESIS。全海外当局の合計であり識別不能（SPEC-H41 §2）",
+   "steps": [
+    {
+     "k": "系列の定義",
+     "v": "WLRRAFOIAL＝海外当局リバースレポプール（急減＝原資引出し示唆）／WMTSECL1＝米国債カストディ（急減＝米債売却示唆）。いずれも水曜残高"
+    },
+    {
+     "k": "原典（一次）",
+     "v": "FRB H.4.1（FRED経由・キー不要CSV）",
+     "links": [
+      {
+       "t": "WLRRAFOIAL",
+       "u": "https://fred.stlouisfed.org/series/WLRRAFOIAL"
+      },
+      {
+       "t": "WMTSECL1",
+       "u": "https://fred.stlouisfed.org/series/WMTSECL1"
+      },
+      {
+       "t": "H.4.1 本文",
+       "u": "https://www.federalreserve.gov/releases/h41/current/h41.htm"
+      }
+     ]
+    },
+    {
+     "k": "取得日",
+     "v": "2026-08-08（生CSVを data/h41/raw/ に保存）"
+    },
+    {
+     "k": "変換コード",
+     "v": "scripts/fetch_h41.py（決定的・AI不介在）"
+    },
+    {
+     "k": "この表示JSONのSHA-256",
+     "v": "0c07e48567b7132243ab8c4ec04a2c699ed0afa239e2bc4d223910a9c8cd3f25"
+    }
+   ],
+   "chain_hashes": {
+    "source_raw": [
+     {
+      "path": "data/h41/raw/2026-08-08_WLRRAFOIAL.csv",
+      "sha256": "58b733302acf4a961d2cf71d036135cc7c093e9a020366ec114c7911554233f1"
+     },
+     {
+      "path": "data/h41/raw/2026-08-08_WMTSECL1.csv",
+      "sha256": "7bb96736bda15e82bfda01c2b582ba943a311449667ffadabc6185856445be79"
+     }
+    ],
+    "transform": [
+     {
+      "path": "scripts/fetch_h41.py",
+      "sha256": "68e8ec5186c8b719e3e2aee0051c4f10a094307af1c3ad7db2861180b0b9f8ef",
+      "git_commit": null
+     },
+     {
+      "path": "scripts/build_public.py",
+      "sha256": "0957decfa2d7f38a30c9faee1b7b5356ccd59d8279dbeee2a14809799f608592",
+      "git_commit": null
+     }
+    ],
+    "output": {
+     "path": "site/data/h41_latest.json",
+     "sha256": "0c07e48567b7132243ab8c4ec04a2c699ed0afa239e2bc4d223910a9c8cd3f25"
+    }
+   }
+  },
+  "e6cost": {
+   "title": "E6 COST ¥12.70tn",
+   "state": "ESTIMATE",
+   "steps": [
+    {
+     "k": "なぜESTIMATEか",
+     "v": "財務省の月次公表前であり、日銀当座預金の財政等要因からの市場推計（報道）に基づくため（会則第10条・Tier3規程）"
+    },
+    {
+     "k": "推計の内訳",
+     "v": "2026-07-30 約6.5兆円（ESTIMATE）・2026-07-31 約5.2兆円（ESTIMATE）・2026-08-03 約1.0兆円（ESTIMATE）"
+    },
+    {
+     "k": "いつCONFIRMEDになるか",
+     "v": "2026-08-28 財務省「外国為替平衡操作の実施状況」月次公表。確定時にESTIMATE→FACTへ差し替え、推計との乖離を記録・公開（N-001予定）"
+    },
+    {
+     "k": "根拠文書",
+     "v": "WP-001 付録A（無料公開）",
+     "links": [
+      {
+       "t": "WP-001",
+       "u": "../wp-001.html"
+      }
+     ]
+    },
+    {
+     "k": "この表示JSONのSHA-256",
+     "v": "9c19451617d5d082a8e55690e1e86f0b862dd56b7c2ee76139f3a69da05d8151"
+    }
+   ],
+   "chain_hashes": {
+    "source_raw": [
+     {
+      "path": "data/episodes/episodes_v1.0.json",
+      "sha256": "bcd017f748358174fff8ea509b228c95bd8866177ee323e5799fd99633371d06"
+     }
+    ],
+    "transform": [
+     {
+      "path": "data/episodes/build_episodes.py",
+      "sha256": "8a2dbddcabd0aac642cc702c0dd79855e561e6a395b907d52b125a68bc944d28",
+      "git_commit": null
+     },
+     {
+      "path": "scripts/build_public.py",
+      "sha256": "0957decfa2d7f38a30c9faee1b7b5356ccd59d8279dbeee2a14809799f608592",
+      "git_commit": null
+     }
+    ],
+    "output": {
+     "path": "site/data/episodes_summary.json",
+     "sha256": "9c19451617d5d082a8e55690e1e86f0b862dd56b7c2ee76139f3a69da05d8151"
+    }
+   }
+  },
+  "halflife": {
+   "title": "効果半減期（E1〜E6）",
+   "state": "FACT",
+   "steps": [
+    {
+     "k": "定義",
+     "v": "最終介入日の翌営業日以降、終値が「期間最安値＋Impact×0.5」を初回回復するまでの営業日数（WP-001 §2.3）"
+    },
+    {
+     "k": "入力データ",
+     "v": "OANDA USD/JPY 日足 2002-05〜（JST）。取得はTradingView経由（第8条運用注記・来歴明記）"
+    },
+    {
+     "k": "計算コード",
+     "v": "research/WP-001/code/halflife_audit.py（決定的・乱数不使用）"
+    },
+    {
+     "k": "独立再計算",
+     "v": "2026-08-08、全6エピソードでWP-001と完全一致（第17条監査）"
+    },
+    {
+     "k": "機械監査",
+     "v": "Evidence Auditor Layer A: PASS（SPEC-AI-001 v0.2）",
+     "links": [
+      {
+       "t": "検証情報",
+       "u": "../verify.html"
+      },
+      {
+       "t": "Claim Manifest",
+       "u": "../data/verify/WP-001-claims.json"
+      }
+     ]
+    }
+   ],
+   "chain_hashes": {
+    "source_raw": [
+     {
+      "path": "data/episodes/episodes_v1.0.json",
+      "sha256": "bcd017f748358174fff8ea509b228c95bd8866177ee323e5799fd99633371d06"
+     }
+    ],
+    "transform": [
+     {
+      "path": "research/WP-001/code/halflife_audit.py",
+      "sha256": "df3ffb9be84dfa0de8a0988ad308bf5262c274bbe2abd515cd915667b2168265",
+      "git_commit": null
+     },
+     {
+      "path": "data/episodes/build_episodes.py",
+      "sha256": "8a2dbddcabd0aac642cc702c0dd79855e561e6a395b907d52b125a68bc944d28",
+      "git_commit": null
+     }
+    ],
+    "output": {
+     "path": "site/data/episodes_summary.json",
+     "sha256": "9c19451617d5d082a8e55690e1e86f0b862dd56b7c2ee76139f3a69da05d8151"
+    },
+    "external_input_note": "価格原系列（OANDA 1D）は再配布ライセンス制約により本repoに含めない。取得経路は第8条運用注記の通り"
+   }
+  },
+  "monitor": {
+   "title": "INTERVENTION MONITOR",
+   "state": "UNVERIFIED",
+   "note": "「現在、確認された介入はない」という判定自体の根拠",
+   "steps": [
+    {
+     "k": "判定規則",
+     "v": "財務省の公表・談話前に「介入確定」と表示することは会則第36条で禁止。公的確認前はSUSPECTED止まり（第35条）"
+    },
+    {
+     "k": "現在の状態",
+     "v": "SUSPECTEDイベントなし。直近の確認済み事象はE6（財務省談話 2026-08-03）"
+    },
+    {
+     "k": "次の公式検証点",
+     "v": "2026-08-28 財務省月次（E6額確定）→ 2026年9月 日銀会合（PR-001の事前登録済み基準で+α判定）"
+    },
+    {
+     "k": "イベント台帳",
+     "v": "状態遷移は履歴として保存（第23条）",
+     "links": [
+      {
+       "t": "events",
+       "u": "../events.html"
+      }
+     ]
+    }
+   ],
+   "chain_hashes": {
+    "source_raw": [
+     {
+      "path": "data/events/events.json",
+      "sha256": "78a5b2cbd8ce12dda28adbf0c28271986f0ab89c38701aa34165f583823db6a4"
+     }
+    ],
+    "transform": [
+     {
+      "path": "scripts/build_public.py",
+      "sha256": "0957decfa2d7f38a30c9faee1b7b5356ccd59d8279dbeee2a14809799f608592",
+      "git_commit": null
+     }
+    ],
+    "output": {
+     "path": "site/data/events.json",
+     "sha256": "5304142f3974efa475c4e30ce5e00a8553461f68db3a80d1d9a91e69cec90d21"
+    }
+   }
+  },
+  "ratecheck": {
+   "title": "RATE CHECK MONITOR",
+   "state": "UNVERIFIED",
+   "note": "「確認されたレートチェックなし」という現在判定の根拠と、証拠上限の制度的構造（N-003）",
+   "steps": [
+    {
+     "k": "定義",
+     "v": "介入前提の注文でレートを照会し取消す行為。実弾の直前に位置する最も強いシグナル（N-003 §1）"
+    },
+    {
+     "k": "表示規則",
+     "v": "実施情報はSUSPECTED/UNVERIFIED止まり。日本側は現行開示制度下で通常の事後確認経路がなく、UNVERIFIEDが実務上の上限（第35条・N-003 §3）"
+    },
+    {
+     "k": "昇格経路（例外・米側のみ）",
+     "v": "FOMC議事要旨またはNY連銀四半期報告の公表",
+     "links": [
+      {
+       "t": "FOMC議事要旨 2026-01",
+       "u": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260128.htm"
+      },
+      {
+       "t": "NY連銀 Q1報告",
+       "u": "https://www.newyorkfed.org/medialibrary/media/newsevents/news/markets/2026/q1-2026-fx-quarterly-report.pdf"
+      }
+     ]
+    },
+    {
+     "k": "空振り定義（第19条固定）",
+     "v": "報道日から10営業日以内に財務省確定介入なし。観測1/4は選択済み標本の記述値であり母集団推定ではない（N-003 §5-四）"
+    },
+    {
+     "k": "根拠文書",
+     "v": "N-003 v1.1（claims 8件・Layer A PASS）",
+     "links": [
+      {
+       "t": "N-003",
+       "u": "../docs/n-003.md"
+      },
+      {
+       "t": "Claim Manifest",
+       "u": "../data/verify/N-003-claims.json"
+      }
+     ]
+    },
+    {
+     "k": "この表示JSONのSHA-256",
+     "v": "481347503d512212d045d3886703c8bac04a163d6de3b6b42f158524e341302f"
+    }
+   ],
+   "chain_hashes": {
+    "source_raw": [
+     {
+      "path": "data/events/events.json",
+      "sha256": "78a5b2cbd8ce12dda28adbf0c28271986f0ab89c38701aa34165f583823db6a4"
+     },
+     {
+      "path": "research/N-003/note.md",
+      "sha256": "79619a1286b4c48e1eb4c0a28318c48f90c0bc4cca4771756e852704b8274212"
+     }
+    ],
+    "transform": [
+     {
+      "path": "scripts/build_public.py",
+      "sha256": "0957decfa2d7f38a30c9faee1b7b5356ccd59d8279dbeee2a14809799f608592",
+      "git_commit": null
+     }
+    ],
+    "output": {
+     "path": "site/data/ratecheck.json",
+     "sha256": "481347503d512212d045d3886703c8bac04a163d6de3b6b42f158524e341302f"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,248 @@
+{
+ "title": "為替介入エピソード要約 2022-2026",
+ "as_of": "2026-08-08T17:55:38+09:00",
+ "note": "WP-001 §3.2と同一粒度の要約。完全版（episodes_v1.0.json）も無料公開。Data Package（準備中）は配送形態。",
+ "episodes": [
+  {
+   "id": "E1",
+   "span": {
+    "start": "2022-09-22",
+    "end": "2022-09-22"
+   },
+   "cost_trillion": 2.84,
+   "cost_state": "FACT",
+   "impact_yen": 5.55,
+   "half_life_bd": 1,
+   "censored": false,
+   "observed_bd": null,
+   "threshold_50pct": 143.126,
+   "alpha_class": "indeterminate",
+   "days": [
+    {
+     "date": "2022-09-22",
+     "amount_oku_jpy": 28382,
+     "state": "FACT",
+     "source": "財務省"
+    }
+   ],
+   "efficiency": {
+    "value": 0.51,
+    "state": "FACT"
+   },
+   "pre_speed": {
+    "value": 0.42,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "desc": "2022-09-22。24年ぶりの円買い介入。単日2.84兆円（1991年以降最大・当時）"
+  },
+  {
+   "id": "E2",
+   "span": {
+    "start": "2022-10-21",
+    "end": "2022-10-24"
+   },
+   "cost_trillion": 6.35,
+   "cost_state": "FACT",
+   "impact_yen": 6.41,
+   "half_life_bd": 5,
+   "censored": false,
+   "observed_bd": null,
+   "threshold_50pct": 148.74,
+   "alpha_class": "no_alpha",
+   "days": [
+    {
+     "date": "2022-10-21",
+     "amount_oku_jpy": 56202,
+     "state": "FACT",
+     "source": "財務省"
+    },
+    {
+     "date": "2022-10-24",
+     "amount_oku_jpy": 7296,
+     "state": "FACT",
+     "source": "財務省"
+    }
+   ],
+   "efficiency": {
+    "value": 0.99,
+    "state": "FACT"
+   },
+   "pre_speed": {
+    "value": 0.35,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "desc": "2022-10-21/24。事前公表のない執行（月末公表で確定）。計6.35兆円"
+  },
+  {
+   "id": "E3",
+   "span": {
+    "start": "2024-04-29",
+    "end": "2024-05-01"
+   },
+   "cost_trillion": 9.79,
+   "cost_state": "FACT",
+   "impact_yen": 7.23,
+   "half_life_bd": 15,
+   "censored": false,
+   "observed_bd": null,
+   "threshold_50pct": 156.618,
+   "alpha_class": "alpha_single",
+   "days": [
+    {
+     "date": "2024-04-29",
+     "amount_oku_jpy": 59185,
+     "state": "FACT",
+     "source": "財務省"
+    },
+    {
+     "date": "2024-05-01",
+     "amount_oku_jpy": 38700,
+     "state": "FACT",
+     "source": "財務省"
+    }
+   ],
+   "efficiency": {
+    "value": 1.35,
+    "state": "FACT"
+   },
+   "pre_speed": {
+    "value": 0.88,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "desc": "2024-04-29/05-01。単日5.92兆円（当時最大）を含む計9.79兆円"
+  },
+  {
+   "id": "E4",
+   "span": {
+    "start": "2024-07-11",
+    "end": "2024-07-12"
+   },
+   "cost_trillion": 5.53,
+   "cost_state": "FACT",
+   "impact_yen": 4.4,
+   "half_life_bd": 431,
+   "censored": false,
+   "observed_bd": null,
+   "threshold_50pct": 159.562,
+   "alpha_class": "alpha_triple",
+   "days": [
+    {
+     "date": "2024-07-11",
+     "amount_oku_jpy": 31678,
+     "state": "FACT",
+     "source": "財務省"
+    },
+    {
+     "date": "2024-07-12",
+     "amount_oku_jpy": 23670,
+     "state": "FACT",
+     "source": "財務省"
+    }
+   ],
+   "efficiency": {
+    "value": 1.26,
+    "state": "FACT"
+   },
+   "pre_speed": {
+    "value": 0.34,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "desc": "2024-07-11/12。計5.53兆円。半減期431営業日は全エピソード中最長"
+  },
+  {
+   "id": "E5",
+   "span": {
+    "start": "2026-04-30",
+    "end": "2026-05-06"
+   },
+   "cost_trillion": 11.73,
+   "cost_state": "FACT",
+   "impact_yen": 5.69,
+   "half_life_bd": 5,
+   "censored": false,
+   "observed_bd": null,
+   "threshold_50pct": 157.879,
+   "alpha_class": "no_alpha",
+   "days": [
+    {
+     "date": "2026-04-30",
+     "amount_oku_jpy": 62787,
+     "state": "FACT",
+     "source": "財務省 2026-08-07公表"
+    },
+    {
+     "date": "2026-05-04",
+     "amount_oku_jpy": 7802,
+     "state": "FACT",
+     "source": "財務省 同上"
+    },
+    {
+     "date": "2026-05-06",
+     "amount_oku_jpy": 46759,
+     "state": "FACT",
+     "source": "財務省 同上"
+    }
+   ],
+   "efficiency": {
+    "value": 2.06,
+    "state": "FACT"
+   },
+   "pre_speed": {
+    "value": 0.38,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "desc": "2026-04-30〜05-06。円買いとして過去最大規模の局面（計11.73兆円）"
+  },
+  {
+   "id": "E6",
+   "span": {
+    "start": "2026-07-30",
+    "end": "2026-08-03"
+   },
+   "cost_trillion": 12.7,
+   "cost_state": "ESTIMATE",
+   "impact_yen": 8.51,
+   "half_life_bd": null,
+   "censored": true,
+   "observed_bd": 5,
+   "threshold_50pct": 159.483,
+   "alpha_class": "in_progress",
+   "days": [
+    {
+     "date": "2026-07-30",
+     "amount_oku_jpy": 65000,
+     "state": "ESTIMATE",
+     "source": "報道推計（日銀当座預金 財政等要因）"
+    },
+    {
+     "date": "2026-07-31",
+     "amount_oku_jpy": 52000,
+     "state": "ESTIMATE",
+     "source": "報道推計（同上）"
+    },
+    {
+     "date": "2026-08-03",
+     "amount_oku_jpy": 10000,
+     "state": "ESTIMATE",
+     "source": "報道推計（同上）"
+    }
+   ],
+   "efficiency": {
+    "value": 1.49,
+    "state": "ESTIMATE"
+   },
+   "pre_speed": {
+    "value": 0.17,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "desc": "2026-07-30〜08-03。日米協調（1998年以来）。進行中・額は推計"
+  }
+ ],
+ "generated_at": "2026-08-11T16:13+09:00"
+}

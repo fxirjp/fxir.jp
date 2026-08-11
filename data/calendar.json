@@ -1,0 +1,359 @@
+{
+ "title": "FXIR Verification & Release Calendar",
+ "note": "三層構造。kind=resolution は当研究所の主張（ESTIMATE/UNVERIFIED/HYPOTHESIS）の決着日。kind=release は当局の公表日。recurring は規則ベースの反復。certainty は scheduled（当局が日付を公表済み）／convention（慣例・実測パターンからの推定）／rule（規則のみ・具体日は未確定）。本カレンダーは公表スケジュールの記録であり、介入の発生を予測するものではない。 同一予定が日付つきエントリと規則の双方に該当する場合、dedupe_key により日付つきを優先して表示する。",
+ "entries": [
+  {
+   "kind": "release",
+   "date": "2026-08-10",
+   "time_jst": "08:50",
+   "label": "日銀 金融政策決定会合における主な意見（7月30・31日会合分）",
+   "source": "日本銀行 公表予定（2026-08-07更新）",
+   "source_url": "https://www.boj.or.jp/about/calendar/index.htm",
+   "affects": [
+    "detector_suppression_window",
+    "alpha3_confound_note",
+    "context"
+   ],
+   "note": "E6の観測継続中に発生する定期イベント。半減期・+α判定基準は不変（PR-001凍結）。同時刻帯にRV20等が反応した場合は交絡として注記する｜ 結果（8/10確認・一次）: 予定通り8:50公表。介入・協調介入への直接言及なし。為替は『両方向』と中立。RV20等の顕著な交絡反応なし",
+   "certainty": "scheduled"
+  },
+  {
+   "kind": "release",
+   "date": "2026-08-13",
+   "time_jst": "08:50",
+   "label": "企業物価指数（2026年7月分）",
+   "source": "日本銀行 公表予定（2026-08-07更新）",
+   "source_url": "https://www.boj.or.jp/about/calendar/index.htm",
+   "affects": [
+    "detector_suppression_window",
+    "context"
+   ],
+   "note": "円安→輸入物価の転嫁経路を示す月次系列。以後は毎月中旬・8:50（BOJ公表予定に従い都度確定）",
+   "certainty": "scheduled"
+  },
+  {
+   "kind": "release",
+   "date": "2026-08-19",
+   "approx": true,
+   "time_jst": "（米東部時間14:00）",
+   "label": "FOMC議事要旨（7月28-29日会合分）",
+   "source": "FRB（会合3週間後の慣例・確報で精密化）",
+   "source_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+   "affects": [
+    "detector_suppression_window",
+    "context"
+   ],
+   "note": "E6直前の会合。米側の為替・レートチェック言及があれば米側事実の格上げ材料（N-003 RC-3前例）",
+   "certainty": "scheduled"
+  },
+  {
+   "kind": "release",
+   "date": "2026-08-19",
+   "approx": true,
+   "certainty": "convention",
+   "source": "日本銀行（財務大臣公示）",
+   "label": "基準外国為替相場 令和8年9月適用分の公示",
+   "note": "SPEC-KIJUN v0.1 による復元値は162円【復元値】。公示日は17〜20日頃（実測パターン）",
+   "dedupe_key": "kijun-koji"
+  },
+  {
+   "kind": "resolution",
+   "date": "2026-08-28",
+   "approx": false,
+   "source": "財務省 月次介入額公表",
+   "resolves": [
+    {
+     "target": "E6 Cost",
+     "from": "ESTIMATE",
+     "to": "CONFIRMED"
+    },
+    {
+     "target": "N-001（推計乖離記録）",
+     "from": "PLANNED",
+     "to": "公開"
+    },
+    {
+     "target": "PR-002 ILC分母",
+     "from": "E5基準",
+     "to": "E6確定額へ更新"
+    }
+   ],
+   "certainty": "scheduled",
+   "dedupe_key": "mof-monthly"
+  },
+  {
+   "kind": "release",
+   "date": "2026-09-03",
+   "time_jst": "08:50",
+   "label": "日銀 当座預金増減要因（9月見込み）",
+   "source": "日本銀行 公表予定（2026-08-07更新・実測）",
+   "source_url": "https://www.boj.or.jp/about/calendar/index.htm",
+   "affects": [
+    "context"
+   ],
+   "note": "財政等要因の見込み。介入決済の事後観測はN-003 §四の経路",
+   "certainty": "scheduled"
+  },
+  {
+   "kind": "resolution",
+   "date": "2026-09-07",
+   "approx": true,
+   "label": "2026年9月上旬",
+   "source": "財務省 外貨準備等の状況（8月末分）",
+   "source_url": "https://www.mof.go.jp/policy/international_policy/reference/official_reserve_assets/index.htm",
+   "resolves": [
+    {
+     "target": "E6 原資構成（預金取崩し／証券圧縮の別）",
+     "from": "UNVERIFIED",
+     "to": "CONFIRMED"
+    },
+    {
+     "target": "PR-002 H2判定・ILC初回測定",
+     "from": "PREREGISTERED",
+     "to": "判定"
+    }
+   ],
+   "note": "7月末分にはE6が未反映の可能性（決済タイミング・Bloomberg 8/7）。N-004参照。N-004 §2はこの公表で追記改版予定",
+   "certainty": "scheduled",
+   "dedupe_key": "mof-reserves"
+  },
+  {
+   "kind": "resolution",
+   "date": "2026-09-16",
+   "approx": true,
+   "label": "米FOMC（9月中旬）",
+   "source": "FRB 会合日程",
+   "source_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+   "resolves": [
+    {
+     "target": "FIMA上限拡大（ベッセン要請）",
+     "from": "HYPOTHESIS",
+     "to": "判定"
+    }
+   ],
+   "note": "恒久拡大はFOMC投票事項（N-004 §7）。日付は中旬・確報で精密化",
+   "certainty": "scheduled"
+  },
+  {
+   "kind": "resolution",
+   "date": "2026-09-18",
+   "approx": false,
+   "label": "日銀 金融政策決定会合（9/17-18開催・結果公表9/18、総裁会見15:30）",
+   "source": "日本銀行 2026年会合日程（2025-07-31公表）",
+   "source_url": "https://www.boj.or.jp/mopo/mpmsche_minu/m_ref/mref250731a.pdf",
+   "resolves": [
+    {
+     "target": "E6 +α仮説（PR-001）",
+     "from": "HYPOTHESIS",
+     "to": "判定"
+    },
+    {
+     "target": "N-002",
+     "from": "PLANNED",
+     "to": "公開"
+    }
+   ],
+   "certainty": "scheduled"
+  },
+  {
+   "kind": "release",
+   "date": "2026-09-18",
+   "approx": true,
+   "certainty": "convention",
+   "source": "日本銀行（財務大臣公示）",
+   "label": "基準外国為替相場 令和8年10月適用分の公示",
+   "note": "参照月（2026年8月）の確定後に復元値を算出する",
+   "dedupe_key": "kijun-koji"
+  },
+  {
+   "kind": "release",
+   "date": "2026-10-01",
+   "time_jst": "08:50",
+   "label": "日銀 主な意見（9月17・18日会合分）",
+   "source": "日本銀行 2026年会合日程（2025-07-31公表）",
+   "source_url": "https://www.boj.or.jp/mopo/mpmsche_minu/m_ref/mref250731a.pdf",
+   "affects": [
+    "detector_suppression_window",
+    "alpha3_confound_note",
+    "context"
+   ],
+   "certainty": "scheduled"
+  },
+  {
+   "kind": "resolution",
+   "date": "2026-10-31",
+   "approx": true,
+   "label": "2026年10月下旬",
+   "source": "NY連銀 Q3 四半期FX報告",
+   "resolves": [
+    {
+     "target": "RC-4 米側実施",
+     "from": "UNVERIFIED",
+     "to": "CONFIRMED（見込み）"
+    },
+    {
+     "target": "E6 米国側介入額",
+     "from": "UNVERIFIED",
+     "to": "CONFIRMED（見込み）"
+    },
+    {
+     "target": "PR-002 経路表（米側欄）",
+     "from": "UNVERIFIED",
+     "to": "確定"
+    }
+   ],
+   "certainty": "scheduled",
+   "dedupe_key": "nyfed-q"
+  },
+  {
+   "kind": "resolution",
+   "date": "2026-11-10",
+   "approx": true,
+   "label": "2026年11月上旬",
+   "source": "財務省 四半期 日次内訳公表",
+   "resolves": [
+    {
+     "target": "E6 日別実施額",
+     "from": "ESTIMATE",
+     "to": "CONFIRMED"
+    }
+   ],
+   "certainty": "scheduled"
+  }
+ ],
+ "recurring": [
+  {
+   "label": "日銀 当座預金増減要因（当日見込み・翌営業日実績）",
+   "schedule": "毎営業日 朝",
+   "rule": {
+    "freq": "businessday"
+   },
+   "certainty": "rule",
+   "kind": "release",
+   "source": "日本銀行",
+   "purpose": "財政等要因による介入決済の事後確認（N-003・SPEC-DETECTOR入力）",
+   "caveat": "祝日は除外していない。表示は目安"
+  },
+  {
+   "label": "FRB H.4.1（連銀バランスシート週報）",
+   "schedule": "毎週木曜 16:30 ET",
+   "rule": {
+    "freq": "weekly",
+    "byday": 4
+   },
+   "certainty": "rule",
+   "kind": "release",
+   "source": "FRB",
+   "purpose": "海外公的勘定・FIMAレポ上界の週次監視（SPEC-H41）"
+  },
+  {
+   "label": "CFTC 建玉明細（COT）",
+   "schedule": "毎週金曜 15:30 ET（火曜時点）",
+   "rule": {
+    "freq": "weekly",
+    "byday": 5
+   },
+   "certainty": "rule",
+   "kind": "release",
+   "source": "CFTC",
+   "purpose": "円ネットポジションの週次監視（SPEC-CFTC）"
+  },
+  {
+   "label": "財務省 外国為替平衡操作の実施状況（月次総額）",
+   "schedule": "毎月末頃",
+   "rule": {
+    "freq": "monthly",
+    "approx_day": 28
+   },
+   "certainty": "convention",
+   "kind": "release",
+   "source": "財務省",
+   "purpose": "介入額のESTIMATE→CONFIRMED昇格",
+   "caveat": "公表日は月により前後する",
+   "dedupe_key": "mof-monthly"
+  },
+  {
+   "label": "財務省 外貨準備等の状況（前月末現在）",
+   "schedule": "毎月上旬",
+   "rule": {
+    "freq": "monthly",
+    "approx_day": 7
+   },
+   "certainty": "convention",
+   "kind": "release",
+   "source": "財務省",
+   "purpose": "外貨・証券・預金・金の残高（N-004残弾／WP-004）",
+   "caveat": "令和8年6月末分は2026-07-07公表（実測）",
+   "dedupe_key": "mof-reserves"
+  },
+  {
+   "label": "財務大臣公示 基準外国為替相場（翌月適用分）",
+   "schedule": "毎月17〜20日頃",
+   "rule": {
+    "freq": "monthly",
+    "approx_day": 19
+   },
+   "certainty": "convention",
+   "kind": "release",
+   "source": "日本銀行（財務大臣公示）",
+   "purpose": "外為特会の換算価額。SPEC-KIJUNの照合日",
+   "caveat": "実測: 5月分=4/20, 6月分=5/20, 7月分=6/19, 8月分=7/17",
+   "dedupe_key": "kijun-koji"
+  },
+  {
+   "label": "米雇用統計（BLS 雇用者数）",
+   "schedule": "原則 毎月第1金曜 8:30 ET",
+   "rule": {
+    "freq": "monthly",
+    "nth_weekday": [
+     1,
+     5
+    ]
+   },
+   "certainty": "convention",
+   "kind": "release",
+   "source": "BLS",
+   "purpose": "マクロ起因ショックの観測（N-005 NX-POP）"
+  },
+  {
+   "label": "米消費者物価指数（CPI）",
+   "schedule": "毎月中旬 8:30 ET",
+   "rule": {
+    "freq": "monthly",
+    "approx_day": 12
+   },
+   "certainty": "convention",
+   "kind": "release",
+   "source": "BLS",
+   "purpose": "同上",
+   "caveat": "公表日は月により前後する"
+  },
+  {
+   "label": "NY連銀 四半期為替操作報告",
+   "schedule": "四半期毎（翌四半期の月末頃）",
+   "rule": {
+    "freq": "quarterly",
+    "approx_month_offset": 1,
+    "approx_day": 30
+   },
+   "certainty": "convention",
+   "kind": "release",
+   "source": "NY連銀",
+   "purpose": "米側介入額・レートチェックの一次資料化（N-003 §3）",
+   "dedupe_key": "nyfed-q"
+  },
+  {
+   "label": "米財務省 為替政策報告書",
+   "schedule": "半期（例年4月頃・10月頃）",
+   "rule": {
+    "freq": "semiannual"
+   },
+   "certainty": "convention",
+   "kind": "release",
+   "source": "米財務省",
+   "purpose": "為替政策の公式見解",
+   "caveat": "公表時期は年により大きく前後する"
+  }
+ ],
+ "generated_at": "2026-08-10T00:00:00+09:00"
+}

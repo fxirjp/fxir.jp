@@ -1,0 +1,12 @@
+{
+ "report_date": "2026-08-04",
+ "source": "CFTC (Legacy/TFF Futures Only)",
+ "state": "FACT",
+ "noncomm_net": -45473,
+ "lev_net": -60825,
+ "am_net": -42422,
+ "oi": 419393,
+ "wow": null,
+ "history_note": "WoW・52週パーセンタイルは履歴蓄積後に表示（現在n=1）",
+ "generated_at": "2026-08-09T12:25:14+09:00"
+}

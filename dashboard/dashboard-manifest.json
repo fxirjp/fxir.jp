@@ -1,0 +1,16 @@
+{
+ "dashboard_version": "0.1.0",
+ "source_commit": null,
+ "commit_note": "Actionsがcheckoutしたsource treeのcommit。未確定時はnull（第15条）。値はfull 40桁で記録し、表示のみ7桁に短縮する。生成物（本manifest含む）はその子commitに収録される（source commit → build artifact → deploy）",
+ "index_sha256": "0304dc5c9e26a190813b988d28d99762563b4188ff92e1597c1dd3c4fbdda9b7",
+ "inputs": {
+  "cftc_latest.json": "31584a3925da3818c3868e19cca884360c2130f06f5bf2fb2d33e7f08232fa1d",
+  "h41_latest.json": "0c07e48567b7132243ab8c4ec04a2c699ed0afa239e2bc4d223910a9c8cd3f25",
+  "episodes_summary.json": "9c19451617d5d082a8e55690e1e86f0b862dd56b7c2ee76139f3a69da05d8151",
+  "events.json": "5304142f3974efa475c4e30ce5e00a8553461f68db3a80d1d9a91e69cec90d21",
+  "status.json": "0c9d20520b3c038fb05bd6d5722a1f74fbecd6375e4e7dab562eec8df63bbed1",
+  "ratecheck.json": "481347503d512212d045d3886703c8bac04a163d6de3b6b42f158524e341302f",
+  "provenance.json": "c43723718802819ad3cb9ae7676da4c0592357aa59ba233dab982144d124b342"
+ },
+ "generated_at": "2026-08-09T12:25:14+09:00"
+}

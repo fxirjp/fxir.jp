@@ -1,0 +1,445 @@
+{
+ "title": "為替介入エピソードDB 2022-2026",
+ "version": "1.0",
+ "generated": "2026-08-08T15:39:14+09:00",
+ "method_ref": [
+  "WP-001 §2.2-2.3",
+  "PR-001 §2"
+ ],
+ "price_series": {
+  "source": "OANDA USD/JPY 1D (TradingView経由)",
+  "tz": "JST",
+  "coverage": "2002-05-06〜2026-08-07",
+  "sha256": "1fdae032f3f95f9cb9dbcdb30f3dd80cc2163142be767bc6f278d50697e2879b"
+ },
+ "rates_series": {
+  "source": "FRED DGS2",
+  "fetched": "2026-08-08 JST"
+ },
+ "spearman_audit_e1_e5": {
+  "直前速度": {
+   "rho": -0.359,
+   "p": 0.553,
+   "paper_rho": -0.359,
+   "paper_p": 0.553
+  },
+  "Cost": {
+   "rho": 0.205,
+   "p": 0.741,
+   "paper_rho": 0.205,
+   "paper_p": 0.741
+  },
+  "効率": {
+   "rho": 0.462,
+   "p": 0.434,
+   "paper_rho": 0.462,
+   "paper_p": 0.434
+  },
+  "Impact": {
+   "rho": -0.051,
+   "p": 0.935,
+   "paper_rho": -0.051,
+   "paper_p": 0.935
+  }
+ },
+ "episodes": [
+  {
+   "id": "E1",
+   "days": [
+    {
+     "date": "2022-09-22",
+     "amount_oku_jpy": 28382,
+     "state": "FACT",
+     "source": "財務省"
+    }
+   ],
+   "span": {
+    "start": "2022-09-22",
+    "end": "2022-09-22"
+   },
+   "cost_trillion_jpy": {
+    "value": 2.84,
+    "state": "FACT",
+    "note": null
+   },
+   "impact_yen": {
+    "value": 5.55,
+    "state": "FACT",
+    "method": "WP-001 §2.3"
+   },
+   "efficiency": {
+    "value": 0.51,
+    "state": "FACT"
+   },
+   "pre_speed": {
+    "value": 0.42,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "threshold_50pct": 143.125,
+   "half_life_bd": {
+    "value": 1,
+    "censored": false,
+    "observed_bd": null,
+    "attain_date": "2022-09-23",
+    "state": "FACT"
+   },
+   "alpha": {
+    "c1_boj_hike_25bp": {
+     "fired": false
+    },
+    "c2_dgs2_minus50bp": {
+     "fired": false,
+     "ref": 4.11,
+     "window_min": null
+    },
+    "c3_rv20_p90": {
+     "fired": false,
+     "confounded_by_intervention": false
+    },
+    "classification": "indeterminate",
+    "method": "PR-001 §2 運用細則"
+   }
+  },
+  {
+   "id": "E2",
+   "days": [
+    {
+     "date": "2022-10-21",
+     "amount_oku_jpy": 56202,
+     "state": "FACT",
+     "source": "財務省"
+    },
+    {
+     "date": "2022-10-24",
+     "amount_oku_jpy": 7296,
+     "state": "FACT",
+     "source": "財務省"
+    }
+   ],
+   "span": {
+    "start": "2022-10-21",
+    "end": "2022-10-24"
+   },
+   "cost_trillion_jpy": {
+    "value": 6.35,
+    "state": "FACT",
+    "note": null
+   },
+   "impact_yen": {
+    "value": 6.41,
+    "state": "FACT",
+    "method": "WP-001 §2.3"
+   },
+   "efficiency": {
+    "value": 0.99,
+    "state": "FACT"
+   },
+   "pre_speed": {
+    "value": 0.35,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "threshold_50pct": 148.739,
+   "half_life_bd": {
+    "value": 5,
+    "censored": false,
+    "observed_bd": null,
+    "attain_date": "2022-10-31",
+    "state": "FACT"
+   },
+   "alpha": {
+    "c1_boj_hike_25bp": {
+     "fired": false
+    },
+    "c2_dgs2_minus50bp": {
+     "fired": false,
+     "ref": 4.5,
+     "window_min": 4.3
+    },
+    "c3_rv20_p90": {
+     "fired": false,
+     "confounded_by_intervention": false
+    },
+    "classification": "no_alpha",
+    "method": "PR-001 §2 運用細則"
+   }
+  },
+  {
+   "id": "E3",
+   "days": [
+    {
+     "date": "2024-04-29",
+     "amount_oku_jpy": 59185,
+     "state": "FACT",
+     "source": "財務省"
+    },
+    {
+     "date": "2024-05-01",
+     "amount_oku_jpy": 38700,
+     "state": "FACT",
+     "source": "財務省"
+    }
+   ],
+   "span": {
+    "start": "2024-04-29",
+    "end": "2024-05-01"
+   },
+   "cost_trillion_jpy": {
+    "value": 9.79,
+    "state": "FACT",
+    "note": null
+   },
+   "impact_yen": {
+    "value": 7.23,
+    "state": "FACT",
+    "method": "WP-001 §2.3"
+   },
+   "efficiency": {
+    "value": 1.35,
+    "state": "FACT"
+   },
+   "pre_speed": {
+    "value": 0.88,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "threshold_50pct": 156.617,
+   "half_life_bd": {
+    "value": 15,
+    "censored": false,
+    "observed_bd": null,
+    "attain_date": "2024-05-22",
+    "state": "FACT"
+   },
+   "alpha": {
+    "c1_boj_hike_25bp": {
+     "fired": false
+    },
+    "c2_dgs2_minus50bp": {
+     "fired": false,
+     "ref": 4.96,
+     "window_min": 4.73
+    },
+    "c3_rv20_p90": {
+     "fired": true,
+     "date": "2024-05-02",
+     "rv20": 12.5,
+     "confounded_by_intervention": true
+    },
+    "classification": "alpha_single",
+    "method": "PR-001 §2 運用細則"
+   }
+  },
+  {
+   "id": "E4",
+   "days": [
+    {
+     "date": "2024-07-11",
+     "amount_oku_jpy": 31678,
+     "state": "FACT",
+     "source": "財務省"
+    },
+    {
+     "date": "2024-07-12",
+     "amount_oku_jpy": 23670,
+     "state": "FACT",
+     "source": "財務省"
+    }
+   ],
+   "span": {
+    "start": "2024-07-11",
+    "end": "2024-07-12"
+   },
+   "cost_trillion_jpy": {
+    "value": 5.53,
+    "state": "FACT",
+    "note": null
+   },
+   "impact_yen": {
+    "value": 4.4,
+    "state": "FACT",
+    "method": "WP-001 §2.3"
+   },
+   "efficiency": {
+    "value": 1.26,
+    "state": "FACT"
+   },
+   "pre_speed": {
+    "value": 0.34,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "threshold_50pct": 159.564,
+   "half_life_bd": {
+    "value": 431,
+    "censored": false,
+    "observed_bd": null,
+    "attain_date": "2026-03-13",
+    "state": "FACT"
+   },
+   "alpha": {
+    "c1_boj_hike_25bp": {
+     "fired": true,
+     "date": "2024-07-31",
+     "detail": "0.25%へ",
+     "elapsed_bd": 13
+    },
+    "c2_dgs2_minus50bp": {
+     "fired": true,
+     "date": "2024-08-02",
+     "value": 3.88,
+     "ref": 4.45
+    },
+    "c3_rv20_p90": {
+     "fired": true,
+     "date": "2024-08-05",
+     "rv20": 13.0,
+     "confounded_by_intervention": false
+    },
+    "classification": "alpha_triple",
+    "method": "PR-001 §2 運用細則"
+   }
+  },
+  {
+   "id": "E5",
+   "days": [
+    {
+     "date": "2026-04-30",
+     "amount_oku_jpy": 62787,
+     "state": "FACT",
+     "source": "財務省 2026-08-07公表"
+    },
+    {
+     "date": "2026-05-04",
+     "amount_oku_jpy": 7802,
+     "state": "FACT",
+     "source": "財務省 同上"
+    },
+    {
+     "date": "2026-05-06",
+     "amount_oku_jpy": 46759,
+     "state": "FACT",
+     "source": "財務省 同上"
+    }
+   ],
+   "span": {
+    "start": "2026-04-30",
+    "end": "2026-05-06"
+   },
+   "cost_trillion_jpy": {
+    "value": 11.73,
+    "state": "FACT",
+    "note": null
+   },
+   "impact_yen": {
+    "value": 5.69,
+    "state": "FACT",
+    "method": "WP-001 §2.3"
+   },
+   "efficiency": {
+    "value": 2.06,
+    "state": "FACT"
+   },
+   "pre_speed": {
+    "value": 0.38,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "threshold_50pct": 157.877,
+   "half_life_bd": {
+    "value": 5,
+    "censored": false,
+    "observed_bd": null,
+    "attain_date": "2026-05-13",
+    "state": "FACT"
+   },
+   "alpha": {
+    "c1_boj_hike_25bp": {
+     "fired": false
+    },
+    "c2_dgs2_minus50bp": {
+     "fired": false,
+     "ref": 3.87,
+     "window_min": 3.9
+    },
+    "c3_rv20_p90": {
+     "fired": false,
+     "confounded_by_intervention": false
+    },
+    "classification": "no_alpha",
+    "method": "PR-001 §2 運用細則"
+   }
+  },
+  {
+   "id": "E6",
+   "days": [
+    {
+     "date": "2026-07-30",
+     "amount_oku_jpy": 65000,
+     "state": "ESTIMATE",
+     "source": "報道推計（日銀当座預金 財政等要因）"
+    },
+    {
+     "date": "2026-07-31",
+     "amount_oku_jpy": 52000,
+     "state": "ESTIMATE",
+     "source": "報道推計（同上）"
+    },
+    {
+     "date": "2026-08-03",
+     "amount_oku_jpy": 10000,
+     "state": "ESTIMATE",
+     "source": "報道推計（同上）"
+    }
+   ],
+   "span": {
+    "start": "2026-07-30",
+    "end": "2026-08-03"
+   },
+   "cost_trillion_jpy": {
+    "value": 12.7,
+    "state": "ESTIMATE",
+    "note": "2026-08-28 財務省月次公表で確定予定"
+   },
+   "impact_yen": {
+    "value": 8.51,
+    "state": "FACT",
+    "method": "WP-001 §2.3"
+   },
+   "efficiency": {
+    "value": 1.49,
+    "state": "ESTIMATE"
+   },
+   "pre_speed": {
+    "value": 0.17,
+    "state": "FACT",
+    "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
+   },
+   "threshold_50pct": 159.481,
+   "half_life_bd": {
+    "value": null,
+    "censored": true,
+    "observed_bd": 4,
+    "attain_date": null,
+    "state": "FACT"
+   },
+   "alpha": {
+    "c1_boj_hike_25bp": {
+     "fired": false
+    },
+    "c2_dgs2_minus50bp": {
+     "fired": false,
+     "ref": 4.25,
+     "window_min": 4.18
+    },
+    "c3_rv20_p90": {
+     "fired": false,
+     "confounded_by_intervention": false
+    },
+    "classification": "in_progress",
+    "method": "PR-001 §2 運用細則"
+   }
+  }
+ ]
+}

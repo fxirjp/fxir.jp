@@ -1,0 +1,14 @@
+{
+ "observation_date": "2026-08-05",
+ "source": "FRB H.4.1（FRED WLRRAFOIAL / WMTSECL1 / WORAL）",
+ "state": "FACT",
+ "foreign_rrp_usd_mn": 317718.0,
+ "custody_ust_usd_mn": 2631099.0,
+ "d_foreign_rrp": -16757.0,
+ "d_custody_ust": -25534.0,
+ "fima_repo_total_usd_mn": 1.0,
+ "d_fima_repo_total": -2.0,
+ "fima_note": "レポ総額（WORAL・週水準）。FIMAレポはこの内訳のためFIMA使用の上界。0なら未使用が確定（SPEC-H41 v1.1・N-004）",
+ "attribution_note": "全海外公的勘定の合計。日本単独の寄与は識別不能（HYPOTHESIS帰属、SPEC-H41 §2）",
+ "generated_at": "2026-08-09T12:25:14+09:00"
+}

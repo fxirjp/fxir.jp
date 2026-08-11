@@ -1,0 +1,300 @@
+{
+ "document_id": "N-004",
+ "version": "1.0",
+ "document": "research/N-004/note.md",
+ "claims": [
+  {
+   "claim_id": "C-RES-TOTAL",
+   "text": "2026年7月末の外貨準備は1兆2,871億ドル（証券9,273億・預金1,623億）",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-MOF-RES"
+    }
+   ],
+   "values": [
+    {
+     "name": "total",
+     "value": 1287.1,
+     "unit": "十億ドル"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-RES-MAY",
+   "text": "2026年5月末は前月比−771億ドルで統計開始以来最大の減少（E5の痕跡）",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-MOF-RES"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-OBS-0807",
+   "text": "2026-08-07はNFP−2.3万人に対し安値156.666から+1.14円買い戻されて157.805で引けた",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-OANDA-D1"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-FIMA-EST",
+   "text": "FIMAレポは2020-03-31創設・2021-07-28公表で常設化（決議発効7/27）。目的は保有米国債の売却以外のドル調達",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-FED-2020"
+    },
+    {
+     "source_id": "SRC-FED-2021"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-FIMA-APPROVE",
+   "text": "FIMA利用は申請制でFRBが承認・拒否する（自動的権利ではない）",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-FED-FAQ"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-FIMA-RATE",
+   "text": "FIMA翌日物レートはSRF最低応札金利連動で2026-07-29時点3.75%（FF目標レンジ上限）。バックストップ設計",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-FED-IMPL"
+    },
+    {
+     "source_id": "SRC-FED-FAQ"
+    }
+   ],
+   "values": [
+    {
+     "name": "on_rate",
+     "value": 3.75,
+     "unit": "%"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-FIMA-CAP",
+   "text": "取引上限は1カウンターパーティあたり日次600億ドルで、2026-08-08時点で未変更",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-FED-2021"
+    }
+   ],
+   "values": [
+    {
+     "name": "cap",
+     "value": 60,
+     "unit": "十億ドル/日"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-FIMA-REPAY",
+   "text": "FIMAは有担保のドル借入であり返済（買戻し）義務を伴う。資産売却ではない",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-FED-FAQ"
+    },
+    {
+     "source_id": "SRC-FED-2020"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-FIMA-H41",
+   "text": "FIMA残高はH.4.1 Table 1「Repurchase agreements — Foreign official」に計上される",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-FED-H41N"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-FIMA-ZERO",
+   "text": "E6期間を含む直近週のFIMA使用はゼロ（レポ総額1〜3百万ドル・Foreign official行=0の二重確認）",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-FRED-WORAL"
+    },
+    {
+     "source_id": "SRC-FED-H41C"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-TALK-0731",
+   "text": "日米協調の円買い介入は米国東部時間2026-07-31（金）に実施と財務大臣談話が明記",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-MOF-TALK"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-TALK-FIMA",
+   "text": "日本は将来的なFIMAレポ活用を予定と財務大臣談話（8/3）で表明。実際の引出しは未発生",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-MOF-TALK"
+    },
+    {
+     "source_id": "SRC-FED-H41C"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-JOINT-NOFIMA",
+   "text": "2025-09-11の日米財務相共同声明にFIMA・ドル調達協力の文言は存在しない",
+   "status": "FACT",
+   "evidence": [
+    {
+     "source_id": "SRC-TSY-JOINT"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-BESSENT",
+   "text": "米財務長官は2026-08-02 20:40 EDTのX投稿でFIMA上限の拡大を促した。treasury.gov非掲載・FRB公式反応なし",
+   "status": "CONFIRMED",
+   "evidence": [
+    {
+     "source_id": "SRC-X-BESSENT"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-US-EUR",
+   "text": "米側執行がユーロ売り・円買いだったとの情報は報道由来であり一次未確認（NY連銀Q3報告待ち）",
+   "status": "UNVERIFIED",
+   "evidence": [
+    {
+     "source_id": "SRC-X-BESSENT"
+    }
+   ]
+  },
+  {
+   "claim_id": "C-CAP-UP",
+   "text": "FIMA上限は拡大される（決着: 2026年9月中旬FOMC）",
+   "status": "HYPOTHESIS",
+   "evidence": [
+    {
+     "source_id": "SRC-X-BESSENT"
+    }
+   ],
+   "falsification_condition": "2026年9月中旬FOMCの実施ノートおよび常設FIMA決議改定に上限変更の記載が無ければ、当該会合時点で棄却"
+  },
+  {
+   "claim_id": "C-MC",
+   "text": "介入の制約は残高でなく限界費用である（代理指標: 預金比率・FIMA行・custody・特会繰入。反証条件は本文§8）",
+   "status": "HYPOTHESIS",
+   "evidence": [
+    {
+     "source_id": "SRC-MOF-RES"
+    },
+    {
+     "source_id": "SRC-FRED-WORAL"
+    }
+   ],
+   "falsification_condition": "代理指標（預金比率低下・FIMA行の非ゼロ化・custody圧縮の進行）が悪化しても、介入の頻度・規模・効果半減期に系統的変化が観測されない場合は棄却（本文§8）"
+  }
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-MOF-RES",
+   "title": "財務省 外貨準備等の状況（月次）",
+   "url": "https://www.mof.go.jp/policy/international_policy/reference/official_reserve_assets/index.htm",
+   "tier": 1
+  },
+  {
+   "source_id": "SRC-MOF-TALK",
+   "title": "片山財務大臣談話（2026-08-03）",
+   "url": "https://www.mof.go.jp/public_relations/statement/other/20260803072806.html",
+   "tier": 1,
+   "note": "自前curl照合済み（FIMA・協調・7/31）"
+  },
+  {
+   "source_id": "SRC-TSY-JOINT",
+   "title": "日米財務大臣共同声明（2025-09-11）",
+   "url": "https://home.treasury.gov/news/press-releases/sb0245",
+   "tier": 1,
+   "note": "自前照合: FIMA言及0件"
+  },
+  {
+   "source_id": "SRC-FED-2020",
+   "title": "FRB FIMA創設声明（2020-03-31）",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200331a.htm",
+   "tier": 1
+  },
+  {
+   "source_id": "SRC-FED-2021",
+   "title": "FRB 常設化声明（2021-07-28）",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210728b.htm",
+   "tier": 1,
+   "note": "自前照合: $60bn per counterparty"
+  },
+  {
+   "source_id": "SRC-FED-FAQ",
+   "title": "FRB FIMA Repo FAQ",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fima-repo-facility-faqs.htm",
+   "tier": 1,
+   "note": "自前照合: approve or deny／backstop"
+  },
+  {
+   "source_id": "SRC-FED-IMPL",
+   "title": "FRB 実施ノート（2026-07-29）",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a1.htm",
+   "tier": 1,
+   "note": "自前照合: SRF 3.75%"
+  },
+  {
+   "source_id": "SRC-FED-H41N",
+   "title": "H.4.1 計上注記（2020-04-09）",
+   "url": "https://www.federalreserve.gov/releases/H41/20200409/H41.TXT",
+   "tier": 1
+  },
+  {
+   "source_id": "SRC-FED-H41C",
+   "title": "H.4.1 直近リリース（2026-08-06公表）",
+   "url": "https://www.federalreserve.gov/releases/h41/current/h41.pdf",
+   "tier": 1
+  },
+  {
+   "source_id": "SRC-FRED-WORAL",
+   "title": "FRED WORAL（レポ総額・週次）",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WORAL",
+   "tier": 2
+  },
+  {
+   "source_id": "SRC-X-BESSENT",
+   "title": "米財務長官X投稿（2026-08-02 20:40 EDT）",
+   "url": "https://x.com/SecScottBessent",
+   "tier": 2,
+   "note": "本人発信だが自前直接照合は未・Reuters/CNBC相互補強"
+  },
+  {
+   "source_id": "SRC-OANDA-D1",
+   "title": "OANDA USD/JPY 日足",
+   "url": "（再配布不可・sha256=1fdae032…）",
+   "tier": 2
+  }
+ ],
+ "calculations": [],
+ "inputs": []
+}

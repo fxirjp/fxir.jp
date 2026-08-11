@@ -1,0 +1,104 @@
+{
+ "title": "MOF Watch — 財務省の公表と証拠状態",
+ "note": "財務省が公表する介入・外貨準備・公示相場の状態を一覧化する。数値には必ず証拠状態を付す。介入の発生を予測するものではない。",
+ "items": [
+  {
+   "id": "mof-monthly",
+   "label": "外国為替平衡操作（月次総額）",
+   "latest": {
+    "period": "2026-04-28〜2026-05-27",
+    "value": "11兆7,349億円",
+    "state": "FACT",
+    "source": "財務省",
+    "published": "2026-05-29"
+   },
+   "pending": {
+    "period": "2026-07-29〜2026-08-27",
+    "value": "約12.7兆円（E6報道推計）",
+    "state": "ESTIMATE",
+    "due": "2026-08-28",
+    "resolves_to": "CONFIRMED",
+    "note": "E6（7/30・7/31・8/3）を含む。8/28で確定するのは乖離の有無のみで、日別の帰属は11月の四半期内訳を待つ"
+   }
+  },
+  {
+   "id": "mof-quarterly",
+   "label": "外国為替平衡操作（四半期・日次内訳）",
+   "latest": {
+    "period": "2026年4〜6月期",
+    "value": "4/30・5/4・5/6 の日次額を公表済",
+    "state": "FACT",
+    "source": "財務省",
+    "published": "2026-08-07"
+   },
+   "pending": {
+    "period": "2026年7〜9月期",
+    "value": "未公表",
+    "state": "UNVERIFIED",
+    "due": "2026-11-10",
+    "resolves_to": "FACT",
+    "note": "E6の日別確定。8/7の介入有無（PR-002①）もここで決着する"
+   }
+  },
+  {
+   "id": "mof-reserves",
+   "label": "外貨準備等の状況",
+   "latest": {
+    "period": "2026年6月末",
+    "value": "1兆2,874.76億ドル（うち外貨 1兆905.15億ドル）",
+    "state": "FACT",
+    "source": "財務省",
+    "published": "2026-07-07",
+    "detail": "証券 9,285.81億ドル／預金 1,619.34億ドル／金 1,095.05億ドル（27.20百万トロイオンス）"
+   },
+   "pending": {
+    "period": "2026年8月末",
+    "value": "未公表",
+    "state": "UNVERIFIED",
+    "due": "2026-09-07",
+    "resolves_to": "FACT",
+    "note": "E6の原資取崩しが反映される見込み。決済はT+2基準"
+   }
+  },
+  {
+   "id": "kijun",
+   "label": "基準外国為替相場（財務大臣公示）",
+   "latest": {
+    "period": "令和8年8月適用",
+    "value": "1米ドル＝161円",
+    "state": "FACT",
+    "source": "日本銀行（財務大臣公示）",
+    "published": "2026-07-17"
+   },
+   "pending": {
+    "period": "令和8年9月適用",
+    "value": "162円",
+    "state": "ESTIMATE",
+    "due": "2026-08-19",
+    "resolves_to": "FACT",
+    "note": "SPEC-KIJUN v0.1 による復元値【復元値】。較正18件中17件一致・±1円"
+   }
+  },
+  {
+   "id": "gaitame-zaimu",
+   "label": "外国為替資金特別会計 財務書類",
+   "latest": {
+    "period": "令和6年度",
+    "value": "資産191兆3,753億円／資産・負債差額80兆6,754億円",
+    "state": "FACT",
+    "source": "財務省",
+    "published": "2026年1月頃",
+    "detail": "外国為替等売買差益（区分別収支ベース）3,780.02億円。WP-004の主データ"
+   },
+   "pending": {
+    "period": "令和7年度",
+    "value": "未公表",
+    "state": "UNVERIFIED",
+    "due": "2027-01頃",
+    "resolves_to": "FACT",
+    "note": "介入ゼロ年度の対照群として使用予定"
+   }
+  }
+ ],
+ "generated_at": "2026-08-10T00:00:00+09:00"
+}
