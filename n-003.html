@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1F4468">
+<title>N-003 レートチェックの証拠構造（N-003）| 為替介入研究所</title>
+<meta name="description" content="レートチェックの証拠構造。日本側は恒久UNVERIFIED・米側はFOMC議事要旨等でFACT化される非対称。">
+<link rel="canonical" href="https://fxir.jp/n-003.html">
+<link rel="alternate" hreflang="ja" href="https://fxir.jp/n-003.html">
+<link rel="alternate" hreflang="x-default" href="https://fxir.jp/n-003.html">
+<meta property="og:title" content="N-003 レートチェックの証拠構造（N-003）| 為替介入研究所">
+<meta property="og:description" content="レートチェックの証拠構造。日本側は恒久UNVERIFIED・米側はFOMC議事要旨等でFACT化される非対称。">
+<meta property="og:url" content="https://fxir.jp/n-003.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="為替介入研究所">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://fxir.jp/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="為替介入研究所 — Don't trust, verify.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@fxirjp">
+<meta name="twitter:creator" content="@fxirjp">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="shortcut icon" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.__fxirAnalyticsOff = !!(navigator.globalPrivacyControl||navigator.doNotTrack=="1"||window.doNotTrack=="1");
+  if(window.__fxirAnalyticsOff){window['ga-disable-G-VZ89ERDSD6']=true;}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZ89ERDSD6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!window.__fxirAnalyticsOff){gtag('config', 'G-VZ89ERDSD6');}
+</script>
+<style>
+:root{
+  --paper:#FAFBF9; --ink:#181B1F; --ink2:#41474F; --rule:#DCE0DB;
+  --ai:#1F4468; --ai-weak:#EDF1F4;
+  --fact:#1A6E48; --est:#9A6B0B; --hyp:#54499E; --unv:#6B7280;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --min:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --got:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Noto Sans JP",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--got);
+  font-size:16px;line-height:1.85;font-feature-settings:"palt" 1;}
+a{color:var(--ai);text-decoration:none;border-bottom:1px solid rgba(31,68,104,.35)}
+a:hover{border-bottom-color:var(--ai)}
+a:focus-visible{outline:2px solid var(--ai);outline-offset:2px}
+img{max-width:100%;height:auto}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+/* header */
+header{border-bottom:1px solid var(--rule);background:var(--paper);}
+.hd{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{font-family:var(--min);font-weight:700;font-size:19px;letter-spacing:.06em;border:none;color:var(--ink);display:flex;align-items:center;gap:10px}
+.blogo{height:36px;width:36px;display:block}
+.brand small{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.14em;color:var(--ink2);display:block;margin-top:2px}
+nav{display:flex;gap:20px;font-size:13.5px}
+nav a{border:none;color:var(--ink2);padding-bottom:2px}
+.nvm{position:relative}
+.nvm summary{list-style:none;cursor:pointer;font-size:13px;color:var(--ink2);padding:4px 2px}
+.nvm summary::-webkit-details-marker{display:none}
+.nvm[open] summary{color:var(--ink)}
+.nvp{position:absolute;right:0;top:135%;background:var(--paper);border:1px solid var(--rule);padding:12px 16px;display:grid;gap:9px;min-width:160px;z-index:60;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.nvp a{font-size:13px}
+nav a[aria-current]{color:var(--ink);border-bottom:2px solid var(--ai)}
+nav a:hover{color:var(--ink)}
+/* hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.28em;color:var(--ai);margin-bottom:22px}
+h1.site{font-family:var(--min);font-weight:700;font-size:clamp(30px,5.4vw,44px);letter-spacing:.05em;line-height:1.35}
+.motto{font-family:var(--mono);font-weight:600;font-size:clamp(21px,4vw,32px);letter-spacing:.01em;margin:26px 0 6px;color:var(--ink)}
+.motto-ja{font-family:var(--min);font-size:15.5px;color:var(--ink2);letter-spacing:.12em}
+.lede{margin-top:26px;max-width:40em;color:var(--ink2);font-size:15.5px}
+/* verify strip (signature) */
+.verify{margin-top:34px;background:#14161A;color:#D7DCD9;border-radius:2px;position:relative;
+  font-family:var(--mono);font-size:12.5px;line-height:1.9;padding:16px 18px;overflow-x:auto;white-space:pre}
+.vcopy{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  color:#8BA3BC;background:transparent;border:1px solid #3A4450;border-radius:2px;padding:3px 9px;cursor:pointer}
+.vcopy:hover{color:#D7DCD9;border-color:#8BA3BC}
+.verify .p{color:#8BA3BC}
+.verify .ok{color:#6FBF95}
+.verify-cap{font-size:12px;color:var(--ink2);margin-top:8px}
+.hero-btns{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.06em;
+  padding:11px 20px;border-radius:2px;border:1.5px solid var(--ai)}
+.btn.pri{background:var(--ai);color:#FAFBF9}
+.btn.pri:hover{background:#173654;border-color:#173654}
+.btn.sec{color:var(--ai);background:transparent}
+/* sections */
+section{padding:52px 0;border-bottom:1px solid var(--rule)}
+.sec-label{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--ai);margin-bottom:18px}
+h2.sec{font-family:var(--min);font-weight:700;font-size:24px;letter-spacing:.06em;margin-bottom:20px}
+.sec-note{font-size:13px;color:var(--ink2)}
+/* principles */
+.prin{display:grid;gap:18px;margin-top:6px}
+.prin .row{border-left:3px solid var(--ai);padding:2px 0 2px 16px}
+.prin .en{font-family:var(--mono);font-weight:600;font-size:16.5px;letter-spacing:.02em}
+.prin .ja{font-size:13.5px;color:var(--ink2);margin-top:2px}
+.prin-sum{margin-top:26px;font-size:14.5px}
+.prin-sum .en{font-family:var(--mono);font-weight:600}
+/* evidence states */
+.states{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:8px}
+.st{border:1px solid var(--rule);border-top:3px solid var(--unv);background:#fff;padding:14px 16px;border-radius:2px}
+.st .tag{font-family:var(--mono);font-weight:700;font-size:12.5px;letter-spacing:.08em}
+.st p{font-size:12.5px;color:var(--ink2);margin-top:6px;line-height:1.75}
+.st.fact{border-top-color:var(--fact)} .st.fact .tag{color:var(--fact)}
+.st.est{border-top-color:var(--est)} .st.est .tag{color:var(--est)}
+.st.hyp{border-top-color:var(--hyp)} .st.hyp .tag{color:var(--hyp)}
+.st.unv{border-top-color:var(--unv)} .st.unv .tag{color:var(--unv)}
+.chip{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;
+  letter-spacing:.06em;padding:1px 7px;border-radius:2px;vertical-align:1px}
+.chip.fact{color:var(--fact);background:rgba(26,110,72,.10)}
+.chip.est{color:var(--est);background:rgba(154,107,11,.12)}
+.chip.hyp{color:var(--hyp);background:rgba(84,73,158,.10)}
+.chip.unv{color:var(--unv);background:rgba(107,114,128,.12)}
+/* research card */
+.wp{border:1px solid var(--rule);background:#fff;border-radius:2px;padding:22px 24px;margin-top:6px}
+.wp .id{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--ai)}
+.wp h3{font-family:var(--min);font-weight:700;font-size:19.5px;letter-spacing:.04em;margin:8px 0 4px}
+.wp .sub{font-size:13px;color:var(--ink2)}
+.wp .abst{font-size:14px;color:var(--ink2);margin-top:14px;max-width:44em}
+.wp .links{margin-top:16px;font-size:13.5px;display:flex;flex-wrap:wrap;gap:18px}
+/* half-life strip */
+.hl{margin-top:24px}
+.hl-title{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--ink2);margin-bottom:10px}
+.hl-row{display:grid;grid-template-columns:44px 1fr 118px;align-items:center;gap:10px;margin:7px 0}
+.hl-ep{font-family:var(--mono);font-size:12px;color:var(--ink2)}
+.hl-val{font-family:var(--mono);font-size:12px;color:var(--ink2)}
+.hl-val{text-align:right}
+.hl-track{height:12px;background:var(--ai-weak);border-radius:1px;position:relative}
+.hl-bar{position:absolute;inset:0 auto 0 0;background:var(--ai);border-radius:1px}
+.hl-bar.cens{background:repeating-linear-gradient(135deg,#9AA6B0 0 5px,transparent 5px 10px);border:1px dashed #9AA6B0}
+.hl-cap{font-size:11.5px;color:var(--ink2);margin-top:10px}
+/* data sources */
+.src{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px 26px;
+  font-family:var(--mono);font-size:12.5px;line-height:2.15;color:var(--ink2)}
+.src b{color:var(--ink);font-weight:600}
+/* quote */
+.close-q{padding:60px 0;text-align:center;border-bottom:1px solid var(--rule)}
+.close-q .ja{font-family:var(--min);font-size:clamp(17px,3vw,21px);letter-spacing:.08em;line-height:2.1}
+.close-q .en{font-family:var(--mono);font-size:12px;color:var(--ink2);margin-top:16px;letter-spacing:.03em}
+/* article (md pages) */
+article{padding:56px 0}
+article .doc-head{margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--rule)}
+article .doc-id{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--ai);margin-bottom:10px}
+article h1{font-family:var(--min);font-weight:700;font-size:clamp(24px,4.4vw,32px);letter-spacing:.05em;line-height:1.5}
+article .doc-meta{font-size:13px;color:var(--ink2);margin-top:12px}
+.canon{margin-top:16px;background:var(--ai-weak);border:1px solid var(--rule);border-radius:2px;
+  padding:12px 14px;font-size:12.5px;color:var(--ink2)}
+.canon .h{font-family:var(--mono);font-size:11px;word-break:break-all;color:var(--ink);display:block;margin-top:4px}
+article h2{font-family:var(--min);font-weight:700;font-size:21px;letter-spacing:.05em;margin:52px 0 18px;
+  padding-top:26px;border-top:1px solid var(--rule)}
+article h3{font-family:var(--min);font-weight:600;font-size:16.5px;letter-spacing:.04em;margin:34px 0 10px;color:var(--ink)}
+article p{margin:13px 0;max-width:44em}
+article ul,article ol{margin:13px 0 13px 1.4em;max-width:42em}
+article li{margin:5px 0}
+article blockquote{border-left:3px solid var(--ai);padding:4px 0 4px 16px;margin:18px 0;color:var(--ink2)}
+article hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
+article strong{font-weight:700}
+article code{font-family:var(--mono);font-size:.86em;background:var(--ai-weak);padding:1px 5px;border-radius:2px}
+article pre{background:#14161A;color:#D7DCD9;font-family:var(--mono);font-size:12.5px;line-height:1.8;
+  padding:14px 16px;border-radius:2px;overflow-x:auto;margin:18px 0}
+article pre code{background:none;padding:0;color:inherit}
+.tbl{overflow-x:auto;margin:20px 0;border:1px solid var(--rule);border-radius:2px}
+article table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.7;background:#fff}
+article th,article td{border-bottom:1px solid var(--rule);padding:8px 12px;text-align:left;white-space:nowrap}
+article th{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--ink2);background:var(--ai-weak)}
+article tr:last-child td{border-bottom:none}
+/* registry (research list) */
+.reg{border:1px solid var(--rule);background:#fff;border-radius:2px;margin-top:6px}
+.reg-row{display:grid;grid-template-columns:82px 1fr 108px;gap:14px;align-items:baseline;
+  padding:16px 18px;border-bottom:1px solid var(--rule)}
+.reg-row:last-child{border-bottom:none}
+.reg-id{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ai)}
+.reg-t{font-size:14.5px}
+.reg-t .d{display:block;font-size:12px;color:var(--ink2);margin-top:3px}
+.reg-s{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-align:right}
+.reg-s.pub{color:var(--fact)} .reg-s.prep{color:var(--est)} .reg-s.plan{color:var(--unv)}
+.faq h3{font-family:var(--min);font-weight:600;font-size:16.5px;letter-spacing:.04em;margin:22px 0 6px}
+.faq p{font-size:14px;color:var(--ink2);max-width:44em;margin:0 0 2px}
+/* live data pages */
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-top:8px}
+.dcard{border:1px solid var(--rule);background:#fff;border-radius:2px;padding:16px 18px}
+.dcard h3{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--ai);margin-bottom:10px}
+.kv{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12.5px;padding:5px 0;border-bottom:1px dashed var(--rule)}
+.kv:last-of-type{border-bottom:none}
+.kv .k{color:var(--ink2)} .kv .v{color:var(--ink);text-align:right}
+.dmeta{font-size:11px;color:var(--ink2);margin-top:10px;line-height:1.7}
+.evt{border:1px solid var(--rule);background:#fff;border-radius:2px;padding:18px 20px;margin-bottom:16px}
+.evt .eid{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ai)}
+.evt h3{font-family:var(--min);font-weight:600;font-size:17.5px;margin:6px 0 10px}
+.tl{margin-top:12px;padding-left:0}
+.tl li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink2);margin:4px 0}
+.stt-row{display:grid;grid-template-columns:190px 90px 110px 1fr;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.stt-row .n{font-family:var(--mono);font-size:12.5px}
+.st-ok{color:var(--fact);font-family:var(--mono);font-weight:700;font-size:11.5px}
+.st-ng{color:#B4232A;font-family:var(--mono);font-weight:700;font-size:11.5px}
+.st-pl{color:var(--unv);font-family:var(--mono);font-weight:700;font-size:11.5px}
+@media (max-width:640px){.stt-row{grid-template-columns:1fr 90px;grid-auto-rows:auto}}
+/* footer */
+footer{padding:44px 0 60px;font-size:12px;color:var(--ink2);line-height:2}
+footer .fmono{font-family:var(--mono);font-size:11px;letter-spacing:.08em;margin-bottom:10px}
+@media (max-width:640px){
+  .hd{flex-direction:column;gap:8px;align-items:flex-start}
+  .hero{padding:52px 0 34px}
+  .reg-row{grid-template-columns:1fr;gap:4px}
+  .reg-s{text-align:left}
+  .hl-row{grid-template-columns:36px 1fr 96px}
+  article th,article td{white-space:normal}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:40px 0}
+  .brand{font-size:17px}
+  .brand small{letter-spacing:.06em;font-size:9px}
+  .blogo{height:30px;width:30px}
+  nav{gap:14px;font-size:13px;flex-wrap:wrap}
+  .verify{font-size:11px;padding:12px 42px 12px 12px}
+  h1.site{font-size:clamp(26px,8vw,34px)}
+  .motto{font-size:clamp(19px,6.4vw,26px)}
+  article h2{font-size:19px}
+  .dcard{padding:14px}
+  .kv{font-size:11.5px}
+  .close-q{padding:44px 0}
+  .close-q .ja{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.mdbody h2{margin-top:30px;padding-top:14px;border-top:1px solid var(--rule)}
+.mdbody h3{margin-top:22px}
+.mdbody blockquote{border-left:3px solid var(--ai);margin:14px 0;padding:4px 14px;color:var(--ink2)}
+.mdbody code{font-family:var(--mono);font-size:.92em;background:rgba(20,26,40,.05);padding:1px 4px;border-radius:2px}
+.mdbody pre{border:1px solid var(--rule);padding:12px;overflow-x:auto;font-size:12px}
+.mdbody pre code{background:none;padding:0}
+.mdbody table{width:100%;border-collapse:collapse;font-size:13px}
+.mdbody th{text-align:left;border-bottom:1.5px solid var(--ink);padding:6px 8px}
+.mdbody td{border-bottom:1px solid var(--rule);padding:6px 8px;vertical-align:top}
+.news .nrow{display:grid;grid-template-columns:86px 74px 1fr;gap:12px;padding:9px 2px;border-bottom:1px solid var(--rule);font-size:13px;align-items:baseline}
+.news .nd{font-family:var(--mono);font-size:11.5px;color:var(--ink2)}
+.news .nt{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--ai);border:1px solid var(--rule);padding:2px 6px;text-align:center;border-radius:2px}
+.news a{color:inherit}
+@media (max-width:560px){.news .nrow{grid-template-columns:78px 1fr;grid-template-areas:"d t" "x x"}.news .nd{grid-area:d}.news .nt{grid-area:t;justify-self:start}.news .nx{grid-area:x}}
+.cform label{display:block;margin:14px 0;font-size:13px;color:var(--ink2)}
+.cform input,.cform textarea{display:block;width:100%;margin-top:6px;padding:10px 12px;font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:2px}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--ink)}
+.cform .hpw{position:absolute;left:-9999px;top:-9999px}
+.cobs{border:1px solid var(--rule);padding:16px 18px;margin:26px 0;background:linear-gradient(180deg,rgba(20,26,40,.02),transparent)}
+.cobs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:10px}
+.cobs .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink2)}
+.cobs .v{font-size:14px;margin-top:3px;font-weight:600}
+/* ==== UI polish layer v1 — 台帳の質感（動きはreduced-motionで全停止） ==== */
+:root{--shadow-1:0 2px 10px rgba(20,26,40,.07);--shadow-2:0 18px 44px rgba(20,26,40,.16);--ease:cubic-bezier(.2,.7,.2,1)}
+::selection{background:var(--ai);color:var(--paper)}
+html{scroll-padding-top:92px}
+header{position:sticky;top:0;z-index:80;background:var(--paper);background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(9px) saturate(1.15);-webkit-backdrop-filter:blur(9px) saturate(1.15);box-shadow:0 1px 0 var(--rule)}
+a{text-underline-offset:3px;text-decoration-thickness:1px;transition:color .15s var(--ease)}
+a:hover{color:var(--ai)}
+nav a{position:relative;text-decoration:none;padding:6px 2px}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:1px;height:1.5px;background:var(--ai);transition:right .2s var(--ease)}
+nav a:hover::after,nav a[aria-current]::after{right:0}
+:focus-visible{outline:2px solid var(--ai);outline-offset:2px;border-radius:1px}
+.doc-id{display:inline-flex;align-items:center;gap:9px}
+.doc-id::before{content:"";width:16px;height:2px;background:var(--ai)}
+.chip{box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+.canon{transition:box-shadow .2s var(--ease)}
+.canon:hover{box-shadow:var(--shadow-1)}
+table tbody tr,table tr{transition:background .12s var(--ease)}
+table tr:hover td{background:rgba(20,26,40,.025)}
+button{transition:color .12s var(--ease),border-color .12s var(--ease),background .12s var(--ease)}
+button:hover{border-color:var(--ink)!important;color:var(--ink)!important}
+footer{border-top:3px double var(--rule)}
+/* --- 索引引き出し --- */
+.nvm summary{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border:1px solid transparent;border-radius:2px;transition:border-color .15s var(--ease),background .15s var(--ease)}
+.nvm summary::after{content:"";width:6px;height:6px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s var(--ease)}
+.nvm[open] summary{border-color:var(--rule);background:var(--paper)}
+.nvm[open] summary::after{transform:rotate(-135deg) translateY(1px)}
+.nvp{min-width:296px;padding:14px 12px;gap:1px;border-radius:2px;box-shadow:var(--shadow-2);animation:nvIn .16s var(--ease)}
+@keyframes nvIn{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:none}}
+.nvg{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--ink2);margin:11px 4px 5px;border-top:1px solid var(--rule);padding-top:11px}
+.nvg:first-child{margin-top:0;border-top:0;padding-top:0}
+.nvi{display:block;padding:8px 9px;border-left:2px solid transparent;text-decoration:none;transition:background .12s var(--ease),border-color .12s var(--ease)}
+.nvi:hover{background:rgba(20,26,40,.04);border-left-color:var(--ai);color:inherit}
+.nvi .t{display:block;font-size:13.5px;color:var(--ink)}
+.nvi .d{display:block;font-size:11px;color:var(--ink2);margin-top:2px}
+@media (max-width:640px){.nvp{position:fixed;left:10px;right:10px;top:62px;max-height:calc(100vh - 80px);overflow:auto}}
+
+/* CITE & SHARE */
+.cite-box{border:1px solid var(--ai);border-radius:3px;background:var(--ai-weak);padding:18px 20px;margin:34px 0 0}
+.cite-box h2{font-family:var(--min);font-size:17px;letter-spacing:.03em;margin:0 0 8px}
+.cite-box p{font-size:13.5px;color:var(--ink2);max-width:46em;margin:0 0 10px}
+.cite-box .must{color:var(--ink)}
+.cite-pre{font-family:var(--mono);font-size:12px;background:#fff;border:1px solid var(--rule);border-radius:3px;
+  padding:11px 13px;white-space:pre-wrap;word-break:break-all;margin:0 0 10px}
+.cite-act{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.cite-act a,.cite-act button{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;padding:6px 12px;
+  border:1px solid var(--rule);border-radius:2px;background:var(--paper);color:var(--ink2);
+  text-decoration:none;cursor:pointer;transition:all .15s var(--ease)}
+.cite-act a:hover,.cite-act button:hover{border-color:var(--ai);color:var(--ai)}
+.cite-act .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink2);
+  border:0;padding:0;margin-right:2px}
+.cite-note{font-size:12.5px;color:var(--ink2);margin-top:12px;max-width:46em}
+
+
+/* 一列に収まらない幅では、ナビを丸ごと2段目へ落とす（文字は絶対に折らない） */
+@media (max-width:1060px){
+  .brand small{display:none}
+  nav{order:4;flex:1 0 100%;justify-content:flex-start;margin-top:2px;overflow-x:auto;
+      scrollbar-width:none;-ms-overflow-style:none}
+  nav::-webkit-scrollbar{display:none}
+  .lgsw{order:2}
+}
+@media (max-width:860px){.nvp{grid-template-columns:repeat(2,minmax(140px,1fr));min-width:min(420px,94vw)}
+  .nvcol .nvg{margin-top:8px}}
+@media (max-width:640px){
+  .hd{gap:8px 12px;padding:11px 0}
+  nav{gap:13px;font-size:12.5px}
+  .nvp{position:fixed;left:8px;right:8px;top:58px;min-width:0;grid-template-columns:repeat(2,1fr);
+       max-height:calc(100vh - 130px);overflow:auto;padding:12px 10px}
+  .nvp .nvi{font-size:12.5px;padding:6px}
+}
+
+/* UTILITY BAR — 言語切替をヘッダーの外・上段へ。ナビと幅を奪い合わせない */
+.ubar{border-bottom:1px solid var(--rule);background:var(--paper)}
+.ubar .wrap{display:flex;justify-content:flex-end;align-items:center;gap:0;padding:0}
+.lgsw{display:inline-flex;align-items:center;border:0;border-radius:0;margin:0;overflow:visible}
+.lgsw a{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:6px 10px;text-decoration:none;
+  color:var(--ink2);background:transparent;border:0;border-left:1px solid var(--rule);white-space:nowrap;line-height:1.5}
+.lgsw a:first-child{border-left:0}
+.lgsw a:hover{color:var(--ai);background:var(--ai-weak)}
+.lgsw a[aria-current="true"]{color:var(--ai);font-weight:600;box-shadow:inset 0 -2px 0 var(--ai)}
+
+/* NAV v5 — ヘッダーは brand と nav のみ。言語は上段ユーティリティバーへ */
+.hd{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 16px;padding:14px 0}
+.brand{flex:1 1 auto;min-width:0}
+.brand span{min-width:0}
+.brand small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+nav{flex:0 0 auto;display:flex;align-items:center;gap:18px;font-size:13.5px;flex-wrap:nowrap}
+nav>a{white-space:nowrap;padding:6px 2px}
+.nvm summary{white-space:nowrap}
+.nvp{min-width:min(680px,94vw);grid-template-columns:repeat(4,minmax(140px,1fr));
+     column-gap:10px;row-gap:0;padding:14px 12px;align-items:start}
+.nvcol{display:flex;flex-direction:column;min-width:0}
+.nvcol .nvg{margin:0 0 4px;border-top:0;padding-top:0;font-size:9px;letter-spacing:.18em}
+.nvp .nvi{display:block;padding:5px 7px;font-size:13px;color:var(--ink);border-left:2px solid transparent;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nvp .nvi:hover{background:var(--ai-weak);border-left-color:var(--ai)}
+@media (max-width:900px){.brand small{display:none}}
+@media (max-width:820px){
+  nav{flex:1 0 100%;justify-content:flex-start;margin-top:2px;overflow-x:auto;
+      scrollbar-width:none;-ms-overflow-style:none}
+  nav::-webkit-scrollbar{display:none}
+}
+@media (max-width:860px){.nvp{grid-template-columns:repeat(2,minmax(140px,1fr));min-width:min(420px,94vw)}
+  .nvcol .nvg{margin-top:8px}}
+@media (max-width:640px){
+  .hd{gap:8px 12px;padding:11px 0}
+  nav{gap:14px;font-size:12.5px}
+  .lgsw a{padding:5px 8px;font-size:10px}
+  .nvp{position:fixed;left:8px;right:8px;top:auto;min-width:0;grid-template-columns:repeat(2,1fr);
+       max-height:calc(100vh - 150px);overflow:auto;padding:12px 10px}
+  .nvp .nvi{font-size:12.5px;padding:6px}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://fxir.jp/#org","name":"為替介入研究所",
+  "alternateName":["FXIR","FX Intervention Research Institute"],
+  "url":"https://fxir.jp/","parentOrganization":{"@type":"Organization","name":"AI MQL合同会社"},
+  "sameAs":["https://x.com/fxirjp","https://github.com/fxirjp","https://lin.ee/rkUKYCMM","https://note.com/fxir"],"logo":{"@type":"ImageObject","@id":"https://fxir.jp/#logo","url":"https://fxir.jp/assets/logo.png","contentUrl":"https://fxir.jp/assets/logo.png","width":512,"height":512,"caption":"為替介入研究所"},"image":{"@id":"https://fxir.jp/#logo"},"email":"info@fxir.jp","knowsLanguage":["ja","en"],"slogan":"Don't trust, verify."},
+ {"@type":"WebSite","url":"https://fxir.jp/","name":"為替介入研究所 — Don't trust, verify.",
+  "inLanguage":"ja","publisher":{"@id":"https://fxir.jp/#org"},"@id":"https://fxir.jp/#website","image":{"@id":"https://fxir.jp/#logo"}},
+ {"@type": "ScholarlyArticle", "name": "N-003 レートチェックの証拠構造", "description": "レートチェックの証拠構造", "url": "https://fxir.jp/n-003.html", "inLanguage": "ja", "isPartOf": {"@id": "https://fxir.jp/#website"}, "publisher": {"@id": "https://fxir.jp/#org"}, "author": {"@id": "https://fxir.jp/#org"}, "license": "https://creativecommons.org/licenses/by/4.0/", "version": "1.1", "datePublished": "2026-08-08", "dateModified": "2026-08-08", "encoding": {"@type": "MediaObject", "contentUrl": "https://fxir.jp/docs/n-003.md", "encodingFormat": "text/markdown", "name": "正本（canonical Markdown）"}, "identifier": {"@type": "PropertyValue", "propertyID": "SHA-256", "value": "79619a1286b4c48e1eb4c0a28318c48f90c0bc4cca4771756e852704b8274212"}}]}
+</script>
+</head>
+<body data-doc="N-003">
+<div class="ubar"><div class="wrap">
+  <div class="lgsw" role="group" aria-label="言語"><a href="n-003.html" aria-current="true" hreflang="ja">日本語</a><a href="en/index.html" hreflang="en">EN</a><a href="zh/index.html" hreflang="zh">中文</a></div>
+</div></div>
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="index.html"><img class="blogo" src="assets/logo.png" alt="" width="36" height="36"><span>為替介入研究所<small>FX INTERVENTION RESEARCH INSTITUTE — FXIR.JP</small></span></a>
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="dashboard/">ダッシュボード</a>
+      <a href="data.html">データ</a>
+      <a href="research.html" aria-current="page">研究</a>
+<a href="live.html">介入速報</a>
+      <details class="nvm"><summary>その他</summary><div class="nvp">
+        <div class="nvcol"><div class="nvg">READ</div><a class="nvi" href="live.html" title="いま確認できること・できないこと・確定予定日">介入速報</a><a class="nvi" href="chat.html" title="証拠つきで質問に答える">AIチャット</a><a class="nvi" href="guide.html" title="本サイトの読み方">はじめての方へ</a>
+        <a class="nvi" href="episodes.html" title="各介入の期間・首相・金額・半減期を1ページずつ">エピソード解説 E1〜E6</a>
+        <a class="nvi" href="why.html" title="公式の理由・言わない理由・データの規則性">なぜ介入するのか</a><a class="nvi" href="faq.html" title="半減期・レートチェック・残弾">FAQ・用語</a><a class="nvi" href="news.html" title="更新記録（全件）">お知らせ</a></div>
+        <div class="nvcol"><div class="nvg">OBSERVE</div><a class="nvi" href="events.html" title="介入とレートチェックの状態">イベント台帳</a><a class="nvi" href="schedule.html" title="当局の公表日を月表示">公表カレンダー</a><a class="nvi" href="calendar.html" title="決着日と定期観測日">観測カレンダー</a><a class="nvi" href="api.html" title="鍵つき配信・改ざん検証">Data API（β）</a><a class="nvi" href="commercial.html" title="保証・SLA・商用ライセンス（設計草案）">商用提供</a><a class="nvi" href="newsletter.html" title="更新時のみ・無料">メール配信</a></div>
+        <div class="nvcol"><div class="nvg">VERIFY</div><a class="nvi" href="verify.html" title="入力・コード・監査の全段">検証</a><a class="nvi" href="methodology.html" title="METHOD-v1.0">方法論</a><a class="nvi" href="registry.html" title="研究・仮説・事前登録をIDで">研究台帳</a><a class="nvi" href="corrections.html" title="間違いの全記録">訂正・撤回</a><a class="nvi" href="ai.html" title="正本・引用条件・エンドポイント">AIに読み込ませる方へ</a></div>
+        <div class="nvcol"><div class="nvg">ABOUT</div><a class="nvi" href="rules.html" title="68条の正本とハッシュ">会則</a><a class="nvi" href="coi.html" title="研究と取引の分離">利益相反</a><a class="nvi" href="company.html" title="運営法人・所長・連絡先">会社概要</a><a class="nvi" href="status.html" title="収集の鮮度・STALE検知">稼働状態</a><a class="nvi" href="contact.html" title="指摘・訂正申し立て">お問い合わせ</a></div>
+      
+      </div></details>
+    </nav>
+</header>
+
+<main><div class="wrap"><article>
+  <div class="doc-head"><div class="doc-id">N-003</div><h1>N-003 レートチェックの証拠構造</h1>
+  <div class="doc-meta">正本はMarkdown（<a href="docs/n-003.md">n-003.md</a>）。本頁はその表示用レンダリングであり、検証は正本ハッシュで行う。<br>
+  <span style="font-family:var(--mono);font-size:10.5px;word-break:break-all">SHA-256: 79619a1286b4c48e1eb4c0a28318c48f90c0bc4cca4771756e852704b8274212</span></div></div>
+  <div class="mdbody"><p><strong>——実弾の前段は、なぜ永遠に「未確認」なのか</strong></p>
+<p>為替介入研究所 研究ノート ｜ 上村 十勝 ｜ 2026-08-08 ｜ v1.0</p>
+<blockquote>
+<p>付番について: N-001（E6介入額の推計乖離記録・2026-08-28公表予定）およびN-002（E6事前登録仮説の判定・2026年9月日銀会合後）は番号を予約済みである。本研究所のN番号は起案順に付与され、公開順とは一致しない。</p>
+</blockquote>
+<hr />
+<h2>要旨</h2>
+<p>レートチェック——実弾介入の前段として、中央銀行が市場参加者に相場水準を照会する行為——について、本調査で確認できた2022年以降の4局面（報道ベース）を証拠状態つきで台帳化した。本ノートの中心的発見は個別事例ではなく構造である。<strong>同一の行為が、日本当局によるものは現行の開示制度下で通常の事後確認経路を欠き（実務上Tier 3上限）、米国当局によるものは四半期報告・FOMC議事要旨で一次資料化される（Tier 1昇格）という、証拠の非対称構造が存在する。</strong> また2026年1月の空振り事例により、「レートチェック＝介入の発動決定」ではないことが一次資料（財務省の介入なし公表）で裏づけられた。本ノートはこの構造を運用細則案（イベント台帳への登録方針・状態昇格ルール）に落とし込む。</p>
+<hr />
+<h2>1. 定義と制度的位置づけ</h2>
+<p>レートチェックとは、為替介入の実務を担う中央銀行が、主要銀行のディーリングルームに為替取引の売値・買値を照会する行為である。介入を前提とした注文の形をとるが、当局が「ナッシング（取りやめ）」と伝えて取引は成立させない（日経による定義）。NY連銀は自らの公表文書でこれを "requests for indicative quotes—commonly referred to as 'rate checks'" と定義している【SRC-NYFED-Q1】。</p>
+<p>日本では、財務大臣の権限に属する外国為替平衡操作（日本銀行法第40条第2項・特別会計法第77条）の実務代理として日本銀行が実施する。レートチェック自体を直接規定する法令は確認できず、介入実務に付随する行為と解される。段階的なけん制（口先介入）の最終段階、すなわち<strong>実弾の直前に位置する最も強いシグナル</strong>とされる（服部孝洋・東京大学の整理）。</p>
+<h2>2. 事例台帳（2022年以降・報道ベース）</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>日付</th>
+<th>通貨</th>
+<th>実施主体（報道）</th>
+<th>直後の値動き</th>
+<th>実弾への帰結</th>
+<th>実施情報の証拠状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RC-1</td>
+<td>2022-09-14</td>
+<td>USD/JPY</td>
+<td>日銀</td>
+<td>144.96→142.55（1円超の円高）</td>
+<td>6営業日後の9/22に円買い2.84兆円（財務省公表・FACT）</td>
+<td><strong>UNVERIFIED</strong>（日経等報道・SUSPECTED表示対象）</td>
+</tr>
+<tr>
+<td>RC-2</td>
+<td>2024-07-12</td>
+<td>EUR/JPY</td>
+<td>日銀（対ユーロは異例）</td>
+<td>約1.6円の円高</td>
+<td>同時期7/11-12に円買い実施（財務省公表・FACT）</td>
+<td><strong>UNVERIFIED</strong>（日経→Bloomberg）</td>
+</tr>
+<tr>
+<td>RC-3</td>
+<td>2026-01-23</td>
+<td>USD/JPY</td>
+<td>日銀＋NY連銀（協調観測）</td>
+<td>157.50→155.66（Reuters）</td>
+<td><strong>実弾なし</strong>（財務省月次公表・FACT）＝空振り</td>
+<td>日本側 <strong>UNVERIFIED</strong> ／ 米側 <strong>FACT</strong>（§3）</td>
+</tr>
+<tr>
+<td>RC-4</td>
+<td>2026-07-30</td>
+<td>USD/JPY</td>
+<td>NY連銀</td>
+<td>163近辺→157円台（E6実弾と同日）</td>
+<td>同日、日本の円買い介入（8/3片山財務相談話で協調を公式確認・FACT）</td>
+<td><strong>UNVERIFIED</strong>（日経。2026年10月下旬のNY連銀Q3報告で昇格見込み）</td>
+</tr>
+</tbody>
+</table></div>
+<p>対照事例: 2024-04-29の実弾介入（単日5.92兆円・当時最大）に先行するレートチェック報道は<strong>本調査の範囲では確認できず</strong>（不存在の証明ではない）。2022年10月の覆面介入もレートチェックを伴わなかったとされる。<strong>レートチェックは介入の必要条件でも十分条件でもない。</strong></p>
+<h2>3. 中心的発見——証拠の非対称構造</h2>
+<p>日本の財務省・日銀は、レートチェックの実施の有無を過去実績を含め一切公表しない。閣僚・財務官の言及は記者会見での明言回避に限られる（鈴木財務相2024-07-12、三村財務官2026-01-26「答えるつもりはない」、片山財務相2026-02-24）。国会会議録での実施認定は確認できなかった（検索系の制約により完全確認には至らず。不存在と断定しない）。したがって<strong>日本側のレートチェック情報は、現行の開示制度が継続する限り通常の事後確認経路が存在せず、UNVERIFIEDが実務上の上限となる</strong>（例外的な昇格契機は§5-二に定義する2経路のみ）。</p>
+<p>一方、米国側は異なる。2026年1月のレートチェックについて、FOMC議事要旨（2026年1月27-28日会合）は "the Desk had made requests for indicative quotes, known as 'rate checks'" と、NY連銀公開市場デスクの行為として一人称で記載した【SRC-FOMC】。NY連銀の四半期外為報告（2026年1-3月期）も同旨を記載している【SRC-NYFED-Q1】——ただし同報告の文体は "press reports" への市場の注目という間接表現を含むため、一次確認の核はFOMC議事要旨に置く。</p>
+<p><strong>帰結: 同一の行為の証拠状態の上限が、実施主体の開示制度によってUNVERIFIED（実務上）とFACTに分岐する。</strong> これは情報の性質ではなく制度の性質であり、本研究所の証拠階層（会則第8〜11条）はこの分岐をそのまま表現できる。</p>
+<h2>4. 空振り事例の意味（RC-3）</h2>
+<p>2026年1月23日局面では、レートチェック報道と急激な円高（当日−1.6%）ののち、実弾介入は実施されなかった。この「なかった」ことは財務省の月次公表（2025-12-29〜2026-01-28: 介入額ゼロ）により<strong>FACT</strong>として確定している。</p>
+<p>これは二層モデル（WP-001）への重要な入力である。レートチェックは<strong>発動決定の証拠ではなく、執行準備の可視化</strong>にすぎない——準備が可視化されても、発動しないことがある。逆にRC-4（E6）では準備の可視化と執行が同日に重なった。レートチェックを第一層（発動）のシグナルとして扱うモデルは、RC-3により反証されている。</p>
+<h2>5. 運用への帰結（細則案・所長承認待ち）</h2>
+<p><strong>一　イベント台帳への登録。</strong> レートチェックは全てFXIR-EVTとして起票し、日本当局が関与する事例の表示状態はSUSPECTEDを上限とする（会則第35条）。本ノートの4件は遡及登録ラベル付きで登録する。</p>
+<p><strong>二　状態昇格ルール（米側例外）。</strong> 米当局が関与した事例に限り、NY連銀四半期報告またはFOMC議事要旨の公表をもってFACTへ昇格できる。日本側の昇格経路は現行制度下では存在しない。この判定を変える契機は、①日本当局が事後開示制度を導入した場合、②国会答弁で実施が認定された場合、の2つに限る。</p>
+<p><strong>三　検証カレンダーへの追加。</strong> RC-4は2026年10月下旬のNY連銀Q3報告で一次資料化される見込みであり、E6の米国側介入額（現在UNVERIFIED）と同一の公表物で決着する。10月下旬を二重の答え合わせ日として登録する。</p>
+<p><strong>四　空振り観測（定義固定・第19条／記述値）。</strong> レートチェック報道日から<strong>10営業日以内</strong>に財務省確定ベースの介入が存在しない場合を「空振り」と定義し、以後この定義は変更しない。観測値: <strong>空振り 1／報道4局面</strong>（RC-3のみ。RC-1は6営業日後に実弾、RC-2・RC-4は同時期に実弾）。これは「報道されたレートチェック」という選択済み標本に基づく<strong>記述値であり、母集団の推定ではない</strong>。比率としての前面表示（25%等）は行わない。</p>
+<p><strong>五　Detector設計への制約。</strong> レートチェックの一次的捕捉手段はヘッドライン検知に限られる。価格急変からの逆推定は実弾・投機フローとの弁別が困難なため補助に留め、<strong>単一シグナルによる確定表示を禁止</strong>する（複合トリガー: ヘッドライン主＋価格ジャンプ従＋日銀当座預金予想の事後確認）。</p>
+<h2>6. 限界</h2>
+<p>本ノートの日本側事例は全て報道と価格反応に基づく。国会会議録の完全走査は検索系の制約で実施できていない。1990年代〜2010年代について「レートチェック」の用語での報道記録は確認できなかった（行為自体の不存在を意味しない）。値動きの数値は報道記載値であり、独自の分足検証は実施していない（RC-4のみWP-001 §6.1の分足分析と接続可能）。NY連銀Q1報告の記述には間接表現が含まれ、一次確認の核はFOMC議事要旨である。</p>
+<h2>出典</h2>
+<p><strong>一次資料（Tier 1）</strong>: FOMC Minutes, January 27-28, 2026（federalreserve.gov）／ NY連銀 Treasury and Federal Reserve Foreign Exchange Operations, Jan–Mar 2026（newyorkfed.org）／ 財務省 外国為替平衡操作の実施状況（月次・日次）／ 片山財務大臣談話（2026-08-03）／ 日本銀行「外国為替市場介入事務の概要」
+<strong>報道（Tier 3）</strong>: 日本経済新聞（2022-09-14／2024-07-12／2026-01-23／2026-07-30ほか）／ Bloomberg（2024-07-12 09:14 JST／2026-02-24）／ Reuters（2026-01-23）／ NRI木内コラム（2026-01-26）
+<strong>参考文献</strong>: Dominguez &amp; Frankel (1990)／ ECB WP No.528 (2005)／ Chen, Funke &amp; Glanemann (2014, Open Econ Rev 25)／ BIS Papers No.24／ 服部孝洋（東京大学）note</p>
+<hr />
+<p><strong>改訂履歴</strong>
+- v1.0（2026-08-08T19:30+09:00）: 初版（<code>note_v1.0.md</code>として保存）
+- <strong>v1.1（2026-08-08T17:58+09:00）</strong>: 公開前監査（外部レビュー）反映。①§3の証拠上限を「恒久」から制度条件付き表現に修正し§5-二の昇格経路と内部整合②要旨の「全4局面」を「本調査で確認できた4局面」に限定③§5-四を記述値表現に改め、選択済み標本である旨と母集団推定でないことを明記</p>
+<p><em>本ノートはAI MQL合同会社 為替介入研究所による研究であり、特定の金融商品の売買を推奨するものではない。日本側レートチェックの記述は報道に基づく未確認情報であり、事実として扱わないこと。分析および解釈の誤りはすべて筆者に帰する。</em></p></div>
+
+  <section class="cite-box">
+    <h2>引用を歓迎します</h2>
+    <p class="must">本サイトの文章・数値・データは <strong>CC BY 4.0</strong> で公開しています。複製・再配布・改変・商用利用・AIの学習利用のいずれも許諾します。<strong>条件は、出典として為替介入研究所のURLを明記することです。</strong></p>
+    <p>本ページの正本は <a href="docs/n-003.md">docs/n-003.md</a> です。HTMLは表示用のため、引用・解析には正本Markdownをご利用ください。</p>
+    <div class="cite-pre">為替介入研究所（FXIR）「N-003 レートチェックの証拠構造」v1.1, 2026-08-08,
+https://fxir.jp/docs/n-003.md,
+SHA-256: 79619a1286b4c48e1eb4c0a28318c48f90c0bc4cca4771756e852704b8274212</div>
+    <p>あわせて、<strong>証拠状態（FACT / ESTIMATE / HYPOTHESIS / UNVERIFIED）を落とさずに</strong>引用してください。区分を外すと推計が事実として流通します。詳細は <a href="ai.html">AIに読み込ませる方へ</a>。</p>
+    <div class="cite-act">
+      <span class="lbl">SHARE</span>
+      <a class="sh-x" href="#" rel="noopener">X</a>
+      <a class="sh-l" href="#" rel="noopener">LINE</a>
+      <a class="sh-f" href="#" rel="noopener">Facebook</a>
+      <a class="sh-h" href="#" rel="noopener">はてブ</a>
+      <button type="button" class="sh-c">リンクをコピー</button>
+      <button type="button" class="sh-t">引用文をコピー</button>
+    </div>
+    <p class="cite-note">誤りを見つけた場合は <a href="contact.html">お問い合わせ</a> または info@fxir.jp へ。会則第30条により、重大な誤りは合理的な期間内に訂正し、削除せず記録として残します。</p>
+  </section>
+</article></div></main>
+<footer>
+  <div class="wrap">
+    <div class="fmono">DON'T TRUST, VERIFY.</div>
+    <div>運営：AI MQL合同会社（為替介入研究所は同社の研究部門であり、独立の法人格を有しません）</div>
+    <div>本サイトは研究・情報提供を目的とし、特定の金融商品の売買を推奨するものではありません。当研究所および運営法人は金融商品取引業者ではなく、投資助言・代理業を行いません。分析および解釈の誤りはすべて筆者に帰します。</div>
+    <div><a href="events.html">イベント登録簿</a> ・ <a href="verify.html">検証（WP-001）</a> ・ <a href="status.html">システム状態</a></div>
+    <div>最新情報: <a href="https://lin.ee/rkUKYCMM">公式LINE</a> ・ <a href="https://x.com/fxirjp">X @fxirjp</a> ・ <a href="newsletter.html">メール配信</a> ・ <a href="https://note.com/fxir">note</a> ・ <a href="https://github.com/fxirjp">GitHub</a> ・ <a href="news.html">お知らせ一覧</a></div>
+    <div>連絡・訂正の指摘: <a href="contact.html">お問い合わせフォーム</a> ／ info@fxir.jp（会則第30条に基づき、重大な誤りは合理的な期間内に訂正します） ・ <a href="company.html">会社概要</a></div>
+    <div><a href="corrections.html">訂正・撤回の記録</a> ・ <a href="coi.html">利益相反の開示</a> ・ <a href="privacy.html">外部送信・プライバシー</a></div>
+    <div>&copy; 2026 AI MQL LLC / 為替介入研究所</div>
+  </div>
+</footer>
+<script>
+(function(){
+  if(!window.gtag||window.__fxirAnalyticsOff) return;
+  var doc=document.body.dataset.doc||'NA';
+  gtag('set',{doc_id:doc});
+  /* 正本・PDF DL: .md/.txt はGA4拡張計測対象外のため独自送信（.pdfはdoc_id付与のため重ねて送信） */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a) return;
+    var h=a.getAttribute('href')||'';
+    if(/\.(md|txt|pdf)(\?|$)/.test(h)){
+      gtag('event','download_canonical',{file_name:h.split('/').pop(),doc_id:doc});
+    }
+  });
+  /* 検証コマンドのコピー = Don't trust, verify の実行率 */
+  var v=document.querySelector('.verify');
+  if(v){
+    var b=document.querySelector('.vcopy');
+    if(b){b.addEventListener('click',function(){
+      var t="curl -sO https://fxir.jp/docs/kaisoku_v1.0.md\nsha256sum kaisoku_v1.0.md";
+      if(navigator.clipboard){navigator.clipboard.writeText(t).catch(function(){});}
+      b.textContent='コピー済'; setTimeout(function(){b.textContent='コピー';},1600);
+      gtag('event','verify_copy',{doc_id:doc,method:'button'});
+    });}
+    v.addEventListener('copy',function(){gtag('event','verify_copy',{doc_id:doc,method:'select'});});
+  }
+  /* 章別読了（論文h2・トップ各節） */
+  var secs=document.querySelectorAll('article h2, section .sec-label');
+  if('IntersectionObserver' in window && secs.length){
+    var seen={};
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){var t=(en.target.textContent||'').trim().slice(0,60);
+        if(!seen[t]){seen[t]=1;gtag('event','section_view',{doc_id:doc,section_title:t});}
+        io.unobserve(en.target);}});},{threshold:0.5});
+    for(var i=0;i<secs.length;i++){io.observe(secs[i]);}
+  }
+  /* 読了深度 25/50/75/100 */
+  var marks=[25,50,75,100],fired={},tick=false;
+  function depth(){var h=document.documentElement,max=h.scrollHeight-window.innerHeight;
+    if(max<=0)return;var p=Math.round((window.scrollY/max)*100);
+    for(var i=0;i<marks.length;i++){var m=marks[i];
+      if(p>=m&&!fired[m]){fired[m]=1;gtag('event','read_depth',{doc_id:doc,percent:m});}}}
+  window.addEventListener('scroll',function(){if(!tick){tick=true;
+    requestAnimationFrame(function(){tick=false;depth();});}},{passive:true});
+})();
+</script>
+<script>
+document.addEventListener('click',function(e){var d=document.querySelector('.nvm[open]');if(d&&!d.contains(e.target)){d.removeAttribute('open');}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){var d=document.querySelector('.nvm[open]');if(d){d.removeAttribute('open');}}});
+</script>
+
+<script>
+(function(){
+  var box=document.querySelector('.cite-box'); if(!box) return;
+  var cn=document.querySelector('link[rel="canonical"]');
+  var url=cn?cn.href:location.href;
+  var ttl=(document.querySelector('h1')||{}).textContent||document.title;
+  ttl=String(ttl).trim();
+  var e=encodeURIComponent, txt=ttl+' — 為替介入研究所';
+  var q={
+    '.sh-x':'https://x.com/intent/post?text='+e(txt)+'&url='+e(url)+'&via=fxirjp',
+    '.sh-l':'https://social-plugins.line.me/lineit/share?url='+e(url),
+    '.sh-f':'https://www.facebook.com/sharer/sharer.php?u='+e(url),
+    '.sh-h':'https://b.hatena.ne.jp/entry/s/'+url.replace(/^https?:\/\//,'')
+  };
+  Object.keys(q).forEach(function(k){
+    var a=box.querySelector(k); if(!a) return;
+    a.href=q[k]; a.target='_blank'; a.rel='noopener noreferrer';
+  });
+  function copy(t,btn,ok){
+    var done=function(){var o=btn.textContent;btn.textContent=ok;setTimeout(function(){btn.textContent=o;},1600);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){});}
+    else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');done();}catch(x){}document.body.removeChild(ta);}
+  }
+  var bc=box.querySelector('.sh-c');
+  if(bc) bc.addEventListener('click',function(){copy(url,bc,'コピーしました');});
+  var bt=box.querySelector('.sh-t'), pre=box.querySelector('.cite-pre');
+  if(bt&&pre) bt.addEventListener('click',function(){copy(pre.textContent.trim(),bt,'コピーしました');});
+})();
+</script>
+<script src="assets/fxir-chat.js?v=20260810b" defer></script>
+</body>
+</html>

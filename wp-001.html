@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1F4468">
+<title>為替介入の反応関数は二層構造をとる（WP-001）| 為替介入研究所</title>
+<meta name="description" content="円買い介入6エピソード（2022-2026）を効果半減期で測定。半減期は1〜431営業日に分布し投入額では説明できない。発動条件と執行条件を分離する二層モデルを提示。">
+<link rel="canonical" href="https://fxir.jp/wp-001.html">
+<link rel="alternate" hreflang="ja" href="https://fxir.jp/wp-001.html">
+<link rel="alternate" hreflang="x-default" href="https://fxir.jp/wp-001.html">
+<meta property="og:title" content="為替介入の反応関数は二層構造をとる（WP-001）| 為替介入研究所">
+<meta property="og:description" content="円買い介入6エピソード（2022-2026）を効果半減期で測定。半減期は1〜431営業日に分布し投入額では説明できない。発動条件と執行条件を分離する二層モデルを提示。">
+<meta property="og:url" content="https://fxir.jp/wp-001.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="為替介入研究所">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://fxir.jp/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="為替介入研究所 — Don't trust, verify.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@fxirjp">
+<meta name="twitter:creator" content="@fxirjp">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta property="article:published_time" content="2026-08-08"><meta property="article:author" content="上村 十勝"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "為替介入の反応関数は二層構造をとる", "alternativeHeadline": "発動条件と執行条件の分離、および効果半減期による評価", "author": {"@type": "Person", "name": "上村 十勝"}, "datePublished": "2026-08-08", "dateModified": "2026-08-08", "inLanguage": "ja", "version": "1.3", "identifier": {"@type": "PropertyValue", "propertyID": "SHA-256", "value": "139025fd6e9584e4d6990e3df6c2080b7c8dcb0d4c564b81a5c5a3e57a17bd2f"}, "sameAs": "https://fxir.jp/docs/wp-001.md", "isAccessibleForFree": true, "url": "https://fxir.jp/wp-001.html", "image": "https://fxir.jp/assets/og.png", "publisher": {"@id": "https://fxir.jp/#org"}, "mainEntityOfPage": "https://fxir.jp/wp-001.html", "description": "円買い介入6エピソード（2022-2026）の効果を半減期で測定。半減期は1〜431営業日に分布し投入額では説明できない。発動条件と執行条件を別の反応関数として扱う二層モデルを提示する。"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://fxir.jp/"}, {"@type": "ListItem", "position": 2, "name": "研究一覧", "item": "https://fxir.jp/research.html"}, {"@type": "ListItem", "position": 3, "name": "WP-001", "item": "https://fxir.jp/wp-001.html"}]}</script><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="shortcut icon" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.__fxirAnalyticsOff = !!(navigator.globalPrivacyControl||navigator.doNotTrack=="1"||window.doNotTrack=="1");
+  if(window.__fxirAnalyticsOff){window['ga-disable-G-VZ89ERDSD6']=true;}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZ89ERDSD6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!window.__fxirAnalyticsOff){gtag('config', 'G-VZ89ERDSD6');}
+</script>
+<style>
+:root{
+  --paper:#FAFBF9; --ink:#181B1F; --ink2:#41474F; --rule:#DCE0DB;
+  --ai:#1F4468; --ai-weak:#EDF1F4;
+  --fact:#1A6E48; --est:#9A6B0B; --hyp:#54499E; --unv:#6B7280;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --min:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --got:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Noto Sans JP",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--got);
+  font-size:16px;line-height:1.85;font-feature-settings:"palt" 1;}
+a{color:var(--ai);text-decoration:none;border-bottom:1px solid rgba(31,68,104,.35)}
+a:hover{border-bottom-color:var(--ai)}
+a:focus-visible{outline:2px solid var(--ai);outline-offset:2px}
+img{max-width:100%;height:auto}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+/* header */
+header{border-bottom:1px solid var(--rule);background:var(--paper);}
+.hd{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{font-family:var(--min);font-weight:700;font-size:19px;letter-spacing:.06em;border:none;color:var(--ink);display:flex;align-items:center;gap:10px}
+.blogo{height:36px;width:36px;display:block}
+.brand small{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.14em;color:var(--ink2);display:block;margin-top:2px}
+nav{display:flex;gap:20px;font-size:13.5px}
+nav a{border:none;color:var(--ink2);padding-bottom:2px}
+.nvm{position:relative}
+.nvm summary{list-style:none;cursor:pointer;font-size:13px;color:var(--ink2);padding:4px 2px}
+.nvm summary::-webkit-details-marker{display:none}
+.nvm[open] summary{color:var(--ink)}
+.nvp{position:absolute;right:0;top:135%;background:var(--paper);border:1px solid var(--rule);padding:12px 16px;display:grid;gap:9px;min-width:160px;z-index:60;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.nvp a{font-size:13px}
+nav a[aria-current]{color:var(--ink);border-bottom:2px solid var(--ai)}
+nav a:hover{color:var(--ink)}
+/* hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.28em;color:var(--ai);margin-bottom:22px}
+h1.site{font-family:var(--min);font-weight:700;font-size:clamp(30px,5.4vw,44px);letter-spacing:.05em;line-height:1.35}
+.motto{font-family:var(--mono);font-weight:600;font-size:clamp(21px,4vw,32px);letter-spacing:.01em;margin:26px 0 6px;color:var(--ink)}
+.motto-ja{font-family:var(--min);font-size:15.5px;color:var(--ink2);letter-spacing:.12em}
+.lede{margin-top:26px;max-width:40em;color:var(--ink2);font-size:15.5px}
+/* verify strip (signature) */
+.verify{margin-top:34px;background:#14161A;color:#D7DCD9;border-radius:2px;position:relative;
+  font-family:var(--mono);font-size:12.5px;line-height:1.9;padding:16px 18px;overflow-x:auto;white-space:pre}
+.vcopy{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  color:#8BA3BC;background:transparent;border:1px solid #3A4450;border-radius:2px;padding:3px 9px;cursor:pointer}
+.vcopy:hover{color:#D7DCD9;border-color:#8BA3BC}
+.verify .p{color:#8BA3BC}
+.verify .ok{color:#6FBF95}
+.verify-cap{font-size:12px;color:var(--ink2);margin-top:8px}
+.hero-btns{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.06em;
+  padding:11px 20px;border-radius:2px;border:1.5px solid var(--ai)}
+.btn.pri{background:var(--ai);color:#FAFBF9}
+.btn.pri:hover{background:#173654;border-color:#173654}
+.btn.sec{color:var(--ai);background:transparent}
+/* sections */
+section{padding:52px 0;border-bottom:1px solid var(--rule)}
+.sec-label{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--ai);margin-bottom:18px}
+h2.sec{font-family:var(--min);font-weight:700;font-size:24px;letter-spacing:.06em;margin-bottom:20px}
+.sec-note{font-size:13px;color:var(--ink2)}
+/* principles */
+.prin{display:grid;gap:18px;margin-top:6px}
+.prin .row{border-left:3px solid var(--ai);padding:2px 0 2px 16px}
+.prin .en{font-family:var(--mono);font-weight:600;font-size:16.5px;letter-spacing:.02em}
+.prin .ja{font-size:13.5px;color:var(--ink2);margin-top:2px}
+.prin-sum{margin-top:26px;font-size:14.5px}
+.prin-sum .en{font-family:var(--mono);font-weight:600}
+/* evidence states */
+.states{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:8px}
+.st{border:1px solid var(--rule);border-top:3px solid var(--unv);background:#fff;padding:14px 16px;border-radius:2px}
+.st .tag{font-family:var(--mono);font-weight:700;font-size:12.5px;letter-spacing:.08em}
+.st p{font-size:12.5px;color:var(--ink2);margin-top:6px;line-height:1.75}
+.st.fact{border-top-color:var(--fact)} .st.fact .tag{color:var(--fact)}
+.st.est{border-top-color:var(--est)} .st.est .tag{color:var(--est)}
+.st.hyp{border-top-color:var(--hyp)} .st.hyp .tag{color:var(--hyp)}
+.st.unv{border-top-color:var(--unv)} .st.unv .tag{color:var(--unv)}
+.chip{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;
+  letter-spacing:.06em;padding:1px 7px;border-radius:2px;vertical-align:1px}
+.chip.fact{color:var(--fact);background:rgba(26,110,72,.10)}
+.chip.est{color:var(--est);background:rgba(154,107,11,.12)}
+.chip.hyp{color:var(--hyp);background:rgba(84,73,158,.10)}
+.chip.unv{color:var(--unv);background:rgba(107,114,128,.12)}
+/* research card */
+.wp{border:1px solid var(--rule);background:#fff;border-radius:2px;padding:22px 24px;margin-top:6px}
+.wp .id{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--ai)}
+.wp h3{font-family:var(--min);font-weight:700;font-size:19.5px;letter-spacing:.04em;margin:8px 0 4px}
+.wp .sub{font-size:13px;color:var(--ink2)}
+.wp .abst{font-size:14px;color:var(--ink2);margin-top:14px;max-width:44em}
+.wp .links{margin-top:16px;font-size:13.5px;display:flex;flex-wrap:wrap;gap:18px}
+/* half-life strip */
+.hl{margin-top:24px}
+.hl-title{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--ink2);margin-bottom:10px}
+.hl-row{display:grid;grid-template-columns:44px 1fr 118px;align-items:center;gap:10px;margin:7px 0}
+.hl-ep{font-family:var(--mono);font-size:12px;color:var(--ink2)}
+.hl-val{font-family:var(--mono);font-size:12px;color:var(--ink2)}
+.hl-val{text-align:right}
+.hl-track{height:12px;background:var(--ai-weak);border-radius:1px;position:relative}
+.hl-bar{position:absolute;inset:0 auto 0 0;background:var(--ai);border-radius:1px}
+.hl-bar.cens{background:repeating-linear-gradient(135deg,#9AA6B0 0 5px,transparent 5px 10px);border:1px dashed #9AA6B0}
+.hl-cap{font-size:11.5px;color:var(--ink2);margin-top:10px}
+/* data sources */
+.src{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px 26px;
+  font-family:var(--mono);font-size:12.5px;line-height:2.15;color:var(--ink2)}
+.src b{color:var(--ink);font-weight:600}
+/* quote */
+.close-q{padding:60px 0;text-align:center;border-bottom:1px solid var(--rule)}
+.close-q .ja{font-family:var(--min);font-size:clamp(17px,3vw,21px);letter-spacing:.08em;line-height:2.1}
+.close-q .en{font-family:var(--mono);font-size:12px;color:var(--ink2);margin-top:16px;letter-spacing:.03em}
+/* article (md pages) */
+article{padding:56px 0}
+article .doc-head{margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--rule)}
+article .doc-id{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--ai);margin-bottom:10px}
+article h1{font-family:var(--min);font-weight:700;font-size:clamp(24px,4.4vw,32px);letter-spacing:.05em;line-height:1.5}
+article .doc-meta{font-size:13px;color:var(--ink2);margin-top:12px}
+.canon{margin-top:16px;background:var(--ai-weak);border:1px solid var(--rule);border-radius:2px;
+  padding:12px 14px;font-size:12.5px;color:var(--ink2)}
+.canon .h{font-family:var(--mono);font-size:11px;word-break:break-all;color:var(--ink);display:block;margin-top:4px}
+article h2{font-family:var(--min);font-weight:700;font-size:21px;letter-spacing:.05em;margin:52px 0 18px;
+  padding-top:26px;border-top:1px solid var(--rule)}
+article h3{font-family:var(--min);font-weight:600;font-size:16.5px;letter-spacing:.04em;margin:34px 0 10px;color:var(--ink)}
+article p{margin:13px 0;max-width:44em}
+article ul,article ol{margin:13px 0 13px 1.4em;max-width:42em}
+article li{margin:5px 0}
+article blockquote{border-left:3px solid var(--ai);padding:4px 0 4px 16px;margin:18px 0;color:var(--ink2)}
+article hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
+article strong{font-weight:700}
+article code{font-family:var(--mono);font-size:.86em;background:var(--ai-weak);padding:1px 5px;border-radius:2px}
+article pre{background:#14161A;color:#D7DCD9;font-family:var(--mono);font-size:12.5px;line-height:1.8;
+  padding:14px 16px;border-radius:2px;overflow-x:auto;margin:18px 0}
+article pre code{background:none;padding:0;color:inherit}
+.tbl{overflow-x:auto;margin:20px 0;border:1px solid var(--rule);border-radius:2px}
+article table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.7;background:#fff}
+article th,article td{border-bottom:1px solid var(--rule);padding:8px 12px;text-align:left;white-space:nowrap}
+article th{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--ink2);background:var(--ai-weak)}
+article tr:last-child td{border-bottom:none}
+/* registry (research list) */
+.reg{border:1px solid var(--rule);background:#fff;border-radius:2px;margin-top:6px}
+.reg-row{display:grid;grid-template-columns:82px 1fr 108px;gap:14px;align-items:baseline;
+  padding:16px 18px;border-bottom:1px solid var(--rule)}
+.reg-row:last-child{border-bottom:none}
+.reg-id{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ai)}
+.reg-t{font-size:14.5px}
+.reg-t .d{display:block;font-size:12px;color:var(--ink2);margin-top:3px}
+.reg-s{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-align:right}
+.reg-s.pub{color:var(--fact)} .reg-s.prep{color:var(--est)} .reg-s.plan{color:var(--unv)}
+.faq h3{font-family:var(--min);font-weight:600;font-size:16.5px;letter-spacing:.04em;margin:22px 0 6px}
+.faq p{font-size:14px;color:var(--ink2);max-width:44em;margin:0 0 2px}
+/* live data pages */
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-top:8px}
+.dcard{border:1px solid var(--rule);background:#fff;border-radius:2px;padding:16px 18px}
+.dcard h3{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--ai);margin-bottom:10px}
+.kv{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12.5px;padding:5px 0;border-bottom:1px dashed var(--rule)}
+.kv:last-of-type{border-bottom:none}
+.kv .k{color:var(--ink2)} .kv .v{color:var(--ink);text-align:right}
+.dmeta{font-size:11px;color:var(--ink2);margin-top:10px;line-height:1.7}
+.evt{border:1px solid var(--rule);background:#fff;border-radius:2px;padding:18px 20px;margin-bottom:16px}
+.evt .eid{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ai)}
+.evt h3{font-family:var(--min);font-weight:600;font-size:17.5px;margin:6px 0 10px}
+.tl{margin-top:12px;padding-left:0}
+.tl li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink2);margin:4px 0}
+.stt-row{display:grid;grid-template-columns:190px 90px 110px 1fr;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.stt-row .n{font-family:var(--mono);font-size:12.5px}
+.st-ok{color:var(--fact);font-family:var(--mono);font-weight:700;font-size:11.5px}
+.st-ng{color:#B4232A;font-family:var(--mono);font-weight:700;font-size:11.5px}
+.st-pl{color:var(--unv);font-family:var(--mono);font-weight:700;font-size:11.5px}
+@media (max-width:640px){.stt-row{grid-template-columns:1fr 90px;grid-auto-rows:auto}}
+/* footer */
+footer{padding:44px 0 60px;font-size:12px;color:var(--ink2);line-height:2}
+footer .fmono{font-family:var(--mono);font-size:11px;letter-spacing:.08em;margin-bottom:10px}
+@media (max-width:640px){
+  .hd{flex-direction:column;gap:8px;align-items:flex-start}
+  .hero{padding:52px 0 34px}
+  .reg-row{grid-template-columns:1fr;gap:4px}
+  .reg-s{text-align:left}
+  .hl-row{grid-template-columns:36px 1fr 96px}
+  article th,article td{white-space:normal}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:40px 0}
+  .brand{font-size:17px}
+  .brand small{letter-spacing:.06em;font-size:9px}
+  .blogo{height:30px;width:30px}
+  nav{gap:14px;font-size:13px;flex-wrap:wrap}
+  .verify{font-size:11px;padding:12px 42px 12px 12px}
+  h1.site{font-size:clamp(26px,8vw,34px)}
+  .motto{font-size:clamp(19px,6.4vw,26px)}
+  article h2{font-size:19px}
+  .dcard{padding:14px}
+  .kv{font-size:11.5px}
+  .close-q{padding:44px 0}
+  .close-q .ja{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.mdbody h2{margin-top:30px;padding-top:14px;border-top:1px solid var(--rule)}
+.mdbody h3{margin-top:22px}
+.mdbody blockquote{border-left:3px solid var(--ai);margin:14px 0;padding:4px 14px;color:var(--ink2)}
+.mdbody code{font-family:var(--mono);font-size:.92em;background:rgba(20,26,40,.05);padding:1px 4px;border-radius:2px}
+.mdbody pre{border:1px solid var(--rule);padding:12px;overflow-x:auto;font-size:12px}
+.mdbody pre code{background:none;padding:0}
+.mdbody table{width:100%;border-collapse:collapse;font-size:13px}
+.mdbody th{text-align:left;border-bottom:1.5px solid var(--ink);padding:6px 8px}
+.mdbody td{border-bottom:1px solid var(--rule);padding:6px 8px;vertical-align:top}
+.news .nrow{display:grid;grid-template-columns:86px 74px 1fr;gap:12px;padding:9px 2px;border-bottom:1px solid var(--rule);font-size:13px;align-items:baseline}
+.news .nd{font-family:var(--mono);font-size:11.5px;color:var(--ink2)}
+.news .nt{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--ai);border:1px solid var(--rule);padding:2px 6px;text-align:center;border-radius:2px}
+.news a{color:inherit}
+@media (max-width:560px){.news .nrow{grid-template-columns:78px 1fr;grid-template-areas:"d t" "x x"}.news .nd{grid-area:d}.news .nt{grid-area:t;justify-self:start}.news .nx{grid-area:x}}
+.cform label{display:block;margin:14px 0;font-size:13px;color:var(--ink2)}
+.cform input,.cform textarea{display:block;width:100%;margin-top:6px;padding:10px 12px;font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:2px}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--ink)}
+.cform .hpw{position:absolute;left:-9999px;top:-9999px}
+.cobs{border:1px solid var(--rule);padding:16px 18px;margin:26px 0;background:linear-gradient(180deg,rgba(20,26,40,.02),transparent)}
+.cobs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:10px}
+.cobs .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink2)}
+.cobs .v{font-size:14px;margin-top:3px;font-weight:600}
+/* ==== UI polish layer v1 — 台帳の質感（動きはreduced-motionで全停止） ==== */
+:root{--shadow-1:0 2px 10px rgba(20,26,40,.07);--shadow-2:0 18px 44px rgba(20,26,40,.16);--ease:cubic-bezier(.2,.7,.2,1)}
+::selection{background:var(--ai);color:var(--paper)}
+html{scroll-padding-top:92px}
+header{position:sticky;top:0;z-index:80;background:var(--paper);background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(9px) saturate(1.15);-webkit-backdrop-filter:blur(9px) saturate(1.15);box-shadow:0 1px 0 var(--rule)}
+a{text-underline-offset:3px;text-decoration-thickness:1px;transition:color .15s var(--ease)}
+a:hover{color:var(--ai)}
+nav a{position:relative;text-decoration:none;padding:6px 2px}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:1px;height:1.5px;background:var(--ai);transition:right .2s var(--ease)}
+nav a:hover::after,nav a[aria-current]::after{right:0}
+:focus-visible{outline:2px solid var(--ai);outline-offset:2px;border-radius:1px}
+.doc-id{display:inline-flex;align-items:center;gap:9px}
+.doc-id::before{content:"";width:16px;height:2px;background:var(--ai)}
+.chip{box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+.canon{transition:box-shadow .2s var(--ease)}
+.canon:hover{box-shadow:var(--shadow-1)}
+table tbody tr,table tr{transition:background .12s var(--ease)}
+table tr:hover td{background:rgba(20,26,40,.025)}
+button{transition:color .12s var(--ease),border-color .12s var(--ease),background .12s var(--ease)}
+button:hover{border-color:var(--ink)!important;color:var(--ink)!important}
+footer{border-top:3px double var(--rule)}
+/* --- 索引引き出し --- */
+.nvm summary{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border:1px solid transparent;border-radius:2px;transition:border-color .15s var(--ease),background .15s var(--ease)}
+.nvm summary::after{content:"";width:6px;height:6px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s var(--ease)}
+.nvm[open] summary{border-color:var(--rule);background:var(--paper)}
+.nvm[open] summary::after{transform:rotate(-135deg) translateY(1px)}
+.nvp{min-width:296px;padding:14px 12px;gap:1px;border-radius:2px;box-shadow:var(--shadow-2);animation:nvIn .16s var(--ease)}
+@keyframes nvIn{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:none}}
+.nvg{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--ink2);margin:11px 4px 5px;border-top:1px solid var(--rule);padding-top:11px}
+.nvg:first-child{margin-top:0;border-top:0;padding-top:0}
+.nvi{display:block;padding:8px 9px;border-left:2px solid transparent;text-decoration:none;transition:background .12s var(--ease),border-color .12s var(--ease)}
+.nvi:hover{background:rgba(20,26,40,.04);border-left-color:var(--ai);color:inherit}
+.nvi .t{display:block;font-size:13.5px;color:var(--ink)}
+.nvi .d{display:block;font-size:11px;color:var(--ink2);margin-top:2px}
+@media (max-width:640px){.nvp{position:fixed;left:10px;right:10px;top:62px;max-height:calc(100vh - 80px);overflow:auto}}
+
+/* CITE & SHARE */
+.cite-box{border:1px solid var(--ai);border-radius:3px;background:var(--ai-weak);padding:18px 20px;margin:34px 0 0}
+.cite-box h2{font-family:var(--min);font-size:17px;letter-spacing:.03em;margin:0 0 8px}
+.cite-box p{font-size:13.5px;color:var(--ink2);max-width:46em;margin:0 0 10px}
+.cite-box .must{color:var(--ink)}
+.cite-pre{font-family:var(--mono);font-size:12px;background:#fff;border:1px solid var(--rule);border-radius:3px;
+  padding:11px 13px;white-space:pre-wrap;word-break:break-all;margin:0 0 10px}
+.cite-act{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.cite-act a,.cite-act button{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;padding:6px 12px;
+  border:1px solid var(--rule);border-radius:2px;background:var(--paper);color:var(--ink2);
+  text-decoration:none;cursor:pointer;transition:all .15s var(--ease)}
+.cite-act a:hover,.cite-act button:hover{border-color:var(--ai);color:var(--ai)}
+.cite-act .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink2);
+  border:0;padding:0;margin-right:2px}
+.cite-note{font-size:12.5px;color:var(--ink2);margin-top:12px;max-width:46em}
+
+
+/* 一列に収まらない幅では、ナビを丸ごと2段目へ落とす（文字は絶対に折らない） */
+@media (max-width:1060px){
+  .brand small{display:none}
+  nav{order:4;flex:1 0 100%;justify-content:flex-start;margin-top:2px;overflow-x:auto;
+      scrollbar-width:none;-ms-overflow-style:none}
+  nav::-webkit-scrollbar{display:none}
+  .lgsw{order:2}
+}
+@media (max-width:860px){.nvp{grid-template-columns:repeat(2,minmax(140px,1fr));min-width:min(420px,94vw)}
+  .nvcol .nvg{margin-top:8px}}
+@media (max-width:640px){
+  .hd{gap:8px 12px;padding:11px 0}
+  nav{gap:13px;font-size:12.5px}
+  .nvp{position:fixed;left:8px;right:8px;top:58px;min-width:0;grid-template-columns:repeat(2,1fr);
+       max-height:calc(100vh - 130px);overflow:auto;padding:12px 10px}
+  .nvp .nvi{font-size:12.5px;padding:6px}
+}
+
+/* UTILITY BAR — 言語切替をヘッダーの外・上段へ。ナビと幅を奪い合わせない */
+.ubar{border-bottom:1px solid var(--rule);background:var(--paper)}
+.ubar .wrap{display:flex;justify-content:flex-end;align-items:center;gap:0;padding:0}
+.lgsw{display:inline-flex;align-items:center;border:0;border-radius:0;margin:0;overflow:visible}
+.lgsw a{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:6px 10px;text-decoration:none;
+  color:var(--ink2);background:transparent;border:0;border-left:1px solid var(--rule);white-space:nowrap;line-height:1.5}
+.lgsw a:first-child{border-left:0}
+.lgsw a:hover{color:var(--ai);background:var(--ai-weak)}
+.lgsw a[aria-current="true"]{color:var(--ai);font-weight:600;box-shadow:inset 0 -2px 0 var(--ai)}
+
+/* NAV v5 — ヘッダーは brand と nav のみ。言語は上段ユーティリティバーへ */
+.hd{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 16px;padding:14px 0}
+.brand{flex:1 1 auto;min-width:0}
+.brand span{min-width:0}
+.brand small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+nav{flex:0 0 auto;display:flex;align-items:center;gap:18px;font-size:13.5px;flex-wrap:nowrap}
+nav>a{white-space:nowrap;padding:6px 2px}
+.nvm summary{white-space:nowrap}
+.nvp{min-width:min(680px,94vw);grid-template-columns:repeat(4,minmax(140px,1fr));
+     column-gap:10px;row-gap:0;padding:14px 12px;align-items:start}
+.nvcol{display:flex;flex-direction:column;min-width:0}
+.nvcol .nvg{margin:0 0 4px;border-top:0;padding-top:0;font-size:9px;letter-spacing:.18em}
+.nvp .nvi{display:block;padding:5px 7px;font-size:13px;color:var(--ink);border-left:2px solid transparent;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nvp .nvi:hover{background:var(--ai-weak);border-left-color:var(--ai)}
+@media (max-width:900px){.brand small{display:none}}
+@media (max-width:820px){
+  nav{flex:1 0 100%;justify-content:flex-start;margin-top:2px;overflow-x:auto;
+      scrollbar-width:none;-ms-overflow-style:none}
+  nav::-webkit-scrollbar{display:none}
+}
+@media (max-width:860px){.nvp{grid-template-columns:repeat(2,minmax(140px,1fr));min-width:min(420px,94vw)}
+  .nvcol .nvg{margin-top:8px}}
+@media (max-width:640px){
+  .hd{gap:8px 12px;padding:11px 0}
+  nav{gap:14px;font-size:12.5px}
+  .lgsw a{padding:5px 8px;font-size:10px}
+  .nvp{position:fixed;left:8px;right:8px;top:auto;min-width:0;grid-template-columns:repeat(2,1fr);
+       max-height:calc(100vh - 150px);overflow:auto;padding:12px 10px}
+  .nvp .nvi{font-size:12.5px;padding:6px}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://fxir.jp/#org","name":"為替介入研究所",
+  "alternateName":["FXIR","FX Intervention Research Institute"],
+  "url":"https://fxir.jp/","parentOrganization":{"@type":"Organization","name":"AI MQL合同会社"},
+  "sameAs":["https://x.com/fxirjp","https://github.com/fxirjp","https://lin.ee/rkUKYCMM","https://note.com/fxir"],"logo":{"@type":"ImageObject","@id":"https://fxir.jp/#logo","url":"https://fxir.jp/assets/logo.png","contentUrl":"https://fxir.jp/assets/logo.png","width":512,"height":512,"caption":"為替介入研究所"},"image":{"@id":"https://fxir.jp/#logo"},"email":"info@fxir.jp","knowsLanguage":["ja","en"],"slogan":"Don't trust, verify."},
+ {"@type":"WebSite","url":"https://fxir.jp/","name":"為替介入研究所 — Don't trust, verify.",
+  "inLanguage":"ja","publisher":{"@id":"https://fxir.jp/#org"},"@id":"https://fxir.jp/#website","image":{"@id":"https://fxir.jp/#logo"}}]}
+</script>
+</head>
+<body data-doc="WP-001">
+<div class="ubar"><div class="wrap">
+  <div class="lgsw" role="group" aria-label="言語"><a href="wp-001.html" aria-current="true" hreflang="ja">日本語</a><a href="en/index.html" hreflang="en">EN</a><a href="zh/index.html" hreflang="zh">中文</a></div>
+</div></div>
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="index.html"><img class="blogo" src="assets/logo.png" alt="" width="36" height="36"><span>為替介入研究所<small>FX INTERVENTION RESEARCH INSTITUTE — FXIR.JP</small></span></a>
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="dashboard/">ダッシュボード</a>
+      <a href="data.html">データ</a>
+      <a href="research.html" aria-current="page">研究</a>
+<a href="live.html">介入速報</a>
+      <details class="nvm"><summary>その他</summary><div class="nvp">
+        <div class="nvcol"><div class="nvg">READ</div><a class="nvi" href="live.html" title="いま確認できること・できないこと・確定予定日">介入速報</a><a class="nvi" href="chat.html" title="証拠つきで質問に答える">AIチャット</a><a class="nvi" href="guide.html" title="本サイトの読み方">はじめての方へ</a>
+        <a class="nvi" href="episodes.html" title="各介入の期間・首相・金額・半減期を1ページずつ">エピソード解説 E1〜E6</a>
+        <a class="nvi" href="why.html" title="公式の理由・言わない理由・データの規則性">なぜ介入するのか</a><a class="nvi" href="faq.html" title="半減期・レートチェック・残弾">FAQ・用語</a><a class="nvi" href="news.html" title="更新記録（全件）">お知らせ</a></div>
+        <div class="nvcol"><div class="nvg">OBSERVE</div><a class="nvi" href="events.html" title="介入とレートチェックの状態">イベント台帳</a><a class="nvi" href="schedule.html" title="当局の公表日を月表示">公表カレンダー</a><a class="nvi" href="calendar.html" title="決着日と定期観測日">観測カレンダー</a><a class="nvi" href="api.html" title="鍵つき配信・改ざん検証">Data API（β）</a><a class="nvi" href="commercial.html" title="保証・SLA・商用ライセンス（設計草案）">商用提供</a><a class="nvi" href="newsletter.html" title="更新時のみ・無料">メール配信</a></div>
+        <div class="nvcol"><div class="nvg">VERIFY</div><a class="nvi" href="verify.html" title="入力・コード・監査の全段">検証</a><a class="nvi" href="methodology.html" title="METHOD-v1.0">方法論</a><a class="nvi" href="registry.html" title="研究・仮説・事前登録をIDで">研究台帳</a><a class="nvi" href="corrections.html" title="間違いの全記録">訂正・撤回</a><a class="nvi" href="ai.html" title="正本・引用条件・エンドポイント">AIに読み込ませる方へ</a></div>
+        <div class="nvcol"><div class="nvg">ABOUT</div><a class="nvi" href="rules.html" title="68条の正本とハッシュ">会則</a><a class="nvi" href="coi.html" title="研究と取引の分離">利益相反</a><a class="nvi" href="company.html" title="運営法人・所長・連絡先">会社概要</a><a class="nvi" href="status.html" title="収集の鮮度・STALE検知">稼働状態</a><a class="nvi" href="contact.html" title="指摘・訂正申し立て">お問い合わせ</a></div>
+      
+      </div></details>
+    </nav>
+</header>
+
+<main>
+<div class="wrap">
+<article>
+  <div class="doc-head">
+    <div class="doc-id">WP-001 · WORKING PAPER · 2026-08-08 · v1.3</div>
+    <h1>為替介入の反応関数は二層構造をとる</h1>
+    <div class="doc-meta">発動条件と執行条件の分離、および効果半減期による評価 ｜ 上村 十勝</div>
+    <div class="canon">正本はMarkdown（現行 v1.3）です。旧版は削除せず保存しています（会則第32条）。PDFは v1.0 版のレンダリングであり、その末尾は v1.0 正本ハッシュを宣言しています。
+      <a href="docs/wp-001.md">wp-001.md（正本 v1.3）</a> ／ <a href="docs/wp-001_v1.1.md">v1.1</a>・<a href="docs/wp-001_v1.2.md">v1.2</a> ／ <a href="docs/wp-001_v1.0.md">v1.0</a> ／ <a href="docs/wp-001.pdf">PDF（v1.0）</a>
+      <span class="h">v1.3 SHA-256: 139025fd6e9584e4d6990e3df6c2080b7c8dcb0d4c564b81a5c5a3e57a17bd2f</span>
+      <span class="h">v1.2 SHA-256: 8641e2eb94fead483e6f07213218629cf6ee96838348e8c735650d4409f76d70</span>
+      <span class="h">v1.1 SHA-256: 7cca6358b7b92d2a2b6131321243082fdbc1417cdffaca5a923b8b7059975bbc</span>
+      <span class="h">v1.0 SHA-256: 1674ce1f5acc7b8f7781241ad26b0d2d67fd70cab28b6d0cfa238fe60796d034</span>
+      <span class="h">PDF SHA-256: 7947ce9917a75137c7654445ea32d949f93fcd50d2fe2ed64e12acf580acdc77</span>
+    </div>
+  </div>
+  
+<h2>——発動条件と執行条件の分離、および効果半減期による評価</h2>
+<p><strong>上村 十勝</strong></p>
+<p>2026年8月8日（v1.3）</p>
+<hr />
+<h2>要旨</h2>
+<p>日本の通貨当局による円買い介入について、2022年以降の財務省公表データと日次価格データを用い、介入効果を「瞬間的な価格インパクト」ではなく「効果の半減期」で測定した。</p>
+<p>介入エピソードは6件（n=6）。半減期は1日から431日まで分布するが、投入額との間に明確な関係は見出せない。5.53兆円のエピソードが431営業日、11.73兆円のエピソードが5営業日である。</p>
+<p>介入後のマクロ環境変化（以下「+α」）を事前定義したうえで過去に適用したところ、<strong>「+αが来れば持続する」という単純な仮説は反例により棄却された</strong>。2026年4〜5月のエピソードには29営業日後に日本銀行の利上げが到来しているが、効果はその24営業日前に消滅していた。区別しているのは+αの有無ではなく、+αが効果の生存期間内に到達したか否かである。</p>
+<p>また、介入の実施タイミングは価格変動の激しさと一致しない。2026年7月30日の介入直前5時間の1分足平均レンジは1.8 pipsであり、標本中で最も静穏な局面であった。この観測は、介入の<strong>発動条件</strong>（撃つか否か）と<strong>執行条件</strong>（いつ撃つか）を別の反応関数として扱う必要を示唆する。</p>
+<p>すべて n=6 の記述的観察であり、統計的推論ではない。</p>
+<p><strong>キーワード</strong>：為替介入、効果半減期、反応関数、USD/JPY、外国為替平衡操作</p>
+<hr />
+<h2>1. 問題設定</h2>
+<h3>1.1 動機となった不整合</h3>
+<p>2026年8月6日23時、USD/JPYは158円を突破した。翌7日の高値は158.575円。200日移動平均線（約158.08円）を上回る状態が22時間継続したが、介入は実施されなかった。</p>
+<p>同じ当局は2026年5月4日、157.3円付近で7,802億円の円買い介入を実施している。</p>
+<p><strong>157円台で実施した当局が、158.5円で実施しない。</strong> 価格水準を反応関数の主変数とするモデルでは説明できない。</p>
+<h3>1.2 検証する三つの既存説明</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>説明</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>特定の価格水準（200日移動平均線等）を防衛している</td>
+</tr>
+<tr>
+<td>B</td>
+<td>無秩序な価格変動に反応している（当局の公式説明）</td>
+</tr>
+<tr>
+<td>C</td>
+<td>価格の形状から介入の有無を識別できる</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.3 本稿の主張</h3>
+<ol>
+<li>説明A・B・Cはいずれも観測と整合しない</li>
+<li>介入の評価軸は価格インパクトではなく<strong>効果の半減期</strong>であるべきである</li>
+<li>半減期は投入額では説明できない</li>
+<li>発動条件と執行条件は別の反応関数として扱うべきである</li>
+</ol>
+<hr />
+<h2>2. データと方法</h2>
+<h3>2.1 データ</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>種別</th>
+<th>出所</th>
+<th>期間</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>介入実績（実施日別）</td>
+<td>財務省「外国為替平衡操作の実施状況」</td>
+<td>2022年9月〜2026年6月</td>
+</tr>
+<tr>
+<td>介入実績（推計）</td>
+<td>報道各社（日銀当座預金の財政等要因からの市場推計）</td>
+<td>2026年7〜8月</td>
+</tr>
+<tr>
+<td>USD/JPY 日足</td>
+<td>OANDA</td>
+<td>2002年5月〜2026年8月</td>
+</tr>
+<tr>
+<td>USD/JPY 分足</td>
+<td>OANDA</td>
+<td>2026年7〜8月</td>
+</tr>
+<tr>
+<td>政策金利</td>
+<td>日本銀行</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>2026年7月30日以降の介入額は8月28日の月次公表まで確定しない。本稿では報道推計値を用い、該当箇所に明示する。</p>
+<h3>2.2 エピソードの定義</h3>
+<p>介入実施日は2022年以降13日あるが、その多くが連続している。</p>
+<pre><code>2022/10/21 → 10/24
+2024/04/29 → 05/01
+2024/07/11 → 07/12
+2026/04/30 → 05/04 → 05/06
+2026/07/30 → 07/31 → 08/03
+</code></pre>
+<p>初日の効果が持続したのか、追撃によって維持されたのかを分離できない。日単位で測定すると、次の介入までの観測窓が0〜2営業日しかない事例が5件生じる。</p>
+<p>したがって、連続する介入群を一つの<strong>エピソード</strong>として扱う。エピソードの区切りは筆者の判断による（客観的基準は存在しない）。</p>
+<h3>2.3 変数定義</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>変数</th>
+<th>定義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cost</strong></td>
+<td>エピソード期間中の介入額合計（兆円）</td>
+</tr>
+<tr>
+<td><strong>Impact</strong></td>
+<td>初回介入日の高値 − エピソード期間中の最安値（円）</td>
+</tr>
+<tr>
+<td><strong>効率</strong></td>
+<td>Cost ÷ Impact（1円動かすのに要した兆円）</td>
+</tr>
+<tr>
+<td><strong>直前速度</strong></td>
+<td>初回介入日の前5営業日の終値5本から算出した<strong>差分4本</strong>の平均絶対値（円/日）</td>
+</tr>
+<tr>
+<td><strong>半減期</strong></td>
+<td>最終介入日の翌営業日以降、<strong>終値</strong>が「最安値 + Impact × 0.5」を初めて回復するまでの営業日数</td>
+</tr>
+</tbody>
+</table></div>
+<p>本稿の測定・判定の詳細は方法論 METHOD-v1.0（v1.3で遡及明記）に従う。</p>
+<p>半減期を終値ベースで定義する理由は、日中高値ベースでは瞬間的な戻りを拾い、同一事象が正反対に評価されるためである。2026年7月30日の事例では、日中高値ベースでは13時間で50%回復と評価されるが、翌営業日の終値は介入日の安値を下回っていた。</p>
+<p>観測窓は、次のエピソードの初回介入日、またはデータ末尾（2026年8月7日）で右打ち切りとする。</p>
+<hr />
+<h2>3. 結果</h2>
+<h3>3.1 既存説明の棄却</h3>
+<p><strong>説明A（水準防衛）</strong>：2026年8月6〜7日、200日移動平均線を22時間上回ったが介入なし。棄却。</p>
+<p><strong>説明B（無秩序への反応）</strong>：2026年7月30日の介入直前5時間の1時間足値幅は6.8〜37.0 pips、1分足平均レンジ1.8 pips、最大14.3 pips。標本中で最も静穏な局面である。なお静穏性の測定値は窓の取り方に依存し、監査時の別窓実装では平均6.8／9.2pips相当の値も得られている（窓依存性の明示・R1対応）。少なくとも「価格が暴れているのを見て反応した」という記述は、この事例に当てはまらない。</p>
+<p><strong>説明C（価格形状からの識別）</strong>：</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>日付</th>
+<th>日中値幅</th>
+<th>安値</th>
+<th>介入額</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026/04/30</td>
+<td>5.170円</td>
+<td>155.556</td>
+<td>6兆2,787億円</td>
+</tr>
+<tr>
+<td><strong>2026/05/01</strong></td>
+<td><strong>1.842円</strong></td>
+<td><strong>155.488</strong></td>
+<td><strong>ゼロ</strong></td>
+</tr>
+<tr>
+<td>2026/05/04</td>
+<td>1.603円</td>
+<td>155.702</td>
+<td>7,802億円</td>
+</tr>
+<tr>
+<td>2026/05/05</td>
+<td>0.845円</td>
+<td>157.076</td>
+<td>ゼロ</td>
+</tr>
+<tr>
+<td>2026/05/06</td>
+<td>2.908円</td>
+<td>155.032</td>
+<td>4兆6,759億円</td>
+</tr>
+</tbody>
+</table></div>
+<p>介入のなかった5月1日は、7,802億円を投じた5月4日より値幅が大きく、安値も低い。6兆2,787億円を投じた4月30日の安値も、翌営業日に市場が自律的に下回った。</p>
+<p><strong>兆円未満の介入は、通常のフローと区別できない。</strong> 棄却。</p>
+<h3>3.2 エピソード単位の測定結果</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ep</th>
+<th>期間</th>
+<th>期間営業日数</th>
+<th>Cost</th>
+<th>Impact</th>
+<th>効率</th>
+<th>直前速度</th>
+<th>半減期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1</td>
+<td>2022/09/22</td>
+<td>1</td>
+<td>2.84兆</td>
+<td>5.55円</td>
+<td>0.51</td>
+<td>0.42</td>
+<td>1日</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>2022/10/21〜24</td>
+<td>2</td>
+<td>6.35兆</td>
+<td>6.41円</td>
+<td>0.99</td>
+<td>0.35</td>
+<td>5日</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>2024/04/29〜05/01</td>
+<td>3</td>
+<td>9.79兆</td>
+<td>7.23円</td>
+<td>1.35</td>
+<td>0.88</td>
+<td>15日</td>
+</tr>
+<tr>
+<td><strong>E4</strong></td>
+<td><strong>2024/07/11〜12</strong></td>
+<td>2</td>
+<td><strong>5.53兆</strong></td>
+<td>4.40円</td>
+<td>1.26</td>
+<td>0.34</td>
+<td><strong>431日</strong></td>
+</tr>
+<tr>
+<td>E5</td>
+<td>2026/04/30〜05/06</td>
+<td>5</td>
+<td>11.73兆</td>
+<td>5.69円</td>
+<td>2.06</td>
+<td>0.38</td>
+<td>5日</td>
+</tr>
+<tr>
+<td>E6</td>
+<td>2026/07/30〜08/03</td>
+<td>3</td>
+<td>12.70兆※</td>
+<td>8.51円</td>
+<td>1.49</td>
+<td>0.17</td>
+<td>未回復（観測4日）</td>
+</tr>
+</tbody>
+</table></div>
+<p>※ Cost・Impact・効率は表示上、小数第2位に丸める。50%回復線の算出は<strong>未丸めのImpact</strong>による（METHOD-v1.0 §七。v1.3追記・R1対応）。</p>
+<p>※推計値。2026年8月28日の月次公表で確定。</p>
+<p>E6の観測期間は4営業日にすぎず、他エピソードの観測窓（20〜464営業日）と比較可能な状態にない。</p>
+<h3>3.3 相関分析</h3>
+<p>回収が観測された5件（E1〜E5）について、Spearmanの順位相関係数：</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>変数</th>
+<th>ρ</th>
+<th>p値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直前速度</td>
+<td>−0.359</td>
+<td>0.553</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>+0.205</td>
+<td>0.741</td>
+</tr>
+<tr>
+<td>効率</td>
+<td>+0.462</td>
+<td>0.434</td>
+</tr>
+<tr>
+<td>Impact</td>
+<td>−0.051</td>
+<td>0.935</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>いずれも有意でない。</strong> n=5では、いかなる相関も主張できない。</p>
+<h3>3.4 公開前に棄却した分析</h3>
+<p>本研究の初期版では、介入日単位13件を標本として「直前速度と半減期に負の相関（ρ = −0.555）」を報告した。<strong>これを撤回する。</strong></p>
+<p><strong>誤り①：右打ち切りの不当な処理。</strong> 2026年7月30日以降の3件について、経過日数が最大6営業日であるにもかかわらず「120日超」として集計に投入していた。存在しない観測を作り出していた。</p>
+<p><strong>誤り②：独立性の欠如。</strong> 連続介入日を独立標本として扱っていた。連投2日目の「直前速度」は、前日の介入によって汚染されている。</p>
+<p>エピソード単位で再測定した結果が §3.3 であり、当初報告した規則性は消失した。</p>
+<p>「効率が良い介入ほど短命である」という初期版の主張も、同様に統計的裏付けを失う。</p>
+<hr />
+<h2>4. 「+α」の事前登録と検証</h2>
+<h3>4.1 観察される外れ値</h3>
+<p>§3.2 の分布において、相関ではなく<strong>外れ値</strong>が目を引く。</p>
+<pre><code>E1   2.84兆円  →   1日
+E2   6.35兆円  →   5日
+E3   9.79兆円  →  15日
+E4   5.53兆円  → 431日   ←
+E5  11.73兆円  →   5日
+</code></pre>
+<p>E4のCostは下から2番目である。E5はE4の2倍以上を投じて、半減期は86分の1であった。</p>
+<p><strong>投入額の大きさだけでは、E4とE5の差を説明できない。</strong></p>
+<h3>4.2 E4の周辺で起きたこと</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>日付</th>
+<th>出来事</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2024/07/11〜12</td>
+<td>介入（合計5.53兆円）</td>
+</tr>
+<tr>
+<td>2024/07/31</td>
+<td>日本銀行が政策金利を0.25%へ引き上げ</td>
+</tr>
+<tr>
+<td>2024/08/02</td>
+<td>米雇用統計が市場予想を下回り、サーム・ルールが発動</td>
+</tr>
+<tr>
+<td>2024/08/05</td>
+<td>日経平均株価が4,451円安（1987年のブラックマンデーを超える下落幅）</td>
+</tr>
+</tbody>
+</table></div>
+<p>USD/JPYは161.95円から5週間で141.70円まで、約20円下落した。</p>
+<p>介入それ自体が20円を作ったのではない。介入から3週間後の政策変更と景気指標が起点である。</p>
+<h3>4.3 事前定義</h3>
+<p>長期持続した介入だけを見て「あれには+αがあった」と事後的に分類するのでは、反証不能な説明になる。そこで次の観測が発生する前に定義を固定する。</p>
+<blockquote>
+<p><strong>「+α」の定義（本稿公開時点で固定）</strong></p>
+<p>最終介入日を起算日とし、以下のいずれかが<strong>半減期の到達より前に</strong>発生した場合、当該エピソードを「+αを伴う」と分類する。</p>
+<p><strong>① 日本銀行の政策金利が25bp以上引き上げられる</strong><br />
+<strong>② 米2年国債利回りが、最終介入日の終値比で50bp以上低下する</strong><br />
+<strong>③ USD/JPYの20日実現ボラティリティが、直近1年の90パーセンタイルを超える</strong></p>
+</blockquote>
+<p>「半減期の到達より前に」という順序条件が本質である。効果が消滅した後に発生した政策変更は、当該介入の持続性を説明しない。</p>
+<h3>4.4 検証結果：単純な+α仮説は棄却される</h3>
+<p>基準①を過去に適用する。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ep</th>
+<th>最終介入日</th>
+<th>日銀利上げ</th>
+<th>経過</th>
+<th>半減期到達</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>E4</strong></td>
+<td>2024/07/12</td>
+<td>2024/07/31（0.25%へ）</td>
+<td><strong>13営業日</strong></td>
+<td>431営業日</td>
+<td><strong>+α有（順序成立）</strong></td>
+</tr>
+<tr>
+<td><strong>E5</strong></td>
+<td>2026/05/06</td>
+<td>2026/06/16（1.00%へ）</td>
+<td><strong>29営業日</strong></td>
+<td><strong>2026/05/13（5営業日）</strong></td>
+<td><strong>+α無（順序不成立）</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>E5にも日本銀行の利上げは到来していた。</strong> しかし半減期の到達は2026年5月13日であり、利上げの24営業日前に効果は消滅していた。</p>
+<p>したがって、</p>
+<blockquote>
+<p><strong>「+αが到来すれば介入効果は持続する」という命題は、E5により反証される。</strong></p>
+</blockquote>
+<p>E4とE5を分けているのは+αの有無ではなく、<strong>+αが効果の生存期間内に到達したか否か</strong>である。E4は13営業日、E5は29営業日。E5の効果は5営業日で消滅していた。</p>
+<p>加えてE4では、利上げに米雇用統計の悪化とキャリー取引の巻き戻しが同時期に重複している。単発の政策変更ではなく、複合的な環境変化であった。</p>
+<h3>4.5 v1.0公開時点で言えたこと</h3>
+<p><strong>v1.0公開時点では</strong>、基準②③に必要な米2年国債利回りおよび実現ボラティリティのデータを未取得であり、E1〜E3の分類は基準①のみに基づいていた（追試の結果は§4.6）。</p>
+<p>その制約のもとで、v1.0が主張しえたのは次の一点に留まる。</p>
+<blockquote>
+<p><strong>E4の長期持続には、介入から13営業日後の日本銀行の利上げを含む、その後のマクロ環境の変化が寄与した可能性が高い。そして投入額の大きさだけでは、E4とE5の差（431営業日 対 5営業日）を説明できない。</strong></p>
+</blockquote>
+<p>これは仮説であり、証明ではない。</p>
+<h3>4.6 基準②③の追試（v1.1追記）</h3>
+<p>v1.0公表後、米2年国債利回り（FRED DGS2）および20日実現ボラティリティ（日足終値・年率化）のデータを取得し、§4.3の基準②③をE1〜E5へ適用した。運用細則（生存窓・基準値の定義）はPR-001で決着前に固定している。</p>
+<p><strong>運用細則（PR-001と同一定義・v1.2で本文に明記）</strong>: 生存窓は、最終介入日の翌営業日から半減期到達日の<strong>前日</strong>までとする（到達日当日の事象は「効果の生存中に発生した」と認めない）。営業日は土日を除く週日とし、国内祝日は価格系列が存在するため算入する。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ep</th>
+<th>半減期</th>
+<th>①日銀利上げ</th>
+<th>②DGS2 −50bp</th>
+<th>③RV20&gt;P90</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1</td>
+<td>1営業日</td>
+<td>判定不能（窓なし）</td>
+<td>窓なし</td>
+<td>窓なし</td>
+<td><strong>判定不能</strong></td>
+</tr>
+<tr>
+<td>E2</td>
+<td>5営業日</td>
+<td>不成立</td>
+<td>不発（窓内最小4.30／線4.00）</td>
+<td>不発</td>
+<td>+α無</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>15営業日</td>
+<td>不成立</td>
+<td>不発（窓内最小4.73／線4.46）</td>
+<td><strong>発火 2024-05-02</strong> ※</td>
+<td><strong>+α有（③のみ）</strong></td>
+</tr>
+<tr>
+<td>E4</td>
+<td>431営業日</td>
+<td>発火 +13営業日</td>
+<td><strong>発火 2024-08-02（3.88）</strong></td>
+<td><strong>発火 2024-08-05</strong></td>
+<td><strong>+α有（①②③）</strong></td>
+</tr>
+<tr>
+<td>E5</td>
+<td>5営業日</td>
+<td>順序不成立</td>
+<td>不発（窓内最小3.90／線3.37）</td>
+<td>不発</td>
+<td>+α無</td>
+</tr>
+</tbody>
+</table></div>
+<p>※E3では最終介入日時点で既にRV20が直近1年のP90を超過していた。大規模介入それ自体が20日窓の実現ボラを押し上げるため、基準③は介入直後に機械的に発火しうる。介入の帰結を介入の追い風と誤認するリスクであり、基準③の既知の限界として記録する。</p>
+<p>この追試により、§4.4の観察は次のように精緻化される。単独かつ交絡疑いの③のみだったE3は15営業日で消滅し、①②③が3週間以内に集中したE4のみが431営業日持続した。<strong>区別しているのは「+αの有無」ではなく「複合的な+αが生存期間内に集中したか」である可能性が高い。</strong> これはHYPOTHESISであり、E6が検証機会となる。</p>
+<hr />
+<h2>5. 二層モデル</h2>
+<h3>5.1 単層モデルの破綻</h3>
+<p>初期版では次のように定式化していた。</p>
+<pre><code>円安方向 × 速度が閾値超  →  介入する
+円安方向 × 緩慢         →  放置する
+</code></pre>
+<p>このモデルは2026年7月30日を説明できない。当該エピソードの直前速度0.17は標本中で最小であり、「速度が閾値を超えたから撃った」とは言えない。</p>
+<h3>5.2 発動条件と執行条件の分離</h3>
+<p>観測に整合するのは、次の二層構造である。</p>
+<blockquote>
+<p><strong>第一層（発動条件）：介入を実施するか否かを決定する</strong></p>
+<p><strong>第二層（執行条件）：いつ実施するかを決定する</strong></p>
+</blockquote>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>層</th>
+<th>監視対象（推定）</th>
+<th>時間軸</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一層：発動</td>
+<td>累積的な変動幅、投機ポジション、物価への波及、政治的コスト、国際的合意の状況</td>
+<td>週〜月</td>
+</tr>
+<tr>
+<td>第二層：執行</td>
+<td>流動性、ドル地合い、指標発表、板の厚さ、瞬間的な速度</td>
+<td>分〜時間</td>
+</tr>
+</tbody>
+</table></div>
+<p>この構造により、次の系列が矛盾なく説明される。</p>
+<ol>
+<li>円安が数か月かけて緩慢に進行した（第一層の条件が累積）</li>
+<li>当局は既に介入の実施を決定していた</li>
+<li>価格が激しく変動している瞬間には実施しなかった</li>
+<li>市場が静穏化した瞬間を執行窓として選択した（2026年7月30日19時15分、直前5時間の1分足平均1.8 pips）</li>
+</ol>
+<h3>5.3 公式説明との両立</h3>
+<p>重要な点として、二層モデルは当局の公式説明「過度な変動への対応」と<strong>矛盾しない</strong>。</p>
+<pre><code>過度な変動の累積  →  発動判断を形成（第一層）
+執行は静穏な瞬間  →  効率の最大化（第二層）
+</code></pre>
+<p>初期版では「公式説明は建前であり、実際は逆の論理で動いている」と記述した。<strong>これも撤回する。</strong></p>
+<p>本稿が測定した「直前5営業日の価格速度」と、当局の言う「無秩序」は同一の概念ではない。無秩序には板の厚さ、ビッド・アスク・スプレッド、一方向への注文集中、日中の価格ギャップ、インプライド・ボラティリティ、フィキシング周辺のフロー、投機ポジションなども含まれうる。</p>
+<p>現時点で主張しうるのは次の一点である。</p>
+<blockquote>
+<p><strong>少なくとも「直前5営業日の価格速度」で見る限り、当局は変動が最大の瞬間だけを狙って実施しているわけではない。介入の実施決定後、静穏な市場環境を執行窓として選択している可能性がある。</strong></p>
+</blockquote>
+<p>これは単一事例に依拠する仮説であり、一般化には追加の観測を要する。</p>
+<hr />
+<h2>6. 考察</h2>
+<h3>6.1 介入の機能の再定義</h3>
+<p>E4とE5の対比が示唆するのは、介入を「価格を恒久的に変更する政策」として理解することの限界である。</p>
+<p>E4では、介入がポジションを揺さぶった後、3週間以内に金融政策と景気指標が同方向に動いた。介入は20円の下落を作ったのではなく、<strong>その下落が起きうる状態を準備した</strong>と解釈するほうが観測に合う。</p>
+<blockquote>
+<p><strong>介入は時間を買うことができる。しかし、その時間内に金融政策・米金利・ポジショニングといった環境変化が追随しなければ、持続性は保証されない。</strong></p>
+</blockquote>
+<p>すなわち介入は、<strong>ファンダメンタルズが追いつくまで、ポジションと価格形成を一時的にずらす政策</strong>として位置づけられる。</p>
+<h3>6.2 制度的背景との同時性</h3>
+<p>2026年7月30日には、二つの出来事が同日に発生している。</p>
+<p><strong>午前</strong>：令和9年度概算要求基準を閣議了解。「強く豊かな日本」投資枠を新設し、当該枠について「要求上限を設けず、事項要求も含め、所要額を適切に要求」と明記。経済安全保障上重要な分野については、複数年度での財源確保および特別会計での別枠管理を検討するとしている。</p>
+<p><strong>同日19時15分および22時38分</strong>：円買い介入。</p>
+<p>「要求上限なし」「事項要求（金額を記載せず項目のみ要求）」「特別会計での別枠管理」の三点が組み合わさると、8月末に概算要求総額が公表されても実際の規模を外部から把握できない可能性がある。規模の拡大以上に、透明性の低下が観測上の問題となる。</p>
+<p>ただし同基準は「補正予算依存から脱却し、恒常施策を当初予算へ」とも記しており、恒久化であると同時に可視化でもある。また「要求」は「決定」ではなく、査定過程で減額されうる。</p>
+<p>同日性は事実であるが、因果関係を示すものではない。</p>
+<h3>6.3 意図についての留保</h3>
+<p>本稿は「政府が円安を志向している」と主張するものではない。</p>
+<p>同一の観測を生む説明が二つ存在する。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>① 意図的な管理切り下げ</th>
+<th>② 意図なき均衡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>政府が円安を志向</td>
+<td>誰も志向していない</td>
+</tr>
+<tr>
+<td>介入は速度調整の方針</td>
+<td>介入は唯一残された手段</td>
+</tr>
+<tr>
+<td>円安は目的</td>
+<td>円安は副産物</td>
+</tr>
+</tbody>
+</table></div>
+<p>②を支持する材料も存在する。10兆円規模の介入は実際のコストであり、志向するなら実施しない。米国に協調を要請することの外交的コストも高い。物価高対策と減税は、円安のコストへの対応そのものである。外為特会の含み益は、円買い介入を実施して初めて実現する。</p>
+<p>より慎重な記述は次のようになる。</p>
+<blockquote>
+<p><strong>円安を抑制する手段が、いずれも政治的・財政的に高コストである。財政緊縮は公約と衝突し、利上げは財政負担と中央銀行の損益を悪化させ、構造改革は長期を要する。相対的に低コストな手段が介入のみであるため、介入のみが実施される。</strong></p>
+</blockquote>
+<p>意図の有無にかかわらず、観測される価格経路は同一である。</p>
+<hr />
+<h2>7. 限界</h2>
+<h3>7.1 統計的限界</h3>
+<ul>
+<li><strong>n=6</strong>。統計的有意性を主張できる標本数ではない。§4は記述であって推論ではない</li>
+<li><strong>E6は右打ち切り</strong>。観測期間4営業日は、他エピソードの観測窓（20〜464営業日）と比較不能</li>
+<li><strong>相関分析は n=5</strong>。すべての p値が0.4を超える</li>
+</ul>
+<h3>7.2 定義の恣意性</h3>
+<ul>
+<li><strong>半減期の閾値50%</strong>、<strong>終値ベースという基準</strong>、<strong>エピソードの区切り方</strong>——いずれも変更すれば結果が変わりうる</li>
+<li><strong>「直前速度」の定義</strong>（前5営業日の終値変化の平均絶対値）は、当局の言う「無秩序」と概念が異なる</li>
+<li><strong>エピソードの区切りに客観的基準がない</strong>。何営業日空ければ別エピソードとするかは筆者の判断（一般則はMETHOD v1.1で形式化予定）</li>
+</ul>
+<h3>7.3 未検証・未確定</h3>
+<ul>
+<li>~~+α定義の基準②③が未検証~~ → <strong>v1.1（§4.6）で追試済み</strong>。ただしE1は生存窓が空集合であり全基準が判定不能（§4.6表もv1.2で「判定不能」に統一）、基準③には介入自身の変動による交絡（§4.6※）が残る。半減期が1営業日級のエピソードでは生存窓が構造的に空集合となるため、+α基準は原理的に適用できない</li>
+<li><strong>2026年7月30日以降の介入額は推計値</strong>。2026年8月28日の月次公表で確定する</li>
+<li><strong>米国側の介入額が未確定</strong>。ユーロ売り円買いで1兆円程度と報じられているが、ニューヨーク連邦準備銀行の四半期報告（10月下旬）まで確定しない</li>
+<li><strong>第二層仮説は単一事例に依拠</strong></li>
+</ul>
+<h3>7.4 交絡</h3>
+<p>静穏な時期は、トレンドそのものが弱い時期である可能性がある。相関は因果を意味しない。</p>
+<hr />
+<h2>8. 検証計画</h2>
+<h3>8.1 E6という自然実験</h3>
+<p>E6（2026年7月30日〜8月3日）は現在進行中である。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>E6の展開</th>
+<th>仮説への含意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026年9月に日銀が利上げし、半減期が未到達のまま推移</td>
+<td>E4型の2例目。順序条件つき+α仮説を支持</td>
+</tr>
+<tr>
+<td>9月に日銀が動かず、それでも半減期が数十営業日に達する</td>
+<td><strong>+α仮説は大きく傷つく</strong></td>
+</tr>
+<tr>
+<td>9月に日銀が動かず、半減期も短い</td>
+<td>仮説と整合（ただし新情報は乏しい）</td>
+</tr>
+<tr>
+<td>日銀が動いた後に半減期が到達</td>
+<td>E5型。順序条件の重要性を補強</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>注意</strong>：E6が決着しても標本数は増加しない。E6は既に n=6 に含まれている。n=7となるのは、次の独立した介入エピソードが発生したときである。</p>
+<p>したがって次に待つべきはn=7ではなく、<strong>E6の決着</strong>である。</p>
+<h3>8.2 反証条件</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>観測</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>緩慢な円安局面で、価格が静穏なまま介入が実施される</td>
+<td>第二層仮説を支持</td>
+</tr>
+<tr>
+<td>価格変動が最大の瞬間に繰り返し介入が実施される</td>
+<td><strong>第二層仮説を棄却</strong></td>
+</tr>
+<tr>
+<td>+αを伴わないエピソードで半減期が100営業日を超える</td>
+<td><strong>§4の観察を棄却</strong></td>
+</tr>
+<tr>
+<td>特定の価格水準が繰り返し防衛される</td>
+<td>説明A（水準防衛）が復活</td>
+</tr>
+</tbody>
+</table></div>
+<h3>8.3 観測項目</h3>
+<p>次の介入が発生した際に測定すべきは、投入額ではない。</p>
+<ol>
+<li><strong>最終介入日から30営業日以内に、日銀・FRB・米景気指標が介入方向を追認するか</strong>（+α基準の適用）</li>
+<li><strong>介入安値からの50%回復までの営業日数</strong>（半減期の実測）</li>
+<li><strong>米2年国債利回りとUSD/JPYの相関が、介入の前後でどう変化するか</strong></li>
+</ol>
+<p>3番目は、介入が価格形成の主導権を金利差から一時的に切り離したか否かを測る。切り離しが解消した時点が、実質的な効果の終了である。</p>
+<h3>8.4 公表予定</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>時期</th>
+<th>公表物</th>
+<th>確認事項</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>毎週木曜</td>
+<td>FRB H.4.1</td>
+<td>FIMAレポ残高の変動</td>
+</tr>
+<tr>
+<td>毎週金曜</td>
+<td>CFTC建玉</td>
+<td>円ネットショートの再構築</td>
+</tr>
+<tr>
+<td>2026年8月中旬</td>
+<td>日銀「主な意見」</td>
+<td>政策委員会内の分布</td>
+</tr>
+<tr>
+<td>2026年8月末</td>
+<td>令和9年度概算要求総額</td>
+<td>投資枠の規模、事項要求の多寡</td>
+</tr>
+<tr>
+<td><strong>2026年8月28日</strong></td>
+<td><strong>財務省 月次介入額</strong></td>
+<td><strong>E6のCostが確定</strong></td>
+</tr>
+<tr>
+<td>2026年9月上旬</td>
+<td>財務省 外貨準備等の状況</td>
+<td>外貨預金の減少額</td>
+</tr>
+<tr>
+<td><strong>2026年9月</strong></td>
+<td><strong>日銀金融政策決定会合</strong></td>
+<td><strong>E6に+αが付与されるか</strong></td>
+</tr>
+<tr>
+<td>2026年10月下旬</td>
+<td>NY連銀 四半期報告</td>
+<td>米国側の介入額</td>
+</tr>
+<tr>
+<td>2026年11月上旬</td>
+<td>財務省 四半期日次内訳</td>
+<td>7〜9月期の日別実績</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>付録A：介入実施日別データ</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>実施日</th>
+<th>金額</th>
+<th>出所</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022/09/22</td>
+<td>2兆8,382億円</td>
+<td>財務省</td>
+</tr>
+<tr>
+<td>2022/10/21</td>
+<td>5兆6,202億円</td>
+<td>財務省</td>
+</tr>
+<tr>
+<td>2022/10/24</td>
+<td>7,296億円</td>
+<td>財務省</td>
+</tr>
+<tr>
+<td>2024/04/29</td>
+<td>5兆9,185億円</td>
+<td>財務省</td>
+</tr>
+<tr>
+<td>2024/05/01</td>
+<td>3兆8,700億円</td>
+<td>財務省</td>
+</tr>
+<tr>
+<td>2024/07/11</td>
+<td>3兆1,678億円</td>
+<td>財務省</td>
+</tr>
+<tr>
+<td>2024/07/12</td>
+<td>2兆3,670億円</td>
+<td>財務省</td>
+</tr>
+<tr>
+<td>2026/04/30</td>
+<td>6兆2,787億円</td>
+<td>財務省（2026年8月7日公表）</td>
+</tr>
+<tr>
+<td>2026/05/04</td>
+<td>7,802億円</td>
+<td>財務省（同上）</td>
+</tr>
+<tr>
+<td>2026/05/06</td>
+<td>4兆6,759億円</td>
+<td>財務省（同上）</td>
+</tr>
+<tr>
+<td>2026/07/30</td>
+<td>約6.5兆円</td>
+<td>報道推計</td>
+</tr>
+<tr>
+<td>2026/07/31</td>
+<td>約5.2兆円</td>
+<td>報道推計</td>
+</tr>
+<tr>
+<td>2026/08/03</td>
+<td>約1.0兆円</td>
+<td>報道推計</td>
+</tr>
+</tbody>
+</table></div>
+<p>2026年4月30日の6兆2,787億円は、2024年4月29日の5兆9,185億円を上回り、日次ベースで過去最大である。</p>
+<hr />
+<h2>付録B：日次介入分析（参考）</h2>
+<p>エピソード単位ではなく介入日単位で、次のエピソードの初日で右打ち切りとした場合の半減期。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>実施日</th>
+<th>Cost</th>
+<th>Impact</th>
+<th>効率</th>
+<th>直前速度</th>
+<th>半減期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022/09/22</td>
+<td>2.84</td>
+<td>5.55</td>
+<td>0.51</td>
+<td>0.42</td>
+<td>1日</td>
+</tr>
+<tr>
+<td>2022/10/21</td>
+<td>5.62</td>
+<td>5.75</td>
+<td>0.98</td>
+<td>0.35</td>
+<td>未回復（観測0日）</td>
+</tr>
+<tr>
+<td>2022/10/24</td>
+<td>0.73</td>
+<td>4.18</td>
+<td>0.17</td>
+<td>0.91</td>
+<td>1日</td>
+</tr>
+<tr>
+<td>2024/04/29</td>
+<td>5.92</td>
+<td>5.71</td>
+<td>1.04</td>
+<td>0.88</td>
+<td>1日</td>
+</tr>
+<tr>
+<td>2024/05/01</td>
+<td>3.87</td>
+<td>4.99</td>
+<td>0.78</td>
+<td>1.61</td>
+<td>5日</td>
+</tr>
+<tr>
+<td>2024/07/11</td>
+<td>3.17</td>
+<td>4.33</td>
+<td>0.73</td>
+<td>0.34</td>
+<td>未回復（観測0日）</td>
+</tr>
+<tr>
+<td>2024/07/12</td>
+<td>2.37</td>
+<td>2.09</td>
+<td>1.13</td>
+<td>0.93</td>
+<td>2日</td>
+</tr>
+<tr>
+<td>2026/04/30</td>
+<td>6.28</td>
+<td>5.17</td>
+<td>1.21</td>
+<td>0.38</td>
+<td>未回復（観測1日）</td>
+</tr>
+<tr>
+<td>2026/05/04</td>
+<td>0.78</td>
+<td>1.60</td>
+<td>0.49</td>
+<td>1.33</td>
+<td>1日</td>
+</tr>
+<tr>
+<td>2026/05/06</td>
+<td>4.68</td>
+<td>2.91</td>
+<td>1.61</td>
+<td>1.27</td>
+<td>1日</td>
+</tr>
+<tr>
+<td>2026/07/30</td>
+<td>6.50※</td>
+<td>5.79</td>
+<td>1.12</td>
+<td>0.17</td>
+<td>未回復（観測0日）</td>
+</tr>
+<tr>
+<td>2026/07/31</td>
+<td>5.20※</td>
+<td>3.61</td>
+<td>1.44</td>
+<td>1.14</td>
+<td>未回復（観測0日）</td>
+</tr>
+<tr>
+<td>2026/08/03</td>
+<td>1.00※</td>
+<td>2.66</td>
+<td>0.38</td>
+<td>1.63</td>
+<td>1日</td>
+</tr>
+</tbody>
+</table></div>
+<p>※推計値</p>
+<p>13件中5件で観測窓が0〜1営業日となり、半減期を測定できない。これが §2.2 でエピソード単位を採用した理由である。</p>
+<hr />
+<h2>出典</h2>
+<ul>
+<li>財務省「外国為替平衡操作の実施状況」</li>
+<li>財務省「片山財務大臣談話」（2026年8月3日）</li>
+<li>財務省「令和9年度概算要求基準」（2026年7月30日閣議了解）</li>
+<li>米連邦準備制度理事会 統計リリース H.4.1</li>
+<li>米商品先物取引委員会（CFTC）Commitments of Traders</li>
+<li>日本銀行 金融政策決定会合公表資料</li>
+<li>OANDA（価格データ）</li>
+</ul>
+<hr />
+<p><em>本稿は公表資料および市場データに基づく分析であり、特定の金融商品の売買を推奨するものではない。分析および解釈の誤りはすべて筆者に帰する。</em></p>
+<p><strong>改訂履歴</strong>（v1.1以前の各版は同日内で確定時刻の記録がない。v1.2以降はISO 8601（+09:00）で記録する）<br />
+- 初期草稿（2026-08-08・未公開）: 第2・3章を公開前に全面改訂（右打ち切り処理誤り・標本独立性欠如）。会則第31条の「撤回」は公表済み成果を対象とするため、公開版の系列はv1.0以降とする<br />
+- v1.0（2026-08-08）: 公開版<br />
+- <strong>v1.1（2026-08-08）</strong>: ①§2.1の日足データ期間を実データ実体（2002年5月〜）に訂正（正本と検証情報の不整合をAuditor v0.2導入の契機として記録）②§4.6を新設し基準②③の追試結果を追記 ③§7.3を更新 ④§4.5を時点明示表現に変更（v1.1確定作業中の修正。§4.6との時間的矛盾の解消）。v1.0正本は <code>wp-001_v1.0.md</code> として保存<br />
+- <strong>v1.2（2026-08-08T15:40+09:00）</strong>: 外部監査 AUDIT-2026-08-08 への対応。①生存窓・営業日の定義を§4.6に明記し、E1の+α判定を「判定不能」に統一（指摘H-1・L-2）②§3.2の列名を「期間営業日数」に訂正（M-1）③初期草稿の位置づけを「公開前改訂」に整理（C-3）④§4.6の半減期表記を営業日に統一（L-1）。v1.1正本は <code>wp-001_v1.1.md</code> として保存<br />
+- <strong>v1.3（2026-08-08T22:37+09:00）</strong>: 外部監査R1の残指摘への対応。①§2.3の直前速度を一意定義化（終値5本→差分4本）②§3.1の静穏性測定に窓依存の注記③§3.2にImpact表示丸めと閾値の未丸め算出の注記④METHOD-v1.0への準拠を明記⑤§7.2にグルーピング形式化予定を注記。v1.2正本は <code>paper_v1.2.md</code>（配備名 <code>wp-001_v1.2.md</code>）として保存</p>
+
+  <section class="cite-box">
+    <h2>引用を歓迎します</h2>
+    <p class="must">本サイトの文章・数値・データは <strong>CC BY 4.0</strong> で公開しています。複製・再配布・改変・商用利用・AIの学習利用のいずれも許諾します。<strong>条件は、出典として為替介入研究所のURLを明記することです。</strong></p>
+    <p>本ページの正本は <a href="docs/wp-001.md">docs/wp-001.md</a> です。HTMLは表示用のため、引用・解析には正本Markdownをご利用ください。</p>
+    <div class="cite-pre">為替介入研究所（FXIR）「WP-001 為替介入の反応関数は二層構造をとる」v1.3, 2026-08-08,
+https://fxir.jp/docs/wp-001.md,
+SHA-256: 139025fd6e9584e4d6990e3df6c2080b7c8dcb0d4c564b81a5c5a3e57a17bd2f</div>
+    <p>あわせて、<strong>証拠状態（FACT / ESTIMATE / HYPOTHESIS / UNVERIFIED）を落とさずに</strong>引用してください。区分を外すと推計が事実として流通します。詳細は <a href="ai.html">AIに読み込ませる方へ</a>。</p>
+    <div class="cite-act">
+      <span class="lbl">SHARE</span>
+      <a class="sh-x" href="#" rel="noopener">X</a>
+      <a class="sh-l" href="#" rel="noopener">LINE</a>
+      <a class="sh-f" href="#" rel="noopener">Facebook</a>
+      <a class="sh-h" href="#" rel="noopener">はてブ</a>
+      <button type="button" class="sh-c">リンクをコピー</button>
+      <button type="button" class="sh-t">引用文をコピー</button>
+    </div>
+    <p class="cite-note">誤りを見つけた場合は <a href="contact.html">お問い合わせ</a> または info@fxir.jp へ。会則第30条により、重大な誤りは合理的な期間内に訂正し、削除せず記録として残します。</p>
+  </section>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fmono">DON'T TRUST, VERIFY.</div>
+    <div>運営：AI MQL合同会社（為替介入研究所は同社の研究部門であり、独立の法人格を有しません）</div>
+    <div>本サイトは研究・情報提供を目的とし、特定の金融商品の売買を推奨するものではありません。当研究所および運営法人は金融商品取引業者ではなく、投資助言・代理業を行いません。分析および解釈の誤りはすべて筆者に帰します。</div>
+    <div><a href="events.html">イベント登録簿</a> ・ <a href="verify.html">検証（WP-001）</a> ・ <a href="status.html">システム状態</a></div>
+    <div>最新情報: <a href="https://lin.ee/rkUKYCMM">公式LINE</a> ・ <a href="https://x.com/fxirjp">X @fxirjp</a> ・ <a href="newsletter.html">メール配信</a> ・ <a href="https://note.com/fxir">note</a> ・ <a href="https://github.com/fxirjp">GitHub</a> ・ <a href="news.html">お知らせ一覧</a></div>
+    <div>連絡・訂正の指摘: <a href="contact.html">お問い合わせフォーム</a> ／ info@fxir.jp（会則第30条に基づき、重大な誤りは合理的な期間内に訂正します） ・ <a href="company.html">会社概要</a></div>
+    <div><a href="corrections.html">訂正・撤回の記録</a> ・ <a href="coi.html">利益相反の開示</a> ・ <a href="privacy.html">外部送信・プライバシー</a></div>
+    <div>&copy; 2026 AI MQL LLC / 為替介入研究所</div>
+  </div>
+</footer>
+<script>
+(function(){
+  if(!window.gtag||window.__fxirAnalyticsOff) return;
+  var doc=document.body.dataset.doc||'NA';
+  gtag('set',{doc_id:doc});
+  /* 正本・PDF DL: .md/.txt はGA4拡張計測対象外のため独自送信（.pdfはdoc_id付与のため重ねて送信） */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a) return;
+    var h=a.getAttribute('href')||'';
+    if(/\.(md|txt|pdf)(\?|$)/.test(h)){
+      gtag('event','download_canonical',{file_name:h.split('/').pop(),doc_id:doc});
+    }
+  });
+  /* 検証コマンドのコピー = Don't trust, verify の実行率 */
+  var v=document.querySelector('.verify');
+  if(v){
+    var b=document.querySelector('.vcopy');
+    if(b){b.addEventListener('click',function(){
+      var t="curl -sO https://fxir.jp/docs/kaisoku_v1.0.md\nsha256sum kaisoku_v1.0.md";
+      if(navigator.clipboard){navigator.clipboard.writeText(t).catch(function(){});}
+      b.textContent='コピー済'; setTimeout(function(){b.textContent='コピー';},1600);
+      gtag('event','verify_copy',{doc_id:doc,method:'button'});
+    });}
+    v.addEventListener('copy',function(){gtag('event','verify_copy',{doc_id:doc,method:'select'});});
+  }
+  /* 章別読了（論文h2・トップ各節） */
+  var secs=document.querySelectorAll('article h2, section .sec-label');
+  if('IntersectionObserver' in window && secs.length){
+    var seen={};
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){var t=(en.target.textContent||'').trim().slice(0,60);
+        if(!seen[t]){seen[t]=1;gtag('event','section_view',{doc_id:doc,section_title:t});}
+        io.unobserve(en.target);}});},{threshold:0.5});
+    for(var i=0;i<secs.length;i++){io.observe(secs[i]);}
+  }
+  /* 読了深度 25/50/75/100 */
+  var marks=[25,50,75,100],fired={},tick=false;
+  function depth(){var h=document.documentElement,max=h.scrollHeight-window.innerHeight;
+    if(max<=0)return;var p=Math.round((window.scrollY/max)*100);
+    for(var i=0;i<marks.length;i++){var m=marks[i];
+      if(p>=m&&!fired[m]){fired[m]=1;gtag('event','read_depth',{doc_id:doc,percent:m});}}}
+  window.addEventListener('scroll',function(){if(!tick){tick=true;
+    requestAnimationFrame(function(){tick=false;depth();});}},{passive:true});
+})();
+</script>
+<script>
+document.addEventListener('click',function(e){var d=document.querySelector('.nvm[open]');if(d&&!d.contains(e.target)){d.removeAttribute('open');}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){var d=document.querySelector('.nvm[open]');if(d){d.removeAttribute('open');}}});
+</script>
+
+<script>
+(function(){
+  var box=document.querySelector('.cite-box'); if(!box) return;
+  var cn=document.querySelector('link[rel="canonical"]');
+  var url=cn?cn.href:location.href;
+  var ttl=(document.querySelector('h1')||{}).textContent||document.title;
+  ttl=String(ttl).trim();
+  var e=encodeURIComponent, txt=ttl+' — 為替介入研究所';
+  var q={
+    '.sh-x':'https://x.com/intent/post?text='+e(txt)+'&url='+e(url)+'&via=fxirjp',
+    '.sh-l':'https://social-plugins.line.me/lineit/share?url='+e(url),
+    '.sh-f':'https://www.facebook.com/sharer/sharer.php?u='+e(url),
+    '.sh-h':'https://b.hatena.ne.jp/entry/s/'+url.replace(/^https?:\/\//,'')
+  };
+  Object.keys(q).forEach(function(k){
+    var a=box.querySelector(k); if(!a) return;
+    a.href=q[k]; a.target='_blank'; a.rel='noopener noreferrer';
+  });
+  function copy(t,btn,ok){
+    var done=function(){var o=btn.textContent;btn.textContent=ok;setTimeout(function(){btn.textContent=o;},1600);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){});}
+    else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');done();}catch(x){}document.body.removeChild(ta);}
+  }
+  var bc=box.querySelector('.sh-c');
+  if(bc) bc.addEventListener('click',function(){copy(url,bc,'コピーしました');});
+  var bt=box.querySelector('.sh-t'), pre=box.querySelector('.cite-pre');
+  if(bt&&pre) bt.addEventListener('click',function(){copy(pre.textContent.trim(),bt,'コピーしました');});
+})();
+</script>
+<script src="assets/fxir-chat.js?v=20260810b" defer></script>
+</body>
+</html>

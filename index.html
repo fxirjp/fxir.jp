@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1F4468">
+<title>為替介入研究所｜為替介入の効果・タイミングを一次データで検証</title>
+<meta name="description" content="円買い介入の効果を「半減期」で測定する研究機関。財務省・CFTC・FRBの一次資料とOANDA価格のみで検証し、事実・推計・仮説を区別して公開する。Don't trust, verify.">
+<link rel="canonical" href="https://fxir.jp/">
+<link rel="alternate" hreflang="ja" href="https://fxir.jp/index.html">
+<link rel="alternate" hreflang="en" href="https://fxir.jp/en/index.html">
+<link rel="alternate" hreflang="zh" href="https://fxir.jp/zh/index.html">
+<link rel="alternate" hreflang="x-default" href="https://fxir.jp/index.html">
+<meta property="og:title" content="為替介入研究所｜為替介入の効果・タイミングを一次データで検証">
+<meta property="og:description" content="円買い介入の効果を「半減期」で測定する研究機関。財務省・CFTC・FRBの一次資料とOANDA価格のみで検証し、事実・推計・仮説を区別して公開する。Don't trust, verify.">
+<meta property="og:url" content="https://fxir.jp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="為替介入研究所">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://fxir.jp/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="為替介入研究所 — Don't trust, verify.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@fxirjp">
+<meta name="twitter:creator" content="@fxirjp">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://fxir.jp/#org", "name": "為替介入研究所", "alternateName": "FX Intervention Research Institute", "url": "https://fxir.jp/", "logo": "https://fxir.jp/assets/logo.png", "email": "info@fxir.jp", "sameAs": ["https://x.com/fxirjp"], "parentOrganization": {"@type": "Organization", "name": "AI MQL合同会社"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "為替介入研究所", "url": "https://fxir.jp/", "inLanguage": "ja", "publisher": {"@id": "https://fxir.jp/#org"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "為替介入はいつ実施されるのか", "acceptedAnswer": {"@type": "Answer", "text": "価格水準では説明できない。157円台で実施した当局が158.5円で見送った観測があり、本研究所は発動条件と執行条件を別の反応関数として扱う二層仮説（HYPOTHESIS）を検証している。"}}, {"@type": "Question", "name": "為替介入の効果はどれくらい続くのか", "acceptedAnswer": {"@type": "Answer", "text": "半減期は1営業日から431営業日まで分布する（FACT・n=6の記述的観察）。5.53兆円のエピソードが431営業日、11.73兆円のエピソードが5営業日である。投入額と半減期の関係は、n=5・Spearman全p>0.4のため統計的に結論できない。"}}, {"@type": "Question", "name": "「介入確定」の速報は信じてよいか", "acceptedAnswer": {"@type": "Answer", "text": "財務省の公表前に確定と断定することは為替介入研究所の会則第36条で禁止されている。公的確認前はINTERVENTION SUSPECTED表示に留める。"}}]}</script><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="shortcut icon" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.__fxirAnalyticsOff = !!(navigator.globalPrivacyControl||navigator.doNotTrack=="1"||window.doNotTrack=="1");
+  if(window.__fxirAnalyticsOff){window['ga-disable-G-VZ89ERDSD6']=true;}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZ89ERDSD6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!window.__fxirAnalyticsOff){gtag('config', 'G-VZ89ERDSD6');}
+</script>
+<style>
+:root{
+  --paper:#FAFBF9; --ink:#181B1F; --ink2:#41474F; --rule:#DCE0DB;
+  --ai:#1F4468; --ai-weak:#EDF1F4;
+  --fact:#1A6E48; --est:#9A6B0B; --hyp:#54499E; --unv:#6B7280;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --min:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --got:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Noto Sans JP",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--got);
+  font-size:16px;line-height:1.85;font-feature-settings:"palt" 1;}
+a{color:var(--ai);text-decoration:none;border-bottom:1px solid rgba(31,68,104,.35)}
+a:hover{border-bottom-color:var(--ai)}
+a:focus-visible{outline:2px solid var(--ai);outline-offset:2px}
+img{max-width:100%;height:auto}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+/* header */
+header{border-bottom:1px solid var(--rule);background:var(--paper);}
+.hd{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{font-family:var(--min);font-weight:700;font-size:19px;letter-spacing:.06em;border:none;color:var(--ink);display:flex;align-items:center;gap:10px}
+.blogo{height:36px;width:36px;display:block}
+.brand small{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.14em;color:var(--ink2);display:block;margin-top:2px}
+nav{display:flex;gap:20px;font-size:13.5px}
+nav a{border:none;color:var(--ink2);padding-bottom:2px}
+.nvm{position:relative}
+.nvm summary{list-style:none;cursor:pointer;font-size:13px;color:var(--ink2);padding:4px 2px}
+.nvm summary::-webkit-details-marker{display:none}
+.nvm[open] summary{color:var(--ink)}
+.nvp{position:absolute;right:0;top:135%;background:var(--paper);border:1px solid var(--rule);padding:12px 16px;display:grid;gap:9px;min-width:160px;z-index:60;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.nvp a{font-size:13px}
+nav a[aria-current]{color:var(--ink);border-bottom:2px solid var(--ai)}
+nav a:hover{color:var(--ink)}
+/* hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.28em;color:var(--ai);margin-bottom:22px}
+h1.site{font-family:var(--min);font-weight:700;font-size:clamp(30px,5.4vw,44px);letter-spacing:.05em;line-height:1.35}
+.motto{font-family:var(--mono);font-weight:600;font-size:clamp(21px,4vw,32px);letter-spacing:.01em;margin:26px 0 6px;color:var(--ink)}
+.motto-ja{font-family:var(--min);font-size:15.5px;color:var(--ink2);letter-spacing:.12em}
+.lede{margin-top:26px;max-width:40em;color:var(--ink2);font-size:15.5px}
+/* verify strip (signature) */
+.verify{margin-top:34px;background:#14161A;color:#D7DCD9;border-radius:2px;position:relative;
+  font-family:var(--mono);font-size:12.5px;line-height:1.9;padding:16px 18px;overflow-x:auto;white-space:pre}
+.vcopy{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  color:#8BA3BC;background:transparent;border:1px solid #3A4450;border-radius:2px;padding:3px 9px;cursor:pointer}
+.vcopy:hover{color:#D7DCD9;border-color:#8BA3BC}
+.verify .p{color:#8BA3BC}
+.verify .ok{color:#6FBF95}
+.verify-cap{font-size:12px;color:var(--ink2);margin-top:8px}
+.hero-btns{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.06em;
+  padding:11px 20px;border-radius:2px;border:1.5px solid var(--ai)}
+.btn.pri{background:var(--ai);color:#FAFBF9}
+.btn.pri:hover{background:#173654;border-color:#173654}
+.btn.sec{color:var(--ai);background:transparent}
+/* sections */
+section{padding:52px 0;border-bottom:1px solid var(--rule)}
+.sec-label{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--ai);margin-bottom:18px}
+h2.sec{font-family:var(--min);font-weight:700;font-size:24px;letter-spacing:.06em;margin-bottom:20px}
+.sec-note{font-size:13px;color:var(--ink2)}
+/* principles */
+.prin{display:grid;gap:18px;margin-top:6px}
+.prin .row{border-left:3px solid var(--ai);padding:2px 0 2px 16px}
+.prin .en{font-family:var(--mono);font-weight:600;font-size:16.5px;letter-spacing:.02em}
+.prin .ja{font-size:13.5px;color:var(--ink2);margin-top:2px}
+.prin-sum{margin-top:26px;font-size:14.5px}
+.lvsec{border:1px solid var(--ai);border-radius:4px;background:var(--ai-weak);padding:20px 22px}
+.lvsec .lead{font-family:var(--min);font-size:19px;line-height:1.65;letter-spacing:.02em;margin:0 0 10px}
+.lvsec p{font-size:14px;color:var(--ink2);max-width:46em;margin:0 0 10px}
+.lv3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+.lv3 div{background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:12px 14px}
+.lv3 .h{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--ai);margin-bottom:5px}
+.lv3 .b{font-size:13px;color:var(--ink2);line-height:1.7}
+.lvsec .ep{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.lvsec .ep a{font-family:var(--mono);font-size:11.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:2px;background:var(--paper);text-decoration:none}
+.lvsec .ep a:hover{border-color:var(--ai)}
+.lvsec .no{font-size:12.5px;color:var(--ink2);margin-top:12px;padding-top:11px;border-top:1px solid var(--rule)}
+@media(max-width:700px){.lv3{grid-template-columns:1fr}}
+.aihint{margin-top:14px;max-width:44em;font-size:13.5px;color:var(--ink2);
+  padding:10px 14px;border:1px solid var(--ai);border-radius:3px;background:var(--ai-weak)}
+.aihint .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ai);
+  margin-right:7px;vertical-align:middle}
+.aihint a{white-space:nowrap}
+.chs{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:6px}
+.ch{display:block;border:1px solid var(--rule);border-radius:3px;padding:14px 16px;background:var(--paper);
+  text-decoration:none;transition:all .15s var(--ease)}
+.ch:hover{border-color:var(--ai);box-shadow:var(--shadow-1)}
+.ch .n{font-size:14.5px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:7px}
+.ch .h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink2)}
+.ch .d{font-size:12.5px;color:var(--ink2);margin-top:5px;line-height:1.6}
+.ch.soon{opacity:.55;pointer-events:none}
+.rlist{margin-top:20px;border-top:1px solid var(--rule)}
+.rrow{display:grid;grid-template-columns:96px 1fr 66px;gap:0 14px;align-items:baseline;
+  padding:11px 0;border-bottom:1px solid var(--rule)}
+.rrow .rid{font-family:var(--mono);font-size:11.5px;color:var(--ink2)}
+.rrow .rt{font-size:14px}
+.rrow .rt .rd{display:block;font-size:12.5px;color:var(--ink2);margin-top:2px}
+.rrow .rs{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-align:right;color:var(--ink2)}
+.rrow .rs.pub{color:var(--ai)}
+@media(max-width:560px){.rrow{grid-template-columns:1fr;gap:2px}.rrow .rs{text-align:left}}
+.mach{border:1px solid var(--ai);border-radius:3px;background:var(--ai-weak);padding:20px 22px}
+.mach .lead{font-family:var(--min);font-size:18px;line-height:1.7;letter-spacing:.02em;margin:0 0 10px}
+.mach p{font-size:14px;color:var(--ink2);max-width:44em;margin:0 0 10px}
+.mach .ep{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.mach .ep a{font-family:var(--mono);font-size:11.5px;padding:5px 10px;border:1px solid var(--rule);
+  border-radius:2px;background:var(--paper);text-decoration:none}
+.mach .ep a:hover{border-color:var(--ai)}
+.why p{font-size:14.5px;color:var(--ink2);max-width:42em;margin:0 0 14px}
+.why p.strong{color:var(--ink);font-size:15px}
+.why ul{margin:0 0 14px;padding-left:1.1em;max-width:42em}
+.why li{font-size:14.5px;color:var(--ink2);margin-bottom:5px}
+.why .close{margin-top:22px;padding-left:16px;border-left:2px solid var(--ai);font-family:var(--min);font-size:16px;letter-spacing:.03em;color:var(--ink);max-width:42em}
+.prin-sum .en{font-family:var(--mono);font-weight:600}
+/* evidence states */
+.states{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:8px}
+.st{border:1px solid var(--rule);border-top:3px solid var(--unv);background:#fff;padding:14px 16px;border-radius:2px}
+.st .tag{font-family:var(--mono);font-weight:700;font-size:12.5px;letter-spacing:.08em}
+.st p{font-size:12.5px;color:var(--ink2);margin-top:6px;line-height:1.75}
+.st.fact{border-top-color:var(--fact)} .st.fact .tag{color:var(--fact)}
+.st.est{border-top-color:var(--est)} .st.est .tag{color:var(--est)}
+.st.hyp{border-top-color:var(--hyp)} .st.hyp .tag{color:var(--hyp)}
+.st.unv{border-top-color:var(--unv)} .st.unv .tag{color:var(--unv)}
+.chip{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;
+  letter-spacing:.06em;padding:1px 7px;border-radius:2px;vertical-align:1px}
+.chip.fact{color:var(--fact);background:rgba(26,110,72,.10)}
+.chip.est{color:var(--est);background:rgba(154,107,11,.12)}
+.chip.hyp{color:var(--hyp);background:rgba(84,73,158,.10)}
+.chip.unv{color:var(--unv);background:rgba(107,114,128,.12)}
+/* research card */
+.wp{border:1px solid var(--rule);background:#fff;border-radius:2px;padding:22px 24px;margin-top:6px}
+.wp .id{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--ai)}
+.wp h3{font-family:var(--min);font-weight:700;font-size:19.5px;letter-spacing:.04em;margin:8px 0 4px}
+.wp .sub{font-size:13px;color:var(--ink2)}
+.wp .abst{font-size:14px;color:var(--ink2);margin-top:14px;max-width:44em}
+.wp .links{margin-top:16px;font-size:13.5px;display:flex;flex-wrap:wrap;gap:18px}
+/* half-life strip */
+.hl{margin-top:24px}
+.hl-title{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--ink2);margin-bottom:10px}
+.hl-row{display:grid;grid-template-columns:44px 1fr 118px;align-items:center;gap:10px;margin:7px 0}
+.hl-ep{font-family:var(--mono);font-size:12px;color:var(--ink2)}
+.hl-val{font-family:var(--mono);font-size:12px;color:var(--ink2)}
+.hl-val{text-align:right}
+.hl-track{height:12px;background:var(--ai-weak);border-radius:1px;position:relative}
+.hl-bar{position:absolute;inset:0 auto 0 0;background:var(--ai);border-radius:1px}
+.hl-bar.cens{background:repeating-linear-gradient(135deg,#9AA6B0 0 5px,transparent 5px 10px);border:1px dashed #9AA6B0}
+.hl-cap{font-size:11.5px;color:var(--ink2);margin-top:10px}
+/* data sources */
+.src{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px 26px;
+  font-family:var(--mono);font-size:12.5px;line-height:2.15;color:var(--ink2)}
+.src b{color:var(--ink);font-weight:600}
+/* quote */
+.close-q{padding:60px 0;text-align:center;border-bottom:1px solid var(--rule)}
+.close-q .ja{font-family:var(--min);font-size:clamp(17px,3vw,21px);letter-spacing:.08em;line-height:2.1}
+.close-q .en{font-family:var(--mono);font-size:12px;color:var(--ink2);margin-top:16px;letter-spacing:.03em}
+/* article (md pages) */
+article{padding:56px 0}
+article .doc-head{margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--rule)}
+article .doc-id{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--ai);margin-bottom:10px}
+article h1{font-family:var(--min);font-weight:700;font-size:clamp(24px,4.4vw,32px);letter-spacing:.05em;line-height:1.5}
+article .doc-meta{font-size:13px;color:var(--ink2);margin-top:12px}
+.canon{margin-top:16px;background:var(--ai-weak);border:1px solid var(--rule);border-radius:2px;
+  padding:12px 14px;font-size:12.5px;color:var(--ink2)}
+.canon .h{font-family:var(--mono);font-size:11px;word-break:break-all;color:var(--ink);display:block;margin-top:4px}
+article h2{font-family:var(--min);font-weight:700;font-size:21px;letter-spacing:.05em;margin:52px 0 18px;
+  padding-top:26px;border-top:1px solid var(--rule)}
+article h3{font-family:var(--min);font-weight:600;font-size:16.5px;letter-spacing:.04em;margin:34px 0 10px;color:var(--ink)}
+article p{margin:13px 0;max-width:44em}
+article ul,article ol{margin:13px 0 13px 1.4em;max-width:42em}
+article li{margin:5px 0}
+article blockquote{border-left:3px solid var(--ai);padding:4px 0 4px 16px;margin:18px 0;color:var(--ink2)}
+article hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
+article strong{font-weight:700}
+article code{font-family:var(--mono);font-size:.86em;background:var(--ai-weak);padding:1px 5px;border-radius:2px}
+article pre{background:#14161A;color:#D7DCD9;font-family:var(--mono);font-size:12.5px;line-height:1.8;
+  padding:14px 16px;border-radius:2px;overflow-x:auto;margin:18px 0}
+article pre code{background:none;padding:0;color:inherit}
+.tbl{overflow-x:auto;margin:20px 0;border:1px solid var(--rule);border-radius:2px}
+article table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.7;background:#fff}
+article th,article td{border-bottom:1px solid var(--rule);padding:8px 12px;text-align:left;white-space:nowrap}
+article th{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--ink2);background:var(--ai-weak)}
+article tr:last-child td{border-bottom:none}
+/* registry (research list) */
+.reg{border:1px solid var(--rule);background:#fff;border-radius:2px;margin-top:6px}
+.reg-row{display:grid;grid-template-columns:82px 1fr 108px;gap:14px;align-items:baseline;
+  padding:16px 18px;border-bottom:1px solid var(--rule)}
+.reg-row:last-child{border-bottom:none}
+.reg-id{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ai)}
+.reg-t{font-size:14.5px}
+.reg-t .d{display:block;font-size:12px;color:var(--ink2);margin-top:3px}
+.reg-s{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-align:right}
+.reg-s.pub{color:var(--fact)} .reg-s.prep{color:var(--est)} .reg-s.plan{color:var(--unv)}
+.faq h3{font-family:var(--min);font-weight:600;font-size:16.5px;letter-spacing:.04em;margin:22px 0 6px}
+.faq p{font-size:14px;color:var(--ink2);max-width:44em;margin:0 0 2px}
+/* live data pages */
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-top:8px}
+.dcard{border:1px solid var(--rule);background:#fff;border-radius:2px;padding:16px 18px}
+.dcard h3{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--ai);margin-bottom:10px}
+.kv{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12.5px;padding:5px 0;border-bottom:1px dashed var(--rule)}
+.kv:last-of-type{border-bottom:none}
+.kv .k{color:var(--ink2)} .kv .v{color:var(--ink);text-align:right}
+.dmeta{font-size:11px;color:var(--ink2);margin-top:10px;line-height:1.7}
+.evt{border:1px solid var(--rule);background:#fff;border-radius:2px;padding:18px 20px;margin-bottom:16px}
+.evt .eid{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ai)}
+.evt h3{font-family:var(--min);font-weight:600;font-size:17.5px;margin:6px 0 10px}
+.tl{margin-top:12px;padding-left:0}
+.tl li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink2);margin:4px 0}
+.stt-row{display:grid;grid-template-columns:190px 90px 110px 1fr;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.stt-row .n{font-family:var(--mono);font-size:12.5px}
+.st-ok{color:var(--fact);font-family:var(--mono);font-weight:700;font-size:11.5px}
+.st-ng{color:#B4232A;font-family:var(--mono);font-weight:700;font-size:11.5px}
+.st-pl{color:var(--unv);font-family:var(--mono);font-weight:700;font-size:11.5px}
+@media (max-width:640px){.stt-row{grid-template-columns:1fr 90px;grid-auto-rows:auto}}
+/* footer */
+footer{padding:44px 0 60px;font-size:12px;color:var(--ink2);line-height:2}
+footer .fmono{font-family:var(--mono);font-size:11px;letter-spacing:.08em;margin-bottom:10px}
+@media (max-width:640px){
+  .hd{flex-direction:column;gap:8px;align-items:flex-start}
+  .hero{padding:52px 0 34px}
+  .reg-row{grid-template-columns:1fr;gap:4px}
+  .reg-s{text-align:left}
+  .hl-row{grid-template-columns:36px 1fr 96px}
+  article th,article td{white-space:normal}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:40px 0}
+  .brand{font-size:17px}
+  .brand small{letter-spacing:.06em;font-size:9px}
+  .blogo{height:30px;width:30px}
+  nav{gap:14px;font-size:13px;flex-wrap:wrap}
+  .verify{font-size:11px;padding:12px 42px 12px 12px}
+  h1.site{font-size:clamp(26px,8vw,34px)}
+  .motto{font-size:clamp(19px,6.4vw,26px)}
+  article h2{font-size:19px}
+  .dcard{padding:14px}
+  .kv{font-size:11.5px}
+  .close-q{padding:44px 0}
+  .close-q .ja{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.mdbody h2{margin-top:30px;padding-top:14px;border-top:1px solid var(--rule)}
+.mdbody h3{margin-top:22px}
+.mdbody blockquote{border-left:3px solid var(--ai);margin:14px 0;padding:4px 14px;color:var(--ink2)}
+.mdbody code{font-family:var(--mono);font-size:.92em;background:rgba(20,26,40,.05);padding:1px 4px;border-radius:2px}
+.mdbody pre{border:1px solid var(--rule);padding:12px;overflow-x:auto;font-size:12px}
+.mdbody pre code{background:none;padding:0}
+.mdbody table{width:100%;border-collapse:collapse;font-size:13px}
+.mdbody th{text-align:left;border-bottom:1.5px solid var(--ink);padding:6px 8px}
+.mdbody td{border-bottom:1px solid var(--rule);padding:6px 8px;vertical-align:top}
+.news .nrow{display:grid;grid-template-columns:86px 74px 1fr;gap:12px;padding:9px 2px;border-bottom:1px solid var(--rule);font-size:13px;align-items:baseline}
+.news .nd{font-family:var(--mono);font-size:11.5px;color:var(--ink2)}
+.news .nt{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--ai);border:1px solid var(--rule);padding:2px 6px;text-align:center;border-radius:2px}
+.news a{color:inherit}
+@media (max-width:560px){.news .nrow{grid-template-columns:78px 1fr;grid-template-areas:"d t" "x x"}.news .nd{grid-area:d}.news .nt{grid-area:t;justify-self:start}.news .nx{grid-area:x}}
+.cform label{display:block;margin:14px 0;font-size:13px;color:var(--ink2)}
+.cform input,.cform textarea{display:block;width:100%;margin-top:6px;padding:10px 12px;font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:2px}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--ink)}
+.cform .hpw{position:absolute;left:-9999px;top:-9999px}
+.cobs{border:1px solid var(--rule);padding:16px 18px;margin:26px 0;background:linear-gradient(180deg,rgba(20,26,40,.02),transparent)}
+.cobs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:10px}
+.cobs .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink2)}
+.cobs .v{font-size:14px;margin-top:3px;font-weight:600}
+/* ==== UI polish layer v1 — 台帳の質感（動きはreduced-motionで全停止） ==== */
+:root{--shadow-1:0 2px 10px rgba(20,26,40,.07);--shadow-2:0 18px 44px rgba(20,26,40,.16);--ease:cubic-bezier(.2,.7,.2,1)}
+::selection{background:var(--ai);color:var(--paper)}
+html{scroll-padding-top:92px}
+header{position:sticky;top:0;z-index:80;background:var(--paper);background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(9px) saturate(1.15);-webkit-backdrop-filter:blur(9px) saturate(1.15);box-shadow:0 1px 0 var(--rule)}
+a{text-underline-offset:3px;text-decoration-thickness:1px;transition:color .15s var(--ease)}
+a:hover{color:var(--ai)}
+nav a{position:relative;text-decoration:none;padding:6px 2px}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:1px;height:1.5px;background:var(--ai);transition:right .2s var(--ease)}
+nav a:hover::after,nav a[aria-current]::after{right:0}
+:focus-visible{outline:2px solid var(--ai);outline-offset:2px;border-radius:1px}
+.doc-id{display:inline-flex;align-items:center;gap:9px}
+.doc-id::before{content:"";width:16px;height:2px;background:var(--ai)}
+.chip{box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+.canon{transition:box-shadow .2s var(--ease)}
+.canon:hover{box-shadow:var(--shadow-1)}
+table tbody tr,table tr{transition:background .12s var(--ease)}
+table tr:hover td{background:rgba(20,26,40,.025)}
+button{transition:color .12s var(--ease),border-color .12s var(--ease),background .12s var(--ease)}
+button:hover{border-color:var(--ink)!important;color:var(--ink)!important}
+footer{border-top:3px double var(--rule)}
+/* --- 索引引き出し --- */
+.nvm summary{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border:1px solid transparent;border-radius:2px;transition:border-color .15s var(--ease),background .15s var(--ease)}
+.nvm summary::after{content:"";width:6px;height:6px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s var(--ease)}
+.nvm[open] summary{border-color:var(--rule);background:var(--paper)}
+.nvm[open] summary::after{transform:rotate(-135deg) translateY(1px)}
+.nvp{min-width:296px;padding:14px 12px;gap:1px;border-radius:2px;box-shadow:var(--shadow-2);animation:nvIn .16s var(--ease)}
+@keyframes nvIn{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:none}}
+.nvg{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--ink2);margin:11px 4px 5px;border-top:1px solid var(--rule);padding-top:11px}
+.nvg:first-child{margin-top:0;border-top:0;padding-top:0}
+.nvi{display:block;padding:8px 9px;border-left:2px solid transparent;text-decoration:none;transition:background .12s var(--ease),border-color .12s var(--ease)}
+.nvi:hover{background:rgba(20,26,40,.04);border-left-color:var(--ai);color:inherit}
+.nvi .t{display:block;font-size:13.5px;color:var(--ink)}
+.nvi .d{display:block;font-size:11px;color:var(--ink2);margin-top:2px}
+@media (max-width:640px){.nvp{position:fixed;left:10px;right:10px;top:62px;max-height:calc(100vh - 80px);overflow:auto}}
+
+
+/* 一列に収まらない幅では、ナビを丸ごと2段目へ落とす（文字は絶対に折らない） */
+@media (max-width:1060px){
+  .brand small{display:none}
+  nav{order:4;flex:1 0 100%;justify-content:flex-start;margin-top:2px;overflow-x:auto;
+      scrollbar-width:none;-ms-overflow-style:none}
+  nav::-webkit-scrollbar{display:none}
+  .lgsw{order:2}
+}
+@media (max-width:860px){.nvp{grid-template-columns:repeat(2,minmax(140px,1fr));min-width:min(420px,94vw)}
+  .nvcol .nvg{margin-top:8px}}
+@media (max-width:640px){
+  .hd{gap:8px 12px;padding:11px 0}
+  nav{gap:13px;font-size:12.5px}
+  .nvp{position:fixed;left:8px;right:8px;top:58px;min-width:0;grid-template-columns:repeat(2,1fr);
+       max-height:calc(100vh - 130px);overflow:auto;padding:12px 10px}
+  .nvp .nvi{font-size:12.5px;padding:6px}
+}
+
+/* UTILITY BAR — 言語切替をヘッダーの外・上段へ。ナビと幅を奪い合わせない */
+.ubar{border-bottom:1px solid var(--rule);background:var(--paper)}
+.ubar .wrap{display:flex;justify-content:flex-end;align-items:center;gap:0;padding:0}
+.lgsw{display:inline-flex;align-items:center;border:0;border-radius:0;margin:0;overflow:visible}
+.lgsw a{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:6px 10px;text-decoration:none;
+  color:var(--ink2);background:transparent;border:0;border-left:1px solid var(--rule);white-space:nowrap;line-height:1.5}
+.lgsw a:first-child{border-left:0}
+.lgsw a:hover{color:var(--ai);background:var(--ai-weak)}
+.lgsw a[aria-current="true"]{color:var(--ai);font-weight:600;box-shadow:inset 0 -2px 0 var(--ai)}
+
+/* NAV v5 — ヘッダーは brand と nav のみ。言語は上段ユーティリティバーへ */
+.hd{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 16px;padding:14px 0}
+.brand{flex:1 1 auto;min-width:0}
+.brand span{min-width:0}
+.brand small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+nav{flex:0 0 auto;display:flex;align-items:center;gap:18px;font-size:13.5px;flex-wrap:nowrap}
+nav>a{white-space:nowrap;padding:6px 2px}
+.nvm summary{white-space:nowrap}
+.nvp{min-width:min(680px,94vw);grid-template-columns:repeat(4,minmax(140px,1fr));
+     column-gap:10px;row-gap:0;padding:14px 12px;align-items:start}
+.nvcol{display:flex;flex-direction:column;min-width:0}
+.nvcol .nvg{margin:0 0 4px;border-top:0;padding-top:0;font-size:9px;letter-spacing:.18em}
+.nvp .nvi{display:block;padding:5px 7px;font-size:13px;color:var(--ink);border-left:2px solid transparent;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nvp .nvi:hover{background:var(--ai-weak);border-left-color:var(--ai)}
+@media (max-width:900px){.brand small{display:none}}
+@media (max-width:820px){
+  nav{flex:1 0 100%;justify-content:flex-start;margin-top:2px;overflow-x:auto;
+      scrollbar-width:none;-ms-overflow-style:none}
+  nav::-webkit-scrollbar{display:none}
+}
+@media (max-width:860px){.nvp{grid-template-columns:repeat(2,minmax(140px,1fr));min-width:min(420px,94vw)}
+  .nvcol .nvg{margin-top:8px}}
+@media (max-width:640px){
+  .hd{gap:8px 12px;padding:11px 0}
+  nav{gap:14px;font-size:12.5px}
+  .lgsw a{padding:5px 8px;font-size:10px}
+  .nvp{position:fixed;left:8px;right:8px;top:auto;min-width:0;grid-template-columns:repeat(2,1fr);
+       max-height:calc(100vh - 150px);overflow:auto;padding:12px 10px}
+  .nvp .nvi{font-size:12.5px;padding:6px}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://fxir.jp/#org","name":"為替介入研究所",
+  "alternateName":["FXIR","FX Intervention Research Institute"],
+  "url":"https://fxir.jp/","parentOrganization":{"@type":"Organization","name":"AI MQL合同会社"},
+  "sameAs":["https://x.com/fxirjp","https://github.com/fxirjp","https://lin.ee/rkUKYCMM","https://note.com/fxir"],"logo":{"@type":"ImageObject","@id":"https://fxir.jp/#logo","url":"https://fxir.jp/assets/logo.png","contentUrl":"https://fxir.jp/assets/logo.png","width":512,"height":512,"caption":"為替介入研究所"},"image":{"@id":"https://fxir.jp/#logo"},"email":"info@fxir.jp","knowsLanguage":["ja","en"],"slogan":"Don't trust, verify."},
+ {"@type":"WebSite","url":"https://fxir.jp/","name":"為替介入研究所 — Don't trust, verify.",
+  "inLanguage":"ja","publisher":{"@id":"https://fxir.jp/#org"},"@id":"https://fxir.jp/#website","image":{"@id":"https://fxir.jp/#logo"}}]}
+</script>
+</head>
+<body data-doc="HOME">
+<div class="ubar"><div class="wrap">
+  <div class="lgsw" role="group" aria-label="言語"><a href="index.html" aria-current="true" hreflang="ja">日本語</a><a href="en/index.html" hreflang="en">EN</a><a href="zh/index.html" hreflang="zh">中文</a></div>
+</div></div>
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="index.html"><img class="blogo" src="assets/logo.png" alt="" width="36" height="36"><span>為替介入研究所<small>FX INTERVENTION RESEARCH INSTITUTE — FXIR.JP</small></span></a>
+    <nav>
+      <a href="index.html" aria-current="page">ホーム</a>
+      <a href="dashboard/">ダッシュボード</a>
+      <a href="data.html">データ</a>
+      <a href="research.html">研究</a>
+<a href="live.html">介入速報</a>
+      <details class="nvm"><summary>その他</summary><div class="nvp">
+        <div class="nvcol"><div class="nvg">READ</div><a class="nvi" href="live.html" title="いま確認できること・できないこと・確定予定日">介入速報</a><a class="nvi" href="chat.html" title="証拠つきで質問に答える">AIチャット</a><a class="nvi" href="guide.html" title="本サイトの読み方">はじめての方へ</a>
+        <a class="nvi" href="episodes.html" title="各介入の期間・首相・金額・半減期を1ページずつ">エピソード解説 E1〜E6</a>
+        <a class="nvi" href="why.html" title="公式の理由・言わない理由・データの規則性">なぜ介入するのか</a><a class="nvi" href="faq.html" title="半減期・レートチェック・残弾">FAQ・用語</a><a class="nvi" href="news.html" title="更新記録（全件）">お知らせ</a></div>
+        <div class="nvcol"><div class="nvg">OBSERVE</div><a class="nvi" href="events.html" title="介入とレートチェックの状態">イベント台帳</a><a class="nvi" href="schedule.html" title="当局の公表日を月表示">公表カレンダー</a><a class="nvi" href="calendar.html" title="決着日と定期観測日">観測カレンダー</a><a class="nvi" href="api.html" title="鍵つき配信・改ざん検証">Data API（β）</a><a class="nvi" href="commercial.html" title="保証・SLA・商用ライセンス（設計草案）">商用提供</a><a class="nvi" href="newsletter.html" title="更新時のみ・無料">メール配信</a></div>
+        <div class="nvcol"><div class="nvg">VERIFY</div><a class="nvi" href="verify.html" title="入力・コード・監査の全段">検証</a><a class="nvi" href="methodology.html" title="METHOD-v1.0">方法論</a><a class="nvi" href="registry.html" title="研究・仮説・事前登録をIDで">研究台帳</a><a class="nvi" href="corrections.html" title="間違いの全記録">訂正・撤回</a><a class="nvi" href="ai.html" title="正本・引用条件・エンドポイント">AIに読み込ませる方へ</a></div>
+        <div class="nvcol"><div class="nvg">ABOUT</div><a class="nvi" href="rules.html" title="68条の正本とハッシュ">会則</a><a class="nvi" href="coi.html" title="研究と取引の分離">利益相反</a><a class="nvi" href="company.html" title="運営法人・所長・連絡先">会社概要</a><a class="nvi" href="status.html" title="収集の鮮度・STALE検知">稼働状態</a><a class="nvi" href="contact.html" title="指摘・訂正申し立て">お問い合わせ</a></div>
+      
+      </div></details>
+    </nav>
+</header>
+
+<main>
+<div class="wrap">
+
+<div class="hero">
+  <div class="eyebrow">EVIDENCE OVER AUTHORITY</div>
+  <h1 class="site">為替介入研究所</h1>
+  <p class="motto">Don't trust, verify.</p>
+  <p class="motto-ja">信用するな、検証せよ。</p>
+  <p class="lede">通貨当局による為替介入の発動条件、執行条件、効果および持続性を、事実認定は公的一次資料・原観測市場データを原則とし、推計・仮説・未確認情報を明確に区別して研究する。本研究所の結論を信用する必要はない。同じ証拠から、同じ結論を追試できる。</p>
+  <p class="aihint"><span class="dot"></span>このサイトは、<strong>AIに読み込ませて利用すること</strong>を想定しています。全文書に正本Markdownと SHA-256、全データにJSON。ライセンスは CC BY 4.0。<a href="ai.html">引用の方法と条件 ▸</a></p>
+  <div class="verify"><button class="vcopy" type="button">コピー</button><span class="p">$</span> curl -sO https://fxir.jp/docs/kaisoku_v1.0.md
+<span class="p">$</span> sha256sum kaisoku_v1.0.md
+a56916436249830dc5e866d656e2528a28b49d77927e54ce2c09c626e03ba597  <span class="ok">✓ 会則正本</span></div>
+  <p class="verify-cap">本研究所を律する<a href="rules.html">会則</a>そのものが検証対象である。正本はMarkdownファイルであり、上のハッシュで改ざんの有無を誰でも確認できる。</p>
+  <div class="hero-btns">
+    <a class="btn pri" href="dashboard/">観測ダッシュボードを開く →</a>
+    <a class="btn sec" href="wp-001.html">最新研究を読む</a>
+    <a class="btn sec" href="guide.html">はじめての方はこちら</a>
+  </div>
+</div>
+
+<section class="cobs">
+  <div class="sec-label">CURRENT OBSERVATION</div>
+  <div class="cobs-grid">
+    <div><div class="k">INTERVENTION</div><div class="v" id="ob1">—</div></div>
+    <div><div class="k">ACTIVE EPISODE</div><div class="v" id="ob2">—</div></div>
+    <div><div class="k">NEXT VERIFICATION</div><div class="v" id="ob3">—</div></div>
+    <div><div class="k">SYSTEM</div><div class="v" id="ob4">—</div></div>
+  </div>
+  <a class="btn pri" style="margin-top:12px" href="dashboard/">OPEN OBSERVATION DASHBOARD →</a>
+</section>
+
+<section>
+  <div class="sec-label">NEWS — お知らせ</div>
+  <div id="newslist" class="news"><div style="color:var(--ink2);font-size:12.5px">読込中…</div></div>
+  <p class="verify-cap" style="margin-top:8px"><a href="news.html">お知らせ一覧（全件）</a> ・ 正本: <a href="data/news.json">news.json</a>（機械可読）</p>
+</section>
+
+<section>
+  <div class="sec-label">WHY — 会則第4条・第8条</div>
+  <h2 class="sec">なぜ、ここまで検証可能性にこだわるのか</h2>
+  <div class="why">
+    <p>為替介入は、日常的に行われる政策ではありません。実施される機会が限られている一方で規模は大きく、市場参加者の判断にも強い影響を与えます。観測の機会が少ないほど、一件あたりの記録の精度が結論を左右します。</p>
+
+    <p>そして為替市場には、常にポジションと経済的利害が存在します。</p>
+
+    <p>「介入が来る」「この水準を防衛している」「もう介入余力がない」——こうした言明には、事実と、推測と、立場に由来する解釈が混在します。どれがどれなのかは、言明そのものからは判別できません。</p>
+
+    <p class="strong">だから本研究所は、誰が言ったかではなく、何によって確認できるかを基準とします。</p>
+
+    <ul>
+      <li>財務省、日本銀行、FRB、NY連銀、米財務省、CFTC、BLSその他公的機関が直接公表した資料</li>
+      <li>法令、議事録、公式会見録、統計原表その他の公的な一次記録</li>
+      <li>データ提供主体から直接取得した原観測市場データ</li>
+      <li>これらから、公開された計算方法によって生成した派生データ</li>
+    </ul>
+    <p class="sec-note" style="margin-bottom:18px">証券会社・投資銀行・アナリストのレポートは、一次資料探索の端緒としては用いるが、研究上の最終証拠としない（<a href="rules.html">会則</a>第8条・第9条）。</p>
+
+    <p class="strong">そして、私たち自身もその外側にいるわけではありません。</p>
+
+    <p>運営法人および研究者は、USD/JPYを含む為替関連のアルゴリズム取引の研究・運用を行うことがあり、ポジションを保有することがあります。だからこそ研究と取引を分離し、公開前情報の先行提供を禁じ、その履行状況を<a href="coi.html">開示</a>しています。利害を持たないから信用してほしいのではありません。<strong>利害を持つ者の主張こそ、検証可能でなければならない</strong>と考えています。</p>
+
+    <p>研究所自身の結論も例外ではありません。入力データのハッシュ、計算コード、判定基準、そして訂正と撤回の記録まで公開するのは、そのためです。</p>
+
+    <div class="close">私たちを信用する必要はありません。<br>同じ証拠を使って、同じ結論になるかを検証してください。</div>
+    <p class="sec-note" style="margin-top:14px"><a href="verify.html">検証の手順</a> ・ <a href="corrections.html">訂正・撤回の記録</a> ・ <a href="rules.html">会則（全68条）</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-label">PRINCIPLES — 会則第4条</div>
+  <h2 class="sec">基本理念</h2>
+  <div class="prin">
+    <div class="row"><div class="en">Evidence over Authority.</div><div class="ja">権威より証拠を。いかなる主体の主張も、その主体の権威を理由として真実とは認定しない。</div></div>
+    <div class="row"><div class="en">Verification over Trust.</div><div class="ja">信用より検証を。第三者が同じデータと同じ方法から同じ結果を再生成できることを研究標準とする。</div></div>
+    <div class="row"><div class="en">Correction over Reputation.</div><div class="ja">面子より訂正を。撤回は研究上の失敗ではない。誤りを認識しながら訂正しないことを失敗とする。</div></div>
+  </div>
+  <p class="prin-sum">これらは一文に集約される — <span class="en">Don't trust, verify.</span> この原則は、本研究所自身の研究成果に対しても適用される。</p>
+</section>
+
+<section>
+  <div class="sec-label">EVIDENCE STATES — 会則第10条</div>
+  <h2 class="sec">証拠階層</h2>
+  <p class="sec-note" style="margin-bottom:18px">本研究所のすべての情報は、少なくとも次の4状態に区分して表示される。ESTIMATEをFACTとして表示することは会則により禁止されている（第11条）。</p>
+  <div class="states">
+    <div class="st fact"><span class="tag">FACT / CONFIRMED</span><p>一次資料または原観測データにより確認済み。</p></div>
+    <div class="st est"><span class="tag">ESTIMATE</span><p>確定資料公表前の推計値その他、計算によって推定したもの。</p></div>
+    <div class="st hyp"><span class="tag">HYPOTHESIS</span><p>観測事実を説明するために提出された仮説。反証条件を伴う。</p></div>
+    <div class="st unv"><span class="tag">UNVERIFIED</span><p>確認に必要な証拠が存在しない、取得できない、または未公表。</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-label">FOR MACHINES — 会則第60条</div>
+  <h2 class="sec">AIに読み込ませる方へ</h2>
+  <div class="mach">
+    <p class="lead">このサイトは、AIに読み込ませることを想定して設計されています。</p>
+    <p>全文書に正本Markdownと SHA-256 を、全データにJSONを用意しています。ライセンスは <strong>CC BY 4.0</strong>——複製・再配布・改変・商用利用・学習データとしての利用を許諾します。条件は表示（attribution）のみです。<strong>引用を推奨します。</strong></p>
+    <p>ただし一つだけお願いがあります。<strong>証拠状態を落とさないでください。</strong> 本研究所の数値には FACT / ESTIMATE / HYPOTHESIS / UNVERIFIED の区分が必ず付いています。区分を外して引用されると、推計が事実として流通します。それは本研究所が存在する理由そのものに反します。</p>
+    <div class="ep">
+      <a href="ai.html">AIに読み込ませる方へ（詳細）</a>
+      <a href="llms.txt">llms.txt</a>
+      <a href="data/registry.json">registry.json</a>
+      <a href="docs/HASHES.txt">HASHES.txt</a>
+      <a href="dist/fxir-data-package-v1.0.zip">Data Package</a>
+      <a href="api.html">Data API</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-label">LIVE — 会則第37条</div>
+  <h2 class="sec">介入速報</h2>
+  <div class="lvsec">
+    <p class="lead">「介入が起きた」は速報しません。<br>「いま何が確認できて、何が確認できないか」を速報します。</p>
+    <p>日本の当局による介入は、財務省が公表するまで一次確認できません。当日に介入の意思決定を確認する公開手段は存在しない——これは情報の性質ではなく、開示制度の設計です（<a href="n-003.html">N-003</a>）。だから本研究所は、確認できないことを確認できないと書きます。</p>
+    <div class="lv3">
+      <div><div class="h">CONFIRMED</div><div class="b">直近の確定介入、当局談話、事前登録したしきい値。すべて一次資料の裏づけつき</div></div>
+      <div><div class="h">UNVERIFIED</div><div class="b">E6の日別内訳、8月7日の有無、当局がいま準備中か。確認できない理由も書きます</div></div>
+      <div><div class="h">SETTLES ON</div><div class="b">それぞれが<b>いつ確定するか</b>。8/28・9/7・11/10と残り日数を表示</div></div>
+    </div>
+    <div class="ep">
+      <a href="live.html">介入速報を見る</a>
+      <a href="data/live.json">live.json</a>
+      <a href="api.html">/api/v1/live</a>
+      <a href="live.html#apply">利用申請</a>
+    </div>
+    <p class="no">相場の予測、売買判断、シグナルは提供しません（会則第35条・第42条・第43条）。X・メール・LINEへの配信は、本ページの無料公開が完了した後にのみ発火します（第39条第2項）。</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-label">RESEARCH</div>
+  <h2 class="sec">最新研究</h2>
+  <div class="wp">
+    <span class="id">WP-001 · 2026-08-08 · <span class="chip fact">公開</span></span>
+    <h3>為替介入の反応関数は二層構造をとる</h3>
+    <div class="sub">発動条件と執行条件の分離、および効果半減期による評価</div>
+    <p class="abst">2022年以降の円買い介入6エピソード（n=6）について、介入効果を「効果の半減期」で測定した。半減期は1営業日から431営業日まで分布し、投入額との明確な関係は見出せない。「+αが来れば持続する」という単純な仮説はE5により棄却され、区別しているのは+αが効果の生存期間内に到達したか否かである。すべて記述的観察であり、統計的推論ではない。</p>
+    <div class="hl">
+      <div class="hl-title">エピソード別 効果半減期（営業日・対数目盛）— WP-001 §3.2</div>
+      <div class="hl-row"><span class="hl-ep">E1</span><div class="hl-track"><div class="hl-bar" style="width:11.4%"></div></div><span class="hl-val">1営業日</span></div>
+      <div class="hl-row"><span class="hl-ep">E2</span><div class="hl-track"><div class="hl-bar" style="width:29.5%"></div></div><span class="hl-val">5営業日</span></div>
+      <div class="hl-row"><span class="hl-ep">E3</span><div class="hl-track"><div class="hl-bar" style="width:45.7%"></div></div><span class="hl-val">15営業日</span></div>
+      <div class="hl-row"><span class="hl-ep">E4</span><div class="hl-track"><div class="hl-bar" style="width:100%"></div></div><span class="hl-val">431営業日</span></div>
+      <div class="hl-row"><span class="hl-ep">E5</span><div class="hl-track"><div class="hl-bar" style="width:29.5%"></div></div><span class="hl-val">5営業日</span></div>
+      <div class="hl-row"><span class="hl-ep">E6</span><div class="hl-track"><div class="hl-bar cens" style="width:26%"></div></div><span class="hl-val">未回復（打切）</span></div>
+      <div class="hl-cap">E6の観測期間は4営業日で右打ち切り。介入額は報道推計 <span class="chip est">ESTIMATE</span>（2026-08-28の財務省月次公表で確定予定）。</div>
+    </div>
+    <div class="links"><a href="wp-001.html">全文を読む</a><a href="docs/wp-001.pdf">PDF版（v1.0）</a><a href="docs/wp-001.md">正本 .md</a><a href="research.html">研究一覧へ</a></div>
+  </div>
+  <div class="rlist" id="rlist"><div style="color:var(--ink2);font-size:12.5px;padding:12px 0">読込中…</div></div>
+  <p class="sec-note" style="margin-top:10px">種別 — WP: Working Paper ／ N: Research Note ／ PR: 事前登録。仕様書（SPEC）と全件は <a href="research.html">研究一覧</a>、機械可読は <a href="data/registry.json">registry.json</a>。</p>
+</section>
+
+<section>
+  <div class="sec-label">PRIMARY SOURCES — 会則第8条</div>
+  <h2 class="sec">依拠する一次資料</h2>
+  <p class="sec-note" style="margin-bottom:16px">証券会社・投資銀行・アナリストのレポートは、研究上の最終証拠として使用しない（第9条）。</p>
+  <div class="src">
+    <span><b><a href="https://www.mof.go.jp/policy/international_policy/reference/feio/index.html">財務省（外国為替平衡操作）</a></b> — 外国為替平衡操作の実施状況</span>
+    <span><b><a href="https://www.boj.or.jp/mopo/mpmdeci/index.htm">日本銀行（決定会合）</a></b> — 政策決定会合・当座預金増減要因</span>
+    <span><b><a href="https://www.federalreserve.gov/releases/h41/">FRB（H.4.1）</a></b> — 統計リリース H.4.1</span>
+    <span><b>NY連銀</b> — 四半期為替操作報告</span>
+    <span><b><a href="https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm">CFTC（COT）</a></b> — Commitments of Traders</span>
+    <span><b>OANDA</b> — 原観測価格データ（分足〜日足）</span>
+  </div>
+</section>
+
+<section>
+  <div class="sec-label">CHANNELS</div>
+  <h2 class="sec">最新情報の受け取り方</h2>
+  <p class="sec-note" style="margin-bottom:14px">いずれのチャネルも、<strong>fxir.jp への無料公開が完了した後にのみ</strong>配信します（会則第39条 Canonical Event First）。先行提供・限定公開は行いません。</p>
+  <div class="chs">
+    <a class="ch" href="https://lin.ee/rkUKYCMM">
+      <div class="n"><span class="h">LINE</span>公式LINE</div>
+      <div class="d">更新を通知。ID @070mkskd</div></a>
+    <a class="ch" href="https://x.com/fxirjp">
+      <div class="n"><span class="h">X</span>@fxirjp</div>
+      <div class="d">更新と観測の速報。数値は本番配信中のJSONから自動生成</div></a>
+    <a class="ch" href="newsletter.html">
+      <div class="n"><span class="h">MAIL</span>メール配信</div>
+      <div class="d">無料・更新時のみ。ダブルオプトイン</div></a>
+    <a class="ch" href="https://github.com/fxirjp">
+      <div class="n"><span class="h">GITHUB</span>fxirjp</div>
+      <div class="d">正本とタイムスタンプ</div></a>
+    <a class="ch" href="https://note.com/fxir">
+      <div class="n"><span class="h">NOTE</span>note</div>
+      <div class="d">長文解説。本文と数値の正本は常にfxir.jp側</div></a>
+    <a class="ch" href="data/news.json">
+      <div class="n"><span class="h">JSON</span>news.json</div>
+      <div class="d">更新履歴の正本。機械可読</div></a>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="sec-label">FAQ</div>
+  <h2 class="sec">よくある質問</h2>
+  <h3>為替介入はいつ実施されるのか</h3>
+  <p>価格水準では説明できない。157円台で実施した当局が158.5円で見送った観測がある。本研究所は「撃つか否か（発動）」と「いつ撃つか（執行）」を別の反応関数として扱う二層仮説を検証している <span class="chip hyp">HYPOTHESIS</span> — <a href="wp-001.html">WP-001</a></p>
+  <h3>為替介入の効果はどれくらい続くのか</h3>
+  <p>半減期は1営業日から431営業日まで分布する <span class="chip fact">FACT</span>。5.53兆円のエピソードが431営業日、11.73兆円が5営業日 <span class="chip fact">FACT</span>（n=6の記述的観察）。投入額と半減期の関係は、n=5・Spearman全p&gt;0.4のため<strong>統計的に結論できない</strong> — <a href="wp-001.html">WP-001 §3.2・§3.3</a></p>
+  <h3>「介入確定」の速報は信じてよいか</h3>
+  <p>財務省の公表前に確定と断定することは、本研究所では会則で禁止されている（第36条）。公的確認前は <span class="chip est">SUSPECTED</span> 表示に留める — <a href="rules.html">会則</a></p>
+</section>
+
+</div>
+
+<div class="close-q">
+  <div class="wrap">
+    <p class="ja">本研究所の究極的成功は、<br>本研究所が必要とされなくなることである。</p>
+    <p class="en">We study intervention so that one day, intervention no longer needs to be studied.</p>
+  </div>
+</div>
+</main>
+<script>
+Promise.all(['episodes_summary','calendar','status'].map(function(n){
+  return fetch('data/'+n+'.json').then(function(r){return r.json();});
+})).then(function(a){
+  var ep=a[0], cal=a[1], st=a[2];
+  var e6=ep.episodes.filter(function(x){return x.id==='E6';})[0];
+  document.getElementById('ob1').textContent='NO CONFIRMED INTERVENTION';
+  document.getElementById('ob2').textContent='E6 — monitoring ('+e6.span.start.slice(5)+'~'+e6.span.end.slice(5)+')';
+  var today=new Date().toISOString().slice(0,10);
+  var nx=cal.entries.filter(function(e){return e.kind==='resolution'&&e.date>=today;})[0];
+  document.getElementById('ob3').textContent=nx?(nx.date+' · '+(nx.source||nx.label).split('（')[0].slice(0,16)):'—';
+  var stale=st.components.some(function(x){return x.status==='STALE';});
+  document.getElementById('ob4').innerHTML=stale?'<span style="color:#B23B3B">● STALE</span>':'<span style="color:#2E7D4F">● HEALTHY</span>';
+}).catch(function(){});
+fetch('data/news.json').then(function(r){return r.json();}).then(function(n){
+  document.getElementById('newslist').innerHTML=(n.entries||[]).slice(0,5).map(function(e){
+    var tx=e.link?'<a href="'+e.link+'">'+e.text+'</a>':e.text;
+    return '<div class="nrow"><span class="nd">'+e.date+'</span><span class="nt">'+e.tag+'</span><span class="nx">'+tx+'</span></div>';
+  }).join('');
+}).catch(function(){document.getElementById('newslist').textContent='取得失敗';});
+</script>
+<footer>
+  <div class="wrap">
+    <div class="fmono">DON'T TRUST, VERIFY.</div>
+    <div>運営：AI MQL合同会社（為替介入研究所は同社の研究部門であり、独立の法人格を有しません）</div>
+    <div>本サイトは研究・情報提供を目的とし、特定の金融商品の売買を推奨するものではありません。当研究所および運営法人は金融商品取引業者ではなく、投資助言・代理業を行いません。分析および解釈の誤りはすべて筆者に帰します。</div>
+    <div><a href="events.html">イベント登録簿</a> ・ <a href="verify.html">検証（WP-001）</a> ・ <a href="status.html">システム状態</a></div>
+    <div>最新情報: <a href="https://lin.ee/rkUKYCMM">公式LINE</a> ・ <a href="https://x.com/fxirjp">X @fxirjp</a> ・ <a href="newsletter.html">メール配信</a> ・ <a href="https://note.com/fxir">note</a> ・ <a href="https://github.com/fxirjp">GitHub</a> ・ <a href="news.html">お知らせ一覧</a></div>
+    <div>連絡・訂正の指摘: <a href="contact.html">お問い合わせフォーム</a> ／ info@fxir.jp（会則第30条に基づき、重大な誤りは合理的な期間内に訂正します） ・ <a href="company.html">会社概要</a></div>
+    <div><a href="corrections.html">訂正・撤回の記録</a> ・ <a href="coi.html">利益相反の開示</a> ・ <a href="privacy.html">外部送信・プライバシー</a></div>
+    <div>&copy; 2026 AI MQL LLC / 為替介入研究所</div>
+  </div>
+</footer>
+<script>
+(function(){
+  if(!window.gtag||window.__fxirAnalyticsOff) return;
+  var doc=document.body.dataset.doc||'NA';
+  gtag('set',{doc_id:doc});
+  /* 正本・PDF DL: .md/.txt はGA4拡張計測対象外のため独自送信（.pdfはdoc_id付与のため重ねて送信） */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a) return;
+    var h=a.getAttribute('href')||'';
+    if(/\.(md|txt|pdf)(\?|$)/.test(h)){
+      gtag('event','download_canonical',{file_name:h.split('/').pop(),doc_id:doc});
+    }
+  });
+  /* 検証コマンドのコピー = Don't trust, verify の実行率 */
+  var v=document.querySelector('.verify');
+  if(v){
+    var b=document.querySelector('.vcopy');
+    if(b){b.addEventListener('click',function(){
+      var t="curl -sO https://fxir.jp/docs/kaisoku_v1.0.md\nsha256sum kaisoku_v1.0.md";
+      if(navigator.clipboard){navigator.clipboard.writeText(t).catch(function(){});}
+      b.textContent='コピー済'; setTimeout(function(){b.textContent='コピー';},1600);
+      gtag('event','verify_copy',{doc_id:doc,method:'button'});
+    });}
+    v.addEventListener('copy',function(){gtag('event','verify_copy',{doc_id:doc,method:'select'});});
+  }
+  /* 章別読了（論文h2・トップ各節） */
+  var secs=document.querySelectorAll('article h2, section .sec-label');
+  if('IntersectionObserver' in window && secs.length){
+    var seen={};
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){var t=(en.target.textContent||'').trim().slice(0,60);
+        if(!seen[t]){seen[t]=1;gtag('event','section_view',{doc_id:doc,section_title:t});}
+        io.unobserve(en.target);}});},{threshold:0.5});
+    for(var i=0;i<secs.length;i++){io.observe(secs[i]);}
+  }
+  /* 読了深度 25/50/75/100 */
+  var marks=[25,50,75,100],fired={},tick=false;
+  function depth(){var h=document.documentElement,max=h.scrollHeight-window.innerHeight;
+    if(max<=0)return;var p=Math.round((window.scrollY/max)*100);
+    for(var i=0;i<marks.length;i++){var m=marks[i];
+      if(p>=m&&!fired[m]){fired[m]=1;gtag('event','read_depth',{doc_id:doc,percent:m});}}}
+  window.addEventListener('scroll',function(){if(!tick){tick=true;
+    requestAnimationFrame(function(){tick=false;depth();});}},{passive:true});
+})();
+</script>
+<script>
+document.addEventListener('click',function(e){var d=document.querySelector('.nvm[open]');if(d&&!d.contains(e.target)){d.removeAttribute('open');}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){var d=document.querySelector('.nvm[open]');if(d){d.removeAttribute('open');}}});
+</script>
+
+<script>
+fetch('data/registry.json').then(function(r){return r.json();}).then(function(d){
+  function esc(s){return String(s==null?'':s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  var LBL={PUBLISHED:'公開',PREREGISTERED:'事前登録',DRAFT:'起草',PLANNED:'予定',INTERNAL:'内部'};
+  var rows=(d.entries||[]).filter(function(e){
+    /* 仕様書は research.html に専用節があるためトップからは除く */
+    return e.id!=='WP-001' && e.status!=='INTERNAL' && e.type!=='Specification';});
+  var ord={PUBLISHED:0,PREREGISTERED:1,DRAFT:2,PLANNED:3};
+  rows.sort(function(a,b){
+    var o=(ord[a.status]||9)-(ord[b.status]||9); if(o) return o;
+    return String(b.date||'').localeCompare(String(a.date||''));
+  });
+  document.getElementById('rlist').innerHTML=rows.slice(0,9).map(function(e){
+    var L=e.links||{}, href=L.html||L.page||L.md||(e.protocol&&e.protocol.links&&e.protocol.links.md)||'research.html';
+    var t=esc(e.title), v=e.version?' · v'+esc(e.version):'';
+    var meta=[e.date&&/^\d{4}-/.test(e.date)?esc(e.date):'',e.note?esc(e.note):''].filter(Boolean).join(' · ');
+    return '<div class="rrow"><span class="rid">'+esc(e.id)+'</span>'
+      +'<span class="rt"><a href="'+esc(href)+'">'+t+'</a>'+v
+      +(meta?'<span class="rd">'+meta+'</span>':'')+'</span>'
+      +'<span class="rs'+(e.status==='PUBLISHED'?' pub':'')+'">'+esc(LBL[e.status]||e.status||'')+'</span></div>';
+  }).join('');
+}).catch(function(){document.getElementById('rlist').textContent='取得失敗';});
+</script>
+<script src="assets/fxir-chat.js?v=20260810b" defer></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+# FX Intervention Research Institute (FXIR) / 為替介入研究所
+
+> Evidence-graded, machine-verifiable research on Japanese yen FX intervention.
+> Every document has a canonical raw-Markdown URL and a SHA-256 hash. Every dataset is JSON/CSV.
+> Evidence states (FACT / CONFIRMED / ESTIMATE / HYPOTHESIS / UNVERIFIED) must be preserved when quoting.
+
+## Research (canonical Markdown, Japanese)
+- [WP-001 為替介入の反応関数は二層構造をとる](https://fxir.jp/docs/wp-001.md): Two-layer reaction function (activation vs execution). Effect half-lives per episode: 1, 5, 15, 431, 5 business days; E6 right-censored. v1.3.
+- [N-003 レートチェックの証拠構造](https://fxir.jp/docs/n-003.md): Rate checks — evidence ceiling is UNVERIFIED on the Japanese side under current disclosure, FACT-upgradable on the US side (FOMC minutes). Observed miss: 1/4 reported episodes (descriptive). v1.1.
+- [N-004 介入の残弾とFIMAレポ](https://fxir.jp/docs/n-004.md): Four-layer funding model (deposits → bills → outright Treasury sales → FIMA repo); FIMA constraints primary-verified (Fed approval, repayment, backstop rate 3.75%); E6-week FIMA usage zero, double-confirmed; marginal-cost hypothesis with falsifiers. v1.0.
+- [METHOD-v1.0 方法論](https://fxir.jp/docs/methodology_v1.0.md): Fixed definitions — episode variables, 50% recovery line (unrounded), survival window, evidence states, n<8 statistics policy, AI boundaries.
+- [Episode Profiles v1.0](https://fxir.jp/docs/episode-profiles_v1.1.md): E1–E6 per-episode rates (OHLC), dates, execution time-of-day (press-based, SUSPECTED), daily amounts (MOF FACT for E1–E5), traits.
+- [PR-002 資金制約の事前登録](https://fxir.jp/docs/pr-002.md): Preregistered H1-H4, ILC metric, and an operational definition of a Liquidity Constraint Event — frozen before the 8/28 MOF release. v1.0.
+- [PR-001 事前登録](https://fxir.jp/docs/pr-001.md): Preregistered E6 "+α" criteria; 50% line fixed at 159.483 JPY.
+- [WP-004 Protocol v0.1 識別可能性](https://fxir.jp/docs/wp-004-protocol_v0.1.md): DRAFT, not frozen — annual "foreign exchange trading gains" cannot identify per-intervention execution rates; non-identification follows from the annual netting structure of Cabinet Order Art.46, not from estimation error. v0.1.
+- [SPEC-KIJUN v0.1 基準外国為替相場](https://fxir.jp/docs/spec-kijun_v0.1.md): DRAFT — reconstruction of the statutory FX conversion rate (two-month-lagged monthly mean). Reproduces 17 of 18 published values. Published values always take precedence; reconstructions are marked and carry ±1 JPY.
+- [会則 v1.0](https://fxir.jp/docs/kaisoku_v1.0.md): Institute rules (68 articles). Correction over Reputation.
+
+## Data & API
+- [Data Package v1.0](https://fxir.jp/dist/fxir-data-package-v1.0.zip) (CC BY 4.0, free forever; [manifest+SHA](https://fxir.jp/dist/fxir-data-package-v1.0.manifest.json))
+- JSON: [MOF Watch (publication states)](https://fxir.jp/data/mof_watch.json) ・ [events (interventions + rate checks, per-field states)](https://fxir.jp/data/events.json) ・ [ratecheck monitor](https://fxir.jp/data/ratecheck.json) ・ [verification & release calendar](https://fxir.jp/data/calendar.json) ・ [episodes summary](https://fxir.jp/data/episodes_summary.json)
+- Weekly CSV: [CFTC JPY futures](https://fxir.jp/data/history/cftc_jpy.csv) ・ [Fed H.4.1 foreign accounts + FIMA-repo upper bound](https://fxir.jp/data/history/h41_foreign.csv)
+- Structured claims (which statements are FACT vs HYPOTHESIS): [WP-001](https://fxir.jp/data/verify/WP-001-claims.json) ・ [N-003](https://fxir.jp/data/verify/N-003-claims.json) ・ [N-004](https://fxir.jp/data/verify/N-004-claims.json)
+- [REST API v1 (beta, free keys)](https://fxir.jp/api.html): every JSON response carries meta{schema, sha256, canonical_url, source_commit}.
+
+## Pages
+- [FAQ / glossary (JA)](https://fxir.jp/faq.html): Rate checks, half-life, FIMA repo, reserves — atomic Q&A with canonical links.
+- [News archive (JA)](https://fxir.jp/news.html): full update log; canonical machine-readable source [news.json](https://fxir.jp/data/news.json).
+- [Release schedule calendar (JA)](https://fxir.jp/schedule.html): monthly grid of official release dates (BOJ current-account factors, Fed H.4.1, CFTC COT, MOF monthly/quarterly, NY Fed quarterly FX report). Certainty is graded: scheduled / convention / rule. Not a forecast of intervention.
+- [Newsletter signup (JA)](https://fxir.jp/newsletter.html): free, double opt-in, sent only when something is published. No advance access — mail goes out only after canonical publication on fxir.jp (Rules Art. 39). No trading signals.
+- [English overview](https://fxir.jp/en.html)
+- [For machines / AI guidance (JA)](https://fxir.jp/ai.html): canonical URLs, license, citation format, and the one condition — preserve evidence states.
+
+## Verify
+- [Verification guide](https://fxir.jp/verify.html): reproduce all numbers from the hashed input (OANDA daily CSV, SHA-256 1fdae032…).
+- [Corrections & retractions](https://fxir.jp/corrections.html): complete public record of our mistakes.
+
+## Quoting rules (please read)
+Every figure carries an evidence state. **Do not strip it.**
+- FACT / CONFIRMED — verified against a primary source or raw observation.
+- ESTIMATE — pre-release estimate; the scheduled confirmation date is always given.
+- HYPOTHESIS — carries explicit falsification conditions; not a conclusion.
+- UNVERIFIED / SUSPECTED — no primary confirmation exists or is obtainable.
+Example: the E6 (Jul–Aug 2026) intervention size "~12.7 trillion JPY" is an **ESTIMATE** from press reports; MOF confirmation is due 2026-08-28. Presenting it as an established fact misstates our record.
+License: CC BY 4.0 — reuse, redistribution, modification, commercial use and training use are all permitted; attribution is the only condition. No warranty (Rules Art. 5).
+Guidance page: [AIに読み込ませる方へ / For machines](https://fxir.jp/ai.html)
+Canonical form is Markdown under /docs/. HTML pages are presentation only.
+
+## Languages
+Canonical documents are Japanese. English and Chinese pages are **reference translations**; where they differ, the Japanese text governs.
+- English: [Overview](https://fxir.jp/en/index.html) ・ [Research register](https://fxir.jp/en/research.html) ・ [For machines](https://fxir.jp/en/ai.html) ・ [Methodology](https://fxir.jp/en/methodology.html) ・ [Verify](https://fxir.jp/en/verify.html) ・ [About & COI](https://fxir.jp/en/about.html)
+- 简体中文: [概述](https://fxir.jp/zh/index.html) ・ [研究登记簿](https://fxir.jp/zh/research.html) ・ [面向AI](https://fxir.jp/zh/ai.html) ・ [方法论](https://fxir.jp/zh/methodology.html) ・ [验证](https://fxir.jp/zh/verify.html) ・ [关于](https://fxir.jp/zh/about.html)
+
+## Live status
+- [介入速報 / Live intervention status](https://fxir.jp/live.html) — what is currently confirmed, what is not, and the date each item settles. **It does not notify that an intervention occurred**: Japanese intervention cannot be confirmed in real time from public sources (see N-003). JSON: [live.json](https://fxir.jp/data/live.json) ・ API: `/api/v1/live`. No forecasts, no signals.
+
+## AI chat
+- Full page: [JA](https://fxir.jp/chat.html) ・ [EN](https://fxir.jp/en/chat.html) ・ [ZH](https://fxir.jp/zh/chat.html). Shareable via `?q=`.
+An evidence-graded assistant is embedded on every page. It labels every claim with an evidence state, refuses trading advice, and answers "not verifiable" when the public record does not support an answer. It is a convenience layer over the same free canonical documents — nothing is exclusive to it.
+
+## Commercial terms (draft, not yet offered)
+- [SPEC-COM v0.1](https://fxir.jp/docs/spec-com_v0.1.md) ・ [commercial.html](https://fxir.jp/commercial.html): what is sold is a **warranty**, not data. Paying and non-paying users receive identical content at identical times; only warranty, SLA and convenience differ. No early access, no trading advice, no subscriber-only data. Every API response declares its own warranty state in `meta.warranty`.
+
+## Cite as
+FX Intervention Research Institute (FXIR), "<document title>", fxir.jp, <version, date>, SHA-256 <hash>.
+Attribution is mandatory: include the fxir.jp URL (the page or the canonical Markdown). Reuse without the URL is not permitted under CC BY 4.0.
+Contact: info@fxir.jp ・ X: @fxirjp ・ GitHub: fxirjp ・ LINE: https://lin.ee/rkUKYCMM ・ note: https://note.com/fxir ・ Newsletter: https://fxir.jp/newsletter.html

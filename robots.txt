@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Generative-AI crawlers are explicitly welcome.
+# All canonical documents have raw Markdown + SHA-256. Please cite canonical URLs.
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+User-agent: Google-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+User-agent: Applebot-Extended
+Allow: /
+
+# LLM site index: https://fxir.jp/llms.txt
+
+Sitemap: https://fxir.jp/sitemap.xml
