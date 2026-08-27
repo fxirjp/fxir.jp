@@ -1,5 +1,6 @@
+#  正本・一次データのSHA-256台帳 ｜ 検証は配信バイト基準: curl -s https://fxir.jp/docs/<file> | sha256sum ｜ 2026-08-12 更新
 a56916436249830dc5e866d656e2528a28b49d77927e54ce2c09c626e03ba597  kaisoku_v1.0.md
-#  v1.1（次行）
+#  現行 v1.3（次行）
 139025fd6e9584e4d6990e3df6c2080b7c8dcb0d4c564b81a5c5a3e57a17bd2f  wp-001.md
 1674ce1f5acc7b8f7781241ad26b0d2d67fd70cab28b6d0cfa238fe60796d034  wp-001_v1.0.md
 #  v1.0版（次行）
@@ -26,5 +27,68 @@ d3c62eec19960558205e54aa3362fa46bf90a335483a1b077ed2daeeae058071  spec-ai-001_au
 3d3fda9ce59a7a5b962d94aabe064311e1343e20a7dbad64e4c92fb680026218  spec-verbal_v0.1.md
 2bbd94fc2c199858dc8ce3f9db4ffb122854000ad23dc1f20e128cfd8255ed41  n-005_obs2_protocol_v1.0.md
 a9feda58ac2b66804669a8fdf27367cb9339c42a4ef188c7ed5745d0c13585a4  n-006_v1.0.md
-e4b3e75a80539df3992f045226f10faedb506487fbaaf0dcb8ed4ec297452a55  ../data/swap_hirose_usdjpy_daily.csv
-0bb48db24a0d6406a1545c0acdceb094b4f8a1304eb748ff3e5f89d39a83440d  ../data/swap_ig_usdjpy_daily.csv
+29d1d8a3c35adb7415836b3ed0277cce145fba6563d736949fb42dce4f67fa71  ../data/swap_hirose_usdjpy_daily.csv
+13c4ddd279914805a3e2b992d186fc5a28c9c75ceafb2e86d9964ad6b745cf93  ../data/swap_ig_usdjpy_daily.csv
+#  2026-08-12 追加収載（各ページ掲示値の台帳一元化・AUDIT-2026-08-12 L-5対応）
+426c93bfc5e8dcfa04c2d727ad67cdf287b4a45e26b0ecd65562f4ab3d023c30  methodology_v1.0.md
+79619a1286b4c48e1eb4c0a28318c48f90c0bc4cca4771756e852704b8274212  n-003.md
+feaa3779481258fdcfc7daa709332fa81398e6bef00a4653b0a6222d6ec4e0c4  n-003_v1.0.md
+ce06ff3854585ede33baf08905af685024de59640e2b39ed368e6c46c2ab3ecb  n-004.md
+7a07369f3bb3009b863b3edb03baec9c8265628c4735287a28fa11ea31e4ea28  pr-001.md
+2c2003e2ddada752f197467fb9759b5161e878310b02814447f10877296eb570  pr-002.md
+7cca6358b7b92d2a2b6131321243082fdbc1417cdffaca5a923b8b7059975bbc  wp-001_v1.1.md
+8641e2eb94fead483e6f07213218629cf6ee96838348e8c735650d4409f76d70  wp-001_v1.2.md
+d4fb2e3b4f4a9e0d7caee67814c6cfb8202e086a1e4971119d11aaf8b0250a12  episode-profiles_v1.1.md
+b8ad7723082f0cb4b586d8e5c864110e2a5367e59743e68f04708e98fcb83cc9  episode-profiles_v1.0.md
+#  N-006 v1.1（2026-08-12 訂正版・次行。v1.0は上に保存）
+3904628b631c4b5b182c7be4a6b0a17268ae7e3fac5ef3fe5b17cffae3734e5f  n-006_v1.1.md
+144c748f984a2102a079aa2a54f4eb2971ca3aa85199cdc5a55915a4fe44bbe2  spec-chat_v0.1.md
+#  CSV2件の掲示値は2026-08-12に配信バイト（LF）基準へ訂正（旧掲示はCRLF版の値・data/corrections.json参照）
+#  E6半減期判定の根拠データ（2026-08-13日足・判定日2026-08-14・次行）
+f7d8116e8093e98ac7608f455b72b0daca2bc2f3baaa40fdcc7104cb0ca6e487  ../data/e6_judgment_20260813_oanda_m1.csv
+#  正本日足（2025-06-19〜2026-08-14・半減期一意化とN-005閉窓の根拠・次行）
+5faab9dc88833b2e8c62e0c8bb2e59f7b8bb6173c17f41843f750836fdbef364  ../data/oanda_usdjpy_1d_canonical.csv
+#  WP-001 English reference translation（2026-08-15・正本はwp-001.md）
+8caba200304a43495b7a0393766dfe5e41993c015eb5d44fa45e45426a9c5665  wp-001_en.md
+#  PR-005 起草稿と判定系列（2026-08-18・未凍結）
+53e8000b88b737dbad94bcf0caaa954f5d15c534a751df975e5bcfabcfb12d32  pr-005_draft1.md
+a0887759e9cd722d10fbddf68ecfb4ffbadc2007961fab11f9be55ae5d1c7176  ../data/pr005_v_series_private.csv
+#  N-007 起草稿と再現用証跡（2026-08-18・未凍結）
+f56751de4f9b51e232828906bccc63aa1afe4ee2e210828b25979f6a1b797f76  n-007_draft1.md
+8bfbcccf7a035fc7f8308a324ba989627a2dd791a9715a54fcc871a374931de4  ../data/n007_post_passage.csv
+#  SPEC-API v1.1.3（2026-08-18）
+3909eef4c04ff580c5f69ea7eeb9632ebfbc91bbedd3ce29d76f3dafff2d8ed4  spec-api_v1.1.3.md
+#  E6 協調介入・米側フロー（米財務省IRP・2026-08-18）
+be8fd0e394116657985ce75ebbbfb2d97fde5a1cbc9ea5dca9c06257983d8608  ../data/us_irp_e6.csv
+#  SPEC-KIJUN v0.2（2026-08-20・識別テスト結果を反映）
+4cb02af103a9c7c8732805f9139d6242c16031908b4a2566b7ec9997df8347e9  spec-kijun_v0.2.md
+#  SPEC-KIJUN 識別テスト解説図（2026-08-20）
+96c351fa175512be70896cc218ae4f8c684e0f22f7f1a89055c74c24d108b7f3  ../img/kijun_identification.svg
+#  N-008 事前登録（2026-08-22凍結・判定規則と計算スクリプト）
+ac5b5b9ff60d5362aeaa7f0826ae595f4ce0bcb42b958baed3046927e6623f2f  n-008.md
+cf79f0402aaa2c925365122dd219d7b4649473c7698850871c2b2393b7f11383  n008_compute.py
+#  N-008 OpenTimestamps受領書（2026-08-23刻印・Bitcoin確定待ち）
+72c06eaa8a39a404e68fcf33c805fea43ad45966a95bdcc6bc8c81132cc5ce60  n-008.md.ots
+c58efed611ce739c76185cc0f784428140e7fb294c7cc4d349030929386e11d5  n008_compute.py.ots
+#  SPEC-KIJUN v0.3 / PR-004 / PR-005（2026-08-23凍結・OTS刻印済み）
+b9999a30f1070357695e721d57cbe41f5249c64d5d50ae6f09cab64474c39d5a  spec-kijun_v0.3.md
+ca11a0fe6f435a8fa3af06a7d12d567564b13a1ea192eeceeea7dfc903411d9b  ../data/kijun_calibration_v03.csv
+c7322ffbfec98ea4da6939b88f83bfd0b44f2677ef6fd839a233846592e6eb3f  pr-004.md
+04b71f674424617926821d38ba6939e780dfa6886ba6f3c005e6db9acae59763  pr-005.md
+a16ec814e6868a0b1ddbafd277b985ff7bac344d8b1f681ea8dc6f552690afd9  spec-kijun_v0.3.md.ots
+d6f0699babc1d10bd3a245d76e0b64324bfec6ac2f37d0a6b71a446a076cdc7e  pr-004.md.ots
+bfd0d69c8180c7d8ca9c99417ea884bfbd2d784adcbac21a2b9e681a3783ca1c  pr-005.md.ots
+#  E6決済フロー（営業毎旬報告・2026-08-24）
+534a533c4a7dac0d8ad61a7b22cbbd341659b31f432e7d2f74c8952fe38a1a8b  ../data/e6_settlement_timeline.csv
+#  N-008 v1.1 判定結果と再現用データ（2026-08-25）
+03b7a157a7fc32e353ebc050714f43e7ecdafbb4be961888018eec6db3465fb3  n-008_v1.1.md
+a33863899ef189cd2abcabd1be02bf9f153433a7e4358cbf76affe272dacf9a2  ../data/n008_cot_jpy_net.csv
+68f2271a1edd5b398fe4c9ecc976d06daf9cc358384b49d4cba5aee98e044246  ../data/n008_episodes.csv
+#  上記.otsは2026-08-25に ots upgrade 済み（Bitcoin確定・ブロック963751/963725）
+#  上記CSV5件は2026-08-27にLFへ正規化し台帳を配信バイト基準へ更新（C-1恒久対策の適用漏れ解消）
+#  外貨準備の内訳チャートと系列（2026-08-27）
+3aa3820d25b8e1dc31546b8e109a612960cc280423d4e82fe2999094c2490547  ../img/reserves_chart.svg
+b04814503b42eac116596230d06a0435c815c8e8d3a9272d9c5caae0b0239814  ../data/reserves_breakdown.csv
+#  METHOD v1.1 追補（2026-08-27凍結・OTS刻印済み）
+270d598432a8cfab8a6ea0084252effb2ba3b2968e49679a533f281b9cf0fdab  method_v1.1_episode_boundary.md
+b4426868447e85d4f4144aef0da37561495a72783e87e908475c4158265cf892  method_v1.1_episode_boundary.md.ots

@@ -13,7 +13,8 @@
     "claims": "data/verify/WP-001-claims.json"
    },
    "sha256": "139025fd6e9584e4d6990e3df6c2080b7c8dcb0d4c564b81a5c5a3e57a17bd2f",
-   "audit": "PASS"
+   "audit": "PASS",
+   "title_en": "The Reaction Function of FX Intervention Has Two Layers"
   },
   {
    "id": "WP-002",
@@ -21,7 +22,8 @@
    "title": "円買い介入の資金制約はどこにあるのか — 外為特会・外貨準備・米国債・FIMAからみた介入余力",
    "status": "PLANNED",
    "date": "（骨格あり・PR-002に基づき段階充填）",
-   "resolution": "8/28（分母確定）→9月上旬（H2・ILC初回）→10月下旬（米側）"
+   "resolution": "8/28（分母確定）→9月上旬（H2・ILC初回）→10月下旬（米側）",
+   "title_en": "Where Are the Funding Constraints on Yen-Buying Intervention? — Special account, reserves, US Treasuries and the FIMA repo"
   },
   {
    "id": "WP-003",
@@ -30,7 +32,8 @@
    "status": "PLANNED",
    "date": "（起草中）",
    "note": "E1は円買い介入が約8,860日（1998-06-17以降）不在だった直後の執行であり、市場の事前確率が構造的に低かったとする仮説。①2022年9月のリスクリバーサル／IV日次系列が有料端末を要し未取得【要取得】、②Esaka & Fujii(2026)のSCM推計はE1のlasting effectを1営業日とし本仮説に不利、の2点が未解決。",
-   "resolution": "—（未解決点の解消後に版を立てる）"
+   "resolution": "—（未解決点の解消後に版を立てる）",
+   "title_en": "Market Memory in FX Intervention — The regime-novelty hypothesis for 22 September 2022"
   },
   {
    "id": "WP-004",
@@ -48,7 +51,8 @@
     "sha256": "767ad6058d21536d33f859cd1ac596092df3c193697ba7b667069b9e5067fcd5",
     "note": "未凍結。SHA-256掲示とOpenTimestamps刻印を経てから本文に着手する。事前登録として成立していない"
    },
-   "resolution": "—（識別可能性の判定であり、公表物の到着を待たない）"
+   "resolution": "—（識別可能性の判定であり、公表物の到着を待たない）",
+   "title_en": "Identifiability of Intervention Execution Rates from Published Accounts — Accounting mapping and structural non-identification of \"FX trading gains\" in the special account"
   },
   {
    "id": "PR-001",
@@ -62,7 +66,8 @@
     "html": "pr-001.html",
     "md": "docs/pr-001.md"
    },
-   "sha256": "7a07369f3bb3009b863b3edb03baec9c8265628c4735287a28fa11ea31e4ea28"
+   "sha256": "7a07369f3bb3009b863b3edb03baec9c8265628c4735287a28fa11ea31e4ea28",
+   "title_en": "Preregistration of the \"+α\" Criteria for Episode E6"
   },
   {
    "id": "PR-002",
@@ -76,20 +81,73 @@
     "md": "docs/pr-002.md"
    },
    "note": "H1〜H4・ILC・LCEを8/28確定公表前に凍結。OTSは初回コミット時",
-   "sha256": "2c2003e2ddada752f197467fb9759b5161e878310b02814447f10877296eb570"
+   "sha256": "2c2003e2ddada752f197467fb9759b5161e878310b02814447f10877296eb570",
+   "title_en": "Funding Constraints on Yen-Buying Intervention — Preregistered verification plan"
+  },
+  {
+   "id": "PR-004",
+   "type": "Preregistration",
+   "status": "PREREGISTERED",
+   "date": "2026-08-23",
+   "version": "1.0",
+   "title": "基準相場と円買い介入の執行非対称性 — 検証計画の事前登録",
+   "title_en": "Base Rate and Asymmetry in Yen-Buying Intervention Execution — Preregistered Verification Plan",
+   "note": "凍結済み。外為特会の売買損益は基準相場ベースの換算価額と取引価格の差で認識される（特会法施行令第46条）。実勢が基準相場を上回る日ほど1日あたり執行額が大きいという弱形式を検証する。強形式（基準相場を下回れば執行しない）はE5で反証済み。財務省の月次公表（8/28）より前に凍結",
+   "sha256": "c7322ffbfec98ea4da6939b88f83bfd0b44f2677ef6fd839a233846592e6eb3f",
+   "ots": {
+    "stamped_on": "2026-08-23",
+    "state": "CONFIRMED",
+    "note": "2026-08-23刻印・カレンダー4社受理・Bitcoin確定待ち",
+    "bitcoin_block": 963725,
+    "confirmed_note": "Bitcoinブロック963725で確定（採掘 2026-08-24 02:11 JST）。ots upgrade済みの受領書を公開"
+   },
+   "links": {
+    "md": "docs/pr-004.md",
+    "ots": "docs/pr-004.md.ots"
+   }
+  },
+  {
+   "id": "PR-005",
+   "type": "Preregistration",
+   "status": "PREREGISTERED",
+   "date": "2026-08-23",
+   "version": "1.0",
+   "title": "「日本発国債暴落ドミノ」説 — 資金回帰メカニズムの反証テスト",
+   "title_en": "The \"Japan-Triggered Bond Domino\" Narrative — Falsification Test of the Repatriation Mechanism",
+   "note": "凍結済み。判定変数は投資家部門別対外証券投資（中長期債）から公的部門を控除した民間ベース月次ネット。外為特会の介入に伴う売却は国際収支上「外貨準備」に分類され本統計に混入しない。凍結時点で直近3か月累計は+34,561億円の買い越しであり資金回帰は未観測",
+   "sha256": "04b71f674424617926821d38ba6939e780dfa6886ba6f3c005e6db9acae59763",
+   "ots": {
+    "stamped_on": "2026-08-23",
+    "state": "CONFIRMED",
+    "note": "2026-08-23刻印・カレンダー4社受理・Bitcoin確定待ち",
+    "bitcoin_block": 963725,
+    "confirmed_note": "Bitcoinブロック963725で確定（採掘 2026-08-24 02:11 JST）。ots upgrade済みの受領書を公開"
+   },
+   "links": {
+    "md": "docs/pr-005.md",
+    "ots": "docs/pr-005.md.ots",
+    "data": "data/pr005_v_series_private.csv"
+   }
   },
   {
    "id": "METHOD",
-   "type": "Methodology",
-   "title": "測定・判定の方法論",
+   "type": "Specification",
    "status": "PUBLISHED",
-   "version": "1.0",
-   "date": "2026-08-08",
+   "date": "2026-08-27",
+   "version": "1.1",
+   "title": "測定・判定の方法（v1.1追補: エピソード境界規則）",
+   "title_en": "Methodology for Measurement and Adjudication (v1.1 addendum: Episode Boundary Rule)",
+   "note": "v1.1追補（2026-08-27凍結）: エピソード境界を「前エピソード最終介入日から5営業日以内の再介入は同一エピソード」と形式化。WP-001 §7.2が「予定」としていた項目を確定した。N=2〜20のいずれでも既存E1〜E6を再現するためデータではNを決められず、WP-001 §3.4の撤回理由（連続介入日の前速度は前日の介入で汚染される）とMETHOD-v1.0 §2.3の前速度定義（直前5営業日）から導出した。遡及適用しても既存分類は変わらない",
+   "sha256": "270d598432a8cfab8a6ea0084252effb2ba3b2968e49679a533f281b9cf0fdab",
    "links": {
-    "page": "methodology.html",
-    "md": "docs/methodology_v1.0.md"
+    "md": "docs/method_v1.1_episode_boundary.md",
+    "ots": "docs/method_v1.1_episode_boundary.md.ots"
    },
-   "sha256": "426c93bfc5e8dcfa04c2d727ad67cdf287b4a45e26b0ecd65562f4ab3d023c30"
+   "ots": {
+    "stamped_on": "2026-08-27",
+    "state": "PENDING",
+    "note": "2026-08-27刻印・カレンダー4社受理・Bitcoin確定待ち"
+   }
   },
   {
    "id": "EP-PROF",
@@ -101,7 +159,8 @@
    "links": {
     "md": "docs/episode-profiles_v1.2.md"
    },
-   "sha256": "9a51d4a0cc4210f57fe337d1decbf8746fc7c7b3bc90ad53e0088c9f3196e450"
+   "sha256": "9a51d4a0cc4210f57fe337d1decbf8746fc7c7b3bc90ad53e0088c9f3196e450",
+   "title_en": "Episode Profiles — E1–E6 per-episode records (rates, dates, time-of-day, traits)"
   },
   {
    "id": "N-001",
@@ -110,7 +169,8 @@
    "status": "PLANNED",
    "date": "（番号予約済）",
    "resolution": "2026-08-28 財務省月次公表",
-   "note": "公開順と起案順は一致しない（N-003参照）"
+   "note": "公開順と起案順は一致しない（N-003参照）",
+   "title_en": "Recording the Divergence in Estimates of the E6 Intervention Amount"
   },
   {
    "id": "N-002",
@@ -118,7 +178,8 @@
    "title": "E6事前登録仮説の判定",
    "status": "PLANNED",
    "date": "（番号予約済）",
-   "resolution": "2026-09-18 日銀会合後"
+   "resolution": "2026-09-18 日銀会合後",
+   "title_en": "Adjudicating the Preregistered Hypotheses for E6"
   },
   {
    "id": "N-003",
@@ -133,7 +194,8 @@
     "claims": "data/verify/N-003-claims.json"
    },
    "sha256": "79619a1286b4c48e1eb4c0a28318c48f90c0bc4cca4771756e852704b8274212",
-   "audit": "PASS"
+   "audit": "PASS",
+   "title_en": "The Evidence Structure of Rate Checks"
   },
   {
    "id": "N-004",
@@ -148,7 +210,22 @@
     "md": "docs/n-004.md",
     "claims": "data/verify/N-004-claims.json"
    },
-   "sha256": "ce06ff3854585ede33baf08905af685024de59640e2b39ed368e6c46c2ab3ecb"
+   "sha256": "ce06ff3854585ede33baf08905af685024de59640e2b39ed368e6c46c2ab3ecb",
+   "title_en": "Intervention Funding and the FIMA Repo — Evidence structure of the funding channels"
+  },
+  {
+   "id": "N-005",
+   "type": "Observation Protocol",
+   "status": "PREREGISTERED",
+   "date": "2026-08-11",
+   "note": "非執行の観測・第2事例。判定窓2026-08-12〜14（OANDA日足終値3営業日累積≥+3.6円）を決着前に凍結。観測窓は完走（8/12〜14・全3判定不成立・第2事例なし。正本日足で確定 2026-08-15）",
+   "version": "1.0",
+   "links": {
+    "md": "docs/n-005_obs2_protocol_v1.0.md"
+   },
+   "sha256": "2bbd94fc2c199858dc8ce3f9db4ffb122854000ad23dc1f20e128cfd8255ed41",
+   "title": "観測プロトコル — 非執行の観測（第2事例）",
+   "title_en": "Observation Protocol — Observing non-execution (second case)"
   },
   {
    "id": "N-006",
@@ -156,28 +233,85 @@
    "title": "日銀利上げは国内リテールFXスワップに7週間伝達されなかった — 乖離の形成・一斉解消と対照群",
    "status": "PUBLISHED",
    "date": "2026-08-11",
-   "note": "対照群=IG（Tom/Next±0.6%明示）。介入・会合・急変の契機は分離不能と宣言し判別試験を事前登録",
-   "version": "v1.0",
+   "note": "対照群=IG（Tom/Next±0.6%明示）。介入・会合・急変の契機は分離不能と宣言し判別試験を事前登録。v1.1（2026-08-12）: 一般化をHYPOTHESISへ格下げ・免責条番号訂正（AUDIT-2026-08-12 M-8/M-9）",
+   "version": "1.1",
    "links": {
-    "html": "n-004.html",
-    "md": "docs/n-004.md",
-    "claims": "data/verify/N-004-claims.json"
+    "html": "n-006.html",
+    "md": "docs/n-006_v1.1.md"
    },
-   "sha256": "a9feda58ac2b66804669a8fdf27367cb9339c42a4ef188c7ed5745d0c13585a4",
-   "link": "docs/n-006_v1.0.md"
+   "sha256": "3904628b631c4b5b182c7be4a6b0a17268ae7e3fac5ef3fe5b17cffae3734e5f",
+   "title_en": "A BOJ Rate Hike Did Not Reach Domestic Retail FX Swaps for Seven Weeks — Formation, simultaneous collapse, and a control series"
+  },
+  {
+   "id": "N-007",
+   "type": "Research Note",
+   "status": "DRAFT",
+   "date": "2026-08-18",
+   "version": "draft-1",
+   "title": "半減期は初到達時間である — 到達後の挙動が指標から抜け落ちている",
+   "title_en": "The Half-Life Is a First-Passage Time — What the Metric Discards After Passage",
+   "note": "起草・未凍結。WP-001の主指標が到達後の情報を構造的に捨てていることを、E1〜E6の窓合わせ比較で示す。E1〜E5の半減期は正本値を完全再現。E6行は右打ち切りで観測継続中。補助指標は定義の提案のみで閾値は設定しない",
+   "links": {
+    "md": "docs/n-007_draft1.md",
+    "data": "data/n007_post_passage.csv"
+   },
+   "sha256": "f56751de4f9b51e232828906bccc63aa1afe4ee2e210828b25979f6a1b797f76"
+  },
+  {
+   "id": "N-008",
+   "type": "Preregistration",
+   "status": "PREREGISTERED",
+   "date": "2026-08-22",
+   "version": "1.1",
+   "title": "ポジションが戻らないまま価格だけ戻る — 介入の価格効果と投機ポジション効果の減衰速度",
+   "title_en": "Price Recovery Without Position Recovery — Decay Rates of Price Impact and Speculative Positioning",
+   "note": "事前登録v1.0は凍結・Bitcoin確定済み（ブロック963751）。**判定結果（v1.1）: 指標PRT50はP1定義に対して頑健でなく採用しない。6エピソード中5件で型分類が反転した。** 規則の構造的欠陥（P1窓を最終介入日起点としたため複数COT週にまたがるエピソードで初期の変位が除外される）を特定。規則を修正しての再計算は行わない（第19条）",
+   "links": {
+    "md": "docs/n-008.md",
+    "script": "docs/n008_compute.py",
+    "ots": "docs/n-008.md.ots",
+    "script_ots": "docs/n008_compute.py.ots",
+    "result": "docs/n-008_v1.1.md"
+   },
+   "sha256": "ac5b5b9ff60d5362aeaa7f0826ae595f4ce0bcb42b958baed3046927e6623f2f",
+   "script_sha256": "cf79f0402aaa2c925365122dd219d7b4649473c7698850871c2b2393b7f11383",
+   "ots": {
+    "stamped_on": "2026-08-23",
+    "state": "CONFIRMED",
+    "calendars": [
+     "alice.btc.calendar.opentimestamps.org",
+     "bob.btc.calendar.opentimestamps.org",
+     "finney.calendar.eternitywall.com",
+     "btc.calendar.catallaxy.com"
+    ],
+    "note": "2026-08-23に刻印を申請しカレンダー4社が受理。Bitcoin確定待ち。確定後に ots upgrade を実行し本欄をCONFIRMEDへ更新する",
+    "bitcoin_block": 963751,
+    "confirmed_note": "Bitcoinブロック963751で確定（採掘 2026-08-24 02:11 JST）。ots upgrade済みの受領書を公開"
+   },
+   "result_sha256": "03b7a157a7fc32e353ebc050714f43e7ecdafbb4be961888018eec6db3465fb3"
   },
   {
    "id": "SPEC-KIJUN",
    "type": "Specification",
    "title": "基準外国為替相場の復元仕様",
    "status": "DRAFT",
-   "version": "0.1",
-   "date": "2026-08-10",
+   "version": "0.3",
+   "date": "2026-08-23",
    "links": {
-    "md": "docs/spec-kijun_v0.1.md"
+    "md": "docs/spec-kijun_v0.3.md",
+    "data": "data/kijun_calibration_v03.csv",
+    "ots": "docs/spec-kijun_v0.3.md.ots"
    },
-   "sha256": "fc3629d12a6296c9b28cf105a008444cc8f1573fb6d1a4d20a1a49c438fc021e",
-   "note": "所長承認前"
+   "sha256": "b9999a30f1070357695e721d57cbe41f5249c64d5d50ae6f09cab64474c39d5a",
+   "note": "所長承認前。v0.2（2026-08-20）: 9月適用分の識別テストで復元値162円 vs 公示値163円の不一致を記録。アルゴリズムは変更しない。v0.3（2026-08-23）: 正準参照系列を日銀 東京市場中心相場・月中平均へ差し替え、19公示値で再較正し19/19を達成。2024-03の不一致も解消。v0.1 §10で予告した検証経路の実行であり事後的な規則変更ではない",
+   "title_en": "Specification for Reconstructing the Official Base Exchange Rate",
+   "ots": {
+    "stamped_on": "2026-08-23",
+    "state": "CONFIRMED",
+    "note": "2026-08-23刻印・カレンダー4社受理・Bitcoin確定待ち",
+    "bitcoin_block": 963725,
+    "confirmed_note": "Bitcoinブロック963725で確定（採掘 2026-08-24 02:11 JST）。ots upgrade済みの受領書を公開"
+   }
   },
   {
    "id": "SPEC-H41",
@@ -196,7 +330,8 @@
      "sha256": "9c35fd6b378654807172e5df572856539e0cc82fc5383f9c17e96c5c167ae20a"
     }
    ],
-   "note": "閾値は較正前。WATCHは外部公表しない"
+   "note": "閾値は較正前。WATCHは外部公表しない",
+   "title_en": "Monitoring Specification for Fed H.4.1 and Foreign Official Fund Flows"
   },
   {
    "id": "SPEC-CFTC",
@@ -208,19 +343,20 @@
    "links": {
     "md": "docs/spec-cftc_v1.0.md"
    },
-   "sha256": "60cd5e868652f24941bc8a6a6ea9adf3c75ba8263be7c34be493368ff1367b2b"
+   "sha256": "60cd5e868652f24941bc8a6a6ea9adf3c75ba8263be7c34be493368ff1367b2b",
+   "title_en": "Acquisition Specification for CFTC Commitments of Traders (JPY)"
   },
   {
    "id": "SPEC-API",
    "type": "Specification",
    "title": "FXIR Data API 契約仕様",
    "status": "PUBLISHED",
-   "version": "1.1.2",
+   "version": "1.1.3",
    "date": "2026-08-08",
    "links": {
-    "md": "docs/spec-api_v1.1.2.md"
+    "md": "docs/spec-api_v1.1.3.md"
    },
-   "sha256": "0e77523fa7cf12f382c856010f13dd4a1e759e4e0fccbda19dedd686f425cda5",
+   "sha256": "3909eef4c04ff580c5f69ea7eeb9632ebfbc91bbedd3ce29d76f3dafff2d8ed4",
    "superseded": [
     {
      "md": "docs/spec-api_v1.1.1.md",
@@ -235,7 +371,8 @@
      "sha256": "4a3663eb2a6312c36cba3398ade38ee8c0d7010bd633b2ad8a14df1463ca16e5"
     }
    ],
-   "note": "実装: api/v1/index.php ／ 公開ページ: api.html"
+   "note": "実装: api/v1/index.php ／ 公開ページ: api.html。v1.1.3（2026-08-18）: エンドポイント一覧に /live・/mof/watch を追加（実装済み・仕様未収載の解消）",
+   "title_en": "FXIR Data API — Contract specification"
   },
   {
    "id": "SPEC-AI-001",
@@ -253,7 +390,8 @@
      "md": "docs/spec-ai-001_auditor_v0.1.md",
      "sha256": "3418c74d15b9cd131ab51d4d0ee3f7fcf198778130c5fcf4ac79126254ab5187"
     }
-   ]
+   ],
+   "title_en": "Evidence Auditor (machine audit)"
   },
   {
    "id": "SPEC-DETECTOR",
@@ -266,7 +404,8 @@
     "md": "docs/spec-detector_v0.1.md"
    },
    "sha256": "7b4e173d3ed5de80b1d97113c3c194cc835bc5d390773469c79bc39657853fba",
-   "note": "未実装・設計凍結前ドラフト。取引系と物理分離"
+   "note": "未実装・設計凍結前ドラフト。取引系と物理分離",
+   "title_en": "Market Event Detector — Input and adjudication specification"
   },
   {
    "id": "SPEC-VERBAL",
@@ -278,7 +417,8 @@
    "links": {
     "md": "docs/spec-verbal_v0.1.md"
    },
-   "sha256": "3d3fda9ce59a7a5b962d94aabe064311e1343e20a7dbad64e4c92fb680026218"
+   "sha256": "3d3fda9ce59a7a5b962d94aabe064311e1343e20a7dbad64e4c92fb680026218",
+   "title_en": "Verbal Intervention Ledger — Specification (pre-defined L0–L4 intensity ladder)"
   },
   {
    "id": "SPEC-X-NOTIFY",
@@ -290,7 +430,8 @@
    "links": {
     "md": "docs/spec-x-notify_v0.1.md"
    },
-   "sha256": "571e1f23156e63cc4545f11daad1aaa024011b07a9058817ecdb8a749ed0a6c2"
+   "sha256": "571e1f23156e63cc4545f11daad1aaa024011b07a9058817ecdb8a749ed0a6c2",
+   "title_en": "Automated Posting Specification for X (@fxirjp)"
   },
   {
    "id": "SPEC-SAAS",
@@ -313,7 +454,8 @@
      "sha256": "043e7475a9b780fd509d08ea0c728d3762d9ee671eeddabb075628dfcf36f386"
     }
    ],
-   "note": "非公開。サイト記載「Data Delivery＝準備中・法務確認後」との整合のため、法務確認まで内部保留。sitemapからも既に除外済み"
+   "note": "非公開。サイト記載「Data Delivery＝準備中・法務確認後」との整合のため、法務確認まで内部保留。sitemapからも既に除外済み",
+   "title_en": "FXIR Data — Concept specification"
   },
   {
    "id": "SPEC-COM",
@@ -326,8 +468,24 @@
     "md": "docs/spec-com_v0.1.md"
    },
    "sha256": "1214c8c3ac612da447ed9dfca1356aaa39a75c357107932c108402c9bfb0137d",
-   "note": "提供未開始・法務確認前。データではなく保証を売る設計。契約者と非契約者は同時刻に同一内容を受け取る"
+   "note": "提供未開始・法務確認前。データではなく保証を売る設計。契約者と非契約者は同時刻に同一内容を受け取る",
+   "title_en": "Commercial Provision Specification"
+  },
+  {
+   "id": "SPEC-CHAT",
+   "type": "Specification",
+   "status": "PUBLISHED",
+   "date": "2026-08-12",
+   "note": "AIチャットのシステムプロンプト全文・コーパス範囲・stateサーバ側制限（回答全体ESTIMATE上限）を公開（第14・15条の検証手段）",
+   "version": "0.1",
+   "links": {
+    "md": "docs/spec-chat_v0.1.md"
+   },
+   "sha256": "144c748f984a2102a079aa2a54f4eb2971ca3aa85199cdc5a55915a4fe44bbe2",
+   "title": "AIチャット仕様 — プロンプト全文・コーパス範囲・証拠状態のサーバ側制限の開示",
+   "title_en": "AI Chat Specification — Full prompt, corpus scope, and server-side evidence-state clamp"
   }
  ],
- "generated_at": "2026-08-10T00:00:00+09:00"
+ "generated_at": "2026-08-27T18:55+09:00",
+ "note_title_en": "title_en は参考訳（reference translation）であり、引用は正本タイトルとSHA-256で行う。正本は日本語。"
 }

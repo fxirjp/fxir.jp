@@ -18,6 +18,15 @@
    "certainty": "scheduled"
   },
   {
+   "date": "2026-08-12",
+   "label": "米国CPI（7月分）21:30 JST",
+   "source": "BLS",
+   "note": "E6半減期閾値159.483円（PR-001・終値判定）の最有力トリガー。観測プロトコル（docs/n-005_obs2_protocol_v1.0.md）判定窓の初日 — 速度条件の成立は終値161.405円以上。コンセンサス: 前年比+3.4%／コア+2.5%",
+   "resolves": "当日終値でPR-001判定・速度条件初日判定",
+   "certainty": "scheduled",
+   "time_jst": "—（時刻未確定）"
+  },
+  {
    "kind": "release",
    "date": "2026-08-13",
    "time_jst": "08:50",
@@ -32,29 +41,58 @@
    "certainty": "scheduled"
   },
   {
-   "kind": "release",
+   "date": "2026-08-17",
+   "label": "内閣府 4-6月期GDP一次速報",
+   "source": "内閣府",
+   "note": "【公表済 2026-08-17】実質+0.3%（年率1.1%）・名目+1.2%。内需寄与▲0.2%pt／外需+0.5%pt。輸入デフレーター前年比+15.0%。基準外国為替相場の識別窓（8/17〜20・SPEC-KIJUN）と重なる。介入判定には用いない",
+   "resolves": "—（交絡メモ）",
+   "certainty": "scheduled",
+   "state": "FACT",
+   "time_jst": "—（時刻未確定）"
+  },
+  {
    "date": "2026-08-19",
-   "approx": true,
-   "time_jst": "（米東部時間14:00）",
    "label": "FOMC議事要旨（7月28-29日会合分）",
-   "source": "FRB（会合3週間後の慣例・確報で精密化）",
-   "source_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-   "affects": [
-    "detector_suppression_window",
-    "context"
-   ],
-   "note": "E6直前の会合。米側の為替・レートチェック言及があれば米側事実の格上げ材料（N-003 RC-3前例）",
-   "certainty": "scheduled"
+   "source": "FRB",
+   "note": "E6週の会合。米側の一次化チャンス — RC-4（7/30のNY連銀レートチェック報道）とE6米側執行・FIMA議論が一人称で記載される可能性。前例: 2026年1月会合の議事要旨がRC-3を \"rate checks\" と一次記載（N-003）。記載があればRC-4・米側執行の証拠状態を格上げ 米東部時間8月19日14:00 ＝ 日本時間8月20日3:00",
+   "resolves": "RC-4の一次化可否／E6米側執行の公式言及",
+   "certainty": "scheduled",
+   "time_jst": "03:00（翌20日）"
+  },
+  {
+   "date": "2026-08-20",
+   "time_jst": "05:30",
+   "kind": "release",
+   "label": "FRB H.4.1（8/19週）",
+   "note": "FIMAレポ残高（P2観測点）とカストディ残高の継続監視",
+   "certainty": "official",
+   "source": "FRB",
+   "source_url": "https://www.federalreserve.gov/releases/h41/",
+   "affects": "介入原資の調達チャネル"
+  },
+  {
+   "date": "2026-08-20",
+   "time_jst": "08:50",
+   "kind": "release",
+   "label": "貿易統計（2026年7月分・通関ベース）",
+   "note": "輸入物価チャネルの環境変数。GDP一次速報の輸入デフレーター+15.0%との整合を確認",
+   "certainty": "official",
+   "source": "財務省関税局",
+   "source_url": "https://www.customs.go.jp/toukei/info/",
+   "affects": "発動条件レイヤー"
   },
   {
    "kind": "release",
-   "date": "2026-08-19",
+   "date": "2026-08-20",
    "approx": true,
-   "certainty": "convention",
+   "certainty": "official",
    "source": "日本銀行（財務大臣公示）",
-   "label": "基準外国為替相場 令和8年9月適用分の公示",
-   "note": "SPEC-KIJUN v0.1 による復元値は162円【復元値】。公示日は17〜20日頃（実測パターン）",
-   "dedupe_key": "kijun-koji"
+   "label": "基準外国為替相場及び裁定外国為替相場（令和8年9月適用分）",
+   "note": "【公示済 2026-08-20 9:00 JST】1米ドル＝163円。当所の復元値162円とは−1円の不一致（SPEC-KIJUN v0.2に記録）。裁定相場はユーロ186円・ポンド218円等",
+   "dedupe_key": "kijun-koji",
+   "time_jst": "09:00",
+   "source_url": "https://www.boj.or.jp/about/calendar/index.htm",
+   "state": "FACT"
   },
   {
    "kind": "resolution",
@@ -79,7 +117,8 @@
     }
    ],
    "certainty": "scheduled",
-   "dedupe_key": "mof-monthly"
+   "dedupe_key": "mof-monthly",
+   "time_jst": "—（時刻未確定）"
   },
   {
    "kind": "release",
@@ -115,7 +154,19 @@
    ],
    "note": "7月末分にはE6が未反映の可能性（決済タイミング・Bloomberg 8/7）。N-004参照。N-004 §2はこの公表で追記改版予定",
    "certainty": "scheduled",
-   "dedupe_key": "mof-reserves"
+   "dedupe_key": "mof-reserves",
+   "time_jst": "—（時刻未確定）"
+  },
+  {
+   "date": "2026-09-11",
+   "time_jst": "21:30",
+   "kind": "release",
+   "label": "米 消費者物価指数（2026年8月分）",
+   "note": "+α経路の説明変数（判定変数は米2年債・−50bp）。BLS公式スケジュールで確認済み",
+   "certainty": "official",
+   "source": "BLS",
+   "source_url": "https://www.bls.gov/schedule/news_release/cpi.htm",
+   "affects": "E6持続検証・米金利経路"
   },
   {
    "kind": "resolution",
@@ -132,7 +183,19 @@
     }
    ],
    "note": "恒久拡大はFOMC投票事項（N-004 §7）。日付は中旬・確報で精密化",
-   "certainty": "scheduled"
+   "certainty": "scheduled",
+   "time_jst": "—（時刻未確定）"
+  },
+  {
+   "date": "2026-09-16",
+   "time_jst": "—（時刻未確定）",
+   "kind": "release",
+   "label": "米財務省 TIC（2026年7月分）",
+   "note": "E6決済月の米国債保有変化。外貨準備内訳（9/7）と併せて調達チャネルを横断照合",
+   "certainty": "official",
+   "source": "米財務省",
+   "source_url": "https://ticdata.treasury.gov/",
+   "affects": "介入原資の調達チャネル"
   },
   {
    "kind": "resolution",
@@ -153,7 +216,9 @@
      "to": "公開"
     }
    ],
-   "certainty": "scheduled"
+   "certainty": "scheduled",
+   "note": "E6の+α基準①には該当しない（生存窓は8/12に閉窓・+αは8/15確定）。次エピソードの環境変数として観測する",
+   "time_jst": "—（時刻未確定）"
   },
   {
    "kind": "release",
@@ -163,7 +228,8 @@
    "source": "日本銀行（財務大臣公示）",
    "label": "基準外国為替相場 令和8年10月適用分の公示",
    "note": "参照月（2026年8月）の確定後に復元値を算出する",
-   "dedupe_key": "kijun-koji"
+   "dedupe_key": "kijun-koji",
+   "time_jst": "—（時刻未確定）"
   },
   {
    "kind": "release",
@@ -203,7 +269,8 @@
     }
    ],
    "certainty": "scheduled",
-   "dedupe_key": "nyfed-q"
+   "dedupe_key": "nyfed-q",
+   "time_jst": "—（時刻未確定）"
   },
   {
    "kind": "resolution",
@@ -218,7 +285,19 @@
      "to": "CONFIRMED"
     }
    ],
-   "certainty": "scheduled"
+   "certainty": "scheduled",
+   "time_jst": "—（時刻未確定）"
+  },
+  {
+   "date": "2026-11-30",
+   "time_jst": "—（時刻未確定）",
+   "kind": "release",
+   "label": "ニューヨーク連銀 四半期報告（2026年Q3・外国為替操作）",
+   "note": "E6協調介入における米側の公式介入額（ESF/SOMA別の純購入・売却額）。当所のESTIMATEをFACTへ格上げできる唯一の一次資料",
+   "certainty": "expected",
+   "source": "NY連銀",
+   "source_url": "https://www.newyorkfed.org/markets/quarterly_reports",
+   "affects": "米側介入額の確定"
   }
  ],
  "recurring": [
@@ -355,5 +434,6 @@
    "caveat": "公表時期は年により大きく前後する"
   }
  ],
- "generated_at": "2026-08-10T00:00:00+09:00"
+ "generated_at": "2026-08-20T09:02+09:00",
+ "timezone": "JST (UTC+9)"
 }

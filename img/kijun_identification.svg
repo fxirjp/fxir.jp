@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="1200" height="660" role="img"
+     aria-label="2026年7月のUSD/JPY月間平均。OANDA日足終値162.279は四捨五入の境界162.5より左で162に、日銀東京市場中心相場162.551は右で163になる。公示値は163円。">
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0 L0 0 0 30" fill="none" stroke="#141a28" stroke-width="0.4" opacity="0.045"/>
+    </pattern>
+    <style>
+      .ja{font-family:"Noto Sans CJK JP","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif}
+      .mono{font-family:"DejaVu Sans Mono","SFMono-Regular",Menlo,monospace}
+    </style>
+  </defs>
+
+  <rect width="1200" height="660" fill="#f7f5ee"/>
+  <rect width="1200" height="660" fill="url(#grid)"/>
+
+  <!-- ヘッダ -->
+  <text class="mono" x="80" y="72" font-size="13" letter-spacing="4.2" fill="#6b7280">FXIR ・ SPEC-KIJUN IDENTIFICATION TEST</text>
+  <text class="ja" x="80" y="126" font-size="34" font-weight="700" fill="#141a28">1円の差は、どこで生まれたか</text>
+  <text class="ja" x="80" y="163" font-size="16.5" fill="#4a5a6a">2026年7月の月間平均 — 参照する価格系列によって、四捨五入の結果が分かれた</text>
+  <line x1="80" y1="192" x2="1120" y2="192" stroke="#141a28" stroke-width="1" opacity="0.18"/>
+
+  <!-- 数直線本体（162.0 → 163.0 を x=180 → x=1020 に写像） -->
+  <g transform="translate(0,0)">
+    <line x1="180" y1="420" x2="1020" y2="420" stroke="#141a28" stroke-width="1.7"/>
+    <!-- 端の目盛 -->
+    <line x1="180" y1="410" x2="180" y2="430" stroke="#141a28" stroke-width="1.7"/>
+    <line x1="1020" y1="410" x2="1020" y2="430" stroke="#141a28" stroke-width="1.7"/>
+    <text class="mono" x="180" y="455" font-size="15" text-anchor="middle" fill="#4a5a6a">162.0</text>
+    <text class="mono" x="1020" y="455" font-size="15" text-anchor="middle" fill="#4a5a6a">163.0</text>
+
+    <!-- 四捨五入の境界 162.5 -->
+    <line x1="600" y1="300" x2="600" y2="470" stroke="#141a28" stroke-width="1.2" stroke-dasharray="6 5" opacity="0.55"/>
+    <text class="mono" x="600" y="492" font-size="14.5" text-anchor="middle" fill="#141a28">162.5</text>
+    <text class="ja" x="600" y="513" font-size="13" text-anchor="middle" fill="#6b7280">四捨五入の境界</text>
+
+    <!-- 左の点: OANDA 162.279 -->
+    <circle cx="414.4" cy="420" r="7.5" fill="#A63D2F"/>
+    <line x1="414.4" y1="412" x2="414.4" y2="268" stroke="#A63D2F" stroke-width="1" stroke-dasharray="3 4" opacity="0.75"/>
+    <text class="mono" x="414.4" y="252" font-size="21" font-weight="700" text-anchor="middle" fill="#A63D2F">162.279</text>
+    <text class="ja" x="414.4" y="228" font-size="14.5" text-anchor="middle" fill="#4a5a6a">OANDA 日足終値</text>
+    <text class="ja" x="414.4" y="209" font-size="12.5" text-anchor="middle" fill="#6b7280">ニューヨーク市場 引け基準</text>
+
+    <!-- 右の点: 日銀中心相場 162.551 -->
+    <circle cx="642.8" cy="420" r="7.5" fill="#1F4468"/>
+    <line x1="642.8" y1="412" x2="642.8" y2="268" stroke="#1F4468" stroke-width="1" stroke-dasharray="3 4" opacity="0.75"/>
+    <text class="mono" x="642.8" y="252" font-size="21" font-weight="700" text-anchor="middle" fill="#1F4468">162.551</text>
+    <text class="ja" x="642.8" y="228" font-size="14.5" text-anchor="middle" fill="#4a5a6a">日銀 東京市場 中心相場</text>
+    <text class="ja" x="642.8" y="209" font-size="12.5" text-anchor="middle" fill="#6b7280">銀行間 直物取引</text>
+
+    <!-- 差の注記 -->
+    <line x1="422" y1="420" x2="636" y2="420" stroke="#141a28" stroke-width="4" opacity="0.12"/>
+    <text class="ja" x="528" y="404" font-size="13" text-anchor="middle" fill="#6b7280">差 0.272円</text>
+
+    <!-- 丸め結果 -->
+    <path d="M414.4 540 L414.4 560 L340 560" fill="none" stroke="#A63D2F" stroke-width="1.4" opacity="0.8"/>
+    <text class="mono" x="322" y="566" font-size="30" font-weight="700" text-anchor="end" fill="#A63D2F">162</text>
+    <text class="ja" x="322" y="591" font-size="13" text-anchor="end" fill="#6b7280">当所の事前公開値 ＝ 外れ</text>
+
+    <path d="M642.8 540 L642.8 560 L880 560" fill="none" stroke="#1F4468" stroke-width="1.4" opacity="0.8"/>
+    <text class="mono" x="898" y="566" font-size="30" font-weight="700" fill="#1F4468">163</text>
+    <text class="ja" x="898" y="591" font-size="13" fill="#1F4468">公示値と一致</text>
+  </g>
+
+  <!-- 右上: 公示の事実 -->
+  <g transform="translate(1120,236)">
+    <line x1="0" y1="-24" x2="0" y2="86" stroke="#1F4468" stroke-width="3"/>
+    <text class="ja" x="-14" y="-4" font-size="13" text-anchor="end" fill="#6b7280">財務大臣公示 2026年8月20日 9:00 JST</text>
+    <text class="ja" x="-14" y="30" font-size="17" text-anchor="end" fill="#141a28">令和8年9月中において適用</text>
+    <text class="mono" x="-14" y="72" font-size="34" font-weight="700" text-anchor="end" fill="#141a28">1米ドル ＝ 163円</text>
+  </g>
+
+  <!-- フッタ -->
+  <line x1="80" y1="596" x2="1120" y2="596" stroke="#141a28" stroke-width="1" opacity="0.18"/>
+  <text class="mono" x="80" y="620" font-size="12" letter-spacing="2.4" fill="#6b7280">FXIR.JP — DON'T TRUST, VERIFY.</text>
+  <text class="ja" x="1060" y="616" font-size="11" text-anchor="end" fill="#6b7280">出所: 日本銀行「基準外国為替相場及び裁定外国為替相場」・同「外国為替市況（日次）」22営業日</text>
+  <text class="ja" x="1060" y="631" font-size="11" text-anchor="end" fill="#6b7280">OANDA日足終値（当所正本・SHA-256管理）</text>
+  <g transform="translate(1085,610)">
+    <rect x="0" y="0" width="30" height="30" fill="none" stroke="#A63D2F" stroke-width="1.6"/>
+    <text class="ja" x="15" y="21" font-size="15" text-anchor="middle" fill="#A63D2F">検</text>
+  </g>
+</svg>

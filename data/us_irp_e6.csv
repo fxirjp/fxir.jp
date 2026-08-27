@@ -1,0 +1,5 @@
+date,currency,securities_musd,deposits_musd,total_musd,source
+2026-07-31,EUR,14547,11713,26260,https://home.treasury.gov/data/us-international-reserve-position/07312026
+2026-07-31,JPY,5801,6052,11853,https://home.treasury.gov/data/us-international-reserve-position/07312026
+2026-08-07,EUR,14634,11259,25893,https://home.treasury.gov/data/us-international-reserve-position/08072026
+2026-08-07,JPY,5540,6937,12477,https://home.treasury.gov/data/us-international-reserve-position/08072026

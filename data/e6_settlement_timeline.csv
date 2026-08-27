@@ -1,0 +1,10 @@
+date,series,value_oku_yen,note,source
+2026-07-31,govt_deposit,73350,E6直前の基線,https://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac260731.htm
+2026-08-10,govt_deposit,197627,E6決済（8/3-8/5）を含む旬,https://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac260810.htm
+2026-08-20,govt_deposit,103450,急増分の約76%が巻き戻し,https://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac260820.htm
+2026-07-31,other_deposit,466329,外国中央銀行等の預金を含む,https://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac260731.htm
+2026-08-10,other_deposit,407898,,https://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac260810.htm
+2026-08-20,other_deposit,423407,,https://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac260820.htm
+2026-07-31,boj_fx_asset,120432,日銀勘定の外貨資産（外為特会とは別勘定）,https://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac260731.htm
+2026-08-10,boj_fx_asset,119776,,https://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac260810.htm
+2026-08-20,boj_fx_asset,119573,,https://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac260820.htm

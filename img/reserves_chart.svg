@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img"
+ aria-label="日本の外貨準備の内訳。上段の証券は2023年1月から2026年7月にかけて9,650億ドル前後から10,300億ドル台まで増えたのち9,273億ドルへ減少。下段の預金は1,370億ドルから1,623億ドルへ緩やかに増加。円買い介入E3・E4・E5の決済月を縦線で示す。いずれの決済月も減っているのは証券であり預金ではない。">
+<defs><pattern id="gr" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0 L0 0 0 30" fill="none" stroke="#141a28" stroke-width="0.4" opacity="0.04"/></pattern>
+<style>
+.ja{font-family:"Noto Sans CJK JP","Noto Sans JP","Hiragino Sans",sans-serif}
+.mono{font-family:"DejaVu Sans Mono",monospace}
+.g{stroke:#141a28;stroke-width:.6;opacity:.14}
+.ax{font-family:"DejaVu Sans Mono",monospace;font-size:12px;fill:#6b7280}
+.ln{fill:none;stroke:#1F4468;stroke-width:2.2;stroke-linejoin:round}
+.ln2{fill:none;stroke:#A63D2F;stroke-width:2.2;stroke-linejoin:round}
+.ep{stroke:#141a28;stroke-width:1;stroke-dasharray:4 4;opacity:.34}
+.epl{font-family:"DejaVu Sans Mono",monospace;font-size:12px;font-weight:700;fill:#141a28}
+.lbl{font-family:"Noto Sans CJK JP","Noto Sans JP",sans-serif;font-size:14.5px;font-weight:700}
+</style></defs>
+<rect width="1200" height="800" fill="#f7f5ee"/><rect width="1200" height="800" fill="url(#gr)"/>
+<text class="mono" x="100" y="48" font-size="12" letter-spacing="3.6" fill="#6b7280">FXIR ・ OFFICIAL RESERVE ASSETS OF JAPAN</text>
+<text class="ja" x="100" y="88" font-size="28" font-weight="700" fill="#141a28">当局は、外債を売って介入している</text>
+<text class="ja" x="100" y="116" font-size="15" fill="#4a5a6a">外貨準備の内訳（月末・億ドル）— 円買い介入の決済月に減るのは証券であって、預金ではない</text>
+<line x1="100" y1="134" x2="1148" y2="134" stroke="#141a28" stroke-width="1" opacity=".18"/>
+<line class="g" x1="100" y1="401.4" x2="1148" y2="401.4"/><text class="ax" x="90" y="405.4" text-anchor="end">9,000</text><line class="g" x1="100" y1="315.7" x2="1148" y2="315.7"/><text class="ax" x="90" y="319.7" text-anchor="end">9,500</text><line class="g" x1="100" y1="230.0" x2="1148" y2="230.0"/><text class="ax" x="90" y="234.0" text-anchor="end">10,000</text><line class="g" x1="100" y1="652.0" x2="1148" y2="652.0"/><text class="ax" x="90" y="656.0" text-anchor="end">1,400</text><line class="g" x1="100" y1="597.7" x2="1148" y2="597.7"/><text class="ax" x="90" y="601.7" text-anchor="end">1,500</text><line class="g" x1="100" y1="543.4" x2="1148" y2="543.4"/><text class="ax" x="90" y="547.4" text-anchor="end">1,600</text><line class="ep" x1="499.2" y1="144" x2="499.2" y2="690"/><rect x="484.2" y="126" width="30" height="19" fill="#f7f5ee" stroke="#141a28" stroke-width=".8" opacity=".9"/><text class="epl" x="499.2" y="140" text-anchor="middle">E3</text><line class="ep" x1="549.1" y1="144" x2="549.1" y2="690"/><rect x="534.1" y="126" width="30" height="19" fill="#f7f5ee" stroke="#141a28" stroke-width=".8" opacity=".9"/><text class="epl" x="549.1" y="140" text-anchor="middle">E4</text><line class="ep" x1="1098.1" y1="144" x2="1098.1" y2="690"/><rect x="1083.1" y="126" width="30" height="19" fill="#f7f5ee" stroke="#141a28" stroke-width=".8" opacity=".9"/><text class="epl" x="1098.1" y="140" text-anchor="middle">E5</text>
+<path class="ln" d="M 100.0,255.2 L 125.0,290.0 L 149.9,244.7 L 174.9,229.3 L 199.8,250.4 L 224.8,257.1 L 249.7,250.7 L 274.7,252.8 L 299.6,275.1 L 324.6,295.6 L 349.5,259.7 L 374.5,221.0 L 399.4,228.6 L 424.4,247.9 L 449.3,238.8 L 474.3,267.7 L 499.2,354.2 L 524.2,353.1 L 549.1,382.3 L 574.1,360.9 L 599.0,335.6 L 624.0,365.2 L 649.0,360.3 L 673.9,371.3 L 698.9,364.6 L 723.8,344.6 L 748.8,327.3 L 773.7,296.8 L 798.7,296.4 L 823.6,272.4 L 848.6,289.0 L 873.5,261.9 L 898.5,250.7 L 923.4,248.3 L 948.4,236.1 L 973.3,223.6 L 998.3,215.7 L 1023.2,198.5 L 1048.2,229.8 L 1073.1,217.6 L 1098.1,347.1 L 1123.0,352.4 L 1148.0,354.6"/><path class="ln2" d="M 100.0,667.1 L 125.0,667.8 L 149.9,666.7 L 174.9,670.8 L 199.8,661.3 L 224.8,673.9 L 249.7,671.9 L 274.7,675.3 L 299.6,672.7 L 324.6,623.4 L 349.5,577.2 L 374.5,572.6 L 399.4,568.6 L 424.4,567.0 L 449.3,570.5 L 474.3,555.9 L 499.2,549.1 L 524.2,552.9 L 549.1,550.6 L 574.1,548.8 L 599.0,546.2 L 624.0,547.0 L 649.0,544.6 L 673.9,545.8 L 698.9,544.1 L 723.8,544.2 L 748.8,542.9 L 773.7,544.9 L 798.7,544.0 L 823.6,543.3 L 848.6,533.9 L 873.5,537.6 L 898.5,539.0 L 923.4,536.4 L 948.4,536.6 L 973.3,541.0 L 998.3,534.0 L 1023.2,535.0 L 1048.2,534.0 L 1073.1,531.5 L 1098.1,531.3 L 1123.0,532.9 L 1148.0,531.0"/>
+<text class="lbl" x="112" y="196" fill="#1F4468">証券（外国債券等）</text>
+<text class="lbl" x="112" y="524" fill="#A63D2F">預金</text>
+<text class="ax" x="100.0" y="716" text-anchor="middle">2023</text><text class="ax" x="399.4" y="716" text-anchor="middle">2024</text><text class="ax" x="698.9" y="716" text-anchor="middle">2025</text><text class="ax" x="998.3" y="716" text-anchor="middle">2026</text>
+<circle cx="1148.0" cy="354.6" r="4.5" fill="#1F4468"/>
+<text class="mono" x="1138.0" y="376.6" font-size="14" font-weight="700" text-anchor="end" fill="#1F4468">9,273</text>
+<circle cx="1148.0" cy="531.0" r="4.5" fill="#A63D2F"/>
+<text class="mono" x="1138.0" y="518.0" font-size="14" font-weight="700" text-anchor="end" fill="#A63D2F">1,623</text>
+<line x1="100" y1="734" x2="1148" y2="734" stroke="#141a28" stroke-width="1" opacity=".18"/>
+<text class="mono" x="100" y="756" font-size="11.5" letter-spacing="2.2" fill="#6b7280">FXIR.JP — DON'T TRUST, VERIFY.</text>
+<text class="ja" x="1148" y="754" font-size="11" text-anchor="end" fill="#6b7280">出所: 財務省「外貨準備等の状況」月末値（2023年1月〜2026年7月・43か月）</text>
+<text class="ja" x="1148" y="769" font-size="11" text-anchor="end" fill="#6b7280">E1・E2（2022年9-10月）は当該月ページを取得できず図から除外</text>
+<text class="ja" x="1148" y="784" font-size="11" text-anchor="end" fill="#6b7280">E6（2026年7-8月）の決済は8月に入るため、反映は8月末値（9月7日頃公表）から</text>
+</svg>

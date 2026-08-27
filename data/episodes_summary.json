@@ -207,9 +207,9 @@
    "cost_trillion": 12.7,
    "cost_state": "ESTIMATE",
    "impact_yen": 8.51,
-   "half_life_bd": null,
-   "censored": true,
-   "observed_bd": 5,
+   "half_life_bd": 8,
+   "censored": false,
+   "observed_bd": 8,
    "threshold_50pct": 159.483,
    "alpha_class": "in_progress",
    "days": [
@@ -241,8 +241,10 @@
     "state": "FACT",
     "method": "WP-001 §2.3（実装定義: 前5営業日の終値5本・日次変化4本の平均絶対値）"
    },
-   "desc": "2026-07-30〜08-03。日米協調（1998年以来）。進行中・額は推計"
+   "desc": "2026-07-30〜08-03。日米協調（1998年以来）。進行中・額は推計",
+   "half_life_state": "CONFIRMED",
+   "half_life_note": "2026-08-13日足終値159.518円が閾値159.483円を上回り成立（PR-001凍結規則の機械適用）。第7営業日(8/12)の正本終値確定までは暫定（7営業日へ一意化の可能性）。根拠: data/e6_judgment_20260813_oanda_m1.csv"
   }
  ],
- "generated_at": "2026-08-11T16:13+09:00"
+ "generated_at": "2026-08-14T11:44+09:00"
 }
