@@ -1,0 +1,17 @@
+# 為替介入研究所 — Git属性
+# 目的: 公開ハッシュ（SHA-256）と配信バイトを一致させ続けること。
+# 改行コードの自動変換は掲示ハッシュと実ファイルの不一致を生む（AUDIT-2026-08-12 C-1）。
+* -text
+*.md   text eol=lf
+*.csv  text eol=lf
+*.json text eol=lf
+*.txt  text eol=lf
+*.py   text eol=lf
+*.html text eol=lf
+*.xml  text eol=lf
+*.svg  text eol=lf
+*.ots  binary
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.zip  binary
